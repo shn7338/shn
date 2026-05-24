@@ -332,19 +332,19 @@ Expected: all tests pass.
 - Create: `bjtu_osm_buildings/output/buildings_classified.geojson`
 - Create: `bjtu_osm_buildings/output/bjtu_building_height_map.html`
 
-- [ ] **Step 1: Install subproject requirements in the existing virtual environment**
+- [x] **Step 1: Install subproject requirements in the existing virtual environment**
 
 Run: `.\.venv\Scripts\python.exe -m pip install -r .\bjtu_osm_buildings\requirements.txt`
 
 Expected: dependencies install or are reported already satisfied.
 
-- [ ] **Step 2: Run the live Overpass export**
+- [x] **Step 2: Run the live Overpass export**
 
 Run: `.\.venv\Scripts\python.exe .\bjtu_osm_buildings\main.py`
 
 Expected: the program reports query method `campus_boundary_ways`, nonzero total buildings, and output paths.
 
-- [ ] **Step 3: Validate classification totals and generated artifacts**
+- [x] **Step 3: Validate classification totals and generated artifacts**
 
 Run:
 
@@ -354,7 +354,7 @@ Run:
 
 Expected: CSV and GeoJSON totals match and all three classification totals add to the total.
 
-- [ ] **Step 4: Re-run all automated tests after live generation**
+- [x] **Step 4: Re-run all automated tests after live generation**
 
 Run: `.\.venv\Scripts\python.exe -m pytest .\bjtu_osm_buildings\tests -q`
 
