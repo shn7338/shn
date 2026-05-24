@@ -1,0 +1,4 @@
+requests>=2.31,<3
+shapely>=2.0,<3
+folium>=0.16,<1
+pytest>=8,<10

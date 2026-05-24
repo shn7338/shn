@@ -17,7 +17,7 @@
 - Create: `bjtu_osm_buildings/tests/test_main.py`
 - Create: `bjtu_osm_buildings/main.py`
 
-- [ ] **Step 1: Write failing parser and classification tests**
+- [x] **Step 1: Write failing parser and classification tests**
 
 Create `bjtu_osm_buildings/tests/test_main.py` with import setup and tests that specify:
 
@@ -47,13 +47,13 @@ def test_missing_tags_remains_unestimated():
     assert record["height_source"] == "missing"
 ```
 
-- [ ] **Step 2: Run test to verify missing implementation fails**
+- [x] **Step 2: Run test to verify missing implementation fails**
 
 Run: `python -m pytest bjtu_osm_buildings/tests/test_main.py -q`
 
 Expected: collection fails with `ModuleNotFoundError: No module named 'main'`.
 
-- [ ] **Step 3: Implement pure parsing and record classification**
+- [x] **Step 3: Implement pure parsing and record classification**
 
 Create `bjtu_osm_buildings/main.py` with constants and the minimal callable API:
 
@@ -95,7 +95,7 @@ def classify_element(element):
     }
 ```
 
-- [ ] **Step 4: Run pure classification tests green**
+- [x] **Step 4: Run pure classification tests green**
 
 Run: `python -m pytest bjtu_osm_buildings/tests/test_main.py -q`
 
