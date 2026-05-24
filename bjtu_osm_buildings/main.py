@@ -326,6 +326,16 @@ def make_map(records: list[dict[str, Any]]) -> folium.Map:
     return map_object
 
 
+def save_map_without_trailing_whitespace(map_object: folium.Map, path: Path) -> None:
+    """Save folium HTML while keeping generated artifacts friendly to version control."""
+    map_object.save(str(path))
+    rendered = path.read_text(encoding="utf-8")
+    cleaned = "\n".join(line.rstrip() for line in rendered.splitlines())
+    if rendered.endswith(("\n", "\r")):
+        cleaned += "\n"
+    path.write_text(cleaned, encoding="utf-8")
+
+
 def export_outputs(records: list[dict[str, Any]], output_dir: Path) -> None:
     """Export classified CSV files, GeoJSON, and an interactive HTML map."""
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -361,7 +371,9 @@ def export_outputs(records: list[dict[str, Any]], output_dir: Path) -> None:
         json.dumps(feature_collection, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
-    make_map(records).save(str(output_dir / "bjtu_building_height_map.html"))
+    save_map_without_trailing_whitespace(
+        make_map(records), output_dir / "bjtu_building_height_map.html"
+    )
 
 
 def parse_bbox(value: str) -> tuple[float, float, float, float]:

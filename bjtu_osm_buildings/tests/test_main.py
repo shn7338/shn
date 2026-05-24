@@ -222,6 +222,7 @@ def test_export_outputs_writes_required_files_and_category_rows(tmp_path: Path) 
     html = (tmp_path / "bjtu_building_height_map.html").read_text(encoding="utf-8")
     assert "有高度楼" in html
     assert "有层数楼" in html
+    assert all(line == line.rstrip() for line in html.splitlines())
 
 
 def test_parse_bbox_accepts_four_ordered_coordinates() -> None:
