@@ -107,7 +107,7 @@ Expected: parser and classification tests pass.
 - Modify: `bjtu_osm_buildings/main.py`
 - Modify: `bjtu_osm_buildings/tests/test_main.py`
 
-- [ ] **Step 1: Write failing tests for query forms, geometry, and artifact output**
+- [x] **Step 1: Write failing tests for query forms, geometry, and artifact output**
 
 Extend tests with fixture elements for a polygon way and multipolygon relation:
 
@@ -136,13 +136,13 @@ def test_export_outputs_writes_all_required_files(tmp_path):
         assert (tmp_path / name).exists()
 ```
 
-- [ ] **Step 2: Run tests to verify the missing behaviors fail**
+- [x] **Step 2: Run tests to verify the missing behaviors fail**
 
 Run: `python -m pytest bjtu_osm_buildings/tests/test_main.py -q`
 
 Expected: import failure for newly specified query/export functions.
 
-- [ ] **Step 3: Implement query builders, geometry conversion, and output writers**
+- [x] **Step 3: Implement query builders, geometry conversion, and output writers**
 
 Extend `main.py` with:
 
@@ -230,7 +230,7 @@ def export_outputs(records, output_dir):
 
 Implement `write_csv()` to serialize `tags` and `geometry` with `json.dumps(value, ensure_ascii=False)`, `feature_properties()` to omit only the geometry payload, and `make_map()` to add each non-null GeoJSON geometry to a folium map using `#d73027` for `has_height`, `#fc8d59` for `levels_only`, and `#4575b4` for `missing_height_and_levels`, with the required popup fields.
 
-- [ ] **Step 4: Run all fixture tests green**
+- [x] **Step 4: Run all fixture tests green**
 
 Run: `python -m pytest bjtu_osm_buildings/tests/test_main.py -q`
 
