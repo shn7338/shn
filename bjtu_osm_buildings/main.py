@@ -2,14 +2,19 @@
 
 from __future__ import annotations
 
+import argparse
 import csv
 import html
 import json
 import re
+import sys
+import time
+from collections import Counter
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 import folium
+import requests
 from shapely.geometry import LineString, MultiPolygon, Polygon, mapping, shape
 from shapely.ops import polygonize, unary_union
 
@@ -21,6 +26,11 @@ HEIGHT_PATTERN = re.compile(
 LEVELS_PATTERN = re.compile(r"^\s*(\d+(?:\.\d+)?)\s*$")
 MAIN_CAMPUS_WAY_ID = 266512538
 EAST_CAMPUS_WAY_ID = 266297360
+DEFAULT_OVERPASS_URL = "https://overpass-api.de/api/interpreter"
+DEFAULT_OUTPUT_DIR = Path(__file__).resolve().parent / "output"
+OVERPASS_HEADERS = {
+    "User-Agent": "bjtu-osm-building-height-map/1.0 (educational research project)"
+}
 REQUIRED_OUTPUT_FILENAMES = (
     "buildings_with_height.csv",
     "buildings_with_levels_only.csv",
@@ -352,3 +362,137 @@ def export_outputs(records: list[dict[str, Any]], output_dir: Path) -> None:
         encoding="utf-8",
     )
     make_map(records).save(str(output_dir / "bjtu_building_height_map.html"))
+
+
+def parse_bbox(value: str) -> tuple[float, float, float, float]:
+    """Parse a bbox argument in Overpass south,west,north,east order."""
+    try:
+        parts = tuple(float(item.strip()) for item in value.split(","))
+    except ValueError as error:
+        raise ValueError("bbox 必须是四个数字: south,west,north,east") from error
+    if len(parts) != 4:
+        raise ValueError("bbox 必须是四个数字: south,west,north,east")
+    south, west, north, east = parts
+    if south >= north or west >= east:
+        raise ValueError("bbox 要求 south < north 且 west < east")
+    return south, west, north, east
+
+
+def request_overpass(
+    query: str,
+    url: str = DEFAULT_OVERPASS_URL,
+    timeout: int = 90,
+    retries: int = 3,
+) -> dict[str, Any]:
+    """POST one query to Overpass with short exponential retry delays."""
+    if retries < 1:
+        raise ValueError("retries 必须至少为 1")
+    for attempt in range(retries):
+        try:
+            response = requests.post(
+                url,
+                data={"data": query},
+                headers=OVERPASS_HEADERS,
+                timeout=timeout,
+            )
+            response.raise_for_status()
+            payload = response.json()
+            if not isinstance(payload, dict):
+                raise ValueError("Overpass 返回的 JSON 不是对象")
+            return payload
+        except (requests.RequestException, ValueError) as error:
+            if attempt == retries - 1:
+                raise RuntimeError(f"Overpass 请求失败: {error}") from error
+            time.sleep(2**attempt)
+    raise RuntimeError("Overpass 请求失败")
+
+
+def fetch_building_elements(
+    bbox: tuple[float, float, float, float] | None = None,
+    request_json: Callable[[str], dict[str, Any]] | None = None,
+) -> tuple[list[dict[str, Any]], str]:
+    """Fetch buildings by explicit bbox or by the ordered automatic strategy."""
+    callback = request_json or (lambda query: request_overpass(query))
+    if bbox is not None:
+        return callback(build_bbox_query(bbox)).get("elements", []), "bbox"
+    try:
+        named_area_elements = callback(build_name_area_query()).get("elements", [])
+    except RuntimeError:
+        named_area_elements = []
+    if named_area_elements:
+        return named_area_elements, "name_area"
+    boundary_elements = callback(build_campus_ways_query()).get("elements", [])
+    return boundary_elements, "campus_boundary_ways"
+
+
+def parse_args(arguments: list[str] | None = None) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="从 OpenStreetMap 获取北京交通大学建筑并整理高度信息。"
+    )
+    parser.add_argument(
+        "--bbox",
+        type=parse_bbox,
+        metavar="SOUTH,WEST,NORTH,EAST",
+        help="手动边界；提供后跳过自动校园 area 查询。",
+    )
+    parser.add_argument(
+        "--output-dir",
+        type=Path,
+        default=DEFAULT_OUTPUT_DIR,
+        help=f"导出目录（默认: {DEFAULT_OUTPUT_DIR}）。",
+    )
+    parser.add_argument(
+        "--overpass-url",
+        default=DEFAULT_OVERPASS_URL,
+        help="Overpass API endpoint。",
+    )
+    parser.add_argument(
+        "--request-timeout",
+        type=int,
+        default=90,
+        help="单次 HTTP 请求超时秒数（默认: 90）。",
+    )
+    parser.add_argument(
+        "--retries",
+        type=int,
+        default=3,
+        help="失败后的最大请求尝试次数（默认: 3）。",
+    )
+    return parser.parse_args(arguments)
+
+
+def print_summary(records: list[dict[str, Any]], query_method: str, output_dir: Path) -> None:
+    counts = Counter(record["category"] for record in records)
+    print(f"查询方式: {query_method}")
+    print(f"建筑总数: {len(records)}")
+    print(f"  has_height: {counts['has_height']}")
+    print(f"  levels_only: {counts['levels_only']}")
+    print(f"  missing_height_and_levels: {counts['missing_height_and_levels']}")
+    print(f"输出目录: {output_dir.resolve()}")
+
+
+def main(arguments: list[str] | None = None) -> int:
+    args = parse_args(arguments)
+    callback = lambda query: request_overpass(
+        query,
+        url=args.overpass_url,
+        timeout=args.request_timeout,
+        retries=args.retries,
+    )
+    try:
+        elements, query_method = fetch_building_elements(
+            bbox=args.bbox, request_json=callback
+        )
+    except RuntimeError as error:
+        print(f"错误: {error}", file=sys.stderr)
+        return 1
+    records = elements_to_records(elements)
+    export_outputs(records, args.output_dir)
+    print_summary(records, query_method, args.output_dir)
+    if not records:
+        print("警告: 本次查询没有返回建筑；请检查校园范围或使用 --bbox。")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -243,7 +243,7 @@ Expected: all parser, query, geometry, and export tests pass.
 - Modify: `bjtu_osm_buildings/tests/test_main.py`
 - Create: `bjtu_osm_buildings/README.md`
 
-- [ ] **Step 1: Write failing selection and CLI argument tests**
+- [x] **Step 1: Write failing selection and CLI argument tests**
 
 Add request injection tests:
 
@@ -272,13 +272,13 @@ def test_bbox_fetch_bypasses_auto_area_queries():
     assert len(queries) == 1
 ```
 
-- [ ] **Step 2: Run tests to verify CLI/fetch tests fail**
+- [x] **Step 2: Run tests to verify CLI/fetch tests fail**
 
 Run: `python -m pytest bjtu_osm_buildings/tests/test_main.py -q`
 
 Expected: import failures for `fetch_building_elements` and `parse_bbox`.
 
-- [ ] **Step 3: Implement network retries, CLI, and usage documentation**
+- [x] **Step 3: Implement network retries, CLI, and usage documentation**
 
 Extend `main.py` with:
 
@@ -316,7 +316,7 @@ def main():
 
 Create `README.md` explaining the Overpass source, both campus boundaries, install/run commands, output files, category meanings, bbox usage, GeoJSON use, and OSM data limitations. Set `requirements.txt` to include pinned-or-bounded `requests`, `shapely`, `folium`, and `pytest`.
 
-- [ ] **Step 4: Run full automated test suite**
+- [x] **Step 4: Run full automated test suite**
 
 Run: `python -m pytest bjtu_osm_buildings/tests -q`
 

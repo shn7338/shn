@@ -11,6 +11,7 @@ import pytest
 PROJECT_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_DIR))
 
+import main as building_app
 from main import (
     REQUIRED_OUTPUT_FILENAMES,
     build_bbox_query,
@@ -19,8 +20,11 @@ from main import (
     classify_element,
     elements_to_records,
     export_outputs,
+    fetch_building_elements,
+    parse_bbox,
     parse_height_m,
     parse_levels,
+    request_overpass,
 )
 
 
@@ -218,3 +222,100 @@ def test_export_outputs_writes_required_files_and_category_rows(tmp_path: Path) 
     html = (tmp_path / "bjtu_building_height_map.html").read_text(encoding="utf-8")
     assert "有高度楼" in html
     assert "有层数楼" in html
+
+
+def test_parse_bbox_accepts_four_ordered_coordinates() -> None:
+    assert parse_bbox("39.94,116.33,39.96,116.35") == (39.94, 116.33, 39.96, 116.35)
+
+
+def test_parse_bbox_rejects_inverted_bounds() -> None:
+    with pytest.raises(ValueError, match="south"):
+        parse_bbox("39.96,116.33,39.94,116.35")
+
+
+def test_auto_fetch_uses_name_area_when_it_contains_buildings() -> None:
+    queries: list[str] = []
+
+    def request_json(query: str) -> dict:
+        queries.append(query)
+        return {"elements": [polygon_way(11)]}
+
+    elements, method = fetch_building_elements(request_json=request_json)
+
+    assert method == "name_area"
+    assert len(elements) == 1
+    assert len(queries) == 1
+
+
+def test_auto_fetch_falls_back_to_two_campus_boundaries_when_area_is_empty() -> None:
+    queries: list[str] = []
+
+    def request_json(query: str) -> dict:
+        queries.append(query)
+        if len(queries) == 1:
+            return {"elements": []}
+        return {"elements": [polygon_way(12)]}
+
+    elements, method = fetch_building_elements(request_json=request_json)
+
+    assert method == "campus_boundary_ways"
+    assert len(elements) == 1
+    assert len(queries) == 2
+    assert "266512538" in queries[1]
+    assert "266297360" in queries[1]
+
+
+def test_auto_fetch_falls_back_when_name_area_request_fails() -> None:
+    calls = 0
+
+    def request_json(query: str) -> dict:
+        nonlocal calls
+        calls += 1
+        if calls == 1:
+            raise RuntimeError("name area is unavailable")
+        return {"elements": [polygon_way(14)]}
+
+    elements, method = fetch_building_elements(request_json=request_json)
+
+    assert method == "campus_boundary_ways"
+    assert len(elements) == 1
+    assert calls == 2
+
+
+def test_bbox_fetch_bypasses_area_queries() -> None:
+    queries: list[str] = []
+
+    elements, method = fetch_building_elements(
+        bbox=(39.94, 116.33, 39.96, 116.35),
+        request_json=lambda query: queries.append(query) or {"elements": [polygon_way(13)]},
+    )
+
+    assert method == "bbox"
+    assert len(elements) == 1
+    assert len(queries) == 1
+    assert "39.94,116.33,39.96,116.35" in queries[0]
+
+
+def test_request_overpass_retries_after_timeout(monkeypatch: pytest.MonkeyPatch) -> None:
+    calls = []
+
+    class Response:
+        def raise_for_status(self) -> None:
+            return None
+
+        def json(self) -> dict:
+            return {"elements": []}
+
+    def fake_post(*args, **kwargs):
+        calls.append((args, kwargs))
+        if len(calls) == 1:
+            raise building_app.requests.Timeout("temporary timeout")
+        return Response()
+
+    monkeypatch.setattr(building_app.requests, "post", fake_post)
+    monkeypatch.setattr(building_app.time, "sleep", lambda seconds: None)
+
+    assert request_overpass("query", "https://example.test", timeout=1, retries=2) == {
+        "elements": []
+    }
+    assert len(calls) == 2
