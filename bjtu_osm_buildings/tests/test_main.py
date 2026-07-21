@@ -21,6 +21,7 @@ from main import (
     elements_to_records,
     export_outputs,
     fetch_building_elements,
+    map_label_text,
     parse_bbox,
     parse_height_m,
     parse_levels,
@@ -143,6 +144,28 @@ def test_unnamed_building_uses_osm_id_in_name() -> None:
     assert record["name"] == "未命名建筑_987654"
 
 
+def test_map_label_uses_height_before_levels() -> None:
+    record = classify_element(way(1, {"height": "18 m", "building:levels": "4"}))
+
+    assert map_label_text(record) == "H: 18 m"
+
+
+def test_map_label_uses_raw_unparseable_height_without_guessing_unit() -> None:
+    record = classify_element(way(2, {"height": "roof varies"}))
+
+    assert map_label_text(record) == "H: roof varies"
+
+
+def test_map_label_shows_levels_only_as_floors() -> None:
+    record = classify_element(way(3, {"building:levels": "4"}))
+
+    assert map_label_text(record) == "L: 4 层"
+
+
+def test_map_label_omits_missing_information() -> None:
+    assert map_label_text(classify_element(way(4, {}))) is None
+
+
 def test_queries_include_both_building_object_types_and_geometry() -> None:
     queries = (
         build_name_area_query(),
@@ -222,6 +245,9 @@ def test_export_outputs_writes_required_files_and_category_rows(tmp_path: Path) 
     html = (tmp_path / "bjtu_building_height_map.html").read_text(encoding="utf-8")
     assert "有高度楼" in html
     assert "有层数楼" in html
+    assert "H: 18 m" in html
+    assert r"L: 4 \u5c42" in html
+    assert html.count("bjtu-building-data-label") == 2
     assert all(line == line.rstrip() for line in html.splitlines())
 
 

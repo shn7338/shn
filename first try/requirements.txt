@@ -1,0 +1,6 @@
+# Geo2SigMap scene generation source inspected for this project.
+git+https://github.com/functions-lab/geo2sigmap.git@08ca0167133ac7de48b9acc3b13a044969543077#subdirectory=package
+pyvista==0.45.2
+sionna==1.2.2
+matplotlib==3.10.9
+torch==2.12.0

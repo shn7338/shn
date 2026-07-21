@@ -1,0 +1,70 @@
+# OS and editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Python environments and caches
+**/.venv/
+**/venv/
+**/env/
+**/__pycache__/
+**/.pytest_cache/
+*.py[cod]
+*$py.class
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# JavaScript dependencies and build output
+**/node_modules/
+**/dist/
+**/build/
+**/.next/
+**/.vite/
+
+# Logs and local runtime state
+*.log
+scripts/logs/
+*.tmp
+*.temp
+*.bak
+
+# Archives and packaged snapshots
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+
+# Local/generated workspaces in this directory
+_render/
+_work/
+tmp/
+pptmaster_staging/
+outputs/
+# Keep model source code under projects/ version-controlled. Only ignore the
+# generated presentation workspace.
+projects/dachuang_kaiti_defense_ppt169_20260531/
+
+# Generated experiment artifacts
+first try/cache/
+first try/geo2sigmap-upstream/
+first try/models/
+first try/outputs/
+first try/scenes/
+first try/debug.log
+
+# Large generated data/model artifacts
+*.npy
+*.npz
+*.ply
+*.glb
+*.onnx
+*.pt
+*.pth
+*.ckpt

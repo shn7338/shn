@@ -1,0 +1,7 @@
+/.venv/
+/geo2sigmap-upstream/
+/models/
+/cache/
+/debug.log
+__pycache__/
+*.pyc

@@ -284,6 +284,27 @@ def _popup_html(record: dict[str, Any]) -> str:
     )
 
 
+def map_label_text(record: dict[str, Any]) -> str | None:
+    """Return compact text for permanent map labels on buildings with data."""
+    if record["category"] == "has_height":
+        height_m = record.get("height_m")
+        if height_m is not None:
+            return f"H: {height_m:g} m"
+        return f'H: {record.get("height", "")}'
+    if record["category"] == "levels_only":
+        return f'L: {record.get("building:levels", "")} 层'
+    return None
+
+
+def _label_html(label: str, color: str) -> str:
+    return (
+        '<div style="white-space:nowrap; transform:translate(-50%, -50%); '
+        'padding:1px 3px; border:1px solid {color}; border-radius:3px; '
+        'background:rgba(255,255,255,0.86); color:#222; font-size:11px; '
+        'font-weight:600; line-height:14px; pointer-events:none;">{label}</div>'
+    ).format(color=color, label=html.escape(label))
+
+
 def make_map(records: list[dict[str, Any]]) -> folium.Map:
     """Render classified building polygons as an interactive folium map."""
     valid_records = [record for record in records if record.get("geometry")]
@@ -311,6 +332,15 @@ def make_map(records: list[dict[str, Any]]) -> folium.Map:
         )
         folium.Popup(_popup_html(record), max_width=360).add_to(layer)
         layer.add_to(map_object)
+        label = map_label_text(record)
+        if label is not None:
+            folium.Marker(
+                location=[record["centroid_lat"], record["centroid_lon"]],
+                icon=folium.DivIcon(
+                    html=_label_html(label, color),
+                    class_name="bjtu-building-data-label",
+                ),
+            ).add_to(map_object)
     if bounds:
         map_object.fit_bounds(bounds)
     legend = """
