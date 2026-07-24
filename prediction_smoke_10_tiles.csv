@@ -1,0 +1,11 @@
+Tile,SelectionReason
+tile_000001,Directly rechecked repair and template tile
+tile_000002,Original checked dense tile
+tile_000138,Geometry rebuild base result
+tile_000842,Second-pass rebuild result
+tile_002538,Polygon-order repair sparse tile
+tile_002901,Polygon-order repair dense tile
+tile_003291,0.2 m gap rebuild result
+tile_013680,Original checked sparse tile
+tile_021334,1.0 m gap rebuild and large ODB
+tile_027360,Original checked final tile in range

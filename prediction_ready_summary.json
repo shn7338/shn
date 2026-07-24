@@ -1,0 +1,27 @@
+{
+    "generated_at":  "2026-07-24 11:08:43 +08:00",
+    "dataset_root":  "D:\\桌面\\dac\\512mdata",
+    "canonical_tile_range":  "tile_000001..tile_027360",
+    "canonical_tiles":  27360,
+    "prediction_ready":  27360,
+    "missing":  0,
+    "verified_replacements":  502,
+    "promoted":  502,
+    "replacement_hash_mismatches":  0,
+    "backup_files":  502,
+    "temporary_promotion_files":  0,
+    "repair_categories":  {
+                              "DIRECT_RECHECK":  95,
+                              "ORIGINAL_CHECK_OK":  26858,
+                              "REBUILD_BASE":  354,
+                              "REBUILD_GAP_0P2":  16,
+                              "REBUILD_GAP_1P0":  7,
+                              "REBUILD_POLYGON_FIX":  23,
+                              "REBUILD_SECOND_PASS":  7
+                          },
+    "all_odb_manifest":  "C:\\Users\\pc\\Documents\\大创\\prediction_ready_all_odb.csv",
+    "replacement_manifest":  "C:\\Users\\pc\\Documents\\大创\\prediction_ready_replacements.csv",
+    "promotion_log":  "C:\\Users\\pc\\Documents\\大创\\prediction_warning_backups\\_promotion_log.csv",
+    "backup_root":  "C:\\Users\\pc\\Documents\\大创\\prediction_warning_backups",
+    "excluded_noncanonical_odb":  "D:\\桌面\\dac\\512mdata\\tile_000002\\tile_000002_first1_pyout_checked.odb"
+}
