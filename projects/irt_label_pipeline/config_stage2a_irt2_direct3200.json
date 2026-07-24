@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "name": "stage2a_iso_refine_irt2_direct3200_v1",
+  "shard_root": "E:\\dac_winprop_irt2_direct_3200_v1\\shards",
+  "shard_manifest": "E:\\dac_winprop_irt2_direct_3200_v1\\shard_manifest.csv",
+  "selection_csv": "E:\\dac_winprop_irt2_direct_3200_v1\\selection_tiles.csv",
+  "normalized_root": "D:\\桌面\\dac\\normalized_4m_v1",
+  "stage1_code_root": "D:\\桌面\\dac\\code\\dpm_unet_stage1",
+  "stage1_model_dir": "D:\\桌面\\dac\\models\\stage1_dpm_unet_baseline_v1",
+  "output_dir": "D:\\桌面\\dac\\models\\stage2a_iso_refine_irt2_direct3200_v1",
+  "input": [
+    "building_height_norm",
+    "frozen_stage1_dpm_prediction_norm"
+  ],
+  "target": "P_iso_IRT - P_iso_DPM_pred",
+  "residual_scale_db": 10.106487505584935,
+  "base_channels": 32,
+  "epochs": 80,
+  "batch_size": 8,
+  "gradient_accumulation": 4,
+  "workers": 2,
+  "prefetch_factor": 2,
+  "learning_rate": 0.0003,
+  "weight_decay": 0.0001,
+  "loss": "masked_huber",
+  "huber_delta_normalized": 1.0,
+  "patience": 12,
+  "gradient_clip": 5.0,
+  "seed": 20260724,
+  "device": "auto",
+  "amp": true,
+  "channels_last": true,
+  "augmentation": true,
+  "provenance": {
+    "stage1_checkpoint_sha256": "e44a4580aefaac6c0a2166a1824e4b140139ee23b0b87dcc7f78481ff4377c72",
+    "irt_dataset": "E:\\dac_winprop_irt2_direct_3200_v1",
+    "formula": "P_iso_IRT_hat = P_iso_DPM_hat + U_IsoRefine(B, P_iso_DPM_hat)"
+  }
+}

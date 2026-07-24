@@ -1,0 +1,180 @@
+# WinProp IRT label and Stage-2 pipeline
+
+This directory is the resumable, non-overwriting **WinProp-only** pipeline for
+the Stage2-A isotropic correction network and the Stage2-B directional signal
+map network. Sionna is not part of the active implementation.
+
+## Physics used by the formal dataset
+
+The installed WinProp 2020 build cannot represent the paper-style eight-bounce
+profile. Its supported ceiling is 6 reflections, 2 diffractions and 6 combined
+reflection/diffraction interactions. A `tile_000001` run at that ceiling did
+not finish inside the practical validation window.
+
+The accepted pilot and production profile therefore uses:
+
+- 3.5 GHz, 512 m × 512 m, 4 m cells, 128 × 128 arrays.
+- WinProp 3D IRT with multiple interactions.
+- At most 2 reflections, 2 diffractions and 2 combined interactions.
+- Scattering disabled.
+- Receiver height 2 m.
+- Transmitter at the exact grid centre and `max(building height) + 5 m`.
+- One direct isotropic run and four direct directional WinProp runs per tile.
+- At most 20 retained IRT rays per receiver pixel. A no-limit `tile_000007`
+  diagnostic changed the maps by only about 0.19-0.21 dB RMSE but raised one
+  process to about 2.9 GB, so the no-limit setting is unsuitable for safe
+  parallel generation on this computer.
+- Directional pattern: 65°/8° HPBW, 6.3 dBi maximum gain and 10° electrical
+  downtilt embedded in the APA pattern. The project rotates azimuth only.
+- Four distinct integer azimuths in `[0, 359]`, deterministically sampled per
+  tile with seed `20260724`.
+
+The output called `Antenna Path Loss.txt` by WinProp contains the negative-dB
+path-gain values used by the existing Stage-1 dataset. Formal compact arrays
+store those raw dB values as `float16`; invalid cells remain `NaN`.
+
+## Coordinate and database policy
+
+- Array row 0 is north and column 0 is west.
+- If preprocessing snaps or expands the output extent, values are bilinearly
+  interpolated in linear-power space onto the canonical 128 × 128 cell centres.
+  The source grid, offset and interpolation decision are recorded per variant.
+- The checked ODB is tried first. If the WinProp preprocessing DLL rejects it,
+  the original READY ODB is retried into a separately named OIB.
+- Existing OIBs, projects, raw results, compact labels and completion records
+  are never overwritten. Re-running resumes completed work.
+
+`progress.json` under the selected output root records the current tile, phase,
+completed count and last error, so progress remains visible without relying on
+the PowerShell window.
+
+`tile_000001` has passed direct isotropic plus 0°/90° validation for coordinate
+orientation, pattern gain and azimuth rotation. Its QA report is stored under
+`E:\dac_winprop_irt2_direct_v1\qa\tile_000001`.
+
+The WinProp User Guide states that APA values are gain/attenuation relative to
+an isotropic radiator. A direct `tile_000007` repeat with the project antenna
+gain field changed from 6.3 to 0 dBi produced the same map (about 0.026 dB
+run-to-run RMSE), confirming that the 6.3 dBi pattern gain is not double-added.
+Rare directional-minus-isotropic values above 6.3 dB persisted even with the
+ray limit disabled; the pilot audit therefore checks the 99th percentile and
+outlier fraction as well as reporting the absolute maximum.
+
+## Dataset workflow
+
+Run commands with the `sigmap` Python environment:
+
+```powershell
+$python = 'C:\Users\pc\miniconda3\envs\sigmap\python.exe'
+```
+
+### 1. Direct 32-tile pilot
+
+```powershell
+& $python projects\irt_label_pipeline\run_winprop_direct_pilot.py `
+  --config projects\irt_label_pipeline\config_winprop2020_irt2_direct_pilot32.json
+
+& $python projects\irt_label_pipeline\summarize_irt_pilot.py `
+  --config projects\irt_label_pipeline\config_winprop2020_irt2_direct_pilot32.json
+
+& $python projects\irt_label_pipeline\build_irt_shards.py `
+  --config projects\irt_label_pipeline\config_winprop2020_irt2_direct_pilot32.json
+
+& $python projects\irt_label_pipeline\verify_irt_shards.py `
+  --metadata E:\dac_winprop_irt2_direct_pilot32_v1\shard_metadata.json
+```
+
+The formal gate passes only when all 32 tiles contain one isotropic and four
+directional 128 × 128 labels, the audit succeeds, and the shard hashes verify.
+
+### 2. Spatially stratified 3,200-tile dataset
+
+The committed selection contains 2,560 train, 320 validation and 320 test tiles
+and preserves the existing 2,048 m spatial-block split. Production runs the
+five required maps concurrently; measured pilot subtask durations predict about
+1.85x propagation-stage speedup over four workers, while a sixth worker would
+have no map to run.
+
+Six verified pilot tiles are also present in the 3,200-tile selection. After
+the pilot audit passes, `reuse_verified_pilot_tiles.py` copies their compact
+labels and records the original raw-result provenance, avoiding unnecessary
+recomputation.
+
+The pilot measured about 6.4 MB of retained raw results per tile, so 3,200
+tiles are projected to use about 20 GB. Production deletes each generated OIB
+only after that tile's compact label and completion record are verified; the
+final mmap shards add about 0.5 GB.
+
+```powershell
+& $python projects\irt_label_pipeline\run_winprop_direct_pilot.py `
+  --config projects\irt_label_pipeline\config_winprop2020_irt2_direct_3200.json
+
+& $python projects\irt_label_pipeline\build_irt_shards.py `
+  --config projects\irt_label_pipeline\config_winprop2020_irt2_direct_3200.json
+
+& $python projects\irt_label_pipeline\verify_irt_shards.py `
+  --metadata E:\dac_winprop_irt2_direct_3200_v1\shard_metadata.json
+
+& $python projects\irt_label_pipeline\compute_irt_shard_stats.py `
+  --shard-root E:\dac_winprop_irt2_direct_3200_v1\shards `
+  --shard-manifest E:\dac_winprop_irt2_direct_3200_v1\shard_manifest.csv `
+  --selection-csv E:\dac_winprop_irt2_direct_3200_v1\selection_tiles.csv `
+  --output E:\dac_winprop_irt2_direct_3200_v1\normalization_irt.json
+```
+
+Each 256-tile shard is memory-mappable and contains:
+
+- `p_iso_XXXX.npy`: `[N, 128, 128]`, `float16`.
+- `p_dir_XXXX.npy`: `[N, 4, 128, 128]`, `float16`.
+- `azimuth_deg_XXXX.npy`: `[N, 4]`, `uint16`.
+- `tile_number_XXXX.npy`: `[N]`, `uint32`.
+
+## Stage2-A: DPM to isotropic IRT residual
+
+The trained Stage-1 network is frozen. Stage2-A implements:
+
+```text
+P_iso_IRT_hat =
+    P_iso_DPM_hat + U_IsoRefine(B, P_iso_DPM_hat)
+```
+
+It learns only the IRT-minus-DPM residual and reports the original DPM baseline
+RMSE beside the corrected RMSE.
+
+```powershell
+& $python projects\irt_label_pipeline\train_stage2a_iso_refine.py `
+  --config projects\irt_label_pipeline\config_stage2a_irt2_direct3200.json
+```
+
+## Stage2-B: directional sparse signal map
+
+Stage-1 and the accepted Stage2-A checkpoint are both frozen. Stage2-B input is:
+
+```text
+[building, corrected isotropic IRT, sparse directional SS, sparse mask]
+```
+
+Direct directional WinProp path gain is converted online to signal strength:
+
+```text
+SS = P_dir_IRT + P_TX + G_TX + G_RX - IL
+```
+
+The link-budget draw is fixed per tile-direction. Training resamples 1–200
+valid sparse pixels per epoch; final tests report 50, 100 and 200 points.
+
+```powershell
+& $python projects\irt_label_pipeline\train_stage2b_directional_ss.py `
+  --config projects\irt_label_pipeline\config_stage2b_directional_ss_irt2_direct3200.json
+```
+
+## Rollback point
+
+The pre-pipeline state is recoverable from:
+
+- Git tag: `pre-irt-8bounce-20260724`
+- Commit: `1153103160fe7ff0d997029e4182abee9dec6133`
+- Verified backup: `E:\dac_checkpoints\pre_irt_8bounce_20260724_1153103`
+
+Do not use `git reset --hard` in a dirty working tree. Restore into a separate
+worktree or copy only the required versioned files from the verified backup.

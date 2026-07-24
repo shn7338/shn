@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "name": "diagnostic_pattern_gain0_tile7",
+  "source_root": "D:\\桌面\\dac\\512mdata",
+  "prepared_root": "D:\\桌面\\dac\\prepared_4m",
+  "normalized_root": "D:\\桌面\\dac\\normalized_4m_v1",
+  "output_root": "E:\\dac_winprop_irt2_pattern_gain0_diagnostic",
+  "winprop": {
+    "api_bin": "C:\\Program Files\\Altair\\2020\\feko\\api\\winprop\\bin",
+    "cli": "C:\\Program Files\\Altair\\2020\\feko\\bin\\WinPropCLI.exe",
+    "template_project_suffix": "3500MHz_a",
+    "multi_threading": 4
+  },
+  "grid": {
+    "width_m": 512.0,
+    "height_m": 512.0,
+    "resolution_m": 4.0,
+    "rows": 128,
+    "cols": 128,
+    "receiver_height_m": 2.0
+  },
+  "physics": {
+    "frequency_mhz": 3500.0,
+    "superposition": "POWER",
+    "diffraction_model": "g",
+    "max_reflections": 2,
+    "max_diffractions": 2,
+    "max_scatterings": 0,
+    "max_reflections_and_diffractions": 2,
+    "post_processing": false,
+    "transition_post_processing": false,
+    "knife_edge_fill": false,
+    "ray_number_limit_enabled": true,
+    "max_saved_rays_per_pixel": 20,
+    "export_ascii_ray_paths": false
+  },
+  "transmitter": {
+    "position": "exact_grid_center",
+    "height": "max_building_height_m_plus_5",
+    "height_above_max_building_m": 5.0,
+    "power_dbm": 0.0,
+    "polarization": 0
+  },
+  "directional_antenna": {
+    "pattern_base": "E:\\dac_irt_v2_8bounce\\patterns\\sector_h65_v8_g6p3dBi_az000_verified_roundtrip",
+    "boresight_gain_dbi": 6.3,
+    "project_antenna_gain_dbi": 0.0,
+    "horizontal_hpbw_deg": 65.0,
+    "vertical_hpbw_deg": 8.0,
+    "electrical_downtilt_in_pattern_deg": 10.0,
+    "mechanical_tilt_in_project_deg": 0.0,
+    "project_electrical_downtilt_deg": 0.0
+  },
+  "provenance": {
+    "status": "diagnostic_only",
+    "question": "Does ANTENNA_GAIN_VERTICAL add to an APA whose values are already relative to isotropic?"
+  }
+}

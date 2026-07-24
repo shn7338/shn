@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "name": "winprop2020_irt2_direct_pilot32_v1",
+  "source_root": "D:\\桌面\\dac\\512mdata",
+  "prepared_root": "D:\\桌面\\dac\\prepared_4m",
+  "normalized_root": "D:\\桌面\\dac\\normalized_4m_v1",
+  "ready_manifest": "C:\\Users\\pc\\Documents\\大创\\prediction_ready_all_odb.csv",
+  "output_root": "E:\\dac_winprop_irt2_direct_pilot32_v1",
+  "winprop": {
+    "api_bin": "C:\\Program Files\\Altair\\2020\\feko\\api\\winprop\\bin",
+    "cli": "C:\\Program Files\\Altair\\2020\\feko\\bin\\WinPropCLI.exe",
+    "template_project_suffix": "3500MHz_a",
+    "multi_threading": 4
+  },
+  "grid": {
+    "width_m": 512.0,
+    "height_m": 512.0,
+    "resolution_m": 4.0,
+    "rows": 128,
+    "cols": 128,
+    "receiver_height_m": 2.0
+  },
+  "preprocessing": {
+    "mode": "PP_MODE_IRT_3D",
+    "multiple_interactions": true,
+    "tile_horizontal_m": 60.0,
+    "tile_vertical_m": 60.0,
+    "segment_horizontal_m": 60.0,
+    "segment_vertical_m": 60.0,
+    "adaptive_resolution": 0,
+    "spheric_zone": "off",
+    "consider_indoor_pixels": false,
+    "consider_topography": false
+  },
+  "physics": {
+    "frequency_mhz": 3500.0,
+    "superposition": "POWER",
+    "diffraction_model": "g",
+    "max_reflections": 2,
+    "max_diffractions": 2,
+    "max_scatterings": 0,
+    "max_reflections_and_diffractions": 2,
+    "post_processing": false,
+    "transition_post_processing": false,
+    "knife_edge_fill": false,
+    "ray_number_limit_enabled": true,
+    "max_saved_rays_per_pixel": 20,
+    "export_ascii_ray_paths": false
+  },
+  "transmitter": {
+    "position": "exact_grid_center",
+    "height": "max_building_height_m_plus_5",
+    "height_above_max_building_m": 5.0,
+    "power_dbm": 0.0,
+    "polarization": 0
+  },
+  "directional_antenna": {
+    "pattern_base": "E:\\dac_irt_v2_8bounce\\patterns\\sector_h65_v8_g6p3dBi_az000_verified_roundtrip",
+    "boresight_gain_dbi": 6.3,
+    "horizontal_hpbw_deg": 65.0,
+    "vertical_hpbw_deg": 8.0,
+    "electrical_downtilt_in_pattern_deg": 10.0,
+    "mechanical_tilt_in_project_deg": 0.0,
+    "project_electrical_downtilt_deg": 0.0,
+    "labels_per_tile": 4,
+    "azimuth_seed": 20260724,
+    "azimuth_sampling": "four distinct integer degrees in [0, 359] per tile"
+  },
+  "storage": {
+    "label_quantity": "Antenna Path Loss.txt",
+    "compact_dtype": "float16",
+    "invalid_value": "NaN",
+    "shard_size_tiles": 32,
+    "retain_oib_for_validation_tiles": true
+  },
+  "pilot": {
+    "tile_count": 32,
+    "selection": "first 32 READY rows from prediction_ready_all_odb.csv",
+    "max_parallel_propagations": 4,
+    "preprocess_threads": 4,
+    "propagation_timeout_seconds": 1800
+  },
+  "oib_reuse": {
+    "tile_000001": "E:\\dac_irt_v2_8bounce\\oib_keep\\tile_000001\\tile_000001_irt3d_r4_h2_v2_origsource"
+  },
+  "provenance": {
+    "status": "formal_32_tile_direct_winprop_pilot",
+    "installed_winprop_version": "2020-38079",
+    "not_paper_8bounce": true,
+    "reason_for_irt2": "The 32-tile feasibility gate uses the agreed small-scale maximum of two combined reflection/diffraction interactions. WinProp 2020 supports at most 6/2/6, while the tile_000001 6/2/6 run did not finish within the practical pilot window.",
+    "directional_method": "Each directional label is computed directly by WinProp. Offline isotropic-ray reweighting is excluded from formal labels after tile_000001 failed the direct-result equivalence threshold.",
+    "pattern_apa_sha256": "00f1fe3d72ca9d2825652c55fcc03010a2288126b9dbf88c9803ba939bacbf9a",
+    "pattern_apb_sha256": "3b17deec8926eb1a9aa81706fe378bdc6aedf7c9ac88de95d5a2458e761007aa"
+  }
+}
