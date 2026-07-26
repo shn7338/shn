@@ -159,6 +159,29 @@ these frozen predictions directly.
   --config projects\irt_label_pipeline\config_winprop2020_irt2_direct_3200_positive_v2.json
 ```
 
+### 2b. User-selected WinProp 2020 maximum-interaction V3
+
+The selected formal physics profile is six reflections, two diffractions, six
+combined reflection/diffraction interactions and zero scatterings. IRT2 compact
+labels remain preserved as a rollback dataset but must not be mixed with IRT6
+targets. The positive-coordinate V2 selection and all frozen Stage-1 DPM
+predictions are reused because neither depends on the IRT interaction count.
+
+The IRT6 pilot uses two concurrent WinPropCLI processes, a 7,200 second
+per-variant timeout and a 20-ray-per-pixel retention cap. Formal 3,200-tile
+production is gated on a complete one-isotropic-plus-four-directional pilot
+because a previous 6/2/6 run on `tile_000001` exceeded the practical
+30-minute validation window.
+
+```powershell
+& $python projects\irt_label_pipeline\run_winprop_direct_pilot.py `
+  --config projects\irt_label_pipeline\config_winprop2020_irt6_direct_pilot_positive_v3.json `
+  --tile tile_002865
+
+& $python projects\irt_label_pipeline\run_winprop_direct_pilot.py `
+  --config projects\irt_label_pipeline\config_winprop2020_irt6_direct_3200_positive_v3.json
+```
+
 Each 256-tile shard is memory-mappable and contains:
 
 - `p_iso_XXXX.npy`: `[N, 128, 128]`, `float16`.
