@@ -232,6 +232,46 @@ about 1.16 GiB peak GPU memory. The directional maps are roughly 21-22 dB below
 the isotropic map on average because the 8 degree vertical beam has no downtilt
 while the BS is 47 m high; this is expected for the paper-faithful pilot.
 
+#### 3.5 GHz WinProp-aligned frequency experiment
+
+The paper-frequency result above remains immutable. The active 3.5 GHz Sionna
+experiment has a separate config and output root:
+
+- Config: `config_sionna201_35ghz_tile002865.json`.
+- Output: `E:\dac_sionna_35ghz_pilot\tile_002865`.
+- Comparison report:
+  `E:\dac_sionna_35ghz_pilot\tile_002865\comparison_winprop_irt2\comparison.json`.
+
+Changing only Sionna's frequency from 3.66 GHz to 3.5 GHz produced a median
+increase of 0.389 dB, 0.469 dB MAE, 0.983 dB RMSE and 0.997 correlation on the
+isotropic map. The frequency change is therefore small.
+
+The same 3.5 GHz Sionna depth-8 isotropic map differs substantially from the
+available 3.5 GHz WinProp IRT2 result for the same tile: on 8,449 common valid
+pixels, Sionna minus WinProp has +13.46 dB mean bias, 14.10 dB MAE, 15.00 dB
+RMSE, 6.61 dB bias-removed RMSE and 0.811 correlation.
+
+An additional diagnostic aligned the readily controllable settings with the
+WinProp IRT2 run: 3.5 GHz, depth 2, vertical-only TX/RX polarization and
+10 degree directional downtilt. Its isotropic comparison still has +12.95 dB
+mean bias, 13.63 dB MAE and 14.50 dB RMSE. This confirms that the main mismatch
+comes from the two tools' scene, material, reflection/diffraction and radio-map
+implementations rather than the 160 MHz frequency change. The aligned
+diagnostic is not a production label profile.
+
+```powershell
+& $sionnaPython projects\irt_label_pipeline\run_sionna_paper_pilot.py `
+  --config projects\irt_label_pipeline\config_sionna201_35ghz_tile002865.json `
+  --samples 7000000 --variants all --overwrite
+
+& $sionnaPython projects\irt_label_pipeline\compare_sionna_winprop.py `
+  --sionna-root E:\dac_sionna_35ghz_pilot\tile_002865 `
+  --reference-sionna-root E:\dac_sionna_paper_pilot\tile_002865 `
+  --winprop-compact E:\dac_winprop_irt2_direct_3200_positive_v2\compact_tiles\tile_002865.npz `
+  --samples 7000000 `
+  --output-dir E:\dac_sionna_35ghz_pilot\tile_002865\comparison_winprop_irt2
+```
+
 Each 256-tile shard is memory-mappable and contains:
 
 - `p_iso_XXXX.npy`: `[N, 128, 128]`, `float16`.

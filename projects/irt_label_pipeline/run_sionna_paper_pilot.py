@@ -238,6 +238,9 @@ def main() -> int:
         [int(value) for value in paper["directional_azimuths_deg"]],
         args.variants,
     )
+    directional_downtilt_rad = math.radians(
+        float(paper.get("directional_downtilt_deg", 0.0))
+    )
     run_started = time.perf_counter()
     summary: dict[str, Any] = {
         "version": 1,
@@ -278,7 +281,11 @@ def main() -> int:
             scene.tx_array = make_array(
                 "geo2sigmap_sector", str(paper["tx_polarization"])
             )
-            tx.orientation = [math.radians(float(azimuth_deg)), 0.0, 0.0]
+            tx.orientation = [
+                math.radians(float(azimuth_deg)),
+                directional_downtilt_rad,
+                0.0,
+            ]
 
         variant_started = time.perf_counter()
         print(
@@ -356,7 +363,8 @@ def main() -> int:
                 db_label,
                 (
                     f"{config['tile']} {variant_name} | "
-                    f"Sionna RT {samples:,} rays, depth 8"
+                    f"Sionna RT {samples:,} rays, "
+                    f"depth {int(paper['max_depth'])}"
                 ),
             )
         finite_values = db_label[np.isfinite(db_label)]
