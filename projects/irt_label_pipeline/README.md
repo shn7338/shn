@@ -1,8 +1,9 @@
 # WinProp IRT label and Stage-2 pipeline
 
-This directory is the resumable, non-overwriting **WinProp-only** pipeline for
-the Stage2-A isotropic correction network and the Stage2-B directional signal
-map network. Sionna is not part of the active implementation.
+This directory is the resumable, non-overwriting **WinProp** pipeline for the
+Stage2-A isotropic correction network and the Stage2-B directional signal-map
+network. A separate Sionna RT paper-parameter pilot is included for an isolated
+A/B decision; its labels are not mixed with either WinProp dataset.
 
 ## Physics used by the formal dataset
 
@@ -181,6 +182,55 @@ because a previous 6/2/6 run on `tile_000001` exceeded the practical
 & $python projects\irt_label_pipeline\run_winprop_direct_pilot.py `
   --config projects\irt_label_pipeline\config_winprop2020_irt6_direct_3200_positive_v3.json
 ```
+
+### 2c. Isolated Sionna RT paper-parameter pilot
+
+The Sionna pilot reproduces the synthetic parameters explicitly stated by
+Geo2SigMap: 3.66 GHz, 512 m x 512 m, 4 m cells, 128 x 128 output, 7 million
+rays, maximum depth 8, reflections and diffractions enabled, scattering
+disabled, BS at `max(building height) + 5 m`, UE height 2 m, dual VH
+polarization, one isotropic map and four random azimuth-plane directional maps.
+The directional pattern uses 6.3 dBi boresight gain and 65 degree/8 degree
+horizontal/vertical HPBW.
+
+This experiment deliberately uses zero synthetic-data downtilt. The paper's
+10/16/18 degree values describe three real measurement cells and are not stated
+as synthetic-label parameters. The 30 dB pattern attenuation cap is an explicit
+implementation assumption matching the existing WinProp sector pattern.
+
+The paper used Sionna 0.15.1. This computer runs the isolated, pinned Sionna RT
+2.0.1 environment because it supports the installed RTX 5070 Laptop GPU and
+Python 3.12. Current Sionna radio-map diffraction is first-order, so these
+labels are a paper-parameter reproduction rather than numerically equivalent
+WinProp 6/2/6 labels. Treat the Sionna and WinProp label families as separate
+experiments.
+
+```powershell
+$sionnaPython = 'E:\dac_sionna_rt_env\Scripts\python.exe'
+$config = 'projects\irt_label_pipeline\config_sionna201_paper_tile002865.json'
+
+python -m venv E:\dac_sionna_rt_env
+& $sionnaPython -m pip install `
+  -r projects\irt_label_pipeline\requirements_sionna201_paper.txt
+
+& $sionnaPython projects\irt_label_pipeline\build_sionna_scene.py `
+  --config $config --overwrite
+
+& $sionnaPython projects\irt_label_pipeline\run_sionna_paper_pilot.py `
+  --config $config --samples 7000000 --variants all --overwrite
+
+& $sionnaPython projects\irt_label_pipeline\validate_sionna_paper_pilot.py `
+  --config $config --samples 7000000
+```
+
+The completed `tile_002865` pilot is stored under
+`E:\dac_sionna_paper_pilot\tile_002865`. All five maps were generated in
+1.908 seconds, outdoor valid coverage was 98.98-99.06%, and validation passed
+for array shape, indoor masks, finite values, non-identical directions and
+requested azimuth orientation. A monitored 7-million-ray isotropic run used
+about 1.16 GiB peak GPU memory. The directional maps are roughly 21-22 dB below
+the isotropic map on average because the 8 degree vertical beam has no downtilt
+while the BS is 47 m high; this is expected for the paper-faithful pilot.
 
 Each 256-tile shard is memory-mappable and contains:
 
