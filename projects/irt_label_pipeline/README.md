@@ -122,6 +122,43 @@ final mmap shards add about 0.5 GB.
   --output E:\dac_winprop_irt2_direct_3200_v1\normalization_irt.json
 ```
 
+### 2a. Positive-coordinate V2 selection
+
+WinProp 2020 urban IRT rejects a prediction area whose border is negative.
+The original selection contained 289 such tiles. The V2 selection retains the
+other 2,911 tiles and replaces only those 289 entries with READY,
+Stage1-complete, positive-coordinate tiles from the same immutable spatial
+split. It preserves 2,560/320/320 train/validation/test tiles and has zero
+2,048 m block overlap between splits.
+
+The replacement audit is stored under
+`E:\dac_winprop_irt2_direct_3200_positive_v2`. Stage-1 DPM predictions for all
+3,200 V2 tiles are stored under
+`E:\dac_stage1_dpm_predictions_positive3200_v2`; Stage2-A and Stage2-B load
+these frozen predictions directly.
+
+```powershell
+& $python projects\irt_label_pipeline\replace_negative_irt_selection.py `
+  --source-selection E:\dac_winprop_irt2_direct_3200_v1\selection_tiles.csv `
+  --ready-manifest C:\Users\pc\Documents\大创\prediction_ready_all_odb.csv `
+  --normalized-root D:\桌面\dac\normalized_4m_v1 `
+  --prepared-root D:\桌面\dac\prepared_4m `
+  --output-root E:\dac_winprop_irt2_direct_3200_positive_v2
+
+& $python D:\桌面\dac\code\dpm_unet_stage1\batch_infer.py `
+  --model-dir D:\桌面\dac\models\stage1_dpm_unet_baseline_v1 `
+  --input-root D:\桌面\dac\normalized_4m_v1 `
+  --output-root E:\dac_stage1_dpm_predictions_positive3200_v2 `
+  --tiles-file E:\dac_winprop_irt2_direct_3200_positive_v2\selection_tiles.txt
+
+& $python projects\irt_label_pipeline\reuse_verified_irt_tiles.py `
+  --source-config projects\irt_label_pipeline\config_winprop2020_irt2_direct_3200.json `
+  --target-config projects\irt_label_pipeline\config_winprop2020_irt2_direct_3200_positive_v2.json
+
+& $python projects\irt_label_pipeline\run_winprop_direct_pilot.py `
+  --config projects\irt_label_pipeline\config_winprop2020_irt2_direct_3200_positive_v2.json
+```
+
 Each 256-tile shard is memory-mappable and contains:
 
 - `p_iso_XXXX.npy`: `[N, 128, 128]`, `float16`.

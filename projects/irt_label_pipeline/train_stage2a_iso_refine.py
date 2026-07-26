@@ -207,17 +207,30 @@ def run_epoch(
             non_blocking=True,
             dtype=torch.bool,
         )
+        cached_dpm_norm = batch.get("stage1_prediction_norm")
+        if cached_dpm_norm is not None:
+            cached_dpm_norm = cached_dpm_norm.to(
+                device,
+                non_blocking=True,
+            )
         if channels_last:
             stage1_input = stage1_input.contiguous(
                 memory_format=torch.channels_last
             )
             building = building.contiguous(memory_format=torch.channels_last)
-        with torch.inference_mode(), torch.amp.autocast(
-            device_type=device.type,
-            dtype=torch.float16,
-            enabled=amp_enabled,
-        ):
-            dpm_norm = stage1(stage1_input)
+            if cached_dpm_norm is not None:
+                cached_dpm_norm = cached_dpm_norm.contiguous(
+                    memory_format=torch.channels_last
+                )
+        if cached_dpm_norm is None:
+            with torch.inference_mode(), torch.amp.autocast(
+                device_type=device.type,
+                dtype=torch.float16,
+                enabled=amp_enabled,
+            ):
+                dpm_norm = stage1(stage1_input)
+        else:
+            dpm_norm = cached_dpm_norm
         dpm_norm = dpm_norm.detach()
         dpm_db = dpm_norm.float() * stage1_std_db + stage1_mean_db
         residual_target = (target_db - dpm_db) / residual_scale_db
@@ -307,6 +320,7 @@ def main() -> int:
             config["selection_csv"],
             config["normalized_root"],
             "train",
+            stage1_prediction_root=config.get("stage1_prediction_root"),
             augment=bool(config["augmentation"]),
             limit=args.train_limit,
         ),
@@ -316,6 +330,7 @@ def main() -> int:
             config["selection_csv"],
             config["normalized_root"],
             "val",
+            stage1_prediction_root=config.get("stage1_prediction_root"),
             augment=False,
             limit=args.val_limit,
         ),
@@ -325,6 +340,7 @@ def main() -> int:
             config["selection_csv"],
             config["normalized_root"],
             "test",
+            stage1_prediction_root=config.get("stage1_prediction_root"),
             augment=False,
             limit=args.test_limit,
         ),

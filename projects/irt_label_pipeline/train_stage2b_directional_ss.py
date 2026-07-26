@@ -270,6 +270,11 @@ def run_epoch(
         valid_mask = batch["valid_mask"].to(
             device, non_blocking=True, dtype=torch.bool
         )
+        cached_dpm_norm = batch.get("stage1_prediction_norm")
+        if cached_dpm_norm is not None:
+            cached_dpm_norm = cached_dpm_norm.to(
+                device, non_blocking=True
+            )
         sparse_point_sum += int(torch.sum(sparse_mask).item())
         if channels_last:
             stage1_input = stage1_input.contiguous(
@@ -278,12 +283,20 @@ def run_epoch(
             building = building.contiguous(
                 memory_format=torch.channels_last
             )
+            if cached_dpm_norm is not None:
+                cached_dpm_norm = cached_dpm_norm.contiguous(
+                    memory_format=torch.channels_last
+                )
         with torch.inference_mode(), torch.amp.autocast(
             device_type=device.type,
             dtype=torch.float16,
             enabled=amp_enabled,
         ):
-            dpm_norm = stage1(stage1_input)
+            dpm_norm = (
+                stage1(stage1_input)
+                if cached_dpm_norm is None
+                else cached_dpm_norm
+            )
             stage2a_input = torch.cat((building, dpm_norm), dim=1)
             residual_norm = stage2a(stage2a_input)
         dpm_db = dpm_norm.float() * stage1_std_db + stage1_mean_db
@@ -392,6 +405,7 @@ def make_dataset(
         ss_mean_db=ss_mean_db,
         ss_std_db=ss_std_db,
         seed=int(config["seed"]),
+        stage1_prediction_root=config.get("stage1_prediction_root"),
         augment=split == "train" and bool(config["augmentation"]),
         sparse_points_min=int(config["sparse_points_train"][0]),
         sparse_points_max=int(config["sparse_points_train"][1]),

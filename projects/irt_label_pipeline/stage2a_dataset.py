@@ -27,11 +27,17 @@ class Stage2AIsoDataset(Dataset):
         selection_csv: str | Path,
         normalized_root: str | Path,
         split: str,
+        stage1_prediction_root: str | Path | None = None,
         augment: bool = False,
         limit: int | None = None,
     ) -> None:
         self.shard_root = Path(shard_root)
         self.normalized_root = Path(normalized_root)
+        self.stage1_prediction_root = (
+            Path(stage1_prediction_root)
+            if stage1_prediction_root is not None
+            else None
+        )
         self.split = split
         self.augment = augment
         with Path(selection_csv).open(
@@ -61,6 +67,14 @@ class Stage2AIsoDataset(Dataset):
                 path = tile_dir / filename
                 if not path.is_file():
                     raise FileNotFoundError(path)
+            if self.stage1_prediction_root is not None:
+                prediction_path = (
+                    self.stage1_prediction_root
+                    / row["tile"]
+                    / "path_gain_pred_norm.npy"
+                )
+                if not prediction_path.is_file():
+                    raise FileNotFoundError(prediction_path)
             shard = int(row["shard"])
             path = self.shard_root / f"p_iso_{shard:04d}.npy"
             if not path.is_file():
@@ -102,6 +116,23 @@ class Stage2AIsoDataset(Dataset):
             raise ValueError(f"non-finite Stage1 input for {tile}")
         if stage1_inputs.min() < -1e-4 or stage1_inputs.max() > 1.0001:
             raise ValueError(f"Stage1 input outside [0, 1] for {tile}")
+        stage1_prediction = None
+        if self.stage1_prediction_root is not None:
+            stage1_prediction = np.load(
+                self.stage1_prediction_root
+                / tile
+                / "path_gain_pred_norm.npy",
+                allow_pickle=False,
+            ).astype(np.float32, copy=False)[None, ...]
+            if stage1_prediction.shape != (1, 128, 128):
+                raise ValueError(
+                    f"unexpected cached Stage1 prediction shape for {tile}: "
+                    f"{stage1_prediction.shape}"
+                )
+            if not np.all(np.isfinite(stage1_prediction)):
+                raise ValueError(
+                    f"non-finite cached Stage1 prediction for {tile}"
+                )
         shard = int(row["shard"])
         offset = int(row["offset"])
         target = np.asarray(
@@ -124,6 +155,12 @@ class Stage2AIsoDataset(Dataset):
                     axes=(-2, -1),
                 )
                 target = np.rot90(target, rotations, axes=(-2, -1))
+                if stage1_prediction is not None:
+                    stage1_prediction = np.rot90(
+                        stage1_prediction,
+                        rotations,
+                        axes=(-2, -1),
+                    )
                 valid_mask = np.rot90(
                     valid_mask,
                     rotations,
@@ -132,13 +169,21 @@ class Stage2AIsoDataset(Dataset):
             if random.random() < 0.5:
                 stage1_inputs = np.flip(stage1_inputs, axis=-1)
                 target = np.flip(target, axis=-1)
+                if stage1_prediction is not None:
+                    stage1_prediction = np.flip(
+                        stage1_prediction, axis=-1
+                    )
                 valid_mask = np.flip(valid_mask, axis=-1)
             if random.random() < 0.5:
                 stage1_inputs = np.flip(stage1_inputs, axis=-2)
                 target = np.flip(target, axis=-2)
+                if stage1_prediction is not None:
+                    stage1_prediction = np.flip(
+                        stage1_prediction, axis=-2
+                    )
                 valid_mask = np.flip(valid_mask, axis=-2)
 
-        return {
+        result = {
             "stage1_input": torch.from_numpy(
                 np.ascontiguousarray(stage1_inputs)
             ),
@@ -151,3 +196,8 @@ class Stage2AIsoDataset(Dataset):
             ),
             "tile": tile,
         }
+        if stage1_prediction is not None:
+            result["stage1_prediction_norm"] = torch.from_numpy(
+                np.ascontiguousarray(stage1_prediction)
+            )
+        return result
