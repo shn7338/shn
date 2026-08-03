@@ -272,7 +272,7 @@ diagnostic is not a production label profile.
   --output-dir E:\dac_sionna_35ghz_pilot\tile_002865\comparison_winprop_irt2
 ```
 
-#### Formal 3.5 GHz depth-8 Sionna dataset
+#### Retained 3,200-tile 3.5 GHz depth-8 Sionna subset
 
 The production configuration is
 `config_sionna201_35ghz_depth8_3200.json`. It uses the frozen positive-coordinate
@@ -309,6 +309,34 @@ To stop safely, run `-Mode Stop` in another PowerShell window. Active tiles are
 allowed to finish; rerunning `Pilot32` or `Full` removes the stop flag and resumes
 from completed tiles. The formal output root is
 `E:\dac_sionna_35ghz_depth8_3200_v1`.
+
+#### Active all-tile 3.5 GHz depth-8 Sionna dataset
+
+The final dataset uses every physical source tile: 27,360 consecutive tile
+directories from `tile_000001` through `tile_027360`. The earlier count of
+27,361 was an ODB-file count that included an extra checked ODB; it was not the
+number of independent tiles. All 27,360 source shapefiles, prepared metadata,
+building-height arrays and Stage-1 inputs were audited as present.
+
+The existing spatially isolated split is retained: train 21,789, validation
+2,840 and test 2,731. Each tile has one isotropic plus four directional maps,
+for 136,800 maps in total. The physics parameters are identical to the retained
+3,200-tile configuration above. The all-tile run has its own immutable manifest
+and output root: `E:\dac_sionna_35ghz_depth8_27360_v1`.
+
+```powershell
+$launcher = 'C:\Users\pc\Documents\大创\projects\irt_label_pipeline\start_sionna_35ghz_all_tiles.ps1'
+
+powershell -NoProfile -ExecutionPolicy Bypass -File $launcher -Mode DryRun
+powershell -NoProfile -ExecutionPolicy Bypass -File $launcher -Mode Pilot32 -Workers 2
+powershell -NoProfile -ExecutionPolicy Bypass -File $launcher -Mode Status
+powershell -NoProfile -ExecutionPolicy Bypass -File $launcher -Mode Full -Workers 2
+powershell -NoProfile -ExecutionPolicy Bypass -File $launcher -Mode Finalize
+```
+
+Use `-Mode Stop` for a safe stop. Starting `Pilot32` or `Full` again clears the
+stop flag and resumes without regenerating completed tiles. Finalization refuses
+to create the formal shards until every manifest tile has completed.
 
 Each 256-tile shard is memory-mappable and contains:
 

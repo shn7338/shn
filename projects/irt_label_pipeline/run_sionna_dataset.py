@@ -91,15 +91,38 @@ def atomic_write_json(path: Path, payload: dict[str, Any]) -> None:
 def read_selection(path: Path) -> list[dict[str, str]]:
     with path.open("r", encoding="utf-8-sig", newline="") as handle:
         rows = list(csv.DictReader(handle))
-    required = {"tile", "split", "split_index"}
+    required = {"tile", "split"}
     if not rows or not required.issubset(rows[0]):
         raise ValueError(f"invalid selection CSV: {path}")
     names = [row["tile"] for row in rows]
     if len(names) != len(set(names)):
         raise ValueError("selection CSV contains duplicate tiles")
+    next_split_index = {"train": 0, "val": 0, "test": 0}
+    used_split_indices = {"train": set(), "val": set(), "test": set()}
     for row in rows:
         if row["split"] not in {"train", "val", "test"}:
             raise ValueError(f"invalid split for {row['tile']}: {row['split']}")
+        split = row["split"]
+        value = row.get("split_index", "").strip()
+        if value:
+            split_index = int(value)
+            if split_index < 0:
+                raise ValueError(
+                    f"negative split_index for {row['tile']}: {split_index}"
+                )
+        else:
+            split_index = next_split_index[split]
+            while split_index in used_split_indices[split]:
+                split_index += 1
+        if split_index in used_split_indices[split]:
+            raise ValueError(
+                f"duplicate {split} split_index: {split_index}"
+            )
+        row["split_index"] = str(split_index)
+        used_split_indices[split].add(split_index)
+        next_split_index[split] = max(
+            next_split_index[split], split_index + 1
+        )
     return rows
 
 

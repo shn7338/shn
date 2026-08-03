@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Pack completed direct-WinProp tiles into memory-mappable NPY shards."""
+"""Pack completed path-gain tiles into memory-mappable NPY shards."""
 
 from __future__ import annotations
 
@@ -24,7 +24,7 @@ def parse_args() -> argparse.Namespace:
         "--require-complete",
         action=argparse.BooleanOptionalAction,
         default=True,
-        help="Require every tile in pilot_manifest.json to be complete.",
+        help="Require every tile in the run manifest to be complete.",
     )
     parser.add_argument(
         "--shards-root",
