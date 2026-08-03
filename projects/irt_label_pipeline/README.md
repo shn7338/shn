@@ -320,9 +320,13 @@ building-height arrays and Stage-1 inputs were audited as present.
 
 The existing spatially isolated split is retained: train 21,789, validation
 2,840 and test 2,731. Each tile has one isotropic plus four directional maps,
-for 136,800 maps in total. The physics parameters are identical to the retained
-3,200-tile configuration above. The all-tile run has its own immutable manifest
-and output root: `E:\dac_sionna_35ghz_depth8_27360_v1`.
+for 136,800 maps in total. The active v2 profile uses the paper's Figure 1(d)
+example value of 10 degree directional downtilt. The zero-downtilt v1 pilot was
+rejected because high-BS tiles saturated at the 30 dB attenuation cap and made
+the four directional maps nearly identical. V1 remains intact for diagnosis
+and rollback but must not be used for training. The accepted all-tile run has
+its own immutable manifest and output root:
+`E:\dac_sionna_35ghz_depth8_27360_v2`.
 
 ```powershell
 $launcher = 'C:\Users\pc\Documents\大创\projects\irt_label_pipeline\start_sionna_35ghz_all_tiles.ps1'
@@ -337,6 +341,11 @@ powershell -NoProfile -ExecutionPolicy Bypass -File $launcher -Mode Finalize
 Use `-Mode Stop` for a safe stop. Starting `Pilot32` or `Full` again clears the
 stop flag and resumes without regenerating completed tiles. Finalization refuses
 to create the formal shards until every manifest tile has completed.
+
+The v2 32-tile pilot completed with 32/32 accepted and zero failures. Every
+compact file passed SHA-256, five-variant, 128x128 and float16 validation. The
+minimum directional front/back advantage across all 128 directional pilot maps
+was 17.109 dB.
 
 Each 256-tile shard is memory-mappable and contains:
 
