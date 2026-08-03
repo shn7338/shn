@@ -272,6 +272,44 @@ diagnostic is not a production label profile.
   --output-dir E:\dac_sionna_35ghz_pilot\tile_002865\comparison_winprop_irt2
 ```
 
+#### Formal 3.5 GHz depth-8 Sionna dataset
+
+The production configuration is
+`config_sionna201_35ghz_depth8_3200.json`. It uses the frozen positive-coordinate
+3,200-tile selection (train/validation/test = 2,560/320/320), one isotropic map
+and four deterministic random-azimuth directional maps per tile. A 32-tile
+pilot (26/3/3) is generated into the same output root as production, so accepted
+pilot tiles are reused and never generated twice.
+
+Physics and raster parameters are: 3.5 GHz, 512 m by 512 m area, 4 m cells,
+128 by 128 arrays, 7,000,000 rays per transmitter, maximum depth 8, line of
+sight/reflection/diffraction enabled, diffuse reflection/refraction disabled,
+BS at the tile centre and `max(building height) + 5 m`, UE height 2 m, VH/VH
+polarization, and zero synthetic downtilt. The directional pattern uses 6.3 dBi
+boresight gain, 65 degree horizontal HPBW, 8 degree vertical HPBW and the
+project's explicit 30 dB attenuation cap.
+
+The batch runner is resumable and memory bounded. Each completed tile is fully
+validated, compacted immediately to one compressed float16 NPZ, and committed
+atomically before temporary raw maps and scene meshes are removed. At most two
+tiles run concurrently on the current 8 GiB GPU. Create the pilot first, inspect
+status, then run the full set and finalize shards:
+
+```powershell
+$launcher = 'C:\Users\pc\Documents\大创\projects\irt_label_pipeline\start_sionna_35ghz_dataset.ps1'
+
+powershell -NoProfile -ExecutionPolicy Bypass -File $launcher -Mode DryRun
+powershell -NoProfile -ExecutionPolicy Bypass -File $launcher -Mode Pilot32 -Workers 2
+powershell -NoProfile -ExecutionPolicy Bypass -File $launcher -Mode Status
+powershell -NoProfile -ExecutionPolicy Bypass -File $launcher -Mode Full -Workers 2
+powershell -NoProfile -ExecutionPolicy Bypass -File $launcher -Mode Finalize
+```
+
+To stop safely, run `-Mode Stop` in another PowerShell window. Active tiles are
+allowed to finish; rerunning `Pilot32` or `Full` removes the stop flag and resumes
+from completed tiles. The formal output root is
+`E:\dac_sionna_35ghz_depth8_3200_v1`.
+
 Each 256-tile shard is memory-mappable and contains:
 
 - `p_iso_XXXX.npy`: `[N, 128, 128]`, `float16`.

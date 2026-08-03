@@ -96,7 +96,10 @@ def main() -> int:
     config = load_json(args.config)
     output_root = Path(config["output_root"])
     pilot_manifest_path = output_root / config.get(
-        "run_manifest_filename", "pilot_manifest.json"
+        "run_manifest_filename",
+        config.get("storage", {}).get(
+            "run_manifest_filename", "pilot_manifest.json"
+        ),
     )
     if not pilot_manifest_path.is_file():
         raise FileNotFoundError(pilot_manifest_path)
@@ -283,12 +286,16 @@ def main() -> int:
         writer.writeheader()
         writer.writerows(manifest_rows)
     os.replace(manifest_temporary, manifest_path)
+    storage = config.get("storage", {})
     metadata = {
         "version": config["version"],
-        "method": "direct WinProp IRT",
-        "quantity": (
-            "negative-dB path gain values exported by WinProp in "
-            "Antenna Path Loss.txt; raw float16 with NaN invalids"
+        "method": storage.get("dataset_method", "direct WinProp IRT"),
+        "quantity": storage.get(
+            "quantity_description",
+            (
+                "negative-dB path gain values exported by WinProp in "
+                "Antenna Path Loss.txt; raw float16 with NaN invalids"
+            ),
         ),
         "array_convention": "row 0 north; column 0 west",
         "tiles_planned": len(entries),

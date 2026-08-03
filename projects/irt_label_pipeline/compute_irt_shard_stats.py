@@ -154,10 +154,7 @@ def main() -> int:
     )
     payload = {
         "version": 1,
-        "quantity": (
-            "WinProp path gain values read from Antenna Path Loss.txt; "
-            "raw dB, finite pixels only"
-        ),
+        "quantity": "path gain in dB from dataset shards; finite pixels only",
         "split_tile_counts": split_tile_counts,
         "statistics": statistics,
         "synthetic_link_budget": {
