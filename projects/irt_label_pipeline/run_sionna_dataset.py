@@ -462,7 +462,7 @@ def process_tile(
     logs = output_root / "logs" / tile
     env = os.environ.copy()
     env["PYTHONUTF8"] = "1"
-    env["MPLCONFIGDIR"] = str(output_root / "mplconfig" / tile)
+    env["MPLCONFIGDIR"] = str(output_root / "mplconfig" / "_shared")
     errors: list[str] = []
     for attempt in range(1, max_attempts + 1):
         run_command = [
@@ -553,19 +553,19 @@ def process_tile(
     return failure
 
 
-def status_report(
+def scan_dataset_state(
     output_root: Path,
     entries: list[dict[str, Any]],
     selected: list[dict[str, Any]] | None = None,
-) -> dict[str, Any]:
+) -> tuple[dict[str, Any], set[str], set[str]]:
     selected_entries = selected or entries
     complete_all = {entry["tile"] for entry in entries if is_complete(output_root, entry["tile"])}
     selected_names = {entry["tile"] for entry in selected_entries}
-    failed = sorted(
+    failed = {
         path.stem
         for path in (output_root / "failures").glob("tile_*.json")
         if path.stem in selected_names
-    ) if (output_root / "failures").exists() else []
+    } if (output_root / "failures").exists() else set()
     split_complete = {
         split: sum(
             entry["tile"] in complete_all
@@ -574,7 +574,7 @@ def status_report(
         )
         for split in ("train", "val", "test")
     }
-    return {
+    report = {
         "status": "ok",
         "output_root": str(output_root),
         "tiles_planned": len(entries),
@@ -584,9 +584,50 @@ def status_report(
         "selected_tiles": len(selected_entries),
         "selected_complete": len(selected_names & complete_all),
         "selected_failed": len(failed),
-        "failed_first": failed[:20],
+        "failed_first": sorted(failed)[:20],
         "stop_requested": (output_root / "STOP").exists(),
     }
+    return report, complete_all, failed
+
+
+def status_report(
+    output_root: Path,
+    entries: list[dict[str, Any]],
+    selected: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
+    report, _, _ = scan_dataset_state(output_root, entries, selected)
+    return report
+
+
+def prepare_matplotlib_cache(
+    dataset_config: dict[str, Any], output_root: Path
+) -> Path:
+    cache_dir = output_root / "mplconfig" / "_shared"
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    env = os.environ.copy()
+    env["PYTHONUTF8"] = "1"
+    env["MPLCONFIGDIR"] = str(cache_dir)
+    completed = subprocess.run(
+        [
+            str(dataset_config["environment_python"]),
+            "-c",
+            (
+                "from matplotlib import font_manager; "
+                "font_manager.findfont('DejaVu Sans')"
+            ),
+        ],
+        cwd=SCRIPT_DIR,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.PIPE,
+        text=True,
+        timeout=60,
+        env=env,
+        check=False,
+    )
+    if completed.returncode != 0:
+        detail = completed.stderr.strip() or f"exit code {completed.returncode}"
+        raise RuntimeError(f"failed to warm shared Matplotlib cache: {detail}")
+    return cache_dir
 
 
 def main() -> int:
@@ -640,17 +681,31 @@ def main() -> int:
     if stop_path.exists():
         raise RuntimeError(f"stop flag exists; remove it before resuming: {stop_path}")
 
-    pending = deque(
-        entry for entry in selected if not is_complete(output_root, entry["tile"])
+    initial_report, complete_all, failed_selected = scan_dataset_state(
+        output_root, entries, selected
     )
-    initial_report = status_report(output_root, entries, selected)
+    pending = deque(
+        entry for entry in selected if entry["tile"] not in complete_all
+    )
     print(json.dumps(initial_report, ensure_ascii=False), flush=True)
     if not pending:
         return 0
 
+
+    shared_mpl_cache = prepare_matplotlib_cache(config, output_root)
+    print(f"Shared Matplotlib cache: {shared_mpl_cache}", flush=True)
+
     active: dict[concurrent.futures.Future[dict[str, Any]], dict[str, Any]] = {}
     results: list[dict[str, Any]] = []
     interrupted = False
+    progress = {
+        **initial_report,
+        "split_complete": dict(initial_report["split_complete"]),
+    }
+    completed_since_scan = 0
+    last_full_scan = time.monotonic()
+    full_scan_tile_interval = 500
+    full_scan_seconds = 300.0
     executor = concurrent.futures.ThreadPoolExecutor(max_workers=workers)
     try:
         while pending or active:
@@ -685,10 +740,37 @@ def main() -> int:
                     f"seconds={float(result.get('elapsed_seconds', result.get('seconds', 0.0))):.2f}",
                     flush=True,
                 )
-                progress = status_report(output_root, entries, selected)
+                if result["status"] == "ok":
+                    progress["tiles_complete"] += 1
+                    progress["tiles_remaining"] -= 1
+                    progress["selected_complete"] += 1
+                    progress["split_complete"][entry["split"]] += 1
+                    failed_selected.discard(entry["tile"])
+                elif result["status"] == "failed":
+                    failed_selected.add(entry["tile"])
+                progress["selected_failed"] = len(failed_selected)
+                progress["failed_first"] = sorted(failed_selected)[:20]
+                progress["stop_requested"] = stop_path.exists()
                 progress["phase"] = "generation"
                 progress["last_tile"] = entry["tile"]
                 progress["last_result"] = result["status"]
+                completed_since_scan += 1
+                scan_due = (
+                    completed_since_scan >= full_scan_tile_interval
+                    or time.monotonic() - last_full_scan >= full_scan_seconds
+                )
+                if scan_due:
+                    refreshed, _, failed_selected = scan_dataset_state(
+                        output_root, entries, selected
+                    )
+                    progress = {
+                        **refreshed,
+                        "phase": "generation",
+                        "last_tile": entry["tile"],
+                        "last_result": result["status"],
+                    }
+                    completed_since_scan = 0
+                    last_full_scan = time.monotonic()
                 atomic_write_json(output_root / "progress.json", progress)
             if stop_path.exists() and not active:
                 break

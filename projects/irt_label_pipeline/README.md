@@ -352,6 +352,13 @@ five-variant, 128x128 and float16 validation. The minimum directional front/back
 advantage was 25.208 dB. Four concurrent workers used about 2.52 GiB of the
 8 GiB GPU and reached 95% GPU utilization, so four is the validated limit.
 
+For the full run, completion counters are maintained in memory and reconciled
+against disk every 500 finished tiles or five minutes. This avoids rescanning
+all 27,360 entries and rereading every completed JSON after every tile. Workers
+also use one prewarmed shared Matplotlib font cache instead of rebuilding a
+separate cache per tile. These are execution-only optimizations: propagation
+parameters, seeds, validation rules, and compact outputs are unchanged.
+
 Each 256-tile shard is memory-mappable and contains:
 
 - `p_iso_XXXX.npy`: `[N, 128, 128]`, `float16`.
