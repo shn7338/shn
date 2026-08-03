@@ -1,21 +1,21 @@
 param(
     [ValidateSet('Pilot32', 'Full', 'Status', 'Stop', 'DryRun', 'Finalize')]
     [string]$Mode = 'Pilot32',
-    [ValidateRange(1, 2)]
-    [int]$Workers = 2
+    [ValidateRange(1, 4)]
+    [int]$Workers = 4
 )
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
 $scriptRoot = $PSScriptRoot
-$datasetConfig = Join-Path $scriptRoot 'config_sionna201_35ghz_depth8_27360_v2.json'
+$datasetConfig = Join-Path $scriptRoot 'config_sionna201_35ghz_depth8_27360_v3.json'
 $runner = Join-Path $scriptRoot 'run_sionna_dataset.py'
 $sharder = Join-Path $scriptRoot 'build_irt_shards.py'
 $verifier = Join-Path $scriptRoot 'verify_irt_shards.py'
 $statsScript = Join-Path $scriptRoot 'compute_irt_shard_stats.py'
 $python = 'E:\dac_sionna_rt_env\Scripts\python.exe'
-$outputRoot = 'E:\dac_sionna_35ghz_depth8_27360_v2'
+$outputRoot = 'E:\dac_sionna_35ghz_depth8_27360_v3'
 $selectionCsv = 'D:\桌面\dac\normalized_4m_v1\splits.csv'
 $stopFlag = Join-Path $outputRoot 'STOP'
 $exitCode = 0

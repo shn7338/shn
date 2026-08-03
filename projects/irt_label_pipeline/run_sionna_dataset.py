@@ -323,6 +323,11 @@ def validate_and_compact(
             path_gain = data["path_gain_db"].astype(np.float32)
             valid_mask = data["valid_mask"].astype(bool)
             outdoor_mask = data["outdoor_mask"].astype(bool)
+            resolved_downtilt_deg = (
+                float(data["directional_downtilt_deg"])
+                if "directional_downtilt_deg" in data.files
+                else float("nan")
+            )
         if path_gain.shape != expected_shape:
             raise ValueError(f"{tile} {variant}: invalid shape {path_gain.shape}")
         if np.any(valid_mask & ~outdoor_mask):
@@ -338,6 +343,7 @@ def validate_and_compact(
             "valid_pixels": int(valid_mask.sum()),
             "minimum_db": float(np.min(path_gain[valid_mask])),
             "maximum_db": float(np.max(path_gain[valid_mask])),
+            "directional_downtilt_deg": resolved_downtilt_deg,
         }
     iso = arrays["iso"].astype(np.float32)
     for variant in entry["variants"][1:]:
@@ -369,6 +375,9 @@ def validate_and_compact(
         "quantity": "path_gain_db",
         "variants": entry["variants"],
         "azimuths_deg": entry["azimuths_deg"],
+        "resolved_directional_downtilt_deg": sources["iso"][
+            "directional_downtilt_deg"
+        ],
         "sources": sources,
         "output": str(compact),
         "output_bytes": compact.stat().st_size,
@@ -513,6 +522,9 @@ def process_tile(
                 "split": entry["split"],
                 "variants": entry["variants"],
                 "azimuths_deg": entry["azimuths_deg"],
+                "resolved_directional_downtilt_deg": compact_metadata[
+                    "resolved_directional_downtilt_deg"
+                ],
                 "ray_seed": entry["ray_seed"],
                 "attempt": attempt,
                 "elapsed_seconds": time.perf_counter() - started,

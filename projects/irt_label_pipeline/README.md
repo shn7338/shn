@@ -320,21 +320,25 @@ building-height arrays and Stage-1 inputs were audited as present.
 
 The existing spatially isolated split is retained: train 21,789, validation
 2,840 and test 2,731. Each tile has one isotropic plus four directional maps,
-for 136,800 maps in total. The active v2 profile uses the paper's Figure 1(d)
-example value of 10 degree directional downtilt. The zero-downtilt v1 pilot was
-rejected because high-BS tiles saturated at the 30 dB attenuation cap and made
-the four directional maps nearly identical. V1 remains intact for diagnosis
-and rollback but must not be used for training. The accepted all-tile run has
-its own immutable manifest and output root:
-`E:\dac_sionna_35ghz_depth8_27360_v2`.
+for 136,800 maps in total. V1 with zero downtilt and v2 with fixed 10 degree
+downtilt were rejected: the area-specific BS height ranges from 8 m to 131 m,
+so a single tilt makes some high-BS directional maps saturate at the 30 dB
+attenuation cap. Both rejected outputs remain intact for diagnosis only and
+must not be used for training.
+
+The active v3 profile deterministically aims the vertical boresight at the UE
+plane 220 m from the centered BS. Its per-tile downtilt is
+`atan2(BS height - 2 m, 220 m)`, clipped to 0-45 degrees; the observed dataset
+range is 1.562-30.386 degrees. The accepted all-tile run has its own immutable
+manifest and output root: `E:\dac_sionna_35ghz_depth8_27360_v3`.
 
 ```powershell
 $launcher = 'C:\Users\pc\Documents\大创\projects\irt_label_pipeline\start_sionna_35ghz_all_tiles.ps1'
 
 powershell -NoProfile -ExecutionPolicy Bypass -File $launcher -Mode DryRun
-powershell -NoProfile -ExecutionPolicy Bypass -File $launcher -Mode Pilot32 -Workers 2
+powershell -NoProfile -ExecutionPolicy Bypass -File $launcher -Mode Pilot32 -Workers 4
 powershell -NoProfile -ExecutionPolicy Bypass -File $launcher -Mode Status
-powershell -NoProfile -ExecutionPolicy Bypass -File $launcher -Mode Full -Workers 2
+powershell -NoProfile -ExecutionPolicy Bypass -File $launcher -Mode Full -Workers 4
 powershell -NoProfile -ExecutionPolicy Bypass -File $launcher -Mode Finalize
 ```
 
@@ -342,10 +346,11 @@ Use `-Mode Stop` for a safe stop. Starting `Pilot32` or `Full` again clears the
 stop flag and resumes without regenerating completed tiles. Finalization refuses
 to create the formal shards until every manifest tile has completed.
 
-The v2 32-tile pilot completed with 32/32 accepted and zero failures. Every
-compact file passed SHA-256, five-variant, 128x128 and float16 validation. The
-minimum directional front/back advantage across all 128 directional pilot maps
-was 17.109 dB.
+The v3 32-tile pilot plus low/median/high/max-BS stress tiles completed with
+35/35 accepted and zero failures. Every compact file passed SHA-256,
+five-variant, 128x128 and float16 validation. The minimum directional front/back
+advantage was 25.208 dB. Four concurrent workers used about 2.52 GiB of the
+8 GiB GPU and reached 95% GPU utilization, so four is the validated limit.
 
 Each 256-tile shard is memory-mappable and contains:
 

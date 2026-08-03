@@ -232,6 +232,9 @@ def main() -> int:
                     "azimuth_1_deg": azimuths[1],
                     "azimuth_2_deg": azimuths[2],
                     "azimuth_3_deg": azimuths[3],
+                    "directional_downtilt_deg": entry[
+                        "compact_metadata"
+                    ].get("resolved_directional_downtilt_deg"),
                     "iso_valid_pixels": iso_valid,
                     "directional_valid_pixels": direction_valid,
                     "source_npz_sha256": entry["compact_metadata"][

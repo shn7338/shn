@@ -165,6 +165,40 @@ def selected_variants(
     return selected
 
 
+def resolve_directional_downtilt(
+    paper: dict[str, Any],
+    transmitter_height_m: float,
+) -> tuple[float, dict[str, Any]]:
+    mode = str(paper.get("directional_downtilt_mode", "fixed"))
+    if mode == "fixed":
+        value = float(paper.get("directional_downtilt_deg", 0.0))
+        return value, {"mode": mode, "resolved_deg": value}
+    if mode != "target_ground_radius":
+        raise ValueError(f"unsupported directional_downtilt_mode: {mode}")
+    target_radius_m = float(paper["directional_downtilt_target_radius_m"])
+    if target_radius_m <= 0.0:
+        raise ValueError("directional_downtilt_target_radius_m must be positive")
+    receiver_height_m = float(paper["receiver_height_m"])
+    height_difference_m = max(0.0, transmitter_height_m - receiver_height_m)
+    unconstrained_deg = math.degrees(
+        math.atan2(height_difference_m, target_radius_m)
+    )
+    minimum_deg = float(paper.get("directional_downtilt_min_deg", 0.0))
+    maximum_deg = float(paper.get("directional_downtilt_max_deg", 45.0))
+    if not 0.0 <= minimum_deg <= maximum_deg < 90.0:
+        raise ValueError("invalid directional downtilt limits")
+    resolved_deg = min(max(unconstrained_deg, minimum_deg), maximum_deg)
+    return resolved_deg, {
+        "mode": mode,
+        "target_radius_m": target_radius_m,
+        "height_difference_m": height_difference_m,
+        "unconstrained_deg": unconstrained_deg,
+        "minimum_deg": minimum_deg,
+        "maximum_deg": maximum_deg,
+        "resolved_deg": resolved_deg,
+    }
+
+
 def main() -> int:
     args = parse_args()
     config_path = args.config.resolve()
@@ -238,9 +272,10 @@ def main() -> int:
         [int(value) for value in paper["directional_azimuths_deg"]],
         args.variants,
     )
-    directional_downtilt_rad = math.radians(
-        float(paper.get("directional_downtilt_deg", 0.0))
+    directional_downtilt_deg, downtilt_resolution = (
+        resolve_directional_downtilt(paper, transmitter_height)
     )
+    directional_downtilt_rad = math.radians(directional_downtilt_deg)
     run_started = time.perf_counter()
     summary: dict[str, Any] = {
         "version": 1,
@@ -256,6 +291,8 @@ def main() -> int:
             **paper,
             "samples_per_tx": samples,
             "transmitter_height_m": transmitter_height,
+            "resolved_directional_downtilt_deg": directional_downtilt_deg,
+            "directional_downtilt_resolution": downtilt_resolution,
         },
         "scene_manifest": scene_manifest,
         "variants": {},
@@ -348,6 +385,9 @@ def main() -> int:
             azimuth_deg=np.asarray(
                 np.nan if azimuth_deg is None else azimuth_deg, dtype=np.float32
             ),
+            directional_downtilt_deg=np.asarray(
+                directional_downtilt_deg, dtype=np.float32
+            ),
             transmitter_xyz_m=np.asarray(
                 [
                     paper["transmitter_xy"][0],
@@ -371,6 +411,7 @@ def main() -> int:
         variant_summary = {
             "status": "ok",
             "azimuth_deg": azimuth_deg,
+            "directional_downtilt_deg": directional_downtilt_deg,
             "seed": int(paper["seed"]) + variant_index,
             "seconds": round(elapsed, 3),
             "shape": list(db_label.shape),

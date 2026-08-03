@@ -28,6 +28,7 @@ def main() -> int:
     ]
     arrays: dict[str, np.ndarray] = {}
     masks: dict[str, np.ndarray] = {}
+    resolved_downtilts_deg: dict[str, float] = {}
     failures: list[str] = []
     expected_shape = (int(paper["rows"]), int(paper["cols"]))
 
@@ -40,6 +41,10 @@ def main() -> int:
             array = data["path_gain_db"].astype(np.float32)
             valid = data["valid_mask"].astype(bool)
             outdoor = data["outdoor_mask"].astype(bool)
+            if "directional_downtilt_deg" in data.files:
+                resolved_downtilts_deg[name] = float(
+                    data["directional_downtilt_deg"]
+                )
             if array.shape != expected_shape:
                 failures.append(f"{name}: shape {array.shape} != {expected_shape}")
             if valid.shape != expected_shape:
@@ -52,6 +57,13 @@ def main() -> int:
                 failures.append(f"{name}: finite values outside valid mask")
             arrays[name] = array
             masks[name] = valid
+
+    if resolved_downtilts_deg:
+        values = np.asarray(list(resolved_downtilts_deg.values()))
+        if not np.all(np.isfinite(values)):
+            failures.append("non-finite resolved directional downtilt")
+        elif not np.allclose(values, values[0], atol=1e-5):
+            failures.append("resolved directional downtilt differs by variant")
 
     pairwise: dict[str, float] = {}
     orientation_checks: dict[str, dict[str, float | int]] = {}
@@ -128,6 +140,7 @@ def main() -> int:
         "samples_per_tx": samples,
         "expected_shape": list(expected_shape),
         "variants_found": sorted(arrays),
+        "resolved_directional_downtilts_deg": resolved_downtilts_deg,
         "pairwise": pairwise,
         "orientation_checks": orientation_checks,
         "failures": failures,
