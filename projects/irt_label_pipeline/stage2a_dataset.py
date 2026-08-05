@@ -147,7 +147,11 @@ class Stage2AIsoDataset(Dataset):
         target = np.where(valid_mask, target, 0.0).astype(np.float32)
 
         if self.augment:
-            rotations = random.randrange(4)
+            # Uniform sampling from the eight unique dihedral transforms used
+            # by the paper: four rotations, with or without one mirror.
+            transform = random.randrange(8)
+            rotations = transform % 4
+            mirror = transform >= 4
             if rotations:
                 stage1_inputs = np.rot90(
                     stage1_inputs,
@@ -166,7 +170,7 @@ class Stage2AIsoDataset(Dataset):
                     rotations,
                     axes=(-2, -1),
                 )
-            if random.random() < 0.5:
+            if mirror:
                 stage1_inputs = np.flip(stage1_inputs, axis=-1)
                 target = np.flip(target, axis=-1)
                 if stage1_prediction is not None:
@@ -174,14 +178,6 @@ class Stage2AIsoDataset(Dataset):
                         stage1_prediction, axis=-1
                     )
                 valid_mask = np.flip(valid_mask, axis=-1)
-            if random.random() < 0.5:
-                stage1_inputs = np.flip(stage1_inputs, axis=-2)
-                target = np.flip(target, axis=-2)
-                if stage1_prediction is not None:
-                    stage1_prediction = np.flip(
-                        stage1_prediction, axis=-2
-                    )
-                valid_mask = np.flip(valid_mask, axis=-2)
 
         result = {
             "stage1_input": torch.from_numpy(

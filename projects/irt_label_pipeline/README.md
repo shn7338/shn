@@ -386,21 +386,36 @@ Each 256-tile shard is memory-mappable and contains:
 - `azimuth_deg_XXXX.npy`: `[N, 4]`, `uint16`.
 - `tile_number_XXXX.npy`: `[N]`, `uint32`.
 
-## Stage2-A: DPM to isotropic IRT residual
+## Stage2-A: paper-architecture DPM to isotropic Sionna residual
 
 The trained Stage-1 network is frozen. Stage2-A implements:
 
 ```text
-P_iso_IRT_hat =
-    P_iso_DPM_hat + U_IsoRefine(B, P_iso_DPM_hat)
+P_iso_Sionna_hat = P_iso_DPM_hat + residual_center
+                     + residual_scale * U_IsoRefine(B, P_iso_DPM_hat_norm)
 ```
 
-It learns only the IRT-minus-DPM residual and reports the original DPM baseline
-RMSE beside the corrected RMSE.
+It learns only the Sionna-minus-DPM residual. The refiner uses the Geo2SigMap
+U-Net-Iso backbone (base width 64, Conv-BN-ReLU blocks, four down/up levels),
+masked MSE, Adam at `1e-3`, effective batch size 64, and the eight unique
+rotation/mirror transforms. AMP and gradient checkpointing make the paper
+batch size of 64 practical on the local 8 GB GPU. Metrics report the corrected
+model beside both raw DPM and a
+train-mean calibrated DPM baseline.
 
 ```powershell
-& $python projects\irt_label_pipeline\train_stage2a_iso_refine.py `
-  --config projects\irt_label_pipeline\config_stage2a_irt2_direct3200.json
+powershell -NoProfile -ExecutionPolicy Bypass -File `
+  "C:\Users\pc\Documents\大创\projects\irt_label_pipeline\start_stage2a_sionna35_training.ps1" `
+  -Mode Smoke
+```
+
+After the two-epoch smoke run passes, start the full run. Exact train-only
+residual statistics are generated automatically if missing:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File `
+  "C:\Users\pc\Documents\大创\projects\irt_label_pipeline\start_stage2a_sionna35_training.ps1" `
+  -Mode Full
 ```
 
 ## Stage2-B: directional sparse signal map
