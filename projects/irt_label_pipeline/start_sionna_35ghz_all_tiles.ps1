@@ -16,7 +16,6 @@ $verifier = Join-Path $scriptRoot 'verify_irt_shards.py'
 $statsScript = Join-Path $scriptRoot 'compute_irt_shard_stats.py'
 $python = 'E:\dac_sionna_rt_env\Scripts\python.exe'
 $outputRoot = 'E:\dac_sionna_35ghz_depth8_27360_v3'
-$selectionCsv = 'D:\桌面\dac\normalized_4m_v1\splits.csv'
 $stopFlag = Join-Path $outputRoot 'STOP'
 $exitCode = 0
 
@@ -58,14 +57,29 @@ switch ($Mode) {
     'Finalize' {
         & $python $runner --config $datasetConfig --status
         if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-        & $python $sharder --config $datasetConfig
-        if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-        & $python $verifier --metadata (Join-Path $outputRoot 'shard_metadata.json')
+        $shardsRoot = Join-Path $outputRoot 'shards'
+        $shardManifest = Join-Path $outputRoot 'shard_manifest.csv'
+        $shardMetadata = Join-Path $outputRoot 'shard_metadata.json'
+        $formalOutputs = @($shardsRoot, $shardManifest, $shardMetadata)
+        $existingFormalOutputs = @(
+            $formalOutputs | Where-Object { Test-Path -LiteralPath $_ }
+        )
+        if ($existingFormalOutputs.Count -eq 0) {
+            & $python $sharder --config $datasetConfig
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+        }
+        elseif ($existingFormalOutputs.Count -eq $formalOutputs.Count) {
+            Write-Host 'Reusing existing formal shards; verification will run again.'
+        }
+        else {
+            throw "Partial formal shard outputs exist; refusing an unsafe resume: $existingFormalOutputs"
+        }
+        & $python $verifier --metadata $shardMetadata
         if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
         & $python $statsScript `
-            --shard-root (Join-Path $outputRoot 'shards') `
-            --shard-manifest (Join-Path $outputRoot 'shard_manifest.csv') `
-            --selection-csv $selectionCsv `
+            --shard-root $shardsRoot `
+            --shard-manifest $shardManifest `
+            --dataset-config $datasetConfig `
             --output (Join-Path $outputRoot 'normalization_irt.json')
         $exitCode = $LASTEXITCODE
     }

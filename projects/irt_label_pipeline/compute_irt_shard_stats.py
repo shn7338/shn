@@ -69,7 +69,13 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--shard-root", type=Path, required=True)
     parser.add_argument("--shard-manifest", type=Path, required=True)
-    parser.add_argument("--selection-csv", type=Path, required=True)
+    selection = parser.add_mutually_exclusive_group(required=True)
+    selection.add_argument("--selection-csv", type=Path)
+    selection.add_argument(
+        "--dataset-config",
+        type=Path,
+        help="Read selection_csv from a UTF-8 dataset configuration JSON.",
+    )
     parser.add_argument("--output", type=Path, required=True)
     return parser.parse_args()
 
@@ -86,7 +92,14 @@ def atomic_write_json(path: Path, payload: dict[str, Any]) -> None:
 
 def main() -> int:
     args = parse_args()
-    with args.selection_csv.open(
+    selection_csv = args.selection_csv
+    if args.dataset_config is not None:
+        dataset_config = json.loads(
+            args.dataset_config.read_text(encoding="utf-8")
+        )
+        selection_csv = Path(dataset_config["selection_csv"])
+    assert selection_csv is not None
+    with selection_csv.open(
         "r", encoding="utf-8-sig", newline=""
     ) as handle:
         split_by_tile = {

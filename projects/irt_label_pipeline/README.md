@@ -359,6 +359,26 @@ also use one prewarmed shared Matplotlib font cache instead of rebuilding a
 separate cache per tile. These are execution-only optimizations: propagation
 parameters, seeds, validation rules, and compact outputs are unchanged.
 
+Rare malformed Shapefile rings are repaired before scene construction by
+discarding only non-finite, duplicate-only, or zero-area rings; repair counts
+are retained in each scene manifest. Directional validation separates hard
+data-integrity failures from scene observability. Missing/malformed arrays,
+azimuth mismatches, non-finite masks, or directional maps below 0.1 dB MAE from
+isotropic remain hard failures. A missing front/back comparison sector or a
+front/back advantage at or below 1 dB is recorded as a multipath/coverage
+warning because dense urban geometry can make the antenna direction impossible
+to infer from the final radio map even when Sionna applied the configured sector
+pattern correctly. Warning status is carried into completion and shard
+manifests.
+
+The completed v3 repair contains all 27,360 tiles: 27,209 passed the original
+strict validation, 138 reused structurally valid raw maps and carry 185 scene
+observability warnings, and 13 were regenerated after removing 18 degenerate
+zero-area rings. Formalization produced 107 shards (428 NPY files, 4.175 GiB),
+verified every stored hash/shape/dtype/index, and wrote
+`normalization_irt.json`. The formal shard-manifest SHA-256 is
+`d2f717928079fc5204f6b57d803f7d5f0947fd8507b3d61d84d964e7b0bbbe2c`.
+
 Each 256-tile shard is memory-mappable and contains:
 
 - `p_iso_XXXX.npy`: `[N, 128, 128]`, `float16`.

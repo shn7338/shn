@@ -64,6 +64,60 @@ def clean_ring(coords: Iterable[tuple[float, float]]) -> list[tuple[float, float
     return cleaned
 
 
+def signed_ring_area(coords: list[tuple[float, float]]) -> float:
+    return 0.5 * sum(
+        x0 * y1 - x1 * y0
+        for (x0, y0), (x1, y1) in zip(coords, coords[1:] + coords[:1])
+    )
+
+
+def resilient_shape_geometry(source_shape: shapefile.Shape) -> tuple[Any, int, bool]:
+    """Convert a PyShp polygon while discarding only zero-area rings.
+
+    PyShp raises RingSamplingError before Shapely's make_valid() can run when a
+    polygon contains a collapsed hole. Rebuilding the Shape after removing
+    non-finite, duplicate-only, or zero-area rings preserves all usable rings
+    and lets PyShp perform its normal exterior/hole organization.
+    """
+
+    try:
+        return shape(source_shape.__geo_interface__), 0, False
+    except shapefile.RingSamplingError:
+        pass
+
+    points = [(float(point[0]), float(point[1])) for point in source_shape.points]
+    starts = list(source_shape.parts) + [len(points)]
+    retained: list[list[tuple[float, float]]] = []
+    discarded = 0
+    for start, end in zip(starts, starts[1:]):
+        ring = clean_ring(points[start:end])
+        distinct = set(ring)
+        if (
+            len(distinct) < 3
+            or not all(math.isfinite(x) and math.isfinite(y) for x, y in ring)
+            or abs(signed_ring_area(ring)) <= 1e-6
+        ):
+            discarded += 1
+            continue
+        retained.append(ring)
+
+    if not retained:
+        return GeometryCollection(), discarded, True
+
+    rebuilt_points: list[tuple[float, float]] = []
+    rebuilt_parts: list[int] = []
+    for ring in retained:
+        rebuilt_parts.append(len(rebuilt_points))
+        rebuilt_points.extend(ring + [ring[0]])
+    rebuilt = shapefile.Shape(
+        shapeType=source_shape.shapeType,
+        points=rebuilt_points,
+        parts=rebuilt_parts,
+        oid=source_shape.oid,
+    )
+    return shape(rebuilt.__geo_interface__), discarded, True
+
+
 def append_extruded_polygon(
     polygon: Polygon,
     height: float,
@@ -192,6 +246,8 @@ def build_scene(config_path: Path, overwrite: bool = False) -> dict[str, Any]:
     polygon_count = 0
     skipped_count = 0
     repaired_count = 0
+    recovered_shape_count = 0
+    discarded_degenerate_ring_count = 0
     max_height = 0.0
 
     for record in reader.iterShapeRecords():
@@ -205,7 +261,14 @@ def build_scene(config_path: Path, overwrite: bool = False) -> dict[str, Any]:
         if not math.isfinite(building_height) or building_height <= 0:
             skipped_count += 1
             continue
-        geometry = shape(record.shape.__geo_interface__)
+        geometry, discarded_rings, recovered_shape = resilient_shape_geometry(
+            record.shape
+        )
+        discarded_degenerate_ring_count += discarded_rings
+        recovered_shape_count += int(recovered_shape)
+        if geometry.is_empty:
+            skipped_count += 1
+            continue
         if not geometry.is_valid:
             geometry = make_valid(geometry)
             repaired_count += 1
@@ -245,6 +308,8 @@ def build_scene(config_path: Path, overwrite: bool = False) -> dict[str, Any]:
         "extruded_polygon_count": polygon_count,
         "skipped_feature_count": skipped_count,
         "repaired_feature_count": repaired_count,
+        "recovered_shape_count": recovered_shape_count,
+        "discarded_degenerate_ring_count": discarded_degenerate_ring_count,
         "max_building_height_m": max_height,
         "vertex_count": len(vertices),
         "triangle_count": len(faces),

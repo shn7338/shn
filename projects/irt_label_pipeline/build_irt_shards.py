@@ -116,11 +116,14 @@ def main() -> int:
         completion_path = output_root / "completion" / f"{tile}.json"
         compact_path = output_root / "compact_tiles" / f"{tile}.npz"
         compact_metadata_path = compact_path.with_suffix(".json")
+        completion = (
+            load_json(completion_path) if completion_path.is_file() else {}
+        )
         if not (
             completion_path.is_file()
             and compact_path.is_file()
             and compact_metadata_path.is_file()
-            and load_json(completion_path).get("status") == "ok"
+            and completion.get("status") == "ok"
         ):
             missing.append(tile)
             continue
@@ -134,6 +137,7 @@ def main() -> int:
                 **entry,
                 "compact_path": compact_path,
                 "compact_metadata": compact_metadata,
+                "completion": completion,
             }
         )
     if missing and args.require_complete:
@@ -235,6 +239,15 @@ def main() -> int:
                     "directional_downtilt_deg": entry[
                         "compact_metadata"
                     ].get("resolved_directional_downtilt_deg"),
+                    "validation_status": entry["completion"].get(
+                        "validation_status", "ok_legacy_strict"
+                    ),
+                    "validation_warning_count": len(
+                        entry["completion"].get("validation_warnings", [])
+                    ),
+                    "reused_existing_raw": bool(
+                        entry["completion"].get("reused_existing_raw", False)
+                    ),
                     "iso_valid_pixels": iso_valid,
                     "directional_valid_pixels": direction_valid,
                     "source_npz_sha256": entry["compact_metadata"][

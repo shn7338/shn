@@ -443,6 +443,53 @@ def run_logged(
         return -1, f"timed out after {timeout_seconds} seconds"
 
 
+def finalize_tile(
+    dataset_config: dict[str, Any],
+    entry: dict[str, Any],
+    output_root: Path,
+    started: float,
+    attempt: int,
+    reused_existing_raw: bool,
+) -> dict[str, Any]:
+    tile = entry["tile"]
+    samples = int(dataset_config["radio_map"]["samples_per_tx"])
+    validation_path = (
+        output_root
+        / "work_tiles"
+        / tile
+        / f"validation_samples_{samples}.json"
+    )
+    validation_report = load_json(validation_path)
+    compact_metadata = validate_and_compact(dataset_config, entry, output_root)
+    removed = cleanup_work_files(dataset_config, entry, output_root)
+    completion = {
+        "version": int(dataset_config["version"]),
+        "status": "ok",
+        "tile": tile,
+        "split": entry["split"],
+        "variants": entry["variants"],
+        "azimuths_deg": entry["azimuths_deg"],
+        "resolved_directional_downtilt_deg": compact_metadata[
+            "resolved_directional_downtilt_deg"
+        ],
+        "ray_seed": entry["ray_seed"],
+        "attempt": attempt,
+        "reused_existing_raw": reused_existing_raw,
+        "validation_status": validation_report.get("status"),
+        "validation_warnings": validation_report.get("warnings", []),
+        "elapsed_seconds": time.perf_counter() - started,
+        "compact": compact_metadata["output"],
+        "compact_sha256": compact_metadata["output_sha256"],
+        "removed_generated_work_files": len(removed),
+    }
+    _, _, completion_path = compact_paths(output_root, tile)
+    atomic_write_json(completion_path, completion)
+    failure_path = output_root / "failures" / f"{tile}.json"
+    if failure_path.exists():
+        failure_path.unlink()
+    return completion
+
+
 def process_tile(
     dataset_config: dict[str, Any],
     entry: dict[str, Any],
@@ -464,6 +511,45 @@ def process_tile(
     env["PYTHONUTF8"] = "1"
     env["MPLCONFIGDIR"] = str(output_root / "mplconfig" / "_shared")
     errors: list[str] = []
+    validation_command = [
+        python,
+        str(TILE_VALIDATOR),
+        "--config",
+        str(tile_config_path),
+        "--samples",
+        str(samples),
+    ]
+    work_root = output_root / "work_tiles" / tile
+    raw_outputs_exist = all(
+        (work_root / f"{variant}_samples_{samples}.npz").is_file()
+        for variant in entry["variants"]
+    )
+    if raw_outputs_exist:
+        validation_code, validation_timeout = run_logged(
+            validation_command,
+            logs / "reuse.validation.stdout.log",
+            logs / "reuse.validation.stderr.log",
+            timeout_seconds,
+            env,
+        )
+        if validation_timeout is None and validation_code == 0:
+            try:
+                return finalize_tile(
+                    dataset_config,
+                    entry,
+                    output_root,
+                    started,
+                    attempt=0,
+                    reused_existing_raw=True,
+                )
+            except Exception as exc:
+                errors.append(
+                    f"existing raw postprocess failed: {type(exc).__name__}: {exc}"
+                )
+        elif validation_timeout is not None:
+            errors.append(f"existing raw validation {validation_timeout}")
+        else:
+            errors.append(f"existing raw validator returned {validation_code}")
     for attempt in range(1, max_attempts + 1):
         run_command = [
             python,
@@ -489,14 +575,6 @@ def process_tile(
         if returncode != 0:
             errors.append(f"generator returned {returncode}")
             continue
-        validation_command = [
-            python,
-            str(TILE_VALIDATOR),
-            "--config",
-            str(tile_config_path),
-            "--samples",
-            str(samples),
-        ]
         validation_code, validation_timeout = run_logged(
             validation_command,
             logs / f"attempt_{attempt}.validation.stdout.log",
@@ -511,33 +589,14 @@ def process_tile(
             errors.append(f"validator returned {validation_code}")
             continue
         try:
-            compact_metadata = validate_and_compact(
-                dataset_config, entry, output_root
+            return finalize_tile(
+                dataset_config,
+                entry,
+                output_root,
+                started,
+                attempt=attempt,
+                reused_existing_raw=False,
             )
-            removed = cleanup_work_files(dataset_config, entry, output_root)
-            completion = {
-                "version": int(dataset_config["version"]),
-                "status": "ok",
-                "tile": tile,
-                "split": entry["split"],
-                "variants": entry["variants"],
-                "azimuths_deg": entry["azimuths_deg"],
-                "resolved_directional_downtilt_deg": compact_metadata[
-                    "resolved_directional_downtilt_deg"
-                ],
-                "ray_seed": entry["ray_seed"],
-                "attempt": attempt,
-                "elapsed_seconds": time.perf_counter() - started,
-                "compact": compact_metadata["output"],
-                "compact_sha256": compact_metadata["output_sha256"],
-                "removed_generated_work_files": len(removed),
-            }
-            _, _, completion_path = compact_paths(output_root, tile)
-            atomic_write_json(completion_path, completion)
-            failure_path = output_root / "failures" / f"{tile}.json"
-            if failure_path.exists():
-                failure_path.unlink()
-            return completion
         except Exception as exc:  # continue retrying a corrupt/partial tile
             errors.append(f"postprocess failed: {type(exc).__name__}: {exc}")
     failure = {
