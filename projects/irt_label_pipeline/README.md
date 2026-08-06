@@ -418,27 +418,54 @@ powershell -NoProfile -ExecutionPolicy Bypass -File `
   -Mode Full
 ```
 
-## Stage2-B: directional sparse signal map
+## Stage2-B: paper-architecture directional sparse signal map
 
-Stage-1 and the accepted Stage2-A checkpoint are both frozen. Stage2-B input is:
-
-```text
-[building, corrected isotropic IRT, sparse directional SS, sparse mask]
-```
-
-Direct directional WinProp path gain is converted online to signal strength:
+Stage-1 and the accepted Stage2-A checkpoint are frozen. The active Stage2-B
+configuration uses all 27,360 Sionna tiles and the paper's U-Net-Dir backbone.
+The input is:
 
 ```text
-SS = P_dir_IRT + P_TX + G_TX + G_RX - IL
+[building, corrected isotropic Sionna map, sparse directional SS, sparse mask]
 ```
 
-The link-budget draw is fixed per tile-direction. Training resamples 1–200
-valid sparse pixels per epoch; final tests report 50, 100 and 200 points.
+The explicit fourth mask channel is a project adaptation: it distinguishes an
+unmeasured zero-filled pixel from a genuinely measured normalized value of
+zero. Directional Sionna path gain is converted online to signal strength:
+
+```text
+SS = P_dir_Sionna + P_TX + G_TX + G_RX - IL
+```
+
+The link-budget draw is fixed per tile-direction. Training resamples 1-200
+valid sparse pixels per sample and epoch; validation uses 100 points, and final
+tests report 50, 100 and 200 points. The U-Net has base width 64, four down/up
+levels and Conv-BN-ReLU blocks. Training uses masked MSE, Adam at `1e-3`,
+effective batch size 64, 200 epochs and the eight unique rotation/mirror
+transforms. A smoke run uses a new timestamped output and never overwrites a
+formal checkpoint:
 
 ```powershell
-& $python projects\irt_label_pipeline\train_stage2b_directional_ss.py `
-  --config projects\irt_label_pipeline\config_stage2b_directional_ss_irt2_direct3200.json
+powershell -NoProfile -ExecutionPolicy Bypass -File `
+  "C:\Users\pc\Documents\大创\projects\irt_label_pipeline\start_stage2b_sionna35_training.ps1" `
+  -Mode Smoke
 ```
+
+After the smoke run passes, start or resume the formal run:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File `
+  "C:\Users\pc\Documents\大创\projects\irt_label_pipeline\start_stage2b_sionna35_training.ps1" `
+  -Mode Full
+
+powershell -NoProfile -ExecutionPolicy Bypass -File `
+  "C:\Users\pc\Documents\大创\projects\irt_label_pipeline\start_stage2b_sionna35_training.ps1" `
+  -Mode Resume `
+  -Checkpoint "D:\桌面\dac\models\stage2b_directional_ss_sionna35_depth8_paper_v1\last.pt"
+```
+
+The formal result is accepted only if the 50/100/200-point test RMSE each
+improves by at least 0.2 dB over the sparse-calibrated isotropic baseline and
+the corresponding MAE is also lower.
 
 ## Rollback point
 

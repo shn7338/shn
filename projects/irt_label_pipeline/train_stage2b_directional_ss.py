@@ -18,11 +18,11 @@ import numpy as np
 import torch
 import torch.nn.functional as functional
 from torch import nn
-from torch.optim import AdamW
+from torch.optim import Adam, AdamW
 from torch.optim.lr_scheduler import CosineAnnealingLR
 from torch.utils.data import DataLoader
 
-from stage2_models import ResidualUNet, parameter_count
+from stage2_models import Geo2SigMapUNet, ResidualUNet, parameter_count
 from stage2b_dataset import Stage2BDirectionalDataset
 
 
@@ -35,6 +35,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--val-limit-tiles", type=int)
     parser.add_argument("--test-limit-tiles", type=int)
     parser.add_argument("--device")
+    parser.add_argument("--output-dir", type=Path)
     return parser.parse_args()
 
 
@@ -114,11 +115,71 @@ def make_loader(
     return DataLoader(**arguments)
 
 
+def build_configured_unet(
+    config: dict[str, Any],
+    in_channels: int,
+) -> nn.Module:
+    model_config = config.get("model", {})
+    architecture = str(
+        model_config.get("architecture", "stable_residual_unet")
+    ).lower()
+    base_channels = int(
+        model_config.get("base_channels", config.get("base_channels", 32))
+    )
+    if architecture == "geo2sigmap_unet":
+        return Geo2SigMapUNet(
+            in_channels=in_channels,
+            base_channels=base_channels,
+            gradient_checkpointing=bool(
+                model_config.get("gradient_checkpointing", False)
+            ),
+            zero_init_output=bool(
+                model_config.get("zero_init_output", False)
+            ),
+        )
+    if architecture == "stable_residual_unet":
+        return ResidualUNet(
+            in_channels=in_channels,
+            base_channels=base_channels,
+        )
+    raise ValueError(f"unsupported U-Net architecture: {architecture!r}")
+
+
+def build_optimizer(
+    config: dict[str, Any],
+    model: nn.Module,
+) -> torch.optim.Optimizer:
+    name = str(config.get("optimizer", "adamw")).lower()
+    arguments = {
+        "params": model.parameters(),
+        "lr": float(config["learning_rate"]),
+        "weight_decay": float(config.get("weight_decay", 0.0)),
+    }
+    if name == "adam":
+        return Adam(**arguments)
+    if name == "adamw":
+        return AdamW(**arguments)
+    raise ValueError(f"unsupported optimizer: {name!r}")
+
+
+def build_scheduler(
+    config: dict[str, Any],
+    optimizer: torch.optim.Optimizer,
+    epochs: int,
+) -> CosineAnnealingLR | None:
+    name = str(config.get("scheduler", "cosine")).lower()
+    if name == "none":
+        return None
+    if name == "cosine":
+        return CosineAnnealingLR(optimizer, T_max=max(epochs, 1))
+    raise ValueError(f"unsupported scheduler: {name!r}")
+
+
 def load_frozen_models(
     config: dict[str, Any],
     device: torch.device,
     channels_last: bool,
-) -> tuple[nn.Module, nn.Module, dict[str, float | str]]:
+) -> tuple[nn.Module, nn.Module, dict[str, Any]]:
     stage1_path = Path(config["stage1_model_dir"]) / "best.pt"
     stage1_normalization_path = (
         Path(config["stage1_model_dir"]) / "normalization.json"
@@ -158,11 +219,22 @@ def load_frozen_models(
         weights_only=False,
     )
     stage2a_config = stage2a_checkpoint["config"]
-    stage2a = ResidualUNet(
-        in_channels=2,
-        base_channels=int(stage2a_config["base_channels"]),
-    ).to(device)
+    stage2a = build_configured_unet(stage2a_config, in_channels=2).to(device)
     stage2a.load_state_dict(stage2a_checkpoint["model"], strict=True)
+    stage2a_stage1_hash = str(
+        stage2a_checkpoint.get("stage1_checkpoint_sha256", "")
+    )
+    if stage2a_stage1_hash.lower() != stage1_hash.lower():
+        raise ValueError("Stage2-A was trained with a different Stage1 model")
+    if bool(config.get("require_accepted_stage2a", False)):
+        stage2a_metrics_path = (
+            Path(config["stage2a_model_dir"]) / "test_metrics.json"
+        )
+        if not stage2a_metrics_path.is_file():
+            raise FileNotFoundError(stage2a_metrics_path)
+        stage2a_metrics = load_json(stage2a_metrics_path)
+        if not bool(stage2a_metrics.get("accepted_for_stage2b", False)):
+            raise ValueError("Stage2-A has not passed Stage2-B acceptance")
 
     for model in (stage1, stage2a):
         model.eval()
@@ -171,11 +243,18 @@ def load_frozen_models(
             model.to(memory_format=torch.channels_last)
     normalization = load_json(stage1_normalization_path)
     path_gain = normalization["statistics"]["path_gain"]
-    metadata: dict[str, float | str] = {
+    metadata: dict[str, Any] = {
         "stage1_mean_db": float(path_gain["mean_db"]),
         "stage1_std_db": float(path_gain["std_db"]),
+        "stage2a_residual_center_db": float(
+            stage2a_checkpoint.get("residual_center_db", 0.0)
+        ),
         "stage2a_residual_scale_db": float(
             stage2a_checkpoint["residual_scale_db"]
+        ),
+        "stage2a_best_epoch": int(stage2a_checkpoint["epoch"]),
+        "stage2a_best_val_rmse_db": float(
+            stage2a_checkpoint["best_val_rmse_db"]
         ),
         "stage1_checkpoint_sha256": stage1_hash,
         "stage2a_checkpoint_sha256": stage2a_hash,
@@ -183,20 +262,31 @@ def load_frozen_models(
     return stage1, stage2a, metadata
 
 
-def masked_huber(
+def masked_loss(
     prediction: torch.Tensor,
     target: torch.Tensor,
     mask: torch.Tensor,
+    name: str,
     beta: float,
 ) -> torch.Tensor:
     if not torch.any(mask):
         raise ValueError("batch contains no valid directional pixels")
-    return functional.smooth_l1_loss(
-        prediction[mask],
-        target[mask],
-        beta=beta,
-        reduction="mean",
-    )
+    prediction_valid = prediction[mask]
+    target_valid = target[mask]
+    if name == "masked_mse":
+        return functional.mse_loss(
+            prediction_valid,
+            target_valid,
+            reduction="mean",
+        )
+    if name == "masked_huber":
+        return functional.smooth_l1_loss(
+            prediction_valid,
+            target_valid,
+            beta=beta,
+            reduction="mean",
+        )
+    raise ValueError(f"unsupported loss: {name!r}")
 
 
 def sparse_calibrated_iso_baseline(
@@ -232,14 +322,22 @@ def run_epoch(
     channels_last: bool,
     stage1_mean_db: float,
     stage1_std_db: float,
+    stage2a_residual_center_db: float,
     stage2a_residual_scale_db: float,
+    iso_mean_db: float,
+    iso_std_db: float,
     ss_mean_db: float,
     ss_std_db: float,
+    loss_name: str,
     huber_beta: float,
-    optimizer: AdamW | None,
+    optimizer: torch.optim.Optimizer | None,
     scaler: torch.amp.GradScaler | None,
     accumulation: int,
     gradient_clip: float,
+    phase: str | None = None,
+    epoch: int | None = None,
+    sparse_points_label: int | str | None = None,
+    progress_every: int = 0,
 ) -> dict[str, float]:
     training = optimizer is not None
     stage2b.train(training)
@@ -253,6 +351,7 @@ def run_epoch(
     baseline_squared_error = 0.0
     baseline_absolute_error = 0.0
     sparse_point_sum = 0
+    epoch_started = time.perf_counter()
     for batch_index, batch in enumerate(loader):
         stage1_input = batch["stage1_input"].to(
             device, non_blocking=True
@@ -302,11 +401,10 @@ def run_epoch(
         dpm_db = dpm_norm.float() * stage1_std_db + stage1_mean_db
         corrected_iso_db = (
             dpm_db
+            + stage2a_residual_center_db
             + residual_norm.float() * stage2a_residual_scale_db
         )
-        corrected_iso_norm = (
-            corrected_iso_db - stage1_mean_db
-        ) / stage1_std_db
+        corrected_iso_norm = (corrected_iso_db - iso_mean_db) / iso_std_db
         with torch.set_grad_enabled(training), torch.amp.autocast(
             device_type=device.type,
             dtype=torch.float16,
@@ -322,10 +420,11 @@ def run_epoch(
                 dim=1,
             )
             prediction_norm = stage2b(stage2b_input)
-            loss = masked_huber(
+            loss = masked_loss(
                 prediction_norm,
                 target_norm,
                 valid_mask,
+                loss_name,
                 huber_beta,
             )
         if training:
@@ -371,17 +470,45 @@ def run_epoch(
         )
         loss_sum += float(loss.detach().item())
         batches += 1
+        if progress_every > 0 and (
+            batches % progress_every == 0 or batches == len(loader)
+        ):
+            print(
+                json.dumps(
+                    {
+                        "event": "progress",
+                        "phase": phase,
+                        "epoch": epoch,
+                        "sparse_points": sparse_points_label,
+                        "batch": batches,
+                        "batches_total": len(loader),
+                        "percent": round(100.0 * batches / len(loader), 1),
+                        "elapsed_seconds": round(
+                            time.perf_counter() - epoch_started,
+                            1,
+                        ),
+                    },
+                    ensure_ascii=False,
+                ),
+                flush=True,
+            )
     if not batches or not valid_pixels:
         raise RuntimeError("empty epoch")
+    rmse_db = math.sqrt(squared_error / valid_pixels)
+    mae_db = absolute_error / valid_pixels
+    baseline_rmse_db = math.sqrt(baseline_squared_error / valid_pixels)
+    baseline_mae_db = baseline_absolute_error / valid_pixels
     return {
         "loss": loss_sum / batches,
-        "rmse_db": math.sqrt(squared_error / valid_pixels),
-        "mae_db": absolute_error / valid_pixels,
-        "sparse_calibrated_iso_rmse_db": math.sqrt(
-            baseline_squared_error / valid_pixels
+        "rmse_db": rmse_db,
+        "mae_db": mae_db,
+        "sparse_calibrated_iso_rmse_db": baseline_rmse_db,
+        "sparse_calibrated_iso_mae_db": baseline_mae_db,
+        "rmse_improvement_vs_sparse_calibrated_iso_db": (
+            baseline_rmse_db - rmse_db
         ),
-        "sparse_calibrated_iso_mae_db": (
-            baseline_absolute_error / valid_pixels
+        "mae_improvement_vs_sparse_calibrated_iso_db": (
+            baseline_mae_db - mae_db
         ),
         "mean_sparse_points": sparse_point_sum / len(loader.dataset),
         "valid_pixels": float(valid_pixels),
@@ -418,6 +545,15 @@ def main() -> int:
     args = parse_args()
     config_path = args.config.resolve()
     config = load_json(config_path)
+    expected_manifest_hash = config.get("provenance", {}).get(
+        "irt_shard_manifest_sha256"
+    )
+    actual_manifest_hash = sha256_file(Path(config["shard_manifest"]))
+    if (
+        expected_manifest_hash
+        and actual_manifest_hash.lower() != expected_manifest_hash.lower()
+    ):
+        raise ValueError("IRT shard manifest hash mismatch")
     seed_everything(int(config["seed"]))
     device = resolve_device(args.device or str(config["device"]))
     amp_enabled = bool(config["amp"]) and device.type == "cuda"
@@ -426,6 +562,9 @@ def main() -> int:
         torch.backends.cudnn.benchmark = True
 
     irt_normalization = load_json(Path(config["irt_normalization"]))
+    iso_normalization = irt_normalization["statistics"]["train"]["p_iso"]
+    iso_mean_db = float(iso_normalization["mean_db"])
+    iso_std_db = float(iso_normalization["std_db"])
     ss_normalization = irt_normalization["stage2b_ss_normalization"]
     ss_mean_db = float(ss_normalization["mean_db"])
     ss_std_db = float(ss_normalization["std_db"])
@@ -459,22 +598,15 @@ def main() -> int:
     stage1, stage2a, frozen_metadata = load_frozen_models(
         config, device, channels_last
     )
-    stage2b = ResidualUNet(
-        in_channels=4,
-        base_channels=int(config["base_channels"]),
-    ).to(device)
+    stage2b = build_configured_unet(config, in_channels=4).to(device)
     if channels_last:
         stage2b.to(memory_format=torch.channels_last)
-    optimizer = AdamW(
-        stage2b.parameters(),
-        lr=float(config["learning_rate"]),
-        weight_decay=float(config["weight_decay"]),
-    )
     epochs = args.epochs or int(config["epochs"])
-    scheduler = CosineAnnealingLR(optimizer, T_max=max(epochs, 1))
+    optimizer = build_optimizer(config, stage2b)
+    scheduler = build_scheduler(config, optimizer, epochs)
     scaler = torch.amp.GradScaler(device.type, enabled=amp_enabled)
 
-    output_dir = Path(config["output_dir"])
+    output_dir = (args.output_dir or Path(config["output_dir"])).resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
     best_path = output_dir / "best.pt"
     if best_path.exists() and args.resume is None:
@@ -483,17 +615,27 @@ def main() -> int:
         )
     start_epoch = 1
     best_rmse = math.inf
+    best_val_metrics: dict[str, float] = {}
     patience_used = 0
     history: list[dict[str, Any]] = []
     if args.resume is not None:
         checkpoint = torch.load(
             args.resume, map_location=device, weights_only=False
         )
+        if "optimizer" not in checkpoint:
+            raise ValueError(
+                "resume requires last.pt; best.pt is inference-only"
+            )
         stage2b.load_state_dict(checkpoint["model"], strict=True)
         optimizer.load_state_dict(checkpoint["optimizer"])
-        scheduler.load_state_dict(checkpoint["scheduler"])
+        if scheduler is not None:
+            saved_scheduler = checkpoint.get("scheduler")
+            if saved_scheduler is None:
+                raise ValueError("resume checkpoint has no scheduler state")
+            scheduler.load_state_dict(saved_scheduler)
         start_epoch = int(checkpoint["epoch"]) + 1
         best_rmse = float(checkpoint["best_val_rmse_db"])
+        best_val_metrics = dict(checkpoint.get("best_val_metrics", {}))
         patience_used = int(checkpoint["patience_used"])
         history = list(checkpoint.get("history", []))
 
@@ -511,18 +653,27 @@ def main() -> int:
         ),
         "amp_resolved": amp_enabled,
         "channels_last_resolved": channels_last,
+        "iso_mean_db": iso_mean_db,
+        "iso_std_db": iso_std_db,
         "ss_mean_db": ss_mean_db,
         "ss_std_db": ss_std_db,
+        "irt_shard_manifest_sha256": actual_manifest_hash,
         "stage2b_parameters": parameter_count(stage2b),
+        "effective_batch_size": (
+            int(config["batch_size"])
+            * int(config["gradient_accumulation"])
+        ),
         "split_directional_samples": {
             split: len(dataset) for split, dataset in datasets.items()
         },
         **frozen_metadata,
     }
     atomic_write_json(output_dir / "run_config.json", run_config)
-    best_epoch = 0
     started = time.perf_counter()
     accumulation = int(config["gradient_accumulation"])
+    loss_name = str(config["loss"]).lower()
+    huber_delta = float(config.get("huber_delta_normalized", 1.0))
+    progress_every = int(config.get("progress_every_batches", 25))
     for epoch in range(start_epoch, epochs + 1):
         datasets["train"].set_epoch(epoch)
         train_metrics = run_epoch(
@@ -535,14 +686,22 @@ def main() -> int:
             channels_last,
             float(frozen_metadata["stage1_mean_db"]),
             float(frozen_metadata["stage1_std_db"]),
+            float(frozen_metadata["stage2a_residual_center_db"]),
             float(frozen_metadata["stage2a_residual_scale_db"]),
+            iso_mean_db,
+            iso_std_db,
             ss_mean_db,
             ss_std_db,
-            float(config["huber_delta_normalized"]),
+            loss_name,
+            huber_delta,
             optimizer,
             scaler,
             accumulation,
             float(config["gradient_clip"]),
+            "train",
+            epoch,
+            "random_1_200",
+            progress_every,
         )
         val_metrics = run_epoch(
             loaders["val"],
@@ -554,20 +713,29 @@ def main() -> int:
             channels_last,
             float(frozen_metadata["stage1_mean_db"]),
             float(frozen_metadata["stage1_std_db"]),
+            float(frozen_metadata["stage2a_residual_center_db"]),
             float(frozen_metadata["stage2a_residual_scale_db"]),
+            iso_mean_db,
+            iso_std_db,
             ss_mean_db,
             ss_std_db,
-            float(config["huber_delta_normalized"]),
+            loss_name,
+            huber_delta,
             None,
             None,
             accumulation,
             float(config["gradient_clip"]),
+            "val",
+            epoch,
+            int(config["validation_sparse_points"]),
+            progress_every,
         )
-        scheduler.step()
+        if scheduler is not None:
+            scheduler.step()
         improved = val_metrics["rmse_db"] < best_rmse
         if improved:
             best_rmse = val_metrics["rmse_db"]
-            best_epoch = epoch
+            best_val_metrics = dict(val_metrics)
             patience_used = 0
         else:
             patience_used += 1
@@ -587,8 +755,11 @@ def main() -> int:
             "epoch": epoch,
             "model": stage2b.state_dict(),
             "optimizer": optimizer.state_dict(),
-            "scheduler": scheduler.state_dict(),
+            "scheduler": (
+                scheduler.state_dict() if scheduler is not None else None
+            ),
             "best_val_rmse_db": best_rmse,
+            "best_val_metrics": best_val_metrics,
             "patience_used": patience_used,
             "history": history,
             "config": config,
@@ -598,7 +769,20 @@ def main() -> int:
         }
         atomic_torch_save(output_dir / "last.pt", checkpoint)
         if improved:
-            atomic_torch_save(best_path, checkpoint)
+            best_checkpoint = {
+                "version": config["version"],
+                "epoch": epoch,
+                "model": stage2b.state_dict(),
+                "best_val_rmse_db": best_rmse,
+                "best_val_metrics": best_val_metrics,
+                "config": config,
+                "iso_mean_db": iso_mean_db,
+                "iso_std_db": iso_std_db,
+                "ss_mean_db": ss_mean_db,
+                "ss_std_db": ss_std_db,
+                **frozen_metadata,
+            }
+            atomic_torch_save(best_path, best_checkpoint)
         print(json.dumps(row, ensure_ascii=False), flush=True)
         if patience_used >= int(config["patience"]):
             break
@@ -628,20 +812,66 @@ def main() -> int:
             channels_last,
             float(frozen_metadata["stage1_mean_db"]),
             float(frozen_metadata["stage1_std_db"]),
+            float(frozen_metadata["stage2a_residual_center_db"]),
             float(frozen_metadata["stage2a_residual_scale_db"]),
+            iso_mean_db,
+            iso_std_db,
             ss_mean_db,
             ss_std_db,
-            float(config["huber_delta_normalized"]),
+            loss_name,
+            huber_delta,
             None,
             None,
             accumulation,
             float(config["gradient_clip"]),
+            "test",
+            int(best["epoch"]),
+            int(sparse_points),
+            progress_every,
         )
+    acceptance = config.get("acceptance", {})
+    minimum_rmse_improvement = float(
+        acceptance.get(
+            "minimum_test_rmse_improvement_vs_sparse_calibrated_iso_db",
+            0.0,
+        )
+    )
+    require_mae_better = bool(
+        acceptance.get("require_test_mae_better", True)
+    )
+    acceptance_checks: dict[str, Any] = {}
+    for sparse_points, metrics in tests.items():
+        rmse_improvement = float(
+            metrics[
+                "rmse_improvement_vs_sparse_calibrated_iso_db"
+            ]
+        )
+        mae_improvement = float(
+            metrics[
+                "mae_improvement_vs_sparse_calibrated_iso_db"
+            ]
+        )
+        acceptance_checks[sparse_points] = {
+            "rmse_improvement_db": rmse_improvement,
+            "minimum_required_db": minimum_rmse_improvement,
+            "rmse_pass": rmse_improvement >= minimum_rmse_improvement,
+            "mae_improvement_db": mae_improvement,
+            "mae_pass": (
+                not require_mae_better or mae_improvement > 0.0
+            ),
+        }
+    accepted = all(
+        check["rmse_pass"] and check["mae_pass"]
+        for check in acceptance_checks.values()
+    )
     result = {
-        "status": "ok",
+        "status": "ok" if accepted else "completed_not_accepted",
+        "accepted_for_final_evaluation": accepted,
         "best_epoch": int(best["epoch"]),
         "best_val_rmse_db": float(best["best_val_rmse_db"]),
+        "best_val_metrics": best.get("best_val_metrics", {}),
         "test_by_sparse_points": tests,
+        "acceptance_checks": acceptance_checks,
         "elapsed_seconds": time.perf_counter() - started,
         "checkpoint": str(best_path),
         "checkpoint_sha256": sha256_file(best_path),

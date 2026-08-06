@@ -234,7 +234,11 @@ class Stage2BDirectionalDataset(Dataset):
                     self.epoch,
                 )
             )
-            rotations = int(augment_rng.integers(0, 4))
+            # Uniformly sample the paper's eight unique D4 transforms:
+            # four rotations, with or without one horizontal mirror.
+            transform = int(augment_rng.integers(0, 8))
+            rotations = transform % 4
+            mirror = transform >= 4
             if rotations:
                 stage1_inputs = np.rot90(
                     stage1_inputs, rotations, axes=(-2, -1)
@@ -257,7 +261,7 @@ class Stage2BDirectionalDataset(Dataset):
                 sparse_mask = np.rot90(
                     sparse_mask, rotations, axes=(-2, -1)
                 )
-            if bool(augment_rng.integers(0, 2)):
+            if mirror:
                 stage1_inputs = np.flip(stage1_inputs, axis=-1)
                 if stage1_prediction is not None:
                     stage1_prediction = np.flip(
@@ -267,16 +271,6 @@ class Stage2BDirectionalDataset(Dataset):
                 valid_mask = np.flip(valid_mask, axis=-1)
                 sparse_norm = np.flip(sparse_norm, axis=-1)
                 sparse_mask = np.flip(sparse_mask, axis=-1)
-            if bool(augment_rng.integers(0, 2)):
-                stage1_inputs = np.flip(stage1_inputs, axis=-2)
-                if stage1_prediction is not None:
-                    stage1_prediction = np.flip(
-                        stage1_prediction, axis=-2
-                    )
-                target_norm = np.flip(target_norm, axis=-2)
-                valid_mask = np.flip(valid_mask, axis=-2)
-                sparse_norm = np.flip(sparse_norm, axis=-2)
-                sparse_mask = np.flip(sparse_mask, axis=-2)
 
         azimuth = int(row[f"azimuth_{direction_index}_deg"])
         result = {
