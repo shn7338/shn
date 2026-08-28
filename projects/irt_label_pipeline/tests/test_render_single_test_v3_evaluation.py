@@ -17,9 +17,12 @@ from render_single_test_v3_evaluation import (  # noqa: E402
     atomic_save_npz,
     atomic_write_json,
     augment_evidence_arrays,
+    build_aggregate_result,
     compute_display_limits,
     find_sample_index,
     guard_outputs,
+    render_figure,
+    row_col_to_xy_m,
     sample_metrics,
     validate_sample_arrays,
     validate_provenance,
@@ -167,6 +170,91 @@ class V3EvaluationContractTests(unittest.TestCase):
                 np.testing.assert_array_equal(saved["value"], [1.0, 2.0])
             self.assertFalse((root / "evidence.json.tmp").exists())
             self.assertFalse((root / "evidence.npz.tmp").exists())
+
+    def test_row_col_to_xy_m_uses_pixel_centres_and_north_up(self) -> None:
+        self.assertEqual(
+            row_col_to_xy_m(np.asarray([0.0, 0.0], dtype=np.float32)),
+            (2.0, 510.0),
+        )
+        self.assertEqual(
+            row_col_to_xy_m(np.asarray([127.0, 127.0], dtype=np.float32)),
+            (510.0, 2.0),
+        )
+
+    def test_render_figure_writes_opaque_rgb_png(self) -> None:
+        from PIL import Image
+
+        rows, cols = np.indices((128, 128), dtype=np.float32)
+        target = -100.0 + rows * 0.1 + cols * 0.05
+        prediction = target + np.sin(cols / 12.0).astype(np.float32)
+        valid = np.ones((128, 128), dtype=bool)
+        valid[:8, :8] = False
+        sparse_mask = np.zeros((128, 128), dtype=bool)
+        sparse_mask.flat[:100] = True
+        arrays = augment_evidence_arrays(
+            {
+                "building": np.zeros((128, 128), dtype=np.float32),
+                "sparse_mask": sparse_mask,
+                "sparse_db": target.copy(),
+                "target_db": target,
+                "valid_mask": valid,
+                "prediction_db": prediction,
+                "true_row_col_px": np.asarray([20.0, 30.0], dtype=np.float32),
+                "estimated_row_col_px": np.asarray(
+                    [22.0, 33.0], dtype=np.float32
+                ),
+            }
+        )
+        metrics = sample_metrics(target, prediction, valid)
+        limits = compute_display_limits(target, prediction, valid)
+        aggregate = {
+            "mae_db": 4.101779706371985,
+            "rmse_db": 6.946207715784639,
+            "gate": {
+                "maximum_rmse_db": 6.85,
+                "minimum_improvement_db": 0.1,
+                "actual_improvement_db": 0.022,
+                "passed": False,
+            },
+        }
+        sample = {
+            "site_id": "tile_000222_site03",
+            "direction_index": 0,
+            "azimuth_deg": 12.0,
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "figure.png"
+
+            render_figure(arrays, sample, metrics, aggregate, limits, output)
+
+            with Image.open(output) as image:
+                self.assertEqual(image.mode, "RGB")
+                self.assertEqual(image.size, (3168, 1892))
+                self.assertGreaterEqual(min(image.info["dpi"]), 180.0)
+
+    def test_aggregate_gate_uses_predeclared_v3_acceptance_baseline(self) -> None:
+        config = {
+            "acceptance": {
+                "baseline_final_test_rmse_db": 6.968589598108601,
+                "maximum_test_rmse_db": 6.85,
+                "minimum_improvement_db": 0.1,
+            }
+        }
+        report = {
+            "sites": 1024,
+            "directional_samples": 4096,
+            "final_mae_db": 4.101779706371985,
+            "final_rmse_db": 6.946207715784639,
+            "final_rmse_improvement_vs_baseline_db": 5.252158639535005,
+        }
+
+        aggregate = build_aggregate_result(config, report)
+
+        self.assertAlmostEqual(
+            aggregate["gate"]["actual_improvement_db"],
+            6.968589598108601 - 6.946207715784639,
+        )
+        self.assertFalse(aggregate["gate"]["passed"])
 
 
 if __name__ == "__main__":

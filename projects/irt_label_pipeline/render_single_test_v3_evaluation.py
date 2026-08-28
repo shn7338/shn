@@ -407,3 +407,489 @@ def run_formal_v3_inference(
         "report": report,
         "runtime": runtime,
     }
+
+
+def row_col_to_xy_m(row_col: np.ndarray) -> tuple[float, float]:
+    return (
+        (float(row_col[1]) + 0.5) * 4.0,
+        512.0 - (float(row_col[0]) + 0.5) * 4.0,
+    )
+
+
+def style_map_axis(axis: Any) -> None:
+    axis.set(
+        xlabel="East (m)",
+        ylabel="North (m)",
+        xlim=(0.0, 512.0),
+        ylim=(0.0, 512.0),
+    )
+    axis.set_xticks([0, 128, 256, 384, 512])
+    axis.set_yticks([0, 128, 256, 384, 512])
+    axis.set_aspect("equal")
+
+
+def render_figure(
+    arrays: dict[str, np.ndarray],
+    sample: dict[str, Any],
+    metrics: dict[str, float | int],
+    aggregate: dict[str, Any],
+    limits: dict[str, list[float] | float],
+    figure_path: Path,
+) -> None:
+    import matplotlib
+
+    matplotlib.use("Agg")
+    import matplotlib as mpl
+    import matplotlib.pyplot as plt
+    from matplotlib.colors import TwoSlopeNorm
+    from matplotlib.lines import Line2D
+    from PIL import Image
+
+    plt.rcParams.update(
+        {
+            "font.family": "sans-serif",
+            "font.sans-serif": [
+                "Microsoft YaHei",
+                "Arial",
+                "DejaVu Sans",
+            ],
+            "axes.titlesize": 10.5,
+            "axes.labelsize": 9.5,
+            "xtick.labelsize": 8.5,
+            "ytick.labelsize": 8.5,
+            "figure.facecolor": "white",
+            "axes.facecolor": "white",
+        }
+    )
+    signal_vmin, signal_vmax = limits["signal_db"]
+    error_limit = float(limits["error_p99_db"])
+    valid = arrays["valid_mask"]
+    signal_cmap = mpl.colormaps["viridis"].copy()
+    signal_cmap.set_bad("#A6A6A6")
+    signed_cmap = mpl.colormaps["RdBu_r"].copy()
+    signed_cmap.set_bad("#A6A6A6")
+    absolute_cmap = mpl.colormaps["magma"].copy()
+    absolute_cmap.set_bad("#A6A6A6")
+
+    figure, axes = plt.subplots(
+        2,
+        3,
+        figsize=(14.4, 8.6),
+        layout="constrained",
+    )
+    figure.get_layout_engine().set(rect=(0.02, 0.055, 0.98, 0.94))
+
+    input_axis = axes[0, 0]
+    input_axis.imshow(
+        arrays["building"],
+        cmap="Greys",
+        vmin=0.0,
+        vmax=1.0,
+        extent=(0, 512, 0, 512),
+        origin="upper",
+        interpolation="nearest",
+    )
+    sparse_rows, sparse_cols = np.nonzero(arrays["sparse_mask"])
+    input_axis.scatter(
+        (sparse_cols + 0.5) * 4.0,
+        512.0 - (sparse_rows + 0.5) * 4.0,
+        c=arrays["sparse_db"][arrays["sparse_mask"]],
+        s=16,
+        cmap=signal_cmap,
+        vmin=signal_vmin,
+        vmax=signal_vmax,
+        marker="o",
+        edgecolors="white",
+        linewidths=0.25,
+    )
+    true_x, true_y = row_col_to_xy_m(arrays["true_row_col_px"])
+    estimated_x, estimated_y = row_col_to_xy_m(
+        arrays["estimated_row_col_px"]
+    )
+    input_axis.scatter(
+        true_x,
+        true_y,
+        marker="*",
+        s=190,
+        color="#D55E00",
+        edgecolors="white",
+        linewidths=0.9,
+        zorder=4,
+    )
+    input_axis.scatter(
+        estimated_x,
+        estimated_y,
+        marker="x",
+        s=90,
+        color="#0072B2",
+        linewidths=2.0,
+        zorder=5,
+    )
+    input_axis.legend(
+        handles=[
+            Line2D(
+                [0],
+                [0],
+                marker="*",
+                linestyle="",
+                markersize=11,
+                markerfacecolor="#D55E00",
+                markeredgecolor="white",
+                label="True BS",
+            ),
+            Line2D(
+                [0],
+                [0],
+                marker="x",
+                linestyle="",
+                markersize=8,
+                color="#0072B2",
+                markeredgewidth=2,
+                label="Estimated BS",
+            ),
+        ],
+        loc="lower left",
+        fontsize=8,
+        framealpha=0.9,
+    )
+    input_axis.set_title(
+        "A  Input: buildings + 100 sparse samples", loc="left"
+    )
+
+    signal_images = []
+    signal_panels = (
+        (axes[0, 1], "target_db", "B  Ground truth"),
+        (
+            axes[0, 2],
+            "prediction_db",
+            "C  V3 prediction\n"
+            f"RMSE {metrics['rmse_db']:.2f} dB | "
+            f"MAE {metrics['mae_db']:.2f} dB",
+        ),
+    )
+    for axis, key, title in signal_panels:
+        image = axis.imshow(
+            np.ma.masked_where(~valid, arrays[key]),
+            cmap=signal_cmap,
+            vmin=signal_vmin,
+            vmax=signal_vmax,
+            extent=(0, 512, 0, 512),
+            origin="upper",
+            interpolation="nearest",
+        )
+        signal_images.append(image)
+        axis.set_title(title, loc="left")
+
+    signed_image = axes[1, 0].imshow(
+        np.ma.masked_where(~valid, arrays["signed_error_db"]),
+        cmap=signed_cmap,
+        norm=TwoSlopeNorm(
+            vmin=-error_limit,
+            vcenter=0.0,
+            vmax=error_limit,
+        ),
+        extent=(0, 512, 0, 512),
+        origin="upper",
+        interpolation="nearest",
+    )
+    axes[1, 0].set_title(
+        f"D  Signed error | bias {metrics['bias_db']:+.2f} dB",
+        loc="left",
+    )
+    absolute_image = axes[1, 1].imshow(
+        np.ma.masked_where(~valid, arrays["absolute_error_db"]),
+        cmap=absolute_cmap,
+        vmin=0.0,
+        vmax=error_limit,
+        extent=(0, 512, 0, 512),
+        origin="upper",
+        interpolation="nearest",
+    )
+    axes[1, 1].set_title(
+        "E  Absolute error\n"
+        f"P90 {metrics['p90_absolute_error_db']:.2f} dB | "
+        f"max {metrics['max_absolute_error_db']:.2f} dB",
+        loc="left",
+    )
+
+    summary_axis = axes[1, 2]
+    summary_axis.axis("off")
+    gate = aggregate["gate"]
+    summary_axis.set_title("F  Numeric summary", loc="left")
+    summary_axis.text(
+        0.03,
+        0.96,
+        "Fixed held-out sample\n"
+        f"Valid pixels: {metrics['valid_pixels']:,}\n"
+        f"MAE: {metrics['mae_db']:.3f} dB\n"
+        f"RMSE: {metrics['rmse_db']:.3f} dB\n"
+        f"Bias: {metrics['bias_db']:+.3f} dB\n"
+        f"P90 |error|: {metrics['p90_absolute_error_db']:.3f} dB\n"
+        f"Max |error|: {metrics['max_absolute_error_db']:.3f} dB\n"
+        f"Pearson r: {metrics['pearson_r']:.3f}",
+        transform=summary_axis.transAxes,
+        va="top",
+        ha="left",
+        fontsize=9.7,
+        linespacing=1.2,
+        color="#222222",
+    )
+    summary_axis.text(
+        0.03,
+        0.45,
+        "Complete test (4,096 maps)\n"
+        f"MAE: {aggregate['mae_db']:.3f} dB\n"
+        f"RMSE: {aggregate['rmse_db']:.3f} dB",
+        transform=summary_axis.transAxes,
+        va="top",
+        ha="left",
+        fontsize=9.7,
+        linespacing=1.2,
+        color="#222222",
+    )
+    summary_axis.text(
+        0.03,
+        0.24,
+        "FAIL — Gate not passed",
+        transform=summary_axis.transAxes,
+        va="top",
+        ha="left",
+        fontsize=10.5,
+        fontweight="bold",
+        color="#B2182B",
+    )
+    summary_axis.text(
+        0.03,
+        0.17,
+        f"RMSE ≤ {gate['maximum_rmse_db']:.2f} dB required\n"
+        f"Improvement ≥ {gate['minimum_improvement_db']:.2f} dB required\n"
+        f"Actual improvement: {gate['actual_improvement_db']:.3f} dB\n"
+        "Gray = invalid; excluded from sample metrics.",
+        transform=summary_axis.transAxes,
+        va="top",
+        ha="left",
+        fontsize=8.2,
+        linespacing=1.05,
+        color="#333333",
+    )
+
+    map_axes = (
+        axes[0, 0],
+        axes[0, 1],
+        axes[0, 2],
+        axes[1, 0],
+        axes[1, 1],
+    )
+    for axis in map_axes:
+        style_map_axis(axis)
+    figure.colorbar(
+        signal_images[-1],
+        ax=axes[0, :],
+        orientation="horizontal",
+        fraction=0.055,
+        pad=0.08,
+        extend="both",
+        label=(
+            "Signal strength (dB); shared 1st–99th percentile display range"
+        ),
+    )
+    figure.colorbar(
+        signed_image,
+        ax=axes[1, 0],
+        fraction=0.047,
+        pad=0.04,
+        extend="both",
+        label="V3 prediction - truth (dB); P99 limits",
+    )
+    figure.colorbar(
+        absolute_image,
+        ax=axes[1, 1],
+        fraction=0.047,
+        pad=0.04,
+        extend="max",
+        label="Absolute error (dB); P99 upper limit",
+    )
+    figure.suptitle(
+        "Scale-4 V3 signal-map evaluation on one fixed held-out test sample",
+        fontsize=16,
+        fontweight="bold",
+    )
+    figure.text(
+        0.5,
+        0.012,
+        f"Sample {sample['site_id']} | direction {sample['direction_index']} | "
+        f"azimuth {sample['azimuth_deg']:.0f}° | 128×128 pixels | "
+        "4 m resolution",
+        ha="center",
+        va="bottom",
+        fontsize=9.5,
+    )
+    figure.savefig(
+        figure_path,
+        dpi=220,
+        facecolor="white",
+        transparent=False,
+    )
+    plt.close(figure)
+    with Image.open(figure_path) as rendered:
+        rendered.convert("RGB").save(figure_path, dpi=(220, 220))
+
+
+def build_aggregate_result(
+    config: dict[str, Any], report: dict[str, Any]
+) -> dict[str, Any]:
+    if int(report["directional_samples"]) != 4096 or int(
+        report["sites"]
+    ) != 1024:
+        raise ValueError(
+            "formal V3 report must describe 1,024 sites and 4,096 maps"
+        )
+    baseline_rmse_db = float(
+        config["acceptance"]["baseline_final_test_rmse_db"]
+    )
+    rmse_db = float(report["final_rmse_db"])
+    maximum_rmse_db = float(
+        config["acceptance"]["maximum_test_rmse_db"]
+    )
+    minimum_improvement_db = float(
+        config["acceptance"]["minimum_improvement_db"]
+    )
+    actual_improvement_db = baseline_rmse_db - rmse_db
+    return {
+        "sites": int(report["sites"]),
+        "maps": int(report["directional_samples"]),
+        "mae_db": float(report["final_mae_db"]),
+        "rmse_db": rmse_db,
+        "gate": {
+            "baseline_rmse_db": baseline_rmse_db,
+            "maximum_rmse_db": maximum_rmse_db,
+            "minimum_improvement_db": minimum_improvement_db,
+            "actual_improvement_db": actual_improvement_db,
+            "passed": bool(
+                rmse_db <= maximum_rmse_db
+                and actual_improvement_db >= minimum_improvement_db
+            ),
+        },
+    }
+
+
+def main() -> int:
+    args = parse_args()
+    output_dir = args.output_dir.resolve()
+    guard_outputs(output_dir, args.overwrite)
+    sample, arrays, provenance = run_formal_v3_inference(
+        args.config,
+        args.estimator_config,
+        args.report,
+        args.site_id,
+        args.direction,
+    )
+    arrays = augment_evidence_arrays(arrays)
+    metrics = sample_metrics(
+        arrays["target_db"],
+        arrays["prediction_db"],
+        arrays["valid_mask"],
+    )
+    if not all(np.isfinite(float(value)) for value in metrics.values()):
+        raise ValueError("sample metrics must all be finite")
+    limits = compute_display_limits(
+        arrays["target_db"],
+        arrays["prediction_db"],
+        arrays["valid_mask"],
+    )
+    config = provenance["config"]
+    report = provenance["report"]
+    aggregate = build_aggregate_result(config, report)
+    if aggregate["gate"]["passed"]:
+        raise ValueError(
+            "formal V3 gate was expected to be unpassed; report/config changed"
+        )
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+    figure_path = output_dir / OUTPUT_NAMES[0]
+    metrics_path = output_dir / OUTPUT_NAMES[1]
+    arrays_path = output_dir / OUTPUT_NAMES[2]
+    render_figure(
+        arrays,
+        sample,
+        metrics,
+        aggregate,
+        limits,
+        figure_path,
+    )
+    atomic_save_npz(arrays_path, arrays)
+
+    from PIL import Image
+
+    with Image.open(figure_path) as image:
+        figure_metadata = {
+            "mode": image.mode,
+            "size_px": list(image.size),
+            "dpi": list(image.info.get("dpi", (0, 0))),
+        }
+    result = {
+        "version": 1,
+        "status": "completed",
+        "sample": sample,
+        "sample_metrics": metrics,
+        "complete_test": aggregate,
+        "display_limits": limits,
+        "valid_mask_definition": (
+            "directional_valid_mask; buildings and unhit outdoor pixels "
+            "are excluded"
+        ),
+        "transformations": {
+            "metric_filter": "valid_mask only",
+            "signal_display": "shared target/prediction 1st–99th percentiles",
+            "signed_error_display": "zero-centred symmetric P99 absolute error",
+            "absolute_error_display": "0 to P99 absolute error",
+            "interpolation": "nearest; no smoothing or upsampling claim",
+        },
+        "provenance": {
+            "config": str(args.config.resolve()),
+            "report": str(args.report.resolve()),
+            "dataset_root": str(config["dataset_root"]),
+            "checkpoints": {
+                name: {
+                    "path": str(
+                        Path(report[f"{name}_checkpoint"]).resolve()
+                    ),
+                    "sha256": provenance["runtime"]["checkpoint_sha256"][
+                        name
+                    ],
+                }
+                for name in ("stage1", "stage2a", "stage2b", "estimator")
+            },
+            "runtime": {
+                key: value
+                for key, value in provenance["runtime"].items()
+                if key != "checkpoint_sha256"
+            },
+        },
+        "outputs": {
+            "figure": str(figure_path),
+            "metrics": str(metrics_path),
+            "arrays": str(arrays_path),
+            "figure_metadata": figure_metadata,
+        },
+        "destination": (
+            "general project evaluation figure; no publisher-specific "
+            "compliance is claimed"
+        ),
+        "alt_text": (
+            "Six-panel evaluation of formal Scale-4 V3 on held-out sample "
+            "tile_000222_site03: input buildings and 100 sparse "
+            "measurements, ground truth, V3 prediction, signed error, "
+            "absolute error, and numeric summary. Invalid pixels are gray. "
+            f"The sample RMSE is {metrics['rmse_db']:.3f} dB and the "
+            f"complete-test RMSE is {aggregate['rmse_db']:.3f} dB, so the "
+            "predeclared gate is not passed."
+        ),
+    }
+    atomic_write_json(metrics_path, result)
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
