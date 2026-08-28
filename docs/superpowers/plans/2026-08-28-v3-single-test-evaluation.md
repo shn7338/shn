@@ -6,7 +6,9 @@
 
 **Architecture:** Add one focused CLI that validates the formal V3 provenance, locates the fixed test item, reuses the established Scale-4 model-loading and `predict_pair` forward path, computes metrics only on `valid_mask`, and exports arrays, JSON, and an opaque PNG to a new directory. Keep metric, limit, sample-selection, and output-guard logic as pure functions covered by `unittest`; exercise the real GPU/CPU inference and render as a separate integration run.
 
-**Tech Stack:** Python 3.11, PyTorch, NumPy, Matplotlib object-oriented API, Pillow, built-in `unittest`, existing `irt_label_pipeline` loaders.
+**Tech Stack:** Python 3.12, PyTorch, NumPy, Matplotlib object-oriented API, Pillow, built-in `unittest`, existing `irt_label_pipeline` loaders.
+
+**Execution note (2026-08-28):** Use `C:\Users\pc\AppData\Local\Programs\Python\Python312\python.exe` for both inference and rendering. The `sigmap` environment can run inference but its NumPy linear-algebra DLL terminates Matplotlib with Windows exception `0xc06d007f`. Compute the acceptance improvement from the predeclared config baseline (`baseline_final_test_rmse_db - final_rmse_db`); the report's 5.252 dB improvement refers to a different sparse baseline.
 
 ---
 
@@ -93,7 +95,7 @@ class V3EvaluationContractTests(unittest.TestCase):
 Run:
 
 ```powershell
-& 'C:\Users\pc\miniconda3\envs\sigmap\python.exe' -m unittest projects.irt_label_pipeline.tests.test_render_single_test_v3_evaluation -v
+& 'C:\Users\pc\AppData\Local\Programs\Python\Python312\python.exe' -m unittest projects.irt_label_pipeline.tests.test_render_single_test_v3_evaluation -v
 ```
 
 Expected: `ERROR` with `ModuleNotFoundError: No module named 'render_single_test_v3_evaluation'`.
@@ -335,7 +337,7 @@ def guard_outputs(output_dir: Path, overwrite: bool) -> None:
 Run:
 
 ```powershell
-& 'C:\Users\pc\miniconda3\envs\sigmap\python.exe' -m unittest projects.irt_label_pipeline.tests.test_render_single_test_v3_evaluation -v
+& 'C:\Users\pc\AppData\Local\Programs\Python\Python312\python.exe' -m unittest projects.irt_label_pipeline.tests.test_render_single_test_v3_evaluation -v
 ```
 
 Expected: five tests, all `ok`.
@@ -537,7 +539,7 @@ def atomic_write_json(path: Path, payload: dict[str, Any]) -> None:
 Run:
 
 ```powershell
-& 'C:\Users\pc\miniconda3\envs\sigmap\python.exe' -m unittest projects.irt_label_pipeline.tests.test_render_single_test_v3_evaluation -v
+& 'C:\Users\pc\AppData\Local\Programs\Python\Python312\python.exe' -m unittest projects.irt_label_pipeline.tests.test_render_single_test_v3_evaluation -v
 ```
 
 Expected: six tests, all `ok`.
@@ -545,7 +547,7 @@ Expected: six tests, all `ok`.
 Run:
 
 ```powershell
-& 'C:\Users\pc\miniconda3\envs\sigmap\python.exe' -m py_compile 'projects\irt_label_pipeline\render_single_test_v3_evaluation.py'
+& 'C:\Users\pc\AppData\Local\Programs\Python\Python312\python.exe' -m py_compile 'projects\irt_label_pipeline\render_single_test_v3_evaluation.py'
 ```
 
 Expected: exit code 0 and no output.
@@ -707,7 +709,7 @@ def render_figure(
 
 - [ ] **Step 3: Implement aggregate gate reporting and the CLI orchestration**
 
-Add `main` so the report values are checked exactly, all three outputs are written to the new directory, and the JSON records alt text, limits, hashes, paths, sample identity, gate checks, and PNG metadata. The gate must be computed as both `final_rmse_db <= maximum_test_rmse_db` and `final_rmse_improvement_vs_baseline_db >= minimum_improvement_db`; for the formal report it must evaluate to `False`.
+Add `main` so the report values are checked exactly, all three outputs are written to the new directory, and the JSON records alt text, limits, hashes, paths, sample identity, gate checks, and PNG metadata. The gate must be computed as both `final_rmse_db <= maximum_test_rmse_db` and `(baseline_final_test_rmse_db - final_rmse_db) >= minimum_improvement_db`; for the formal report it must evaluate to `False`.
 
 The entry point must follow this exact order:
 
@@ -733,7 +735,7 @@ def main() -> int:
         "gate": {
             "maximum_rmse_db": float(config["acceptance"]["maximum_test_rmse_db"]),
             "minimum_improvement_db": float(config["acceptance"]["minimum_improvement_db"]),
-            "actual_improvement_db": float(report["final_rmse_improvement_vs_baseline_db"]),
+            "actual_improvement_db": float(config["acceptance"]["baseline_final_test_rmse_db"]) - float(report["final_rmse_db"]),
         },
     }
     aggregate["gate"]["passed"] = bool(
@@ -805,7 +807,7 @@ git commit -m 'feat: render V3 single-test evaluation figure'
 Run:
 
 ```powershell
-& 'C:\Users\pc\miniconda3\envs\sigmap\python.exe' 'projects\irt_label_pipeline\render_single_test_v3_evaluation.py' --overwrite
+& 'C:\Users\pc\AppData\Local\Programs\Python\Python312\python.exe' 'projects\irt_label_pipeline\render_single_test_v3_evaluation.py' --overwrite
 ```
 
 Expected: exit code 0; printed JSON has `sample.site_id = tile_000222_site03`, `sample.direction_index = 0`, `sample.azimuth_deg = 12.0`, `sample_metrics.valid_pixels = 6214`, finite `max_absolute_error_db`, `complete_test.maps = 4096`, `complete_test.rmse_db = 6.946207715784639`, `complete_test.mae_db = 4.101779706371985`, the configured RMSE threshold `6.85`, and `complete_test.gate.passed = false`.
@@ -837,7 +839,7 @@ with np.load(root / "single_test_v3_arrays.npz", allow_pickle=False) as arrays:
     assert int(arrays["sparse_mask"].sum()) == 100
 print("metric recomputation: PASS")
 '@
-& 'C:\Users\pc\miniconda3\envs\sigmap\python.exe' -c $check
+& 'C:\Users\pc\AppData\Local\Programs\Python\Python312\python.exe' -c $check
 ```
 
 Expected: prints `metric recomputation: PASS`; no mismatches.
@@ -861,7 +863,7 @@ assert metrics["provenance"]["checkpoints"]["stage2b"]["sha256"] == report["stag
 assert metrics["complete_test"]["gate"]["passed"] is False
 print("aggregate/provenance: PASS")
 '@
-& 'C:\Users\pc\miniconda3\envs\sigmap\python.exe' -c $check
+& 'C:\Users\pc\AppData\Local\Programs\Python\Python312\python.exe' -c $check
 ```
 
 Expected: prints `aggregate/provenance: PASS`.
@@ -871,7 +873,7 @@ Expected: prints `aggregate/provenance: PASS`.
 Run:
 
 ```powershell
-& 'C:\Users\pc\miniconda3\envs\sigmap\python.exe' -c "from PIL import Image; p=r'D:\桌面\dac\experiments\single_test_v3_evaluation\single_test_v3_evaluation.png'; im=Image.open(p); print(im.mode, im.size, im.info.get('dpi')); assert im.mode == 'RGB'; assert min(im.info.get('dpi',(0,0))) >= 180"
+& 'C:\Users\pc\AppData\Local\Programs\Python\Python312\python.exe' -c "from PIL import Image; p=r'D:\桌面\dac\experiments\single_test_v3_evaluation\single_test_v3_evaluation.png'; im=Image.open(p); print(im.mode, im.size, im.info.get('dpi')); assert im.mode == 'RGB'; assert min(im.info.get('dpi',(0,0))) >= 180"
 ```
 
 Expected: `RGB`, a nonzero pixel size near 3168×1892, DPI at least 180, and exit code 0.
@@ -887,7 +889,7 @@ Expected: no visual defects. If a defect is found, adjust only layout/styling, r
 Run:
 
 ```powershell
-& 'C:\Users\pc\miniconda3\envs\sigmap\python.exe' -m unittest projects.irt_label_pipeline.tests.test_render_single_test_v3_evaluation -v
+& 'C:\Users\pc\AppData\Local\Programs\Python\Python312\python.exe' -m unittest projects.irt_label_pipeline.tests.test_render_single_test_v3_evaluation -v
 ```
 
 Expected: all tests pass.
