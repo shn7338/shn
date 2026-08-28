@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 from pathlib import Path
 import sys
 import tempfile
@@ -13,10 +14,14 @@ PIPELINE_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PIPELINE_DIR))
 
 from render_single_test_v3_evaluation import (  # noqa: E402
+    atomic_save_npz,
+    atomic_write_json,
+    augment_evidence_arrays,
     compute_display_limits,
     find_sample_index,
     guard_outputs,
     sample_metrics,
+    validate_sample_arrays,
     validate_provenance,
 )
 
@@ -110,6 +115,58 @@ class V3EvaluationContractTests(unittest.TestCase):
             with self.assertRaisesRegex(FileExistsError, "--overwrite"):
                 guard_outputs(output_dir, overwrite=False)
             guard_outputs(output_dir, overwrite=True)
+
+    def test_validate_sample_arrays_checks_shape_angle_and_sparse_count(self) -> None:
+        arrays = {
+            "building": np.zeros((128, 128), dtype=np.float32),
+            "sparse_mask": np.zeros((128, 128), dtype=bool),
+            "sparse_db": np.zeros((128, 128), dtype=np.float32),
+            "target_db": np.zeros((128, 128), dtype=np.float32),
+            "valid_mask": np.ones((128, 128), dtype=bool),
+            "prediction_db": np.ones((128, 128), dtype=np.float32),
+        }
+        arrays["sparse_mask"].flat[:100] = True
+        validate_sample_arrays(arrays, azimuth_deg=12.0)
+        arrays["sparse_mask"].flat[100] = True
+        with self.assertRaisesRegex(ValueError, "100 sparse"):
+            validate_sample_arrays(arrays, azimuth_deg=12.0)
+
+    def test_augment_evidence_arrays_preserves_sources_and_adds_errors(self) -> None:
+        arrays = {
+            "target_db": np.asarray([[1.0, 4.0]], dtype=np.float32),
+            "prediction_db": np.asarray([[3.0, 1.0]], dtype=np.float32),
+        }
+
+        augmented = augment_evidence_arrays(arrays)
+
+        np.testing.assert_array_equal(
+            augmented["signed_error_db"], [[2.0, -3.0]]
+        )
+        np.testing.assert_array_equal(
+            augmented["absolute_error_db"], [[2.0, 3.0]]
+        )
+        self.assertNotIn("signed_error_db", arrays)
+
+    def test_atomic_writers_round_trip_json_and_npz(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            json_path = root / "evidence.json"
+            npz_path = root / "evidence.npz"
+
+            atomic_write_json(json_path, {"status": "完成", "value": 3})
+            atomic_save_npz(
+                npz_path,
+                {"value": np.asarray([1.0, 2.0], dtype=np.float32)},
+            )
+
+            self.assertEqual(
+                json.loads(json_path.read_text(encoding="utf-8"))["status"],
+                "完成",
+            )
+            with np.load(npz_path, allow_pickle=False) as saved:
+                np.testing.assert_array_equal(saved["value"], [1.0, 2.0])
+            self.assertFalse((root / "evidence.json.tmp").exists())
+            self.assertFalse((root / "evidence.npz.tmp").exists())
 
 
 if __name__ == "__main__":
