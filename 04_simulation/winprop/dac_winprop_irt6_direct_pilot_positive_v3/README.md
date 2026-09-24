@@ -1,3 +1,7 @@
 # dac_winprop_irt6_direct_pilot_positive_v3
 
-原 E 盘同名运行目录。GitHub 仅收录目录说明及可用的轻量顶层元数据；完整射线、逐 tile 输出和中间文件留在本机。
+历史 WinProp IRT6 正坐标 pilot，验证较高交互阶数的可行性；不是当前 Stage 2 训练集。
+
+本目录已上传的顶层记录：[pilot_manifest.json](pilot_manifest.json)、[progress.json](progress.json)。完整仿真数组、逐 tile 日志与场景中间文件保存在本机。历史 JSON 中的 E 盘路径是生成时记录，现实际目录已迁入 dac。
+
+[当前训练路线](../../../projects/irt_label_pipeline/SIONNA_CURRENT.md)。

@@ -3,6 +3,8 @@
 本项目按论文 *Geo2SigMap: High-Fidelity RF Signal Mapping Using Geographic
 Databases* 的场景与射线追踪阶段，为北京交通大学主校区建立一块可运行的无线数字孪生地图。
 
+> 这是早期 3.66 GHz 场景及上游权重演示。当前自训练模型采用 3.5 GHz Sionna RT 2.0.1 数据；请从 [当前路线](../projects/irt_label_pipeline/SIONNA_CURRENT.md) 阅读 V5。这里的 Sionna 1.2.2、方向角约定与依赖属于独立旧实验。
+
 ## 方法对应
 
 | 项目 | 本项目设置 | 论文设置 |
@@ -17,8 +19,8 @@ Databases* 的场景与射线追踪阶段，为北京交通大学主校区建立
 | 传播机制 | LOS、镜面反射、绕射 | 反射、绕射 |
 | 最大深度/射线数 | `8` / `7,000,000` | `8` / `7,000,000` |
 
-建筑轮廓来自 OpenStreetMap，`scene.xml` 和 PLY 网格由 Geo2SigMap 当前 Python
-管线生成，路径增益图由 Sionna RT 1.2.2 计算。上游当前高度辅助函数会忽略仅含
+建筑轮廓来自 OpenStreetMap，`scene.xml` 和 PLY 网格由当时固定版本的 Geo2SigMap Python
+管线生成，路径增益图由 Sionna RT 1.2.2 计算。该固定版本的高度辅助函数会忽略仅含
 `building:levels` 的对象；`scripts/generate_bjtu_scene.py` 对这点做了本地修正，
 并为没有高度信息的建筑固定随机种子，以便结果可重现。
 
@@ -27,6 +29,8 @@ Databases* 的场景与射线追踪阶段，为北京交通大学主校区建立
 校园运营网络的部署复刻。
 
 ## 运行
+
+从仓库根目录先执行 `Set-Location "first try"`，在本目录独立环境中运行。`requirements.txt` 固定了上游提交，生成数据和权重未上传。此脚本按楼层数 × 3.5 m 估算高度；`bjtu_osm_buildings/` 的整理工具按 × 3 m 估算，两者是不同试验规则。
 
 ```powershell
 py -3.12 -m venv .venv
@@ -63,5 +67,4 @@ Expand-Archive .\models\geo2sigmap_pretrained_weights.zip .\models\geo2sigmap_pr
 
 当前输出是论文管线中的 OSM 场景与 Sionna 合成路径增益/信号强度阶段。论文中的
 第二阶段级联 U-Net 已可用上游 release 权重和从方向性 Sionna 合成图抽取的 100 个稀疏
-点演示；但若要将结果解释为经过校准的北交大真实 RSRP 全图，仍需要该区域的稀疏
-实测 RSRP 数据来替换合成稀疏输入。
+点演示；但若要将结果解释为经过校准的北交大真实 RSRP 全图，仍需匹配频率与目标小区的实测数据、信号口径/链路预算校准及独立留出测点验证；仅替换稀疏输入还不能证明达到真实 RSRP 精度。

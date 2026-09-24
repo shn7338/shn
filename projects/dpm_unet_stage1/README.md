@@ -6,11 +6,15 @@
 [建筑高度图, TX位置/高度图, TX距离图] -> WinProp DPM 路径增益图
 ```
 
-DPM 图只作为标签，不作为输入，因此模型学到的是 DPM 的快速代理，而不是复制输入。数据沿用 `normalized_4m_v1` 的 2 km 空间分块划分。
+DPM 图只作为标签，不作为输入，因此模型学到的是 DPM 的快速代理，而不是复制输入。数据沿用 `normalized_4m_v1` 的 2,048 m 空间分块划分。
 
 ## 标准目录
 
-- 规范源码：`D:\桌面\dac\05_legacy_code\code\dpm_unet_stage1`
+本页介绍固定基站三通道 DPM 基线。随机基站 V5 使用微调后的六通道 Stage 1，见 [当前 Sionna 与 V5 路线](../irt_label_pipeline/SIONNA_CURRENT.md)。
+
+GitHub 未上传完整训练数组和模型权重，需另外获取。以下路径按本机示例给出；新电脑请替换仓库根目录。执行安装或训练命令前先进入 `projects/dpm_unet_stage1/`。
+
+- 规范源码：`D:\桌面\dac\projects\dpm_unet_stage1`
 - 正式部署模型：`D:\桌面\dac\03_runs\models\stage1_dpm_unet_baseline_v1`
 - 训练数据：`D:\桌面\dac\01_data\normalized_4m_v1`
 - 完整实验结果：`D:\桌面\dac\03_runs\stage1_dpm_unet_runs`
@@ -32,11 +36,14 @@ DPM 图只作为标签，不作为输入，因此模型学到的是 DPM 的快�
 
 ## 环境
 
-当前电脑已经安装 PyTorch 2.13.0 + CUDA 13.0。若以后重建环境，可使用：
+2026-09-24 本机 `sigmap` 环境核对到 `torch-2.13.0+cu130`。这与早期场景目录 `first try/` 的独立环境不同；不要把 `docs/environment/pytorch_2.7_info.json`（旧包查询输出）当作本项目环境锁定文件。
+
+以下以已有 `sigmap` 环境为例，先安装 CUDA wheel，再补充本目录的依赖：
 
 ```powershell
 conda activate sigmap
 python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cu130
+python -m pip install -r .\requirements.txt
 ```
 
 安装后检查：
@@ -51,10 +58,11 @@ python -c "import torch; print(torch.__version__); print(torch.cuda.is_available
 先确认代码、GPU和数据加载都能运行：
 
 ```powershell
-cd D:\桌面\dac\05_legacy_code\code\dpm_unet_stage1
+# 从仓库根目录进入；已经在此目录时不要重复执行
+Set-Location .\projects\dpm_unet_stage1
 python train.py `
-  --data-root D:\桌面\dac\01_data\normalized_4m_v1 `
-  --output-dir D:\桌面\dac\03_runs\stage1_dpm_unet_runs\smoke `
+  --data-root ..\..\01_data\normalized_4m_v1 `
+  --output-dir ..\..\03_runs\stage1_dpm_unet_runs\smoke `
   --epochs 1 `
   --batch-size 2 `
   --workers 0 `
@@ -70,10 +78,11 @@ python train.py `
 RTX 5070 Laptop 8 GB 建议从 batch size 16 开始：
 
 ```powershell
-cd D:\桌面\dac\05_legacy_code\code\dpm_unet_stage1
+# 从仓库根目录进入；已经在此目录时不要重复执行
+Set-Location .\projects\dpm_unet_stage1
 python train.py `
-  --data-root D:\桌面\dac\01_data\normalized_4m_v1 `
-  --output-dir D:\桌面\dac\03_runs\stage1_dpm_unet_runs\baseline_v1 `
+  --data-root ..\..\01_data\normalized_4m_v1 `
+  --output-dir ..\..\03_runs\stage1_dpm_unet_runs\baseline_v1 `
   --epochs 60 `
   --batch-size 16 `
   --workers 4 `
@@ -90,8 +99,8 @@ python train.py `
 
 ```powershell
 python train.py `
-  --data-root D:\桌面\dac\01_data\normalized_4m_v1 `
-  --output-dir D:\桌面\dac\03_runs\stage1_dpm_unet_runs\edge_v1 `
+  --data-root ..\..\01_data\normalized_4m_v1 `
+  --output-dir ..\..\03_runs\stage1_dpm_unet_runs\edge_v1 `
   --epochs 60 `
   --batch-size 16 `
   --workers 4 `
@@ -116,12 +125,12 @@ python train.py `
 
 ```powershell
 python train.py `
-  --data-root D:\桌面\dac\01_data\normalized_4m_v1 `
-  --output-dir D:\桌面\dac\03_runs\stage1_dpm_unet_runs\baseline_v1 `
+  --data-root ..\..\01_data\normalized_4m_v1 `
+  --output-dir ..\..\03_runs\stage1_dpm_unet_runs\baseline_v1 `
   --epochs 60 `
   --batch-size 16 `
   --workers 4 `
-  --resume D:\桌面\dac\03_runs\stage1_dpm_unet_runs\baseline_v1\last.pt
+  --resume ..\..\03_runs\stage1_dpm_unet_runs\baseline_v1\last.pt
 ```
 
 ## 最终测试
@@ -130,8 +139,8 @@ python train.py `
 
 ```powershell
 python evaluate.py `
-  --data-root D:\桌面\dac\01_data\normalized_4m_v1 `
-  --checkpoint D:\桌面\dac\03_runs\stage1_dpm_unet_runs\baseline_v1\best.pt `
+  --data-root ..\..\01_data\normalized_4m_v1 `
+  --checkpoint ..\..\03_runs\stage1_dpm_unet_runs\baseline_v1\best.pt `
   --split test `
   --batch-size 16 `
   --workers 4
@@ -143,10 +152,10 @@ python evaluate.py `
 
 ```powershell
 python predict.py `
-  --data-root D:\桌面\dac\01_data\normalized_4m_v1 `
-  --checkpoint D:\桌面\dac\03_runs\stage1_dpm_unet_runs\baseline_v1\best.pt `
+  --data-root ..\..\01_data\normalized_4m_v1 `
+  --checkpoint ..\..\03_runs\stage1_dpm_unet_runs\baseline_v1\best.pt `
   --tile tile_000001 `
-  --output D:\桌面\dac\03_runs\stage1_dpm_unet_runs\baseline_v1\tile_000001.png
+  --output ..\..\03_runs\stage1_dpm_unet_runs\baseline_v1\tile_000001.png
 ```
 
 ## 真实单瓦片推理（不需要 DPM 标签）
@@ -159,7 +168,7 @@ python predict.py `
 python prepare_inference_inputs.py `
   --building-height D:\path\to\building_height_4m.npy `
   --grid-metadata D:\path\to\metadata.json `
-  --model-dir D:\桌面\dac\03_runs\models\stage1_dpm_unet_baseline_v1 `
+  --model-dir ..\..\03_runs\models\stage1_dpm_unet_baseline_v1 `
   --tx-x 438528.0 `
   --tx-y 4373248.0 `
   --tx-height-m 23.0 `
@@ -184,10 +193,11 @@ tx_distance_norm.npy
 
 ```powershell
 conda activate sigmap
-cd D:\桌面\dac\05_legacy_code\code\dpm_unet_stage1
+# 从仓库根目录进入；已经在此目录时不要重复执行
+Set-Location .\projects\dpm_unet_stage1
 
 python infer.py `
-  --model-dir D:\桌面\dac\03_runs\models\stage1_dpm_unet_baseline_v1 `
+  --model-dir ..\..\03_runs\models\stage1_dpm_unet_baseline_v1 `
   --tile-dir D:\path\to\new_tile `
   --output-dir D:\path\to\prediction_output `
   --palette color
@@ -217,7 +227,7 @@ python infer.py `
 
 ```powershell
 python batch_infer.py `
-  --model-dir D:\桌面\dac\03_runs\models\stage1_dpm_unet_baseline_v1 `
+  --model-dir ..\..\03_runs\models\stage1_dpm_unet_baseline_v1 `
   --input-root D:\path\to\new_tiles `
   --output-root D:\path\to\batch_predictions `
   --save-png
@@ -233,10 +243,10 @@ python batch_infer.py `
 
 ```powershell
 python visualize_split.py `
-  --data-root D:\桌面\dac\01_data\normalized_4m_v1 `
-  --model-dir D:\桌面\dac\03_runs\models\stage1_dpm_unet_baseline_v1 `
+  --data-root ..\..\01_data\normalized_4m_v1 `
+  --model-dir ..\..\03_runs\models\stage1_dpm_unet_baseline_v1 `
   --split val `
-  --output-dir D:\桌面\dac\03_runs\stage1_dpm_unet_runs\baseline_v1\val_visualizations
+  --output-dir ..\..\03_runs\stage1_dpm_unet_runs\baseline_v1\val_visualizations
 ```
 
 程序从 `val_tiles.txt` 读取全部2,840张验证瓦片。默认跳过已存在图片，可安全断点续跑；需要强制重画时增加 `--overwrite`。正式运行前可以用 `--limit 3` 试画三张。
@@ -245,9 +255,9 @@ python visualize_split.py `
 
 ```powershell
 python benchmark.py `
-  --data-root D:\桌面\dac\01_data\normalized_4m_v1 `
-  --checkpoint D:\桌面\dac\03_runs\stage1_dpm_unet_runs\baseline_v1\best.pt `
-  --output D:\桌面\dac\03_runs\stage1_dpm_unet_runs\baseline_v1\benchmark.json
+  --data-root ..\..\01_data\normalized_4m_v1 `
+  --checkpoint ..\..\03_runs\stage1_dpm_unet_runs\baseline_v1\best.pt `
+  --output ..\..\03_runs\stage1_dpm_unet_runs\baseline_v1\benchmark.json
 ```
 
 结果同时包含纯 GPU batch=1/16/32 延迟，以及包含 NPY 读取、CPU 到 GPU 拷贝的单瓦片端到端延迟。
@@ -257,7 +267,10 @@ python benchmark.py `
 依次训练“仅建筑高度”和“建筑高度 + TX”，再复用完整模型的测试结果：
 
 ```powershell
-.\run_ablations.ps1
+.\run_ablations.ps1 `
+  -DataRoot (Resolve-Path ..\..\01_data\normalized_4m_v1).Path `
+  -RunsRoot (Resolve-Path ..\..\03_runs\stage1_dpm_unet_runs).Path `
+  -Python (Get-Command python).Source
 ```
 
 三个实验使用同一数据划分、随机种子、网络宽度、训练轮数和优化器。输出分别位于 `ablation_height`、`ablation_height_tx` 和 `baseline_v1`，每个目录的 `test_metrics.json` 可直接用于结果表格。

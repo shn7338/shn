@@ -1,3 +1,5 @@
 # stage1_position_encoding_scale4_v3
 
-此目录对应一轮训练或推断实验。可公开的配置、指标及报告如存在则一并收录；权重和大规模结果留在本机。
+Scale-4 的六通道位置编码 Stage 1；与 Stage 2A v3 配套，供随机基站 V3–V5 使用。不要与固定基站三通道 DPM 基线混用。
+
+本目录在 GitHub 收录 Markdown 说明；权重、逐样本预测及本目录原始 JSON 保存在本机。更多记录见 [实验索引](../../experiments/README.md)。

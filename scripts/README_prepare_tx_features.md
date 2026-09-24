@@ -1,5 +1,7 @@
 # 第一级 DPM 代理 U-Net：TX 特征生成
 
+以下命令从仓库根目录运行；用于 Stage 1 的 WinProp DPM 数据准备。当前 Stage 2 标签另由 Sionna 生成，见 [当前路线](../projects/irt_label_pipeline/SIONNA_CURRENT.md)。完整输入数组/原始仿真文件需另行获取。
+
 该脚本为每个已归一化瓦片生成两个额外输入通道：
 
 - `tx_position_height_norm.npy`：除 TX 像元外均为 0，TX 像元的值为训练集归一化后的发射机高度；
@@ -11,9 +13,9 @@ TX 坐标、高度、频率和接收机高度由每个瓦片对应的 WinProp `P
 
 ```powershell
 conda activate sigmap
-python D:\桌面\dac\scripts\prepare_tx_features.py `
-  --raw-root D:\桌面\dac\01_data\prepared_4m `
-  --normalized-root D:\桌面\dac\01_data\normalized_4m_v1 `
+python .\scripts\prepare_tx_features.py `
+  --raw-root .\01_data\prepared_4m `
+  --normalized-root .\01_data\normalized_4m_v1 `
   --workers 4
 ```
 

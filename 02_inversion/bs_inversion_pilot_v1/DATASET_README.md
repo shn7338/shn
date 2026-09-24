@@ -1,12 +1,14 @@
-# 随机基站反演 Pilot v1
+# 随机基站反演数据：bs_inversion_pilot_v1
 
-状态：完整生成并通过 SHA-256 验证。
+数据配置：`bs_inversion_random_location_pilot_v1`；生成器：Sionna RT 2.0.1。
+状态以 `FINAL_REPORT.json` 的 `complete_and_verified` 和本机 `VALIDATION_REPORT.json` 为准。
 
-- 建筑：384（train/val/test = 256/64/64），按原空间块划分，建筑不会跨集合泄漏。
-- 基站站点：1536（每个建筑四象限各 1 个位置）。
-- 传播图：7680（每站点 1 张各向同性路径增益 + 4 张方向图）。
+- 建筑场景（瓦片）：384（train/val/test = 256/64/64）；这里统计的是场景数，不是单体建筑栋数，沿用原空间块划分。
+- 基站站点：1536（train/val/test = 1024/256/256）；每个建筑场景四象限各采样 1 个站点。
+- 传播图：7680（每站点 1 张各向同性图，另有各方向图）。
 - 方向训练样本：6144（train/val/test = 4096/1024/1024）。
-- 稀疏点：每张方向图 100 个有效室外点，无噪声、无异常点。
+- 稀疏点：每张方向图 100 个有效室外点；噪声标准差 0.0 dB，异常点概率 0.0。
+- 每站点的四张方向图是不同方位角的仿真样本，不代表四扇区同时发射的叠加图。
 
 ## 目录
 
@@ -15,8 +17,11 @@
 - `completion/`：逐站点完成记录，支持断点续跑。
 - `run_manifest.json`：全部随机位置、功率、方向和随机种子。
 - `site_index.csv`：便于表格查看的站点索引。
-- `normalization.json`：仅由训练集计算的 Pilot 归一化统计。
+- `normalization.json`：仅由本数据集训练部分计算的统计，以及兼容已有模型的参考参数。
+- `FINAL_REPORT.json`：生成完成数量。
 - `VALIDATION_REPORT.json`：独立全量样本验证结果。
+
+GitHub 本目录收录说明、最终报告和归一化参数；完整 NPZ、manifest 和逐站点记录在本机。部分验证与样本记录另存于仓库的中期答辩佐证材料。
 
 ## 单个 NPZ 的主要字段
 
@@ -37,10 +42,12 @@
 
 ## 归一化选择
 
-重新训练 Pilot 模型时，从原始 dB 字段按 `normalization.json` 处理：
+`BSInversionPilotDataset` 默认从原始 dB 字段按本目录 `normalization.json` 处理：
 
-`signal_norm = (signal_db - -58.996194940320) / 20.544459047423`
+`signal_norm = (signal_db - (-58.996194940320)) / 20.544459047423`
 
-`sparse_signal_strength_norm_reference` 使用旧 Stage2-B 的归一化（mean=-57.86771677215448 dB，std=19.549090075885392 dB），只用于直接兼容现有 Stage2-B。若重新训练，应从 `sparse_signal_strength_db` 按 Pilot 统计在线归一化。
+`sparse_signal_strength_norm_reference` 使用已有 Stage 2B 的参考归一化（mean=-57.86771677215448 dB，std=19.549090075885392 dB）。**实际模型应使用训练时的统计**：V5 训练脚本通过 `irt_normalization` 读取固定基站 Sionna v3 的统计，并显式覆盖数据集默认值；估计器输入使用其 checkpoint 元数据中的统计。不能把上述数据集默认公式无条件用于所有模型。
+
+历史 `normalization.json` 的 `source` 字符串可能沿用 Pilot 命名，判断数据规模应结合本目录最终报告与样本清单；已有统计数值保持原记录。
 
 坐标约定：局部 x 向东、y 向北；数组 row=0 为北、col=0 为西；方位角 0° 向东、90° 向北。

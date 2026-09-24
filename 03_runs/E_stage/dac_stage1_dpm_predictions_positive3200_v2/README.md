@@ -1,3 +1,5 @@
 # dac_stage1_dpm_predictions_positive3200_v2
 
-此目录对应一轮训练或推断实验。可公开的配置、指标及报告如存在则一并收录；权重和大规模结果留在本机。
+旧 WinProp IRT2 正坐标 3,200 瓦片路线所用的冻结 Stage 1 DPM 预测，不是一次新的训练。
+
+本目录已上传：[batch_inference_summary.csv](batch_inference_summary.csv)。权重、预测数组与完整日志在本机。

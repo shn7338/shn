@@ -1,5 +1,7 @@
 # WinProp 与建筑高度图对齐批处理
 
+以下命令从仓库根目录运行；用于 Stage 1 的 WinProp DPM 数据准备。当前 Stage 2 标签另由 Sionna 生成，见 [当前路线](../projects/irt_label_pipeline/SIONNA_CURRENT.md)。完整输入数组/原始仿真文件需另行获取。
+
 `prepare_winprop_tiles.py` 会遍历 `tile_*` 文件夹，并为每个瓦片输出：
 
 - `building_height_4m.npy`：建筑高度（米），无建筑为 0；
@@ -22,20 +24,20 @@ conda install -c conda-forge numpy geopandas rasterio -y
 也可以使用 pip：
 
 ```powershell
-python -m pip install -r D:\桌面\dac\scripts\prepare_winprop_tiles_requirements.txt
+python -m pip install -r .\scripts\prepare_winprop_tiles_requirements.txt
 ```
 
 ## 先做 10 个瓦片的试运行
 
 ```powershell
-python D:\桌面\dac\scripts\prepare_winprop_tiles.py `
-  --input-root D:\桌面\dac\01_data\512mdata `
-  --output-root D:\桌面\dac\01_data\prepared_4m `
+python .\scripts\prepare_winprop_tiles.py `
+  --input-root .\01_data\512mdata `
+  --output-root .\01_data\prepared_4m `
   --limit 10 `
   --workers 1
 ```
 
-确认 `D:\桌面\dac\01_data\prepared_4m\tile_000001\` 中有三个输出文件后，再跑全量。脚本默认续跑：已有三个完整输出文件的瓦片会跳过。
+确认 `.\01_data\prepared_4m\tile_000001\` 中有三个输出文件后，再跑全量。脚本默认续跑：已有三个完整输出文件的瓦片会跳过。
 
 默认只读取每个瓦片的 `<tile名称>_result1` 文件夹，避免把 `*_globaltest` 之类的测试结果混进训练集；你的 `tile_000002` 正好有这种额外目录。若将来目录命名不同，再通过 `--result-dir-suffix` 指定。
 
@@ -44,9 +46,9 @@ python D:\桌面\dac\scripts\prepare_winprop_tiles.py `
 先从 4 个并行进程开始；磁盘和 CPU 富余时再试 6 或 8。不要同时启动第二个同样的批处理进程。
 
 ```powershell
-python D:\桌面\dac\scripts\prepare_winprop_tiles.py `
-  --input-root D:\桌面\dac\01_data\512mdata `
-  --output-root D:\桌面\dac\01_data\prepared_4m `
+python .\scripts\prepare_winprop_tiles.py `
+  --input-root .\01_data\512mdata `
+  --output-root .\01_data\prepared_4m `
   --workers 4
 ```
 

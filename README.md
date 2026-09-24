@@ -2,7 +2,9 @@
 
 本目录汇集无线信号地图项目的代码、数据准备记录、仿真实验、模型训练结果和中期答辩材料。先看 [当前 Sionna 数据与 Stage 2 训练路线](projects/irt_label_pipeline/SIONNA_CURRENT.md)、[Stage 1 DPM 代理模型](projects/dpm_unet_stage1/README.md) 或 [中期答辩材料索引](中期答辩佐证材料_20260924/00_先看这里.md)。不同版本的实验记录都被保留，**目录存在不表示该轮实验已经达到目标**。
 
-项目的大致流程是：建筑与 WinProp **DPM** 数据经 `scripts/` 处理为 4 m 瓦片，Stage 1 模型预测 DPM 路径增益；当前 Stage 2 使用 **Sionna** 仿真标签训练与评估。随机基站 Scale-4/V5 数据也由 Sionna RT 生成。旧 WinProp **IRT** 试验仍在仓库中供对照和追溯，但不作为当前 Stage 2 训练标签。`projects/irt_label_pipeline/` 的目录名是历史名称。北交大场景的早期试验另见 `bjtu_osm_buildings/` 和 `first try/`。
+项目的大致流程是：建筑与 WinProp **DPM** 数据经 `scripts/` 处理为 4 m 瓦片，Stage 1 原始基线预测 DPM 路径增益；当前 Stage 2 使用 **Sionna** 仿真标签训练与评估。随机基站 Scale-4/V5 数据也由 Sionna RT 生成，使用另行联合适配的 Stage 1/2A 以及基站参数估计器。旧 WinProp **IRT** 试验仍在仓库中供对照和追溯，但不作为当前 Stage 2 训练标签。`projects/irt_label_pipeline/` 的目录名是历史名称。北交大场景的早期试验另见 `bjtu_osm_buildings/` 和 `first try/`。
+
+2026-09-24 已按配置、结果文件及相关历史对话复核，详细问题与修正见 [README 审核记录](docs/README审核记录_20260924.md)。
 
 下表列出实际目录；每个 `tile_*`、检查点和临时文件不逐一展开。
 
@@ -72,7 +74,7 @@
 | 子目录 | 包含的运行及用途 |
 | --- | --- |
 | `irt/` | `dac_irt_v2_8bounce` 保存早期八次交互尝试；`dac_irt_v2_winprop2020_max6` 保存 WinProp 2020 上限相关尝试，均不属于当前 Stage 2 训练标签。 |
-| `sionna/` | `dac_sionna_35ghz_pilot`、`dac_sionna_paper_pilot`、`dac_sionna_paper8_v1` 是先导与论文参数试验；`dac_sionna_35ghz_depth8_3200_v1` 是 3,200 瓦片轮次；`dac_sionna_35ghz_depth8_27360_v1/v2` 保留早期全量尝试，`v3` 是当前 Stage 2 正式标签；`dac_sionna_winprop_irt2_alignment` 用于两种仿真结果的对齐比较。 |
+| `sionna/` | `dac_sionna_35ghz_pilot`、`dac_sionna_paper_pilot`、`dac_sionna_paper8_v1` 是先导与论文参数试验；`dac_sionna_35ghz_depth8_3200_v1` 是计划 3,200、实际完成 3 瓦片的早期轮次；`dac_sionna_35ghz_depth8_27360_v1/v2` 保留早期全量尝试，`v3` 是当前 Stage 2 正式标签；`dac_sionna_winprop_irt2_alignment` 用于两种仿真结果的对齐比较。 |
 | `winprop/` 直接仿真 | `dac_winprop_irt2_direct_v1`、`dac_winprop_irt2_direct_pilot32_v1` 是直接仿真与 32 瓦片 pilot；`dac_winprop_irt2_direct_3200_v1`、`dac_winprop_irt2_direct_3200_positive_v2` 是 3,200 瓦片及正坐标替换轮次；`dac_winprop_irt6_direct_pilot_positive_v3` 是 IRT6 pilot。 |
 | `winprop/` 诊断与验证 | `dac_winprop_irt2_ray_diagnostic_v1`、`ray100_diagnostic_v1`、`ray500_diagnostic_v1/v2`、`no_ray_cap_diagnostic` 排查射线设置；`pattern_gain0_diagnostic`、`verified_pattern_diagnostic_v1`、`verified_pattern_validation_v1`、`roundtrip_pattern_validation_v3` 检查天线方向图与增益。以上省略了相同的 `dac_winprop_irt2_` 前缀。 |
 
@@ -104,7 +106,7 @@
 | `projects/irt_label_pipeline/` 的评估与配置 | `assess_*.py`、`evaluate_*.py`、`render_*.py` 汇总指标与生成展示图；`config_*.json` 固定实验参数；`start_*.ps1`、`watch_*.ps1` 用于启动和监看；`tests/` 放专项测试。 |
 | `projects/dachuang_kaiti_defense_ppt169_20260531/` | 早期开题答辩 PPT 的本机生成工作目录，属于产物，未纳入 GitHub。 |
 
-`projects/` 是队友在 GitHub 上阅读当前工作代码的入口。`03_runs/stage1_dpm_unet_runs/dpm_unet_stage1/` 和 `05_legacy_code/code/dpm_unet_stage1/` 是此前运行或迁移保留的副本；一些旧命令仍引用这些本机路径。
+`projects/` 是队友在 GitHub 上阅读当前工作代码的入口。`03_runs/stage1_dpm_unet_runs/dpm_unet_stage1/` 和 `05_legacy_code/code/dpm_unet_stage1/` 是此前运行或迁移保留的副本；当前运行说明统一指向 `projects/`；历史快照内的旧路径仅供追溯。
 
 ### `scripts/`：WinProp 数据流水线
 

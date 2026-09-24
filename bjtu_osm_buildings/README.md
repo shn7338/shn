@@ -21,7 +21,7 @@ area["name"="北京交通大学"]->.searchArea;
 ```
 
 如果该查询没有建筑或失败，则自动使用上表两个校园 boundary way 转换成 area 后
-合并查询。目前 OSM 中名称 area 没有直接返回校园建筑，因此一般会看到运行输出
+合并查询。本项目早期运行时，OSM 名称 area 没有直接返回校园建筑，因此一般会看到运行输出
 显示查询方式为 `campus_boundary_ways`。
 
 所有路径都会查询两种建筑对象，并请求轮廓 geometry：
@@ -34,16 +34,15 @@ out body geom;
 
 ## 安装
 
-在 PowerShell 中进入本目录后执行：
+在 PowerShell 中从仓库根目录执行：
 
 ```powershell
 cd .\bjtu_osm_buildings
-C:\Users\pc\AppData\Local\Programs\Python\Python312\python.exe -m venv .venv
+python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r .\requirements.txt
 ```
 
-如果你的 Python 安装位置不同，也可以把第一条命令替换成可用的
-`python -m venv .venv`。
+这里的 `python` 应指向可用的 Python 解释器。
 
 ## 运行
 
@@ -120,7 +119,7 @@ HTML 地图配色为：
 
 | 颜色 | 类别 |
 | --- | --- |
-| 红色 | 有真实 `height` 标签 |
+| 红色 | 有 OSM `height` 标签（未实地核验） |
 | 橙色 | 只有 `building:levels`，高度为估算 |
 | 蓝色 | 高度与楼层数都缺失 |
 
@@ -133,7 +132,7 @@ HTML 地图配色为：
 在 QGIS 中可直接拖入 `output/buildings_classified.geojson`，以 `category` 分类
 着色，并人工补录缺失高度。用于 Sionna 或自建场景时，建议优先使用：
 
-1. `height_m` 不为空的真实 OSM 高度。
+1. `height_m` 不为空的 OSM 标注高度。
 2. `estimated_height` 作为明确标记的替代高度，并在实验记录中说明估算规则。
 3. `missing_height_and_levels` 建筑人工调查或外部数据补充后再用于精细仿真。
 
