@@ -1,0 +1,1 @@
+{"status": "ok", "output_root": "E:\\dac_sionna_35ghz_depth8_27360_v2", "tiles_planned": 27360, "tiles_complete": 128, "tiles_remaining": 27232, "split_complete": {"train": 104, "val": 8, "test": 16}, "selected_tiles": 8, "selected_complete": 8, "selected_failed": 0, "failed_first": [], "stop_requested": false}

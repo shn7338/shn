@@ -1,0 +1,58 @@
+{
+  "version": 3,
+  "name": "stage1_stage2a_position_encoding_scale4_v3",
+  "dataset_root": "D:\\桌面\\dac\\bs_inversion_scale4_v1",
+  "initial_stage1_model_dir": "D:\\桌面\\dac\\models\\stage1_position_encoding_pilot_v2",
+  "initial_stage1_checkpoint": "D:\\桌面\\dac\\models\\stage1_position_encoding_pilot_v2\\best.pt",
+  "initial_stage2a_checkpoint": "D:\\桌面\\dac\\models\\stage2a_position_encoding_pilot_v2\\best.pt",
+  "estimator_config": "C:\\Users\\pc\\Documents\\大创\\projects\\irt_label_pipeline\\config_bs_parameter_estimator_scale4_v2.json",
+  "estimator_checkpoint": "D:\\桌面\\dac\\models\\bs_parameter_estimator_scale4_v2\\best.pt",
+  "stage1_output_dir": "D:\\桌面\\dac\\models\\stage1_position_encoding_scale4_v3",
+  "stage2a_output_dir": "D:\\桌面\\dac\\models\\stage2a_position_encoding_scale4_v3",
+  "stage1_input_channels": 6,
+  "long_distance_max_m": 724.0773439350247,
+  "position_jitter_probability": 0.3,
+  "position_jitter_std_px": 1.5,
+  "far_position_loss_multiplier": 1.25,
+  "epochs": 15,
+  "batch_size": 8,
+  "workers": 2,
+  "prefetch_factor": 2,
+  "progress_every_batches": 256,
+  "stage1_learning_rate": 0.00001,
+  "stage2a_learning_rate": 0.00002,
+  "minimum_learning_rate": 0.000001,
+  "weight_decay": 0.00001,
+  "gradient_clip": 5.0,
+  "loss_scale_db": 15.68337541284073,
+  "patience": 4,
+  "augmentation": true,
+  "amp": true,
+  "channels_last": true,
+  "device": "auto",
+  "seed": 20260819,
+  "model": {
+    "architecture": "geo2sigmap_unet",
+    "base_channels": 64,
+    "normalization": "batch_norm",
+    "activation": "relu",
+    "encoder_decoder_levels": 4,
+    "convolutions_per_block": 2,
+    "gradient_checkpointing": true,
+    "zero_init_output": false
+  },
+  "acceptance": {
+    "baseline_test_rmse_db": 7.53716491575115,
+    "minimum_improvement_db": 0.2,
+    "target_test_rmse_db": 7.3,
+    "target_far_center_bin_rmse_db": 7.8
+  },
+  "provenance": {
+    "coordinate_source": "frozen bs_parameter_estimator_scale4_v2 global softargmax plus train-only jitter",
+    "target": "Scale-4 isotropic path gain on balanced random-BS radial bins",
+    "input_encoding": "six channels: building, TX marker, legacy distance, long distance, signed dx and signed dy",
+    "initialization": "continue from the six-channel Pilot v2 Stage1 and Stage2-A checkpoints",
+    "adaptation_scope": "jointly update Stage1 and Stage2-A; freeze latent BS estimator"
+  }
+}
+

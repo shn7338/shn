@@ -1,0 +1,55 @@
+{
+  "version": 3,
+  "name": "stage2b_position_encoding_scale4_v3",
+  "dataset_root": "D:\\桌面\\dac\\bs_inversion_scale4_v1",
+  "irt_normalization": "E:\\dac_sionna_35ghz_depth8_27360_v3\\normalization_irt.json",
+  "stage1_model_dir": "D:\\桌面\\dac\\models\\stage1_position_encoding_scale4_v3",
+  "stage2a_model_dir": "D:\\桌面\\dac\\models\\stage2a_position_encoding_scale4_v3",
+  "require_accepted_stage2a": false,
+  "estimator_config": "C:\\Users\\pc\\Documents\\大创\\projects\\irt_label_pipeline\\config_bs_parameter_estimator_scale4_v2.json",
+  "estimator_checkpoint": "D:\\桌面\\dac\\models\\bs_parameter_estimator_scale4_v2\\best.pt",
+  "initial_stage2b_checkpoint": "D:\\桌面\\dac\\models\\stage2b_bs_inversion_pilot_finetune_v2\\best.pt",
+  "output_dir": "D:\\桌面\\dac\\models\\stage2b_position_encoding_scale4_v3",
+  "epochs": 10,
+  "batch_size": 16,
+  "workers": 2,
+  "prefetch_factor": 2,
+  "progress_every_batches": 128,
+  "learning_rate": 0.00001,
+  "minimum_learning_rate": 0.000001,
+  "weight_decay": 0.00001,
+  "gradient_clip": 5.0,
+  "patience": 3,
+  "augmentation": true,
+  "amp": true,
+  "channels_last": true,
+  "device": "auto",
+  "seed": 20260820,
+  "model": {
+    "architecture": "geo2sigmap_unet",
+    "base_channels": 64,
+    "normalization": "batch_norm",
+    "activation": "relu",
+    "encoder_decoder_levels": 4,
+    "convolutions_per_block": 2,
+    "gradient_checkpointing": true,
+    "zero_init_output": false
+  },
+  "acceptance": {
+    "baseline_final_test_rmse_db": 6.968589598108601,
+    "maximum_test_rmse_db": 6.85,
+    "minimum_improvement_db": 0.1,
+    "maximum_far_center_bin_rmse_db": 7.35,
+    "maximum_near_center_bin_degradation_db": 0.05
+  },
+  "provenance": {
+    "stage1_checkpoint_sha256": "3747800fbf4acae115c70d6572427a8bf8e0f4f095a1b82c875c831ae57b6da6",
+    "stage2a_checkpoint_sha256": "1de80649e89e6ef70a6c474c06e34c2efc9e2fa054a98fa19a947e4b4a5d493f",
+    "initial_stage2b_checkpoint_sha256": "5b6f90448f1c814c7a8019f6f526239d3630d779f626bb9524ea6551ca562f74",
+    "estimator_checkpoint_sha256": "697e744f95afbf1d4fb82f4d8818ab3531708ec91a06803a0df60631c35aad3a",
+    "input_restriction": "building height plus sparse signal values and mask only",
+    "coordinate_source": "frozen bs_parameter_estimator_scale4_v2 global softargmax",
+    "adaptation_scope": "freeze estimator and Scale-4 Stage1/Stage2-A; fine-tune Stage2-B only with a conservative learning rate"
+  }
+}
+

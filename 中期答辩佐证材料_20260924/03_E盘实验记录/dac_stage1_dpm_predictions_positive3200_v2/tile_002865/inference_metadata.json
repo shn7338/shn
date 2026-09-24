@@ -1,0 +1,49 @@
+{
+  "tile_dir": "D:\\桌面\\dac\\normalized_4m_v1\\tile_002865",
+  "checkpoint": "D:\\桌面\\dac\\models\\stage1_dpm_unet_baseline_v1\\best.pt",
+  "normalization": "D:\\桌面\\dac\\models\\stage1_dpm_unet_baseline_v1\\normalization.json",
+  "device": "cuda",
+  "input_mode": "height_tx_distance",
+  "input_files": [
+    "building_height_norm.npy",
+    "tx_position_height_norm.npy",
+    "tx_distance_norm.npy"
+  ],
+  "input_channels": [
+    {
+      "file": "building_height_norm.npy",
+      "min": 0.0,
+      "max": 0.9998779296875,
+      "mean": 0.06831616163253784
+    },
+    {
+      "file": "tx_position_height_norm.npy",
+      "min": 0.0,
+      "max": 0.35877862572669983,
+      "mean": 2.1898109480389394e-05
+    },
+    {
+      "file": "tx_distance_norm.npy",
+      "min": 0.14923036098480225,
+      "max": 1.0,
+      "mean": 0.8777740001678467
+    }
+  ],
+  "array_shape": [
+    128,
+    128
+  ],
+  "mask": null,
+  "valid_output_pixels": 16384,
+  "path_gain_mean_db": -107.34759535264241,
+  "path_gain_std_db": 10.106487505584935,
+  "prediction_db": {
+    "min": -128.46856689453125,
+    "max": -84.62773895263672,
+    "mean": -106.54633331298828,
+    "p02": -125.15238189697266,
+    "p98": -89.93759155273438
+  },
+  "warmup_ms": 0.0,
+  "inference_ms": 5.742099951021373
+}

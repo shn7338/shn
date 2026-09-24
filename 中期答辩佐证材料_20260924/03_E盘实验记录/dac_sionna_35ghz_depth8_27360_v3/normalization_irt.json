@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "quantity": "path gain in dB from dataset shards; finite pixels only",
+  "split_tile_counts": {
+    "train": 21789,
+    "val": 2840,
+    "test": 2731
+  },
+  "statistics": {
+    "all": {
+      "p_iso": {
+        "count": 269833539,
+        "mean_db": -95.77980438003894,
+        "std_db": 14.176603209517475,
+        "minimum_db": -191.25,
+        "maximum_db": -59.4375
+      },
+      "p_dir": {
+        "count": 1079321933,
+        "mean_db": -110.3597583695862,
+        "std_db": 16.74955612245503,
+        "minimum_db": -225.875,
+        "maximum_db": -73.875
+      }
+    },
+    "train": {
+      "p_iso": {
+        "count": 214833375,
+        "mean_db": -95.77814339019754,
+        "std_db": 14.159363419041522,
+        "minimum_db": -189.5,
+        "maximum_db": -59.4375
+      },
+      "p_dir": {
+        "count": 859323264,
+        "mean_db": -110.36771677215448,
+        "std_db": 16.73569805719939,
+        "minimum_db": -221.375,
+        "maximum_db": -73.875
+      }
+    },
+    "val": {
+      "p_iso": {
+        "count": 28040518,
+        "mean_db": -95.89541780108175,
+        "std_db": 14.272527869097502,
+        "minimum_db": -184.75,
+        "maximum_db": -59.625
+      },
+      "p_dir": {
+        "count": 112161599,
+        "mean_db": -110.44421784622986,
+        "std_db": 16.824441172857806,
+        "minimum_db": -225.875,
+        "maximum_db": -74.625
+      }
+    },
+    "test": {
+      "p_iso": {
+        "count": 26959646,
+        "mean_db": -95.67279169299917,
+        "std_db": 14.21284905563317,
+        "minimum_db": -191.25,
+        "maximum_db": -59.5625
+      },
+      "p_dir": {
+        "count": 107837070,
+        "mean_db": -110.2084935918836,
+        "std_db": 16.780930257200865,
+        "minimum_db": -208.0,
+        "maximum_db": -74.75
+      }
+    }
+  },
+  "synthetic_link_budget": {
+    "p_tx_dbm": "Uniform(10, 35)",
+    "g_tx_db": "Uniform(10, 20)",
+    "g_rx_db": "Uniform(10, 20)",
+    "insertion_loss_db": "Uniform(-10, 10)",
+    "combined_offset_formula": "P_TX + G_TX + G_RX - IL",
+    "mean_db": 52.5,
+    "variance_db2": 102.08333333333334
+  },
+  "stage2b_ss_normalization": {
+    "mean_db": -57.86771677215448,
+    "std_db": 19.549090075885392,
+    "formula": "(SS_db - mean_db) / std_db",
+    "source": "training directional path-gain moments plus independent synthetic link-budget moments"
+  }
+}

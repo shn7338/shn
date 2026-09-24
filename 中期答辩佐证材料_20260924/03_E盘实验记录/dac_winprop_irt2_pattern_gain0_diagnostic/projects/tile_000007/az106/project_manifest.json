@@ -1,0 +1,9 @@
+{
+  "name": "az106",
+  "kind": "directional",
+  "azimuth_deg": 106.0,
+  "pattern_base": "E:\\dac_irt_v2_8bounce\\patterns\\sector_h65_v8_g6p3dBi_az000_verified_roundtrip",
+  "project_base": "E:\\dac_winprop_irt2_pattern_gain0_diagnostic\\projects\\tile_000007\\az106\\tile_000007_irt2_az106",
+  "net": "E:\\dac_winprop_irt2_pattern_gain0_diagnostic\\projects\\tile_000007\\az106\\tile_000007_irt2_az106.net",
+  "result_dir": "E:\\dac_winprop_irt2_pattern_gain0_diagnostic\\raw_results\\tile_000007\\az106"
+}

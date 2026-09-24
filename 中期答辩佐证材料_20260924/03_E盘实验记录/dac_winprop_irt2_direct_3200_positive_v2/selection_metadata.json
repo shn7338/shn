@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "method": "retain every positive-coordinate tile from the v1 selection; replace only negative-coordinate tiles with READY, Stage1-complete, positive-coordinate candidates from the same immutable spatial split",
+  "seed": 20260726,
+  "block_size_m": 2048.0,
+  "source_selection": "E:\\dac_winprop_irt2_direct_3200_v1\\selection_tiles.csv",
+  "source_selection_sha256": "28b5ca8a457a557f8e3d87f9272c5e55f0dca7c50561bfa21b1f9499ad02e9e8",
+  "counts": {
+    "train": 2560,
+    "val": 320,
+    "test": 320
+  },
+  "total": 3200,
+  "retained_tiles": 2911,
+  "replaced_tiles": 289,
+  "replacements_by_split": {
+    "train": 239,
+    "val": 27,
+    "test": 23
+  },
+  "candidate_counts_by_split": {
+    "train": 18330,
+    "val": 2402,
+    "test": 2309
+  },
+  "negative_coordinate_tiles_remaining": 0,
+  "stage1_input_complete_tiles": 3200,
+  "spatial_block_overlap_counts": {
+    "train_val": 0,
+    "train_test": 0,
+    "val_test": 0
+  },
+  "tiles_file": "E:\\dac_winprop_irt2_direct_3200_positive_v2\\selection_tiles.txt",
+  "tiles_file_sha256": "aafea0cf0675a45a2a287c2ccafe842d4a5292dcb99e8cce1400ca29b0556179",
+  "selection_csv": "E:\\dac_winprop_irt2_direct_3200_positive_v2\\selection_tiles.csv",
+  "selection_csv_sha256": "f96aaee31595bf3311a9767710da62b75d8b9fb7c67708a4cf60ad3a16ba9f99",
+  "replacement_manifest": "E:\\dac_winprop_irt2_direct_3200_positive_v2\\replacement_manifest.csv",
+  "replacement_manifest_sha256": "eea0673fb581cfb916fe8fb68083765c38912fe5155acb454866501c5a4c250b",
+  "ready_manifest": "C:\\Users\\pc\\Documents\\大创\\prediction_ready_all_odb.csv",
+  "ready_manifest_sha256": "d0665d7286b89ca2f475c18bf259fc7cb49ae7ad5041fb0b5728f522c1a8c9f0"
+}

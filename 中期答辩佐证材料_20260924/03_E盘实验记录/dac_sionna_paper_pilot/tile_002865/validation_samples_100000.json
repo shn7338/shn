@@ -1,0 +1,28 @@
+{
+  "status": "ok",
+  "samples_per_tx": 100000,
+  "expected_shape": [
+    128,
+    128
+  ],
+  "variants_found": [
+    "az022",
+    "az073",
+    "az092",
+    "az271",
+    "iso"
+  ],
+  "pairwise": {
+    "az022_vs_iso_mae_db": 22.801876068115234,
+    "az073_vs_iso_mae_db": 23.102445602416992,
+    "az092_vs_iso_mae_db": 23.12053871154785,
+    "az271_vs_iso_mae_db": 22.554027557373047,
+    "az022_vs_az073_mae_db": 0.9499567151069641,
+    "az022_vs_az092_mae_db": 1.154815912246704,
+    "az022_vs_az271_mae_db": 2.1009817123413086,
+    "az073_vs_az092_mae_db": 0.5390952229499817,
+    "az073_vs_az271_mae_db": 1.9613062143325806,
+    "az092_vs_az271_mae_db": 1.9157963991165161
+  },
+  "failures": []
+}

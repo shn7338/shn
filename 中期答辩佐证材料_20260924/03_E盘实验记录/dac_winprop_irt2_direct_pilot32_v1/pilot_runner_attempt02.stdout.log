@@ -1,0 +1,337 @@
+{
+  "version": 1,
+  "config": "C:\\Users\\pc\\Documents\\´ó´´\\projects\\irt_label_pipeline\\config_winprop2020_irt2_direct_pilot32.json",
+  "config_sha256": "2784c9e46e5fb9037ecf40bef98d486d7dc28dce6df90c57d552d4098d907b04",
+  "output_root": "E:\\dac_winprop_irt2_direct_pilot32_v1",
+  "tiles": [
+    {
+      "tile": "tile_000001",
+      "variants": [
+        "iso",
+        "az113",
+        "az195",
+        "az216",
+        "az283"
+      ]
+    },
+    {
+      "tile": "tile_000002",
+      "variants": [
+        "iso",
+        "az072",
+        "az153",
+        "az338",
+        "az356"
+      ]
+    },
+    {
+      "tile": "tile_000003",
+      "variants": [
+        "iso",
+        "az011",
+        "az061",
+        "az293",
+        "az325"
+      ]
+    },
+    {
+      "tile": "tile_000004",
+      "variants": [
+        "iso",
+        "az039",
+        "az059",
+        "az160",
+        "az318"
+      ]
+    },
+    {
+      "tile": "tile_000005",
+      "variants": [
+        "iso",
+        "az014",
+        "az046",
+        "az129",
+        "az175"
+      ]
+    },
+    {
+      "tile": "tile_000006",
+      "variants": [
+        "iso",
+        "az017",
+        "az212",
+        "az249",
+        "az254"
+      ]
+    },
+    {
+      "tile": "tile_000007",
+      "variants": [
+        "iso",
+        "az042",
+        "az044",
+        "az106",
+        "az218"
+      ]
+    },
+    {
+      "tile": "tile_000008",
+      "variants": [
+        "iso",
+        "az080",
+        "az228",
+        "az311",
+        "az345"
+      ]
+    },
+    {
+      "tile": "tile_000009",
+      "variants": [
+        "iso",
+        "az004",
+        "az159",
+        "az175",
+        "az250"
+      ]
+    },
+    {
+      "tile": "tile_000010",
+      "variants": [
+        "iso",
+        "az090",
+        "az179",
+        "az190",
+        "az218"
+      ]
+    },
+    {
+      "tile": "tile_000011",
+      "variants": [
+        "iso",
+        "az019",
+        "az080",
+        "az335",
+        "az355"
+      ]
+    },
+    {
+      "tile": "tile_000012",
+      "variants": [
+        "iso",
+        "az131",
+        "az201",
+        "az282",
+        "az307"
+      ]
+    },
+    {
+      "tile": "tile_000013",
+      "variants": [
+        "iso",
+        "az027",
+        "az124",
+        "az126",
+        "az199"
+      ]
+    },
+    {
+      "tile": "tile_000014",
+      "variants": [
+        "iso",
+        "az032",
+        "az097",
+        "az098",
+        "az340"
+      ]
+    },
+    {
+      "tile": "tile_000015",
+      "variants": [
+        "iso",
+        "az070",
+        "az107",
+        "az169",
+        "az172"
+      ]
+    },
+    {
+      "tile": "tile_000016",
+      "variants": [
+        "iso",
+        "az087",
+        "az195",
+        "az201",
+        "az203"
+      ]
+    },
+    {
+      "tile": "tile_000017",
+      "variants": [
+        "iso",
+        "az110",
+        "az137",
+        "az209",
+        "az335"
+      ]
+    },
+    {
+      "tile": "tile_000018",
+      "variants": [
+        "iso",
+        "az046",
+        "az101",
+        "az216",
+        "az295"
+      ]
+    },
+    {
+      "tile": "tile_000019",
+      "variants": [
+        "iso",
+        "az187",
+        "az189",
+        "az293",
+        "az308"
+      ]
+    },
+    {
+      "tile": "tile_000020",
+      "variants": [
+        "iso",
+        "az129",
+        "az244",
+        "az314",
+        "az323"
+      ]
+    },
+    {
+      "tile": "tile_000021",
+      "variants": [
+        "iso",
+        "az221",
+        "az285",
+        "az348",
+        "az357"
+      ]
+    },
+    {
+      "tile": "tile_000022",
+      "variants": [
+        "iso",
+        "az019",
+        "az128",
+        "az207",
+        "az274"
+      ]
+    },
+    {
+      "tile": "tile_000023",
+      "variants": [
+        "iso",
+        "az006",
+        "az087",
+        "az229",
+        "az304"
+      ]
+    },
+    {
+      "tile": "tile_000024",
+      "variants": [
+        "iso",
+        "az136",
+        "az196",
+        "az239",
+        "az249"
+      ]
+    },
+    {
+      "tile": "tile_000025",
+      "variants": [
+        "iso",
+        "az011",
+        "az028",
+        "az303",
+        "az322"
+      ]
+    },
+    {
+      "tile": "tile_000026",
+      "variants": [
+        "iso",
+        "az030",
+        "az177",
+        "az191",
+        "az248"
+      ]
+    },
+    {
+      "tile": "tile_000027",
+      "variants": [
+        "iso",
+        "az221",
+        "az243",
+        "az281",
+        "az309"
+      ]
+    },
+    {
+      "tile": "tile_000028",
+      "variants": [
+        "iso",
+        "az100",
+        "az185",
+        "az208",
+        "az306"
+      ]
+    },
+    {
+      "tile": "tile_000029",
+      "variants": [
+        "iso",
+        "az207",
+        "az288",
+        "az301",
+        "az351"
+      ]
+    },
+    {
+      "tile": "tile_000030",
+      "variants": [
+        "iso",
+        "az108",
+        "az255",
+        "az262",
+        "az301"
+      ]
+    },
+    {
+      "tile": "tile_000031",
+      "variants": [
+        "iso",
+        "az133",
+        "az180",
+        "az235",
+        "az254"
+      ]
+    },
+    {
+      "tile": "tile_000032",
+      "variants": [
+        "iso",
+        "az013",
+        "az170",
+        "az176",
+        "az230"
+      ]
+    }
+  ],
+  "max_parallel_propagations": 4,
+  "preprocess_threads": 4,
+  "timeout_seconds": 1800,
+  "dry_run": false
+}
+[1/32] SKIP completed tile_000001
+[2/32] SKIP completed tile_000002
+[3/32] PREPROCESS tile_000003
+[3/32] PREPARE tile_000003 iso az011 az061 az293 az325
+[3/32] PROPAGATE tile_000003 (4 parallel)

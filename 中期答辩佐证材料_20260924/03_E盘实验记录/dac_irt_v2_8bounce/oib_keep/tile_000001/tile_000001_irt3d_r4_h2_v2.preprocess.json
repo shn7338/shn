@@ -1,0 +1,37 @@
+{
+  "version": 2,
+  "tile": "tile_000001",
+  "source_odb": "D:\\桌面\\dac\\512mdata\\tile_000001\\tile_000001_checked.odb",
+  "source_metadata": "D:\\桌面\\dac\\prepared_4m\\tile_000001\\metadata.json",
+  "output_base": "E:\\dac_irt_v2_8bounce\\oib_keep\\tile_000001\\tile_000001_irt3d_r4_h2_v2",
+  "output_oib": "E:\\dac_irt_v2_8bounce\\oib_keep\\tile_000001\\tile_000001_irt3d_r4_h2_v2.oib",
+  "grid": {
+    "xmin": 444928.0,
+    "ymin": 4367884.0,
+    "xmax": 445440.0,
+    "ymax": 4368396.0,
+    "resolution": 4.0,
+    "rows": 128,
+    "cols": 128
+  },
+  "preprocessing": {
+    "mode": "PP_MODE_IRT_3D",
+    "multiple_interactions": true,
+    "tile_horizontal_m": 60.0,
+    "tile_vertical_m": 60.0,
+    "segment_horizontal_m": 60.0,
+    "segment_vertical_m": 60.0,
+    "adaptive_resolution": 0,
+    "spheric_zone": "off",
+    "consider_indoor_pixels": false,
+    "consider_topography": false
+  },
+  "threads": 4,
+  "winprop_prepro_struct_size": 800,
+  "status": "ok",
+  "winprop_error_code": 0,
+  "seconds": 3.000564599991776,
+  "output_exists": false,
+  "output_bytes": 0,
+  "log": "E:\\dac_irt_v2_8bounce\\oib_keep\\tile_000001\\tile_000001_irt3d_r4_h2_v2.preprocess.log"
+}

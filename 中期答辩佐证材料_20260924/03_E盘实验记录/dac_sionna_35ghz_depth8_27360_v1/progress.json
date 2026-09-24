@@ -1,0 +1,20 @@
+{
+  "status": "completed_with_failures",
+  "output_root": "E:\\dac_sionna_35ghz_depth8_27360_v1",
+  "tiles_planned": 27360,
+  "tiles_complete": 31,
+  "tiles_remaining": 27329,
+  "split_complete": {
+    "train": 25,
+    "val": 3,
+    "test": 3
+  },
+  "selected_tiles": 32,
+  "selected_complete": 30,
+  "selected_failed": 2,
+  "failed_first": [
+    "tile_000026",
+    "tile_000030"
+  ],
+  "stop_requested": false
+}

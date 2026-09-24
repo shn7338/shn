@@ -1,0 +1,45 @@
+{
+  "tile": "tile_000001",
+  "array_convention": "array[row, col]; row=0 is north and col=0 is west",
+  "grid": {
+    "xmin": 444928.0,
+    "ymin": 4367884.0,
+    "xmax": 445440.0,
+    "ymax": 4368396.0,
+    "resolution": 4.0,
+    "rows": 128,
+    "cols": 128
+  },
+  "input_shapefile": "D:\\桌面\\dac\\512mdata\\tile_000001\\tile_000001.shp",
+  "input_winprop_path_loss": "D:\\桌面\\dac\\512mdata\\tile_000001\\tile_000001_result1\\Site  1 Antenna 1 Path Loss.txt",
+  "height_field": "HEIGHT_M",
+  "all_touched": true,
+  "path_gain_semantics": "Raw dB values from the WinProp 'Path Loss' ASCII export. They are not automatically converted to RSRP.",
+  "winprop": {
+    "VERSION": "2020-38079",
+    "DATE": "2026-07-08, 15:36:29 (+0800)",
+    "ANTENNA": "1 ANTENNATYPE ISO",
+    "HEIGHT": "2.000",
+    "TIME_STEP": "0.000",
+    "records_read": "16384",
+    "duplicate_cells": "0",
+    "out_of_bounds_records": "0",
+    "non_computable_records": "3613",
+    "missing_cells": "3613"
+  },
+  "buildings": {
+    "shapefile_crs": "EPSG:32650",
+    "source_feature_count": 726,
+    "valid_height_feature_count": 726,
+    "invalid_height_feature_count": 0,
+    "source_bounds": [
+      444928.0,
+      4367884.167,
+      445440.0,
+      4368384.0
+    ],
+    "height_covered_cells": 5850,
+    "height_min_m": 3.0,
+    "height_max_m": 21.0
+  }
+}

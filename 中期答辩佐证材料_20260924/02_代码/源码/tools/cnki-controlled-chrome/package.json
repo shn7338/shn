@@ -1,0 +1,12 @@
+{
+  "name": "cnki-controlled-chrome",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Attach Playwright to a user-authenticated, dedicated Chrome profile for CNKI research.",
+  "scripts": {
+    "status": "node check-session.js"
+  },
+  "dependencies": {
+    "playwright-core": "^1.55.0"
+  }
+}

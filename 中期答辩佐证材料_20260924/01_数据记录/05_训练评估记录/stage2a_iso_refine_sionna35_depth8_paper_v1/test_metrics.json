@@ -1,0 +1,44 @@
+{
+  "status": "ok",
+  "accepted_for_stage2b": true,
+  "acceptance_checks": {
+    "test_rmse_improvement_vs_raw_dpm": true,
+    "test_rmse_improvement_vs_calibrated_dpm": true,
+    "test_mae_better_than_raw_dpm": true,
+    "test_mae_better_than_calibrated_dpm": true
+  },
+  "best_epoch": 109,
+  "best_val_rmse_db": 5.569473505940556,
+  "best_val": {
+    "loss": 0.44173314770062766,
+    "rmse_db": 5.569473505940556,
+    "mae_db": 2.7529175771645873,
+    "dpm_baseline_rmse_db": 13.447068336201706,
+    "dpm_baseline_mae_db": 12.35624316925957,
+    "calibrated_dpm_rmse_db": 8.473371402111532,
+    "calibrated_dpm_mae_db": 5.6851941982669505,
+    "rmse_improvement_vs_dpm_db": 7.877594830261151,
+    "mae_improvement_vs_dpm_db": 9.603325592094983,
+    "rmse_improvement_vs_calibrated_db": 2.9038978961709763,
+    "mae_improvement_vs_calibrated_db": 2.932276621102363,
+    "valid_pixels": 28040518.0
+  },
+  "test": {
+    "loss": 0.4335280282552852,
+    "rmse_db": 5.5117160153289255,
+    "mae_db": 2.7005451893730354,
+    "dpm_baseline_rmse_db": 13.439588333863712,
+    "dpm_baseline_mae_db": 12.372797105718673,
+    "calibrated_dpm_rmse_db": 8.38259604334514,
+    "calibrated_dpm_mae_db": 5.610909449627046,
+    "rmse_improvement_vs_dpm_db": 7.927872318534787,
+    "mae_improvement_vs_dpm_db": 9.672251916345637,
+    "rmse_improvement_vs_calibrated_db": 2.870880028016215,
+    "mae_improvement_vs_calibrated_db": 2.9103642602540107,
+    "valid_pixels": 26959646.0
+  },
+  "elapsed_seconds": 70094.69545680001,
+  "checkpoint": "D:\\桌面\\dac\\models\\stage2a_iso_refine_sionna35_depth8_paper_v1\\best.pt",
+  "checkpoint_sha256": "cc18c650454f449bf4cb2ffb5b1d9df0531b77a9a4f89fb62d62dd9dd93ae27c",
+  "formula": "P_iso_Sionna_hat = P_iso_DPM_hat + residual_center_db + residual_scale_db * U_IsoRefine(B, P_iso_DPM_hat_norm)"
+}

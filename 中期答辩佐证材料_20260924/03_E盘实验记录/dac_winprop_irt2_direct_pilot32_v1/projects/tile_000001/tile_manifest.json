@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "tile": "tile_000001",
+  "oib_base": "E:\\dac_irt_v2_8bounce\\oib_keep\\tile_000001\\tile_000001_irt3d_r4_h2_v2_origsource",
+  "grid": {
+    "xmin": 444928.0,
+    "ymin": 4367884.0,
+    "xmax": 445440.0,
+    "ymax": 4368396.0,
+    "resolution": 4.0,
+    "rows": 128,
+    "cols": 128
+  },
+  "max_building_height_m": 21.0,
+  "transmitter_height_m": 26.0,
+  "transmitter_xy_m": [
+    445184.0,
+    4368140.0
+  ],
+  "variants": [
+    {
+      "name": "iso",
+      "kind": "iso",
+      "azimuth_deg": null,
+      "pattern_base": null,
+      "project_base": "E:\\dac_winprop_irt2_direct_pilot32_v1\\projects\\tile_000001\\iso\\tile_000001_irt2_iso",
+      "net": "E:\\dac_winprop_irt2_direct_pilot32_v1\\projects\\tile_000001\\iso\\tile_000001_irt2_iso.net",
+      "result_dir": "E:\\dac_winprop_irt2_direct_pilot32_v1\\raw_results\\tile_000001\\iso"
+    },
+    {
+      "name": "az113",
+      "kind": "directional",
+      "azimuth_deg": 113.0,
+      "pattern_base": "E:\\dac_irt_v2_8bounce\\patterns\\sector_h65_v8_g6p3dBi_az000_verified_roundtrip",
+      "project_base": "E:\\dac_winprop_irt2_direct_pilot32_v1\\projects\\tile_000001\\az113\\tile_000001_irt2_az113",
+      "net": "E:\\dac_winprop_irt2_direct_pilot32_v1\\projects\\tile_000001\\az113\\tile_000001_irt2_az113.net",
+      "result_dir": "E:\\dac_winprop_irt2_direct_pilot32_v1\\raw_results\\tile_000001\\az113"
+    },
+    {
+      "name": "az195",
+      "kind": "directional",
+      "azimuth_deg": 195.0,
+      "pattern_base": "E:\\dac_irt_v2_8bounce\\patterns\\sector_h65_v8_g6p3dBi_az000_verified_roundtrip",
+      "project_base": "E:\\dac_winprop_irt2_direct_pilot32_v1\\projects\\tile_000001\\az195\\tile_000001_irt2_az195",
+      "net": "E:\\dac_winprop_irt2_direct_pilot32_v1\\projects\\tile_000001\\az195\\tile_000001_irt2_az195.net",
+      "result_dir": "E:\\dac_winprop_irt2_direct_pilot32_v1\\raw_results\\tile_000001\\az195"
+    },
+    {
+      "name": "az216",
+      "kind": "directional",
+      "azimuth_deg": 216.0,
+      "pattern_base": "E:\\dac_irt_v2_8bounce\\patterns\\sector_h65_v8_g6p3dBi_az000_verified_roundtrip",
+      "project_base": "E:\\dac_winprop_irt2_direct_pilot32_v1\\projects\\tile_000001\\az216\\tile_000001_irt2_az216",
+      "net": "E:\\dac_winprop_irt2_direct_pilot32_v1\\projects\\tile_000001\\az216\\tile_000001_irt2_az216.net",
+      "result_dir": "E:\\dac_winprop_irt2_direct_pilot32_v1\\raw_results\\tile_000001\\az216"
+    },
+    {
+      "name": "az283",
+      "kind": "directional",
+      "azimuth_deg": 283.0,
+      "pattern_base": "E:\\dac_irt_v2_8bounce\\patterns\\sector_h65_v8_g6p3dBi_az000_verified_roundtrip",
+      "project_base": "E:\\dac_winprop_irt2_direct_pilot32_v1\\projects\\tile_000001\\az283\\tile_000001_irt2_az283",
+      "net": "E:\\dac_winprop_irt2_direct_pilot32_v1\\projects\\tile_000001\\az283\\tile_000001_irt2_az283.net",
+      "result_dir": "E:\\dac_winprop_irt2_direct_pilot32_v1\\raw_results\\tile_000001\\az283"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "status": "ok",
+  "best_epoch": 7,
+  "best_val_rmse_db": 6.834066681089148,
+  "epochs_completed": 11,
+  "elapsed_seconds": 3445.1312107999984,
+  "checkpoint": "D:\\桌面\\dac\\models\\stage2b_latent_fusion_scale4_v4\\best.pt",
+  "checkpoint_sha256": "0b62a7c12cc3dd15fecd90b261921a0a3edfcc84f656763a0760c6ccd7cef161"
+}

@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+  File "C:\Users\pc\Documents\大创\projects\irt_label_pipeline\run_winprop_direct_pilot.py", line 581, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "C:\Users\pc\Documents\大创\projects\irt_label_pipeline\run_winprop_direct_pilot.py", line 554, in main
+    process_tile(
+  File "C:\Users\pc\Documents\大创\projects\irt_label_pipeline\run_winprop_direct_pilot.py", line 468, in process_tile
+    variant, result = future.result()
+                      ^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\Documents\大创\projects\irt_label_pipeline\run_winprop_direct_pilot.py", line 360, in run_variant
+    source = validate_result(config, tile, result_dir)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\Documents\大创\projects\irt_label_pipeline\run_winprop_direct_pilot.py", line 320, in validate_result
+    array, source = parse_winprop_ascii(result_path, grid)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\Documents\大创\projects\irt_label_pipeline\compact_irt_result.py", line 134, in parse_winprop_ascii
+    raise ValueError(
+ValueError: E:\dac_winprop_irt2_direct_pilot32_v1\raw_results\tile_000003\iso\Site  1 Antenna 1 Path Loss.txt is not a complete 128x128 grid: records=16512, unique=16384, out_of_bounds=128

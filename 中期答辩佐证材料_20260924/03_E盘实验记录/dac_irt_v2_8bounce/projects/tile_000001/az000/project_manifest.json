@@ -1,0 +1,9 @@
+{
+  "name": "az000",
+  "kind": "directional",
+  "azimuth_deg": 0.0,
+  "pattern_base": "E:\\dac_irt_v2_8bounce\\patterns\\sector_h65_v8_g6p3dBi_az000",
+  "project_base": "E:\\dac_irt_v2_8bounce\\projects\\tile_000001\\az000\\tile_000001_irt8_az000",
+  "net": "E:\\dac_irt_v2_8bounce\\projects\\tile_000001\\az000\\tile_000001_irt8_az000.net",
+  "result_dir": "E:\\dac_irt_v2_8bounce\\raw_results\\tile_000001\\az000"
+}

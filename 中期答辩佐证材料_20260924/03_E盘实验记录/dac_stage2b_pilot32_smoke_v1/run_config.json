@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "name": "stage2b_directional_ss_pilot32_smoke_v1",
+  "shard_root": "E:\\dac_winprop_irt2_direct_pilot32_v1\\shards_v2",
+  "shard_manifest": "E:\\dac_winprop_irt2_direct_pilot32_v1\\shard_manifest_v2.csv",
+  "selection_csv": "E:\\dac_winprop_irt2_direct_pilot32_v1\\pilot_selection.csv",
+  "irt_normalization": "E:\\dac_winprop_irt2_direct_pilot32_v1\\normalization_irt.json",
+  "normalized_root": "D:\\桌面\\dac\\normalized_4m_v1",
+  "stage1_model_dir": "D:\\桌面\\dac\\models\\stage1_dpm_unet_baseline_v1",
+  "stage2a_model_dir": "E:\\dac_stage2a_pilot32_smoke_v1",
+  "output_dir": "E:\\dac_stage2b_pilot32_smoke_v1",
+  "input": [
+    "building_height_norm",
+    "frozen_stage2a_isotropic_irt_prediction_norm",
+    "sparse_directional_ss_norm",
+    "sparse_measurement_mask"
+  ],
+  "target": "complete_directional_ss_norm",
+  "link_budget": {
+    "p_tx_dbm": "Uniform(10, 35)",
+    "g_tx_db": "Uniform(10, 20)",
+    "g_rx_db": "Uniform(10, 20)",
+    "insertion_loss_db": "Uniform(-10, 10)",
+    "sampling": "fixed deterministic draw per tile-direction"
+  },
+  "sparse_points_train": [
+    1,
+    200
+  ],
+  "validation_sparse_points": 100,
+  "test_sparse_points": [
+    50,
+    100,
+    200
+  ],
+  "base_channels": 32,
+  "epochs": 2,
+  "batch_size": 4,
+  "gradient_accumulation": 1,
+  "workers": 0,
+  "prefetch_factor": 2,
+  "learning_rate": 0.0003,
+  "weight_decay": 0.0001,
+  "loss": "masked_huber",
+  "huber_delta_normalized": 1.0,
+  "patience": 2,
+  "gradient_clip": 5.0,
+  "seed": 20260724,
+  "device": "auto",
+  "amp": true,
+  "channels_last": true,
+  "augmentation": false,
+  "provenance": {
+    "status": "pipeline_smoke_test_only",
+    "stage1_checkpoint_sha256": "e44a4580aefaac6c0a2166a1824e4b140139ee23b0b87dcc7f78481ff4377c72",
+    "stage2a_checkpoint_sha256": null,
+    "irt_dataset": "E:\\dac_winprop_irt2_direct_pilot32_v1",
+    "formula": "SS = P_dir_IRT + P_TX + G_TX + G_RX - IL",
+    "winprop_only": true
+  },
+  "config_path": "C:\\Users\\pc\\Documents\\大创\\projects\\irt_label_pipeline\\config_stage2b_pilot32_smoke.json",
+  "config_sha256": "48d98db43fce211eda35ab25d720d9825f761e14001b81080e4fe1a3c0c61fdc",
+  "device_resolved": "cuda",
+  "torch_version": "2.13.0+cu130",
+  "cuda_version": "13.0",
+  "gpu": "NVIDIA GeForce RTX 5070 Laptop GPU",
+  "amp_resolved": true,
+  "channels_last_resolved": true,
+  "ss_mean_db": -73.90011381222986,
+  "ss_std_db": 18.95868071297819,
+  "stage2b_parameters": 7763329,
+  "split_directional_samples": {
+    "train": 100,
+    "val": 20
+  },
+  "stage1_mean_db": -107.34759535264241,
+  "stage1_std_db": 10.106487505584935,
+  "stage2a_residual_scale_db": 10.106487505584935,
+  "stage1_checkpoint_sha256": "e44a4580aefaac6c0a2166a1824e4b140139ee23b0b87dcc7f78481ff4377c72",
+  "stage2a_checkpoint_sha256": "741768394963398fa118c7b4ba9e5bfc45f881f54ff5b32a7ec99727e7fe492a"
+}

@@ -1,0 +1,58 @@
+{
+  "status": "ok",
+  "samples_per_tx": 7000000,
+  "expected_shape": [
+    128,
+    128
+  ],
+  "variants_found": [
+    "az022",
+    "az073",
+    "az092",
+    "az271",
+    "iso"
+  ],
+  "pairwise": {
+    "az022_vs_iso_mae_db": 17.905912399291992,
+    "az073_vs_iso_mae_db": 18.713518142700195,
+    "az092_vs_iso_mae_db": 18.762556076049805,
+    "az271_vs_iso_mae_db": 14.570972442626953,
+    "az022_vs_az073_mae_db": 4.996606826782227,
+    "az022_vs_az092_mae_db": 6.584913730621338,
+    "az022_vs_az271_mae_db": 14.843141555786133,
+    "az073_vs_az092_mae_db": 2.0904529094696045,
+    "az073_vs_az271_mae_db": 14.960105895996094,
+    "az092_vs_az271_mae_db": 14.8803129196167
+  },
+  "orientation_checks": {
+    "az022": {
+      "front_cells": 638,
+      "back_cells": 798,
+      "front_median_delta_db": 5.4975433349609375,
+      "back_median_delta_db": -23.70038604736328,
+      "front_minus_back_db": 29.19792938232422
+    },
+    "az073": {
+      "front_cells": 109,
+      "back_cells": 646,
+      "front_median_delta_db": 0.32736968994140625,
+      "back_median_delta_db": -23.7022705078125,
+      "front_minus_back_db": 24.029640197753906
+    },
+    "az092": {
+      "front_cells": 182,
+      "back_cells": 590,
+      "front_median_delta_db": 5.025035858154297,
+      "back_median_delta_db": -23.699604034423828,
+      "front_minus_back_db": 28.724639892578125
+    },
+    "az271": {
+      "front_cells": 586,
+      "back_cells": 178,
+      "front_median_delta_db": 5.58660888671875,
+      "back_median_delta_db": -23.699325561523438,
+      "front_minus_back_db": 29.285934448242188
+    }
+  },
+  "failures": []
+}

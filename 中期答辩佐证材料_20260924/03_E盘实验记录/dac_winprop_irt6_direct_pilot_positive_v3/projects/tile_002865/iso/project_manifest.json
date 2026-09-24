@@ -1,0 +1,9 @@
+{
+  "name": "iso",
+  "kind": "iso",
+  "azimuth_deg": null,
+  "pattern_base": null,
+  "project_base": "E:\\dac_winprop_irt6_direct_pilot_positive_v3\\projects\\tile_002865\\iso\\tile_002865_irt6_iso",
+  "net": "E:\\dac_winprop_irt6_direct_pilot_positive_v3\\projects\\tile_002865\\iso\\tile_002865_irt6_iso.net",
+  "result_dir": "E:\\dac_winprop_irt6_direct_pilot_positive_v3\\raw_results\\tile_002865\\iso"
+}

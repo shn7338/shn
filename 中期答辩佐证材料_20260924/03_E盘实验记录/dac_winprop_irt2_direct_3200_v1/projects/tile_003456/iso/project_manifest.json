@@ -1,0 +1,9 @@
+{
+  "name": "iso",
+  "kind": "iso",
+  "azimuth_deg": null,
+  "pattern_base": null,
+  "project_base": "E:\\dac_winprop_irt2_direct_3200_v1\\projects\\tile_003456\\iso\\tile_003456_irt2_iso",
+  "net": "E:\\dac_winprop_irt2_direct_3200_v1\\projects\\tile_003456\\iso\\tile_003456_irt2_iso.net",
+  "result_dir": "E:\\dac_winprop_irt2_direct_3200_v1\\raw_results\\tile_003456\\iso"
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "status": "rejected",
+  "accepted": false,
+  "v5_final_rmse_db": 6.897000033591471,
+  "v6_final_rmse_db": 6.897000033591471,
+  "v6_improvement_vs_v5_db": 0.0,
+  "checks": {
+    "overall_rmse": {
+      "passed": false,
+      "actual": 6.897000033591471,
+      "maximum": 6.82
+    },
+    "improvement_vs_v5": {
+      "passed": false,
+      "actual": 0.0,
+      "minimum": 0.03
+    },
+    "location_preserved": {
+      "passed": true,
+      "actual": 4.1997538731138775,
+      "maximum": 4.35
+    },
+    "power_preserved": {
+      "passed": true,
+      "actual": 1.6032776525244117,
+      "maximum": 1.85
+    },
+    "direction_preserved": {
+      "passed": false,
+      "actual": 12.516511681557176,
+      "maximum": 12.5
+    },
+    "far_center_bin": {
+      "passed": false,
+      "actual": 7.426852539881849,
+      "maximum": 7.35
+    }
+  },
+  "recommendation": "retain V5 unless raw V6 accuracy is preferred experimentally"
+}

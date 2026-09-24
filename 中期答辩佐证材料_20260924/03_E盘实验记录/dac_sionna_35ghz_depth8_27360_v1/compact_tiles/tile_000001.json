@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "method": "Sionna RT 2.0.1 radio map",
+  "tile": "tile_000001",
+  "split": "val",
+  "array_convention": "array[row, col]; row=0 north, col=0 west",
+  "dtype": "float16",
+  "quantity": "path_gain_db",
+  "variants": [
+    "iso",
+    "az113",
+    "az195",
+    "az216",
+    "az283"
+  ],
+  "azimuths_deg": [
+    113,
+    195,
+    216,
+    283
+  ],
+  "sources": {
+    "iso": {
+      "source": "E:\\dac_sionna_35ghz_depth8_27360_v1\\work_tiles\\tile_000001\\iso_samples_7000000.npz",
+      "source_sha256": "9a05da439e07769cea7920ea472fb2e8bd46e31f9507cb26dab571d1aa3680ee",
+      "valid_pixels": 9968,
+      "minimum_db": -163.5712432861328,
+      "maximum_db": -69.95716857910156
+    },
+    "az113": {
+      "source": "E:\\dac_sionna_35ghz_depth8_27360_v1\\work_tiles\\tile_000001\\az113_samples_7000000.npz",
+      "source_sha256": "c91472eb29f7cf1881ecc951a682e0a58c7bae4db439ff35364dd10a5999ad5f",
+      "valid_pixels": 9966,
+      "minimum_db": -170.29080200195312,
+      "maximum_db": -88.7723388671875
+    },
+    "az195": {
+      "source": "E:\\dac_sionna_35ghz_depth8_27360_v1\\work_tiles\\tile_000001\\az195_samples_7000000.npz",
+      "source_sha256": "4a181bffc7cbc0e85223cd9308e1290cb4a08cb045de26f43d520b83c40e77e3",
+      "valid_pixels": 9920,
+      "minimum_db": -187.27125549316406,
+      "maximum_db": -88.67338562011719
+    },
+    "az216": {
+      "source": "E:\\dac_sionna_35ghz_depth8_27360_v1\\work_tiles\\tile_000001\\az216_samples_7000000.npz",
+      "source_sha256": "9e9dbf3921dd649ee084e73b01c9b88e7369c0c4a6c26364f41992ca0ee7d977",
+      "valid_pixels": 9963,
+      "minimum_db": -187.37684631347656,
+      "maximum_db": -87.7718734741211
+    },
+    "az283": {
+      "source": "E:\\dac_sionna_35ghz_depth8_27360_v1\\work_tiles\\tile_000001\\az283_samples_7000000.npz",
+      "source_sha256": "79446e102fbd3a1c467011c0e29f7c3c8e8be99562b69f5572e262d08d3f8620",
+      "valid_pixels": 9933,
+      "minimum_db": -187.27125549316406,
+      "maximum_db": -88.68984985351562
+    }
+  },
+  "output": "E:\\dac_sionna_35ghz_depth8_27360_v1\\compact_tiles\\tile_000001.npz",
+  "output_bytes": 78367,
+  "output_sha256": "44a02d4b8ada08f63405594556f9bf8cb345ff33a001521d93070546c25a59cd"
+}

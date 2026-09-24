@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "status": "ok",
+  "best_epoch": 5,
+  "best_val_rmse_db": 6.857704948209152,
+  "epochs_completed": 8,
+  "elapsed_seconds": 2691.7005530999886,
+  "checkpoint": "D:\\桌面\\dac\\models\\stage2b_position_encoding_scale4_v3\\best.pt",
+  "checkpoint_sha256": "3a2617f41842fd851462989c4fa76ed985f82afa066c8747280240a6ecfa90aa"
+}

@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "status": "failed",
+  "phase": "error",
+  "tile": "tile_009521",
+  "index": 9,
+  "total": 3200,
+  "completed": 8,
+  "remaining": 3192,
+  "updated_unix": 1785064907.7275863,
+  "error": "FileNotFoundError: expected exactly one Path Loss.txt below E:\\dac_winprop_irt2_direct_3200_v1\\raw_results\\tile_009521\\iso, found 0"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "az113",
+  "kind": "directional",
+  "azimuth_deg": 113.0,
+  "pattern_base": "E:\\dac_irt_v2_8bounce\\patterns\\sector_h65_v8_g6p3dBi_az000_verified_roundtrip",
+  "project_base": "E:\\dac_winprop_irt2_direct_pilot32_v1\\projects\\tile_000001\\az113\\tile_000001_irt2_az113",
+  "net": "E:\\dac_winprop_irt2_direct_pilot32_v1\\projects\\tile_000001\\az113\\tile_000001_irt2_az113.net",
+  "result_dir": "E:\\dac_winprop_irt2_direct_pilot32_v1\\raw_results\\tile_000001\\az113"
+}

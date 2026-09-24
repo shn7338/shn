@@ -1,0 +1,72 @@
+{
+  "version": 2,
+  "name": "bs_parameter_estimator_scale4_v2",
+  "dataset_root": "D:\\桌面\\dac\\bs_inversion_scale4_v1",
+  "output_dir": "D:\\桌面\\dac\\models\\bs_parameter_estimator_scale4_v2",
+  "model": {
+    "architecture": "shared_unet_multitask_latent_bs_estimator",
+    "input_channels": [
+      "building_height_norm",
+      "sparse_signal_strength_norm",
+      "sparse_measurement_mask"
+    ],
+    "base_channels": 16,
+    "scalar_hidden_channels": 128,
+    "softargmax_temperature": 1.0,
+    "heads": [
+      "location_heatmap_and_softargmax",
+      "effective_power",
+      "azimuth_sin_cos",
+      "auxiliary_full_signal_map"
+    ]
+  },
+  "epochs": 25,
+  "batch_size": 32,
+  "workers": 2,
+  "prefetch_factor": 2,
+  "progress_every_batches": 64,
+  "learning_rate": 0.0001,
+  "weight_decay": 0.0001,
+  "gradient_clip": 5.0,
+  "patience": 6,
+  "augmentation": true,
+  "amp": true,
+  "channels_last": true,
+  "device": "auto",
+  "seed": 20260818,
+  "loss_weights": {
+    "heatmap": 1.5,
+    "coordinate": 2.0,
+    "power": 0.5,
+    "direction": 1.0,
+    "map": 0.1
+  },
+  "acceptance": {
+    "maximum_location_mean_error_px": 4.5,
+    "maximum_power_mae_db": 3.0,
+    "maximum_direction_mae_deg": 15.0
+  },
+  "provenance": {
+    "initial_checkpoint": "D:\\桌面\\dac\\models\\bs_parameter_estimator_pilot_v1\\best.pt",
+    "dataset": "balanced four radial position bins on 1536 buildings",
+    "input_restriction": "inference uses only building height plus sparse signal values and mask"
+  },
+  "config_path": "C:\\Users\\pc\\Documents\\大创\\projects\\irt_label_pipeline\\config_bs_parameter_estimator_scale4_v2.json",
+  "config_sha256": "3a43cab99751d96e6258a4c36598983e1a4ad6a9f36b81a45350e67e9c873fae",
+  "output_dir_resolved": "D:\\桌面\\dac\\models\\bs_parameter_estimator_scale4_v2",
+  "device_resolved": "cuda",
+  "amp_resolved": true,
+  "channels_last_resolved": true,
+  "parameter_count": 2016709,
+  "split_samples": {
+    "train": 16384,
+    "val": 4096,
+    "test": 4096
+  },
+  "signal_mean_db": -60.60341846718602,
+  "signal_std_db": 20.63990547298158,
+  "power_mean_db": 52.5,
+  "power_std_db": 10.103629710818451,
+  "init_checkpoint": "D:\\桌面\\dac\\models\\bs_parameter_estimator_pilot_v1\\best.pt",
+  "init_checkpoint_sha256": "fdae41e2a6bf0a2f54f5db8b62750abb909875e31c734fd77b761fe9ef9fc904"
+}

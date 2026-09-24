@@ -1,0 +1,124 @@
+{
+  "version": 1,
+  "tile": "tile_000001",
+  "array_convention": "array[row, col]; row=0 north, col=0 west",
+  "grid": {
+    "xmin": 444928.0,
+    "ymin": 4367884.0,
+    "xmax": 445440.0,
+    "ymax": 4368396.0,
+    "resolution": 4.0,
+    "rows": 128,
+    "cols": 128
+  },
+  "azimuth_convention": "degrees clockwise from north",
+  "azimuths_deg": [
+    0.0,
+    90.0
+  ],
+  "variants": [
+    "iso",
+    "az000",
+    "az090"
+  ],
+  "dtype": "float16",
+  "superposition": "POWER",
+  "method": "WinProp isotropic IRT per-ray power reweighting using the ray DoD angles and the configured AMan antenna gain pattern",
+  "ray_header": {
+    "lower_left": [
+      444928.0,
+      4367884.0
+    ],
+    "height_m": 2.0,
+    "resolution_m": 4.0,
+    "columns": 128,
+    "lines": 128,
+    "transmitter_xyz_m": [
+      445184.0,
+      4368140.0,
+      26.0
+    ],
+    "frequency_mhz": 3500.0,
+    "paths": "YES",
+    "angles": "YES"
+  },
+  "ray_statistics": {
+    "points": 12767,
+    "paths": 5151437,
+    "maximum_paths_per_point": 500,
+    "mean_paths_per_point": 403.49627947050993,
+    "out_of_bounds": 0,
+    "indoor_points_omitted_by_winprop": 3617
+  },
+  "validity_mask_audit": {
+    "winprop_finite_cells": 12767,
+    "winprop_missing_cells": 3617,
+    "prepared_building_cells": 5850,
+    "finite_cells_inside_prepared_building_mask": 2233,
+    "missing_cells_outside_prepared_building_mask": 0,
+    "authority": "WinProp Power.txt N.C. status"
+  },
+  "pattern": {
+    "path": "E:\\dac_irt_v2_8bounce\\patterns\\sector_h65_v8_g6p3dBi_az000_verified_roundtrip.apa",
+    "sha256": "00f1fe3d72ca9d2825652c55fcc03010a2288126b9dbf88c9803ba939bacbf9a",
+    "records": 65160,
+    "theta_samples": 181,
+    "phi_samples": 361,
+    "source_phi_samples": 360,
+    "resolution_deg": 1.0,
+    "minimum_gain_dbi": -23.68,
+    "maximum_gain_dbi": 6.3,
+    "source_encoding": "cp1252"
+  },
+  "iso_source": {
+    "source": "E:\\dac_winprop_irt2_ray500_diagnostic_v2\\raw_results\\tile_000001\\iso\\Site  1 Antenna 1 Power.txt",
+    "header": {
+      "VERSION": "2020-38079",
+      "DATE": "2026-07-24, 15:35:07 (+0800)",
+      "ANTENNA 1": "ANTENNATYPE ISO",
+      "LOWER_LEFT": "444928.00000000 4367884.00000000",
+      "UPPER_RIGHT": "445440.00000000 4368396.00000000",
+      "HEIGHT": "2.000",
+      "TIME_STEP": "0.000",
+      "RESOLUTION": "4.00000000"
+    },
+    "records": 16384,
+    "valid_pixels": 12767,
+    "minimum_db": -178.50599670410156,
+    "maximum_db": -78.08599853515625
+  },
+  "direct_validation": {
+    "az000": {
+      "source": "E:\\dac_winprop_irt2_verified_pattern_diagnostic_v1\\raw_results\\tile_000001\\az000\\Site  1 Antenna 1 Power.txt",
+      "pixels": 12767,
+      "bias_db": 0.3727600200441232,
+      "mae_db": 0.4756612693300783,
+      "rmse_db": 0.6870668020349391,
+      "p95_absolute_error_db": 1.4855583190917965,
+      "maximum_absolute_error_db": 3.7375640869140625,
+      "passed": false
+    },
+    "az090": {
+      "source": "E:\\dac_winprop_irt2_verified_pattern_diagnostic_v1\\raw_results\\tile_000001\\az090\\Site  1 Antenna 1 Power.txt",
+      "pixels": 12766,
+      "bias_db": 0.24347795955294,
+      "mae_db": 0.389199806271947,
+      "rmse_db": 0.5977138888475901,
+      "p95_absolute_error_db": 1.28076171875,
+      "maximum_absolute_error_db": 4.3561553955078125,
+      "passed": false
+    }
+  },
+  "elapsed_seconds": 8.819593799998984,
+  "outputs": {
+    "compact": "E:\\dac_winprop_irt2_roundtrip_pattern_validation_v3\\compact_tiles\\tile_000001.npz",
+    "validation_float32": "E:\\dac_winprop_irt2_roundtrip_pattern_validation_v3\\compact_tiles\\tile_000001_validation_f32.npz"
+  },
+  "hashes_sha256": {
+    "ray_str": "e4bf4b5717af49ec3648200fac70af9e1504315f574bfeb73d2ca7fe929ce6db",
+    "iso_power_txt": "b4fec45e3cb4280738eb82833b4563de9f76abd82a59820d2cdd0810961f5019",
+    "compact": "5dd6b8adbb4d5382caea0ba9a455f305ccb649d88812f1191c9ceed21531d520",
+    "validation_float32": "424d17bdbe47ad33d162f045b8e6bac6316ae40cbff8c70ad8d8391c28dee15f"
+  },
+  "direct_validation_passed": false
+}

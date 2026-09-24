@@ -1,0 +1,51 @@
+{
+  "version": 3,
+  "tile": "tile_000001",
+  "coordinate_system": {
+    "source": "EPSG:32650",
+    "local_origin_utm_m": [
+      445184.0,
+      4368140.0,
+      0.0
+    ],
+    "local_x": "east",
+    "local_y": "north",
+    "local_z": "up"
+  },
+  "grid": {
+    "xmin": 444928.0,
+    "ymin": 4367884.0,
+    "xmax": 445440.0,
+    "ymax": 4368396.0,
+    "resolution": 4.0,
+    "rows": 128,
+    "cols": 128
+  },
+  "source_features": 726,
+  "valid_features": 726,
+  "polygon_count": 729,
+  "skipped_features": [],
+  "maximum_building_height_m": 21.0,
+  "transmitter_local_position_m": [
+    0.0,
+    0.0,
+    26.0
+  ],
+  "mesh": {
+    "buildings_vertices": 28390,
+    "buildings_triangles": 53864,
+    "ground_vertices": 4,
+    "ground_triangles": 2
+  },
+  "source_hashes_sha256": {
+    ".shp": "7a9842cbebdbbcb0e7d6fb592a81ccb0b979ebb004dcdfef6726d6965a279907",
+    ".shx": "b3de7da7ca109864204bf0f9d8481ebe4b0108ce51e37ffd6621fd2cda6ad466",
+    ".dbf": "966f3db8eaa55aae97a4d2fd0e8d4a5a1877d907c0fd9b520bd826b2481d1c93",
+    ".prj": "99a5a32f41f7df7e52e869dca1b2df8b2009ba20c28dbf95e61dc9c891dffd38"
+  },
+  "output_hashes_sha256": {
+    "scene_xml": "fc4fa6ed8b8f0baba5235c139d4345d70d917b12c2655217ab019c54f3292e39",
+    "buildings_ply": "8dcbe50c101c8fb1c72fdc478259937b8f62674070ac35298d28ce93355bfeaa",
+    "ground_ply": "71381ad793570deb91b6bf78c5a6338946908152e3e9f0f19f8632ff97c5abc6"
+  }
+}

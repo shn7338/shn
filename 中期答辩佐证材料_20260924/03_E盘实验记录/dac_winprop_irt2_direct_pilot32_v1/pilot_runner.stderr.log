@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "C:\Users\pc\Documents\大创\projects\irt_label_pipeline\run_winprop_direct_pilot.py", line 524, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "C:\Users\pc\Documents\大创\projects\irt_label_pipeline\run_winprop_direct_pilot.py", line 497, in main
+    process_tile(
+  File "C:\Users\pc\Documents\大创\projects\irt_label_pipeline\run_winprop_direct_pilot.py", line 373, in process_tile
+    oib_base, preprocessing = resolve_oib_base(
+                              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\Documents\大创\projects\irt_label_pipeline\run_winprop_direct_pilot.py", line 180, in resolve_oib_base
+    run = run_logged(
+          ^^^^^^^^^^^
+  File "C:\Users\pc\Documents\大创\projects\irt_label_pipeline\run_winprop_direct_pilot.py", line 119, in run_logged
+    raise RuntimeError(
+RuntimeError: command failed with exit code 1; see E:\dac_winprop_irt2_direct_pilot32_v1\logs\tile_000003\preprocess.stdout.log and E:\dac_winprop_irt2_direct_pilot32_v1\logs\tile_000003\preprocess.stderr.log

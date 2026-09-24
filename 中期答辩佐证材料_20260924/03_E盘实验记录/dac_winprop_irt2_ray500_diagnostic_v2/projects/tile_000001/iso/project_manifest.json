@@ -1,0 +1,9 @@
+{
+  "name": "iso",
+  "kind": "iso",
+  "azimuth_deg": null,
+  "pattern_base": null,
+  "project_base": "E:\\dac_winprop_irt2_ray500_diagnostic_v2\\projects\\tile_000001\\iso\\tile_000001_irt2_iso",
+  "net": "E:\\dac_winprop_irt2_ray500_diagnostic_v2\\projects\\tile_000001\\iso\\tile_000001_irt2_iso.net",
+  "result_dir": "E:\\dac_winprop_irt2_ray500_diagnostic_v2\\raw_results\\tile_000001\\iso"
+}

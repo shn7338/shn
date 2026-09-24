@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "method": "existing spatial-block split, then seeded round-robin sampling across 2048 m spatial blocks",
+  "seed": 20260724,
+  "block_size_m": 2048.0,
+  "requested_counts": {
+    "train": 2560,
+    "val": 320,
+    "test": 320
+  },
+  "selected_counts": {
+    "train": 2560,
+    "val": 320,
+    "test": 320
+  },
+  "ready_candidates_by_split": {
+    "train": 21789,
+    "val": 2840,
+    "test": 2731
+  },
+  "total": 3200,
+  "tiles_file": "E:\\dac_winprop_irt2_direct_3200_v1\\selection_tiles.txt",
+  "tiles_file_sha256": "b2855cfe5fbad169648ad3fd7f681cee9659c0476570e0036bebff0b9b308e77",
+  "csv": "E:\\dac_winprop_irt2_direct_3200_v1\\selection_tiles.csv",
+  "csv_sha256": "28b5ca8a457a557f8e3d87f9272c5e55f0dca7c50561bfa21b1f9499ad02e9e8",
+  "source_ready_manifest": "C:\\Users\\pc\\Documents\\大创\\prediction_ready_all_odb.csv",
+  "source_ready_manifest_sha256": "d0665d7286b89ca2f475c18bf259fc7cb49ae7ad5041fb0b5728f522c1a8c9f0"
+}

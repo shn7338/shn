@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "tile": "tile_000001",
+  "array_convention": "array[row, col]; row=0 north, col=0 west",
+  "grid": {
+    "xmin": 444928.0,
+    "ymin": 4367884.0,
+    "xmax": 445440.0,
+    "ymax": 4368396.0,
+    "resolution": 4.0,
+    "rows": 128,
+    "cols": 128
+  },
+  "dtype": "float16",
+  "quantity": "path_loss",
+  "variants": [
+    "iso",
+    "az113",
+    "az195",
+    "az216",
+    "az283"
+  ],
+  "sources": {
+    "iso": {
+      "source": "E:\\dac_winprop_irt2_direct_pilot32_v1\\raw_results\\tile_000001\\iso\\Site  1 Antenna 1 Path Loss.txt",
+      "header": {
+        "VERSION": "2020-38079",
+        "DATE": "2026-07-24, 16:04:35 (+0800)",
+        "ANTENNA 1": "ANTENNATYPE ISO",
+        "LOWER_LEFT": "444928.00000000 4367884.00000000",
+        "UPPER_RIGHT": "445440.00000000 4368396.00000000",
+        "HEIGHT": "2.000",
+        "TIME_STEP": "0.000",
+        "RESOLUTION": "4.00000000"
+      },
+      "records": 16384,
+      "valid_pixels": 12767,
+      "minimum_db": -178.50599670410156,
+      "maximum_db": -78.0864028930664,
+      "sha256": "734c7061092165a4b2023ac3420d723006ad53fc8edf45bf5b42933f167fcc84"
+    },
+    "az113": {
+      "source": "E:\\dac_winprop_irt2_direct_pilot32_v1\\raw_results\\tile_000001\\az113\\Site  1 Antenna 1 Path Loss.txt",
+      "header": {
+        "VERSION": "2020-38079",
+        "DATE": "2026-07-24, 16:04:36 (+0800)",
+        "ANTENNA 1": "VERTICAL 0.000",
+        "LOWER_LEFT": "444928.00000000 4367884.00000000",
+        "UPPER_RIGHT": "445440.00000000 4368396.00000000",
+        "HEIGHT": "2.000",
+        "TIME_STEP": "0.000",
+        "RESOLUTION": "4.00000000"
+      },
+      "records": 16384,
+      "valid_pixels": 12766,
+      "minimum_db": -198.3350067138672,
+      "maximum_db": -90.20140075683594,
+      "sha256": "65db2287d5c1efde2275c62ab746fb5593e911611daa5fa8d394c2f0dba04bb7"
+    },
+    "az195": {
+      "source": "E:\\dac_winprop_irt2_direct_pilot32_v1\\raw_results\\tile_000001\\az195\\Site  1 Antenna 1 Path Loss.txt",
+      "header": {
+        "VERSION": "2020-38079",
+        "DATE": "2026-07-24, 16:04:36 (+0800)",
+        "ANTENNA 1": "VERTICAL 0.000",
+        "LOWER_LEFT": "444928.00000000 4367884.00000000",
+        "UPPER_RIGHT": "445440.00000000 4368396.00000000",
+        "HEIGHT": "2.000",
+        "TIME_STEP": "0.000",
+        "RESOLUTION": "4.00000000"
+      },
+      "records": 16384,
+      "valid_pixels": 12764,
+      "minimum_db": -198.3350067138672,
+      "maximum_db": -87.74649810791016,
+      "sha256": "8a4981fe9cc57242bfd52d016275a1a3ac142acbbe137e2bc398f46a3495c35f"
+    },
+    "az216": {
+      "source": "E:\\dac_winprop_irt2_direct_pilot32_v1\\raw_results\\tile_000001\\az216\\Site  1 Antenna 1 Path Loss.txt",
+      "header": {
+        "VERSION": "2020-38079",
+        "DATE": "2026-07-24, 16:04:36 (+0800)",
+        "ANTENNA 1": "VERTICAL 0.000",
+        "LOWER_LEFT": "444928.00000000 4367884.00000000",
+        "UPPER_RIGHT": "445440.00000000 4368396.00000000",
+        "HEIGHT": "2.000",
+        "TIME_STEP": "0.000",
+        "RESOLUTION": "4.00000000"
+      },
+      "records": 16384,
+      "valid_pixels": 12764,
+      "minimum_db": -198.3350067138672,
+      "maximum_db": -89.43509674072266,
+      "sha256": "a96856ca85fd34fd2001017b337e7bf6c96173be9f20d8ba88f42a25df836fc8"
+    },
+    "az283": {
+      "source": "E:\\dac_winprop_irt2_direct_pilot32_v1\\raw_results\\tile_000001\\az283\\Site  1 Antenna 1 Path Loss.txt",
+      "header": {
+        "VERSION": "2020-38079",
+        "DATE": "2026-07-24, 16:05:18 (+0800)",
+        "ANTENNA 1": "VERTICAL 0.000",
+        "LOWER_LEFT": "444928.00000000 4367884.00000000",
+        "UPPER_RIGHT": "445440.00000000 4368396.00000000",
+        "HEIGHT": "2.000",
+        "TIME_STEP": "0.000",
+        "RESOLUTION": "4.00000000"
+      },
+      "records": 16384,
+      "valid_pixels": 12765,
+      "minimum_db": -198.3350067138672,
+      "maximum_db": -88.52899932861328,
+      "sha256": "6c4ce1e0277a534cde73682f0ce9d1b16e5a9c7733da1b5a714b1ba85e2766ea"
+    }
+  },
+  "valid_pixels": {
+    "iso": 12767,
+    "az113": 12766,
+    "az195": 12764,
+    "az216": 12764,
+    "az283": 12765
+  },
+  "output": "E:\\dac_winprop_irt2_direct_pilot32_v1\\compact_tiles\\tile_000001.npz",
+  "output_bytes": 96555,
+  "output_sha256": "3a30ff55e3a45520fa7e76ce156867825d7ece690a40d208e7ec049882d40cc2"
+}

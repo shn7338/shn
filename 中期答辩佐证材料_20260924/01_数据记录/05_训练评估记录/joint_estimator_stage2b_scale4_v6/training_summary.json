@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "status": "ok",
+  "best_epoch": 0,
+  "best_val_rmse_db": 6.811668245481514,
+  "epochs_completed": 3,
+  "elapsed_seconds": 440.40335429999686,
+  "best_joint_checkpoint": "D:\\桌面\\dac\\models\\joint_estimator_stage2b_scale4_v6\\best.pt",
+  "best_stage2b_checkpoint": "D:\\桌面\\dac\\models\\joint_estimator_stage2b_scale4_v6\\best_stage2b.pt",
+  "best_estimator_checkpoint": "D:\\桌面\\dac\\models\\joint_estimator_stage2b_scale4_v6\\best_estimator.pt",
+  "best_stage2b_sha256": "c85caf6dd3f9638b464c5017aaa256758bd2111e091ee6d58989d6d0799f7b0c",
+  "best_estimator_sha256": "0893afed84cd97001eb80ed82dea04141b548040863ee4ef66f651526d45b12a"
+}

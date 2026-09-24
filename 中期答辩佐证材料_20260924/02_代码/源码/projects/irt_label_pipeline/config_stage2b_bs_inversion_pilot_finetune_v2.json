@@ -1,0 +1,49 @@
+{
+  "version": 2,
+  "name": "stage2b_bs_inversion_pilot_finetune_v2",
+  "dataset_root": "D:\\桌面\\dac\\bs_inversion_pilot_v1",
+  "irt_normalization": "E:\\dac_sionna_35ghz_depth8_27360_v3\\normalization_irt.json",
+  "stage1_model_dir": "D:\\桌面\\dac\\models\\stage1_bs_inversion_pilot_finetune_v1",
+  "stage2a_model_dir": "D:\\桌面\\dac\\models\\stage2a_bs_inversion_pilot_finetune_v1",
+  "require_accepted_stage2a": true,
+  "estimator_config": "C:\\Users\\pc\\Documents\\大创\\projects\\irt_label_pipeline\\config_bs_parameter_estimator_pilot_v1.json",
+  "estimator_checkpoint": "D:\\桌面\\dac\\models\\bs_parameter_estimator_pilot_v1\\best.pt",
+  "initial_stage2b_checkpoint": "D:\\桌面\\dac\\models\\stage2b_bs_inversion_pilot_finetune_v1\\best.pt",
+  "output_dir": "D:\\桌面\\dac\\models\\stage2b_bs_inversion_pilot_finetune_v2",
+  "epochs": 12,
+  "batch_size": 16,
+  "workers": 2,
+  "prefetch_factor": 2,
+  "progress_every_batches": 64,
+  "learning_rate": 0.00007,
+  "minimum_learning_rate": 0.000003,
+  "weight_decay": 0.00001,
+  "gradient_clip": 5.0,
+  "patience": 4,
+  "augmentation": true,
+  "amp": true,
+  "channels_last": true,
+  "device": "auto",
+  "seed": 20260815,
+  "model": {
+    "architecture": "geo2sigmap_unet",
+    "base_channels": 64,
+    "normalization": "batch_norm",
+    "activation": "relu",
+    "encoder_decoder_levels": 4,
+    "convolutions_per_block": 2,
+    "gradient_checkpointing": true,
+    "zero_init_output": false
+  },
+  "acceptance": {
+    "maximum_test_rmse_db": 7.2843120377338,
+    "minimum_improvement_db": 0.2
+  },
+  "provenance": {
+    "stage1_checkpoint_sha256": "39ce3c079ded144aa8589aad3d8ef539797b2f69dfd2de60858787422ad0d815",
+    "stage2a_checkpoint_sha256": "be744d9aa0312f9aef7c1275ced6906610baafe7b5471ac34363db9d7e7ef00b",
+    "input_restriction": "building height plus sparse signal values and mask only",
+    "coordinate_source": "frozen bs_parameter_estimator_pilot_v1 global softargmax",
+    "adaptation_scope": "fine-tune Stage2-B after jointly adapting Stage1 and Stage2-A"
+  }
+}

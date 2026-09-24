@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "tile": "tile_000001",
+  "array_convention": "array[row, col]; row=0 north, col=0 west",
+  "grid": {
+    "xmin": 444928.0,
+    "ymin": 4367884.0,
+    "xmax": 445440.0,
+    "ymax": 4368396.0,
+    "resolution": 4.0,
+    "rows": 128,
+    "cols": 128
+  },
+  "dtype": "float16",
+  "variants": [
+    "iso",
+    "az000",
+    "az090"
+  ],
+  "sources": {
+    "iso": {
+      "source": "E:\\dac_winprop_irt2_ray500_diagnostic_v2\\raw_results\\tile_000001\\iso\\Site  1 Antenna 1 Power.txt",
+      "header": {
+        "VERSION": "2020-38079",
+        "DATE": "2026-07-24, 15:35:07 (+0800)",
+        "ANTENNA 1": "ANTENNATYPE ISO",
+        "LOWER_LEFT": "444928.00000000 4367884.00000000",
+        "UPPER_RIGHT": "445440.00000000 4368396.00000000",
+        "HEIGHT": "2.000",
+        "TIME_STEP": "0.000",
+        "RESOLUTION": "4.00000000"
+      },
+      "records": 16384,
+      "valid_pixels": 12767,
+      "minimum_db": -178.50599670410156,
+      "maximum_db": -78.08599853515625,
+      "sha256": "b4fec45e3cb4280738eb82833b4563de9f76abd82a59820d2cdd0810961f5019"
+    },
+    "az000": {
+      "source": "E:\\dac_winprop_irt2_verified_pattern_diagnostic_v1\\raw_results\\tile_000001\\az000\\Site  1 Antenna 1 Power.txt",
+      "header": {
+        "VERSION": "2020-38079",
+        "DATE": "2026-07-24, 15:45:51 (+0800)",
+        "ANTENNA 1": "VERTICAL 0.000",
+        "LOWER_LEFT": "444928.00000000 4367884.00000000",
+        "UPPER_RIGHT": "445440.00000000 4368396.00000000",
+        "HEIGHT": "2.000",
+        "TIME_STEP": "0.000",
+        "RESOLUTION": "4.00000000"
+      },
+      "records": 16384,
+      "valid_pixels": 12767,
+      "minimum_db": -199.88340759277344,
+      "maximum_db": -87.8302001953125,
+      "sha256": "1ce15b7894ac3f4fb30a3a01f55802274cf2b47f36b7a6d92b3963191e944756"
+    },
+    "az090": {
+      "source": "E:\\dac_winprop_irt2_verified_pattern_diagnostic_v1\\raw_results\\tile_000001\\az090\\Site  1 Antenna 1 Power.txt",
+      "header": {
+        "VERSION": "2020-38079",
+        "DATE": "2026-07-24, 15:45:51 (+0800)",
+        "ANTENNA 1": "VERTICAL 0.000",
+        "LOWER_LEFT": "444928.00000000 4367884.00000000",
+        "UPPER_RIGHT": "445440.00000000 4368396.00000000",
+        "HEIGHT": "2.000",
+        "TIME_STEP": "0.000",
+        "RESOLUTION": "4.00000000"
+      },
+      "records": 16384,
+      "valid_pixels": 12766,
+      "minimum_db": -189.88499450683594,
+      "maximum_db": -92.80010223388672,
+      "sha256": "a5784e80077146ad56c835a44240556bfcf29f74ed8d123312c0b602eec59b41"
+    }
+  },
+  "valid_pixels": {
+    "iso": 12767,
+    "az000": 12767,
+    "az090": 12766
+  },
+  "output": "E:\\dac_winprop_irt2_direct_v1\\compact_tiles\\tile_000001.npz",
+  "output_bytes": 57252,
+  "output_sha256": "c1035cac1ad920a81f98168631e4caaf5a96d78eceb141a6767c8e119d09d3d9"
+}

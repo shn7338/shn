@@ -1,0 +1,102 @@
+{
+  "version": 5,
+  "name": "stage2b_multiscale_adapter_scale4_v5",
+  "dataset_root": "D:\\桌面\\dac\\bs_inversion_scale4_v1",
+  "irt_normalization": "E:\\dac_sionna_35ghz_depth8_27360_v3\\normalization_irt.json",
+  "stage1_model_dir": "D:\\桌面\\dac\\models\\stage1_position_encoding_scale4_v3",
+  "stage2a_model_dir": "D:\\桌面\\dac\\models\\stage2a_position_encoding_scale4_v3",
+  "require_accepted_stage2a": false,
+  "estimator_config": "C:\\Users\\pc\\Documents\\大创\\projects\\irt_label_pipeline\\config_bs_parameter_estimator_scale4_v2.json",
+  "estimator_checkpoint": "D:\\桌面\\dac\\models\\bs_parameter_estimator_scale4_v2\\best.pt",
+  "initial_stage2b_checkpoint": "D:\\桌面\\dac\\models\\stage2b_latent_fusion_scale4_v4\\best.pt",
+  "output_dir": "D:\\桌面\\dac\\models\\stage2b_multiscale_adapter_scale4_v5",
+  "latent_fusion": {
+    "enabled": true,
+    "features": [
+      "location_probability",
+      "location_confidence",
+      "effective_power",
+      "azimuth_sin",
+      "azimuth_cos",
+      "sector_gain_prior",
+      "estimator_auxiliary_map"
+    ],
+    "power_min_db": 35.0,
+    "power_max_db": 70.0,
+    "horizontal_hpbw_deg": 65.0,
+    "attenuation_cap_db": 30.0,
+    "coordinate_convention": "local x east, local y north; azimuth 0 east and 90 north"
+  },
+  "latent_adapter": {
+    "spatial_features": [
+      "location_probability",
+      "sector_gain_prior",
+      "estimator_auxiliary_map"
+    ],
+    "scalar_features": [
+      "location_confidence",
+      "effective_power",
+      "azimuth_sin",
+      "azimuth_cos"
+    ],
+    "spatial_hidden_channels": 24,
+    "film_hidden_channels": 128,
+    "film_scale": 0.1,
+    "zero_initialized": true
+  },
+  "training_phases": [
+    {
+      "name": "adapter",
+      "epochs": 7,
+      "adapter_learning_rate": 0.0005,
+      "adapter_minimum_learning_rate": 0.00002,
+      "patience": 3
+    },
+    {
+      "name": "decoder",
+      "epochs": 8,
+      "adapter_learning_rate": 0.0001,
+      "adapter_minimum_learning_rate": 0.000005,
+      "backbone_learning_rate": 0.00001,
+      "backbone_minimum_learning_rate": 0.000001,
+      "patience": 4
+    }
+  ],
+  "batch_size": 16,
+  "workers": 2,
+  "prefetch_factor": 2,
+  "progress_every_batches": 128,
+  "weight_decay": 0.00001,
+  "gradient_clip": 5.0,
+  "augmentation": true,
+  "amp": true,
+  "channels_last": true,
+  "device": "auto",
+  "seed": 20260822,
+  "model": {
+    "architecture": "latent_adapter_geo2sigmap_unet",
+    "base_channels": 64,
+    "normalization": "batch_norm",
+    "activation": "relu",
+    "encoder_decoder_levels": 4,
+    "convolutions_per_block": 2,
+    "gradient_checkpointing": true,
+    "zero_init_output": false
+  },
+  "acceptance": {
+    "baseline_v3_final_test_rmse_db": 6.946207715784639,
+    "baseline_v4_final_test_rmse_db": 6.9217791530628565,
+    "maximum_test_rmse_db": 6.82,
+    "minimum_improvement_vs_v3_db": 0.08,
+    "minimum_improvement_vs_v4_db": 0.03,
+    "maximum_far_center_bin_rmse_db": 7.35,
+    "maximum_near_center_bin_degradation_vs_v4_db": 0.02
+  },
+  "provenance": {
+    "initial_v4_checkpoint_sha256": "0b62a7c12cc3dd15fecd90b261921a0a3edfcc84f656763a0760c6ccd7cef161",
+    "zero_init_contract": "all spatial adapter projections and the final scalar FiLM layer are zero, making epoch 0 exactly equivalent to V4",
+    "phase_1": "freeze the V4 backbone and train only multiscale spatial adapters plus scalar FiLM",
+    "phase_2": "train adapters at higher LR and unfreeze only up3, up4 and output at lower LR",
+    "input_restriction": "inference still uses only building height plus sparse signal values and mask"
+  }
+}

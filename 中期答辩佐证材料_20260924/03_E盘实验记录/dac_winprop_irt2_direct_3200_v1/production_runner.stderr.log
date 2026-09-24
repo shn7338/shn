@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+  File "C:\Users\pc\Documents\大创\projects\irt_label_pipeline\run_winprop_direct_pilot.py", line 720, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "C:\Users\pc\Documents\大创\projects\irt_label_pipeline\run_winprop_direct_pilot.py", line 680, in main
+    process_tile(
+  File "C:\Users\pc\Documents\大创\projects\irt_label_pipeline\run_winprop_direct_pilot.py", line 572, in process_tile
+    variant, result = future.result()
+                      ^^^^^^^^^^^^^^^
+  File "C:\Users\pc\miniconda3\envs\sigmap\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\miniconda3\envs\sigmap\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\pc\miniconda3\envs\sigmap\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\Documents\大创\projects\irt_label_pipeline\run_winprop_direct_pilot.py", line 403, in run_variant
+    source = validate_result(config, tile, result_dir)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\Documents\大创\projects\irt_label_pipeline\run_winprop_direct_pilot.py", line 362, in validate_result
+    result_path = find_path_loss_text(result_dir)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\Documents\大创\projects\irt_label_pipeline\compact_irt_result.py", line 85, in find_path_loss_text
+    raise FileNotFoundError(
+FileNotFoundError: expected exactly one Path Loss.txt below E:\dac_winprop_irt2_direct_3200_v1\raw_results\tile_009521\az213, found 0

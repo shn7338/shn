@@ -1,0 +1,9 @@
+{
+  "name": "az331",
+  "kind": "directional",
+  "azimuth_deg": 331.0,
+  "pattern_base": "E:\\dac_irt_v2_8bounce\\patterns\\sector_h65_v8_g6p3dBi_az000_verified_roundtrip",
+  "project_base": "E:\\dac_winprop_irt2_direct_3200_v1\\projects\\tile_003456\\az331\\tile_003456_irt2_az331",
+  "net": "E:\\dac_winprop_irt2_direct_3200_v1\\projects\\tile_003456\\az331\\tile_003456_irt2_az331.net",
+  "result_dir": "E:\\dac_winprop_irt2_direct_3200_v1\\raw_results\\tile_003456\\az331"
+}

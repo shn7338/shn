@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scene version="2.1.0">
+  <default name="spp" value="1024"/>
+  <default name="resx" value="512"/>
+  <default name="resy" value="512"/>
+  <integrator type="path">
+    <integer name="max_depth" value="12"/>
+  </integrator>
+  <bsdf type="twosided" id="mat-itu_concrete">
+    <bsdf type="diffuse">
+      <rgb name="reflectance" value="0.550 0.570 0.600"/>
+    </bsdf>
+  </bsdf>
+  <bsdf type="twosided" id="mat-itu_medium_dry_ground">
+    <bsdf type="diffuse">
+      <rgb name="reflectance" value="0.320 0.280 0.200"/>
+    </bsdf>
+  </bsdf>
+  <shape type="ply" id="mesh-buildings">
+    <string name="filename" value="mesh/buildings.ply"/>
+    <ref id="mat-itu_concrete" name="bsdf"/>
+    <boolean name="face_normals" value="true"/>
+  </shape>
+  <shape type="ply" id="mesh-ground">
+    <string name="filename" value="mesh/ground.ply"/>
+    <ref id="mat-itu_medium_dry_ground" name="bsdf"/>
+    <boolean name="face_normals" value="true"/>
+  </shape>
+</scene>

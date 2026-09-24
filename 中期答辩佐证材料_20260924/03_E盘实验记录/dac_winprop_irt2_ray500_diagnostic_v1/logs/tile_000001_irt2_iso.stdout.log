@@ -1,0 +1,120 @@
+
+Loading project file '"E:\dac_winprop_irt2_ray500_diagnostic_v1\projects\tile_000001\iso\tile_000001_irt2_iso.net"'
+Import configuration settings started...
+E:\dac_winprop_irt2_ray500_diagnostic_v1\projects\tile_000001\iso\tile_000001_irt2_iso.mic
+Import configuration settings successfully finished.
+
+Prepare paremeters
+*****************************************************************************************************
+Prepare parameters of network project started...
+*****************************************************************************************************
+****************************************************************
+Preparation of transmitters for prediction started...
+****************************************************************
+    Set pointer from transmitters to sites started...
+        Antenna "Site  1 Antenna 1"
+    Set pointer from transmitters to sites done
+    Determine min. antenna height at each site started...
+        Antenna "Site  1 Antenna 1"
+    Determine min. antenna height at each site done
+    Determine apertures of antennas started...
+        Aperture of antennna "Site  1 Antenna 1" is 360.00°
+    Determine apertures of antennnas done
+    Remove disabled transmitters from list
+    Copy default settings of transmitters started
+        Antenna "Site  1 Antenna 1"
+    Copy default settings of transmitters done
+    Check azimuth of antenna patterns started...
+        Antenna "Site  1 Antenna 1"
+    Check azimuth of antenna patterns done
+    Define prediction areas started...
+        Antenna "Site  1 Antenna 1"
+    Define prediction areas done
+
+    Check power settings started...
+        Antenna "Site  1 Antenna 1"
+    Check power settings done
+
+    Tramsmitters counted (1 transmitters)
+****************************************************************
+Preparation of transmitters for prediction completed
+****************************************************************
+*****************************************************************************************************
+Prepare parameters of network project completed
+*****************************************************************************************************
+**************************************************************************************
+   Checking settings of transmitter "Site  1 Antenna 1"....
+**************************************************************************************
+**************************************************************************************
+   Checking settings of transmitter     "Site  1 Antenna 1"   done
+     => Transmitter is ok
+**************************************************************************************
+Starting prediction of transmitter "Site  1 Antenna 1"
+Init results started...
+Init results completed
+Init results started...
+Init results completed
+Start of Urban Computation
+Adaptation to preprocessing area started...
+    Reading header of "E:\dac_winprop_irt2_ray500_diagnostic_v1\projects\tile_000001\iso\..\..\..\..\dac_irt_v2_8bounce\oib_keep\tile_000001\tile_000001_irt3d_r4_h2_v2_origsource.oib.oib"
+Error (0): Not possible to open file: E:\dac_winprop_irt2_ray500_diagnostic_v1\projects\tile_000001\iso\..\..\..\..\dac_irt_v2_8bounce\oib_keep\tile_000001\tile_000001_irt3d_r4_h2_v2_origsource.oib.oib!
+Adaptation to preprocessing area done
+Init data done
+Check project parameters started....
+  Checking Parameters
+  Checking Lines
+  Copy data of default TRX and remove default TRX from list
+****************************************************************
+Preparation of transmitters for prediction started...
+****************************************************************
+    Check properties of new transmitter
+    Check properties of default transmitter
+    Set pointer from transmitters to sites started...
+        Antenna "Site  1 Antenna 1"
+    Set pointer from transmitters to sites done
+    Determine min. antenna height at each site started...
+    Determine min. antenna height at each site done
+    Determine apertures of antennas started...
+        Aperture of antennna "Site  1 Antenna 1" is 360.00°
+    Determine apertures of antennnas done
+    Check azimuth of antenna patterns started...
+        Antenna "Site  1 Antenna 1"
+    Check azimuth of antenna patterns done
+    Define prediction areas started...
+        Antenna "Site  1 Antenna 1"
+    Define prediction areas done
+
+    Check power settings started...
+        Antenna "Site  1 Antenna 1"
+    Check power settings done
+
+    Tramsmitters counted (1 transmitters)
+****************************************************************
+Preparation of transmitters for prediction completed
+****************************************************************
+  Check TRX settings
+  Check computation mode
+  Check delay spread settings
+  Check default material properties
+  Check prediction area
+  Check transition between IRT and COST postprocessing
+  Checks successful => Continue with further computation!
+Error (0): Error while initialize computation!
+Copy Project Parameters started....
+Error (0): Error while initialize computation!
+Urban Propagation Module not successfully completed
+Free results started...
+Free results completed
+Init results started...
+Init results completed
+Free parameters of urban project started...
+    - free geometry of prediction area
+    - free transmitter information
+    - free CNP parameters
+Free parameters of urban project completed
+Error (29): Error starting prediction
+Free parameters of urban project started...
+    - free geometry of prediction area
+    - free transmitter information
+    - free CNP parameters
+Free parameters of urban project completed

@@ -1,0 +1,92 @@
+{
+  "version": 2,
+  "name": "winprop_irt_max6_compatibility_only",
+  "source_root": "D:\\桌面\\dac\\512mdata",
+  "prepared_root": "D:\\桌面\\dac\\prepared_4m",
+  "normalized_root": "D:\\桌面\\dac\\normalized_4m_v1",
+  "ready_manifest": "C:\\Users\\pc\\Documents\\大创\\prediction_ready_all_odb.csv",
+  "output_root": "E:\\dac_irt_v2_winprop2020_max6",
+  "winprop": {
+    "api_bin": "C:\\Program Files\\Altair\\2020\\feko\\api\\winprop\\bin",
+    "cli": "C:\\Program Files\\Altair\\2020\\feko\\bin\\WinPropCLI.exe",
+    "template_project_suffix": "3500MHz_a",
+    "multi_threading": 4
+  },
+  "grid": {
+    "width_m": 512.0,
+    "height_m": 512.0,
+    "resolution_m": 4.0,
+    "rows": 128,
+    "cols": 128,
+    "receiver_height_m": 2.0
+  },
+  "preprocessing": {
+    "mode": "PP_MODE_IRT_3D",
+    "multiple_interactions": true,
+    "tile_horizontal_m": 60.0,
+    "tile_vertical_m": 60.0,
+    "segment_horizontal_m": 60.0,
+    "segment_vertical_m": 60.0,
+    "adaptive_resolution": 0,
+    "spheric_zone": "off",
+    "consider_indoor_pixels": false,
+    "consider_topography": false
+  },
+  "physics": {
+    "frequency_mhz": 3500.0,
+    "superposition": "POWER",
+    "diffraction_model": "g",
+    "max_reflections": 6,
+    "max_diffractions": 2,
+    "max_scatterings": 0,
+    "max_reflections_and_diffractions": 6,
+    "post_processing": false,
+    "transition_post_processing": false,
+    "knife_edge_fill": false,
+    "max_saved_rays_per_pixel": 20,
+    "export_ascii_ray_paths": true
+  },
+  "transmitter": {
+    "position": "exact_grid_center",
+    "height": "max_building_height_m_plus_5",
+    "height_above_max_building_m": 5.0,
+    "power_dbm": 0.0,
+    "polarization": 0
+  },
+  "directional_antenna": {
+    "pattern_base": "E:\\dac_irt_v2_8bounce\\patterns\\sector_h65_v8_g6p3dBi_az000",
+    "boresight_gain_dbi": 6.3,
+    "horizontal_hpbw_deg": 65.0,
+    "vertical_hpbw_deg": 8.0,
+    "electrical_downtilt_in_pattern_deg": 10.0,
+    "mechanical_tilt_in_project_deg": 0.0,
+    "project_electrical_downtilt_deg": 0.0,
+    "pilot_validation_azimuths_deg": [
+      0,
+      90
+    ],
+    "labels_per_tile": 4,
+    "azimuth_seed": 20260724
+  },
+  "storage": {
+    "compact_dtype": "float16",
+    "invalid_value": "NaN",
+    "shard_size_tiles": 64,
+    "retain_oib_for_validation_tiles": true
+  },
+  "provenance": {
+    "status": "compatibility_validation_only_not_paper_8bounce",
+    "installed_winprop_version": "2020-38079",
+    "installed_engine_limits": {
+      "max_reflections": 6,
+      "max_diffractions": 2,
+      "max_reflections_and_diffractions": 6
+    },
+    "paper_frequency_mhz": 3660.0,
+    "frequency_choice_note": "3500 MHz is retained to stay consistent with the already-trained Stage1 DPM surrogate.",
+    "paper_total_rays": 7000000,
+    "winprop_ray_note": "WinProp IRT deterministically enumerates paths from a preprocessed visibility database; a global Monte Carlo ray-count parameter has no direct WinProp equivalent.",
+    "downtilt_note": "The synthetic-data section does not prescribe a downtilt distribution. A fixed 10 degree electrical downtilt is used as an explicit implementation assumption, matching the paper's Fig. 1 example.",
+    "compatibility_note": "This profile validates the pipeline on WinProp 2020 only. It must not be mixed with or presented as the formal paper-style 8-bounce labels."
+  }
+}

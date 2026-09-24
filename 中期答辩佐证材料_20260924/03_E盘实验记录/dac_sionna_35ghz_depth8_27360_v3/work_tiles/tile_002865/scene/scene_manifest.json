@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "tile": "tile_002865",
+  "source_shapefile": "D:\\桌面\\dac\\512mdata\\tile_002865\\tile_002865.shp",
+  "source_crs": "EPSG:32650",
+  "source_grid": {
+    "xmin": 461312.0,
+    "ymin": 4448256.0,
+    "xmax": 461824.0,
+    "ymax": 4448768.0,
+    "resolution": 4.0,
+    "rows": 128,
+    "cols": 128
+  },
+  "local_bounds": [
+    0.0,
+    0.0,
+    512.0,
+    512.0
+  ],
+  "local_origin_utm": [
+    461312.0,
+    4448256.0
+  ],
+  "feature_count": 560,
+  "extruded_polygon_count": 560,
+  "skipped_feature_count": 0,
+  "repaired_feature_count": 0,
+  "max_building_height_m": 42.0,
+  "vertex_count": 18854,
+  "triangle_count": 35468,
+  "building_ply": "E:\\dac_sionna_35ghz_depth8_27360_v3\\work_tiles\\tile_002865\\scene\\buildings.ply",
+  "ground_ply": "E:\\dac_sionna_35ghz_depth8_27360_v3\\work_tiles\\tile_002865\\scene\\ground.ply"
+}

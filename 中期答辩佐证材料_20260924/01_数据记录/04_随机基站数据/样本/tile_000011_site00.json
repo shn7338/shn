@@ -1,0 +1,190 @@
+{
+  "version": 1,
+  "site_id": "tile_000011_site00",
+  "tile": "tile_000011",
+  "split": "test",
+  "site_index": 0,
+  "quadrant": "radius_000_064m",
+  "array_convention": "row 0 north, col 0 west; flat index = row*128+col",
+  "coordinate_convention": "local x east, local y north; azimuth 0 east and 90 north",
+  "tx_xy_m": [
+    228.52864415693173,
+    214.63982305684894
+  ],
+  "tx_row_col_px": [
+    73.84004423578776,
+    56.63216103923293
+  ],
+  "tx_height_m": 23.0,
+  "effective_power_db": 48.48953060327641,
+  "signal_formula": "directional_signal_strength_db = directional_path_gain_db + effective_power_db",
+  "azimuths_deg": [
+    36,
+    148,
+    228,
+    283
+  ],
+  "azimuth_target": "[sin(azimuth), cos(azimuth)]",
+  "resolved_directional_downtilt_deg": 5.452621936798096,
+  "sparse_point_count_per_direction": 100,
+  "sparse_noise_db": 0.0,
+  "location_heatmap_sigma_px": 1.5,
+  "normalization_reference": {
+    "building_height_cap_m": 42.005126953125,
+    "tx_height_cap_m": 131.0,
+    "signal_strength": {
+      "mean_db": -57.86771677215448,
+      "std_db": 19.549090075885392,
+      "source": "existing accepted Stage2-B training normalization; dataset-specific train moments are written after completion"
+    }
+  },
+  "schema": {
+    "building_height_m": {
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "float16"
+    },
+    "building_height_norm": {
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "float16"
+    },
+    "outdoor_mask": {
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "bool"
+    },
+    "isotropic_path_gain_db": {
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "float16"
+    },
+    "isotropic_valid_mask": {
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "bool"
+    },
+    "directional_signal_strength_db": {
+      "shape": [
+        4,
+        128,
+        128
+      ],
+      "dtype": "float16"
+    },
+    "directional_valid_mask": {
+      "shape": [
+        4,
+        128,
+        128
+      ],
+      "dtype": "bool"
+    },
+    "sparse_flat_indices": {
+      "shape": [
+        4,
+        100
+      ],
+      "dtype": "uint16"
+    },
+    "sparse_signal_strength_db": {
+      "shape": [
+        4,
+        100
+      ],
+      "dtype": "float16"
+    },
+    "sparse_signal_strength_norm_reference": {
+      "shape": [
+        4,
+        100
+      ],
+      "dtype": "float16"
+    },
+    "tx_location_heatmap": {
+      "shape": [
+        128,
+        128
+      ],
+      "dtype": "float16"
+    },
+    "tx_xy_m": {
+      "shape": [
+        2
+      ],
+      "dtype": "float32"
+    },
+    "tx_row_col_px": {
+      "shape": [
+        2
+      ],
+      "dtype": "float32"
+    },
+    "tx_xy_norm": {
+      "shape": [
+        2
+      ],
+      "dtype": "float32"
+    },
+    "tx_row_col_norm": {
+      "shape": [
+        2
+      ],
+      "dtype": "float32"
+    },
+    "tx_height_m": {
+      "shape": [],
+      "dtype": "float32"
+    },
+    "tx_height_norm": {
+      "shape": [],
+      "dtype": "float32"
+    },
+    "effective_power_db": {
+      "shape": [],
+      "dtype": "float32"
+    },
+    "effective_power_norm": {
+      "shape": [],
+      "dtype": "float32"
+    },
+    "azimuth_deg": {
+      "shape": [
+        4
+      ],
+      "dtype": "uint16"
+    },
+    "azimuth_sin_cos": {
+      "shape": [
+        4,
+        2
+      ],
+      "dtype": "float32"
+    },
+    "directional_downtilt_deg": {
+      "shape": [],
+      "dtype": "float32"
+    },
+    "tile_number": {
+      "shape": [],
+      "dtype": "uint32"
+    },
+    "site_index": {
+      "shape": [],
+      "dtype": "uint8"
+    }
+  },
+  "output": "D:\\桌面\\dac\\bs_inversion_scale4_v1\\samples\\test\\tile_000011_site00.npz",
+  "output_bytes": 93095,
+  "output_sha256": "48663fa240c97c9f6c3d634f1993f9da5f71a6aed9d27859c45cbb0e93674f0d"
+}

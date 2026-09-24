@@ -1,0 +1,271 @@
+
+Loading project file '"E:\dac_winprop_irt2_no_ray_cap_diagnostic\projects\tile_000007\az106\tile_000007_irt2_az106.net"'
+Import configuration settings started...
+E:\dac_winprop_irt2_no_ray_cap_diagnostic\projects\tile_000007\az106\tile_000007_irt2_az106.mic
+Import configuration settings successfully finished.
+
+Prepare paremeters
+*****************************************************************************************************
+Prepare parameters of network project started...
+*****************************************************************************************************
+****************************************************************
+Preparation of transmitters for prediction started...
+****************************************************************
+    Set pointer from transmitters to sites started...
+        Antenna "Site  1 Antenna 1"
+    Set pointer from transmitters to sites done
+    Determine min. antenna height at each site started...
+        Antenna "Site  1 Antenna 1"
+    Determine min. antenna height at each site done
+    Determine apertures of antennas started...
+        Aperture of antennna "Site  1 Antenna 1" is 360.00°
+    Determine apertures of antennnas done
+    Remove disabled transmitters from list
+    Copy default settings of transmitters started
+        Antenna "Site  1 Antenna 1"
+    Copy default settings of transmitters done
+    Check azimuth of antenna patterns started...
+        Antenna "Site  1 Antenna 1"
+    Check azimuth of antenna patterns done
+    Define prediction areas started...
+        Antenna "Site  1 Antenna 1"
+    Define prediction areas done
+
+    Check power settings started...
+        Antenna "Site  1 Antenna 1"
+    Check power settings done
+
+    Tramsmitters counted (1 transmitters)
+****************************************************************
+Preparation of transmitters for prediction completed
+****************************************************************
+*****************************************************************************************************
+Prepare parameters of network project completed
+*****************************************************************************************************
+**************************************************************************************
+   Checking settings of transmitter "Site  1 Antenna 1"....
+**************************************************************************************
+**************************************************************************************
+   Checking settings of transmitter     "Site  1 Antenna 1"   done
+     => Transmitter is ok
+**************************************************************************************
+Starting prediction of transmitter "Site  1 Antenna 1"
+Init results started...
+Init results completed
+Init results started...
+Init results completed
+Start of Urban Computation
+Adaptation to preprocessing area started...
+    Reading header of "E:\dac_winprop_irt2_no_ray_cap_diagnostic\projects\tile_000007\az106\..\..\..\..\dac_winprop_irt2_direct_pilot32_v1\oib_keep\tile_000007\tile_000007_irt3d_r4_h2_v2_original.oib"
+Adaptation to preprocessing area done
+Init data done
+Check project parameters started....
+  Checking Parameters
+  Checking Lines
+  Copy data of default TRX and remove default TRX from list
+****************************************************************
+Preparation of transmitters for prediction started...
+****************************************************************
+    Check properties of new transmitter
+    Check properties of default transmitter
+    Set pointer from transmitters to sites started...
+        Antenna "Site  1 Antenna 1"
+    Set pointer from transmitters to sites done
+    Determine min. antenna height at each site started...
+    Determine min. antenna height at each site done
+    Determine apertures of antennas started...
+        Aperture of antennna "Site  1 Antenna 1" is 360.00°
+    Determine apertures of antennnas done
+    Check azimuth of antenna patterns started...
+        Antenna "Site  1 Antenna 1"
+    Check azimuth of antenna patterns done
+    Define prediction areas started...
+        Antenna "Site  1 Antenna 1"
+    Define prediction areas done
+
+    Check power settings started...
+        Antenna "Site  1 Antenna 1"
+    Check power settings done
+
+    Tramsmitters counted (1 transmitters)
+****************************************************************
+Preparation of transmitters for prediction completed
+****************************************************************
+  Check TRX settings
+  Check computation mode
+  Check delay spread settings
+  Check default material properties
+  Check prediction area
+  Check transition between IRT and COST postprocessing
+  Checks successful => Continue with further computation!
+Check project parameters done.
+Copy Project Parameters started....
+   Count number of transmitters
+   Allocate memory for 1 transmitters
+   Copy settings of transmitter 1
+   Copy location of transmitters
+   Copy further parameters started...
+       Copy further parameters
+       Copy name of building database
+       Copy prediction mode and model
+       Copy settings of area mode
+       Copy breakpoint settings (2.600, 3.300)
+       Copy SRT settings
+       Copy launching settings
+       Copy settings of postprocessing
+       Copy settings of empirical indoor coverage
+       Copy CNP settings
+       Copy parameters done
+   Copy further parameters done.
+   Copy parameters not successfully completed.
+Copy Project Parameters done.
+Antenna allocated.
+Preparation of antenna patttern of "Site  1 Antenna 1" started....
+Read antenna pattern "E:\dac_irt_v2_8bounce\patterns\sector_h65_v8_g6p3dBi_az000_verified_roundtrip"
+Antenna pattern "E:\dac_irt_v2_8bounce\patterns\sector_h65_v8_g6p3dBi_az000_verified_roundtrip.apb"
+successfully read from disk!
+Preparation of antenna patttern of "Site  1 Antenna 1" completed
+Calling dedicated urban propagation module...
+    Urban Propagation Model started...
+    Init coordinate system
+    Init prediction area
+    Init interface
+    Calling IRT...
+        IRT module started...
+        Check interface
+        Open building database to read preprocessed area
+Start IRT Prediction module...
+        Allocate topo data
+        Open building database (reading preprocessed visibility data)
+            Open file
+            Read header
+Percent reading parameters:
+0%   10   20   30   40   50   60   70   80   90   100%
+|----|----|----|----|----|----|----|----|----|----|
+**************************************************
+            Read buildings
+            Reading 128 columns and 128 lines
+            Reading 11406 walls
+            Reading 7974 vertical and 11406 horizontal wedges
+            Allocate required memory
+            Init memory
+            Reading preprocessed data started...
+Percent Reading IRT prepro data:
+0%   10   20   30   40   50   60   70   80   90   100%
+|----|----|----|----|----|----|----|----|----|----|
+*****
+             - walls and tiles**
+             - vertical segments of wedges***
+             - horizontal segments of wedges
+             - visibility for tiles (to pixels)*****
+             - visibility for tiles (to tiles)****
+             - visibility for tiles (to vertical wedges)****
+             - visibility for tiles (to horizontal wedges)*****
+             - visibility for vertical wedges (to pixels)***
+             - visibility for vertical wedges (to vertical wedges)***
+             - visibility for vertical wedges (to horizontal wedges)***
+             - visibility for horizontal wedges (to pixels)****
+             - visibility for horizontal wedges (to horizontal wedges)****
+            Reading preprocessed data completed
+            Free unused memory started...
+            Free unused memory completed
+            Copy preprocessed data to new data structures*
+             - Arranging visibility lists*
+             - Further building information
+        Select rays to be computed
+        Init prediction
+        Init transmitter "Site  1 Antenna 1"
+        Open building database (reading building data)
+Percent reading indoor pixels:
+0%   10   20   30   40   50   60   70   80   90   100%
+|----|----|----|----|----|----|----|----|----|----|
+***************************************************
+
+Percent prediction:
+0%   10   20   30   40   50   60   70   80   90   100%
+|----|----|----|----|----|----|----|----|----|----|
+
+        Init pixel in result matrix***************************************************
+
+        Allocate memory
+        Start prediction
+Starting Urban IRT prediction for transmitter "Site  1 Antenna 1" (1 of 1 transmitters)
+   * Starting IRT prediction (CNP-INDOOR) *
+   * Starting IRT prediction (CNP-URBAN)  *
+   * Determination of visibility of Tx 1/1  *
+      -> Visibilty Step 1/4: Pixel visibility started...  
+Percent transmitter visibility (Direct Tx):
+0%   10   20   30   40   50   60   70   80   90   100%
+|----|----|----|----|----|----|----|----|----|----|
+******************
+      -> Visibilty Step 1/4: Pixel visibility completed
+      -> Visibilty Step 2/4: Tile visibility started...  ************
+      -> Visibilty Step 2/4: Tile visibility completed
+      -> Visibilty Step 3/4: Segment (horizontal) visibility started...  ********
+      -> Visibilty Step 3/4: Segment (horizontal) visibility completed
+      -> Visibilty Step 4/4: Segment (vertical) visibility started...  *************
+
+      -> Visibility Step 4/4: Segment (vertical) visibility completed
+   * Evaluation of visibility table and *
+   * Determination of propagation rays  *
+0%   10   20   30   40   50   60   70   80   90   100%
+|----|----|----|----|----|----|----|----|----|----|
+***************************************************
+
+Free project parameters started...
+Free project parameters completed.
+IRT prediction successfully computed for transmitter "Site  1 Antenna 1".
+Percent of pathloss computed:
+0%   10   20   30   40   50   60   70   80   90   100%
+|----|----|----|----|----|----|----|----|----|----|
+**************************************************
+        Prediction completed
+        Free IRT related memory
+Percent free memory:
+0%   10   20   30   40   50   60   70   80   90   100%
+|----|----|----|----|----|----|----|----|----|----|
+***************************************************
+
+        IRT module successfully completed
+IRT Prediction Module finished successfully
+    IRT successfully completed.
+    Free memory started...
+Free project parameters started...
+Free project parameters completed.
+Free memory for locations
+    Free memory completed.
+Close Files
+Urban Module finished successfully
+Returning from dedicated urban propagation module.
+Prepare internal postprocessing of data
+Writing results....
+Percent of results saved:
+0%   10   20   30   40   50   60   70   80   90   100%
+|----|----|----|----|----|----|----|----|----|----|
+
+Writing delay spread results...
+Writing field strength, power, and path loss results...
+Results written.
+Urban Propagation Module successfully completed
+Writing file "E:\dac_winprop_irt2_no_ray_cap_diagnostic\raw_results\tile_000007\az106\\Site  1 Antenna 1 Power.txt"....
+Write file "E:\dac_winprop_irt2_no_ray_cap_diagnostic\raw_results\tile_000007\az106\\Site  1 Antenna 1 Power.txt" successfully completed!
+Writing file "E:\dac_winprop_irt2_no_ray_cap_diagnostic\raw_results\tile_000007\az106\\Site  1 Antenna 1 Power.fpp"....
+Write file "E:\dac_winprop_irt2_no_ray_cap_diagnostic\raw_results\tile_000007\az106\\Site  1 Antenna 1 Power.fpp" successfully completed!
+Writing file "E:\dac_winprop_irt2_no_ray_cap_diagnostic\raw_results\tile_000007\az106\\Site  1 Antenna 1 Path Loss.txt"....
+Write file "E:\dac_winprop_irt2_no_ray_cap_diagnostic\raw_results\tile_000007\az106\\Site  1 Antenna 1 Path Loss.txt" successfully completed!
+Writing file "E:\dac_winprop_irt2_no_ray_cap_diagnostic\raw_results\tile_000007\az106\\Site  1 Antenna 1 Path Loss.fpl"....
+Write file "E:\dac_winprop_irt2_no_ray_cap_diagnostic\raw_results\tile_000007\az106\\Site  1 Antenna 1 Path Loss.fpl" successfully completed!
+Free results started...
+Free results completed
+Init results started...
+Init results completed
+Free parameters of urban project started...
+    - free geometry of prediction area
+    - free transmitter information
+    - free CNP parameters
+Free parameters of urban project completed**************************************************
+Free parameters of urban project started...
+    - free geometry of prediction area
+    - free transmitter information
+    - free CNP parameters
+Free parameters of urban project completed

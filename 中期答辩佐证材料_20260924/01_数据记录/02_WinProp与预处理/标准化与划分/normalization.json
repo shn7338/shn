@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "created_at_unix": 1783690052.2863715,
+  "split_strategy": {
+    "name": "spatial_block_hash",
+    "seed": 20260710,
+    "block_size_m": 2048.0,
+    "fractions_requested": {
+      "train": 0.8,
+      "val": 0.1,
+      "test": 0.09999999999999995
+    },
+    "tile_counts": {
+      "train": 21789,
+      "val": 2840,
+      "test": 2731
+    },
+    "spatial_block_count": 7678
+  },
+  "statistics": {
+    "raw_array_shape": [
+      128,
+      128
+    ],
+    "height": {
+      "source": "training positive building pixels only",
+      "percentile": 99.0,
+      "histogram_bins": 4096,
+      "positive_pixel_count": 138514466,
+      "max_observed_m": 126.0,
+      "cap_m": 42.005126953125,
+      "normalization": "clip(height_m, 0, cap_m) / cap_m"
+    },
+    "path_gain": {
+      "source": "training finite pixels only",
+      "valid_pixel_count": 257369177,
+      "invalid_pixel_count": 99621799,
+      "mean_db": -107.34759535264241,
+      "std_db": 10.106487505584935,
+      "normalization": "(path_gain_db - mean_db) / std_db"
+    },
+    "invalid_target_handling": "NaN raw pixels become 0 in path_gain_norm.npy and False in path_gain_valid_mask.npy"
+  }
+}

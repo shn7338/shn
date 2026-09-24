@@ -1,0 +1,177 @@
+
+Loading project file '"E:\dac_irt_v2_8bounce\projects\tile_000001\iso\tile_000001_irt8_iso.net"'
+Import configuration settings started...
+E:\dac_irt_v2_8bounce\projects\tile_000001\iso\tile_000001_irt8_iso.mic
+Import configuration settings successfully finished.
+
+Prepare paremeters
+*****************************************************************************************************
+Prepare parameters of network project started...
+*****************************************************************************************************
+****************************************************************
+Preparation of transmitters for prediction started...
+****************************************************************
+    Set pointer from transmitters to sites started...
+        Antenna "Site  1 Antenna 1"
+    Set pointer from transmitters to sites done
+    Determine min. antenna height at each site started...
+        Antenna "Site  1 Antenna 1"
+    Determine min. antenna height at each site done
+    Determine apertures of antennas started...
+        Aperture of antennna "Site  1 Antenna 1" is 360.00°
+    Determine apertures of antennnas done
+    Remove disabled transmitters from list
+    Copy default settings of transmitters started
+        Antenna "Site  1 Antenna 1"
+    Copy default settings of transmitters done
+    Check azimuth of antenna patterns started...
+        Antenna "Site  1 Antenna 1"
+    Check azimuth of antenna patterns done
+    Define prediction areas started...
+        Antenna "Site  1 Antenna 1"
+    Define prediction areas done
+
+    Check power settings started...
+        Antenna "Site  1 Antenna 1"
+    Check power settings done
+
+    Tramsmitters counted (1 transmitters)
+****************************************************************
+Preparation of transmitters for prediction completed
+****************************************************************
+*****************************************************************************************************
+Prepare parameters of network project completed
+*****************************************************************************************************
+**************************************************************************************
+   Checking settings of transmitter "Site  1 Antenna 1"....
+**************************************************************************************
+**************************************************************************************
+   Checking settings of transmitter     "Site  1 Antenna 1"   done
+     => Transmitter is ok
+**************************************************************************************
+Starting prediction of transmitter "Site  1 Antenna 1"
+Init results started...
+Init results completed
+Init results started...
+Init results completed
+Start of Urban Computation
+Adaptation to preprocessing area started...
+    Reading header of "E:\dac_irt_v2_8bounce\projects\tile_000001\iso\..\..\..\oib_keep\tile_000001\tile_000001_irt3d_r4_h2_v2_origsource.oib"
+Adaptation to preprocessing area done
+Init data done
+Check project parameters started....
+  Checking Parameters
+  Checking Lines
+  Copy data of default TRX and remove default TRX from list
+****************************************************************
+Preparation of transmitters for prediction started...
+****************************************************************
+    Check properties of new transmitter
+    Check properties of default transmitter
+    Set pointer from transmitters to sites started...
+        Antenna "Site  1 Antenna 1"
+    Set pointer from transmitters to sites done
+    Determine min. antenna height at each site started...
+    Determine min. antenna height at each site done
+    Determine apertures of antennas started...
+        Aperture of antennna "Site  1 Antenna 1" is 360.00°
+    Determine apertures of antennnas done
+    Check azimuth of antenna patterns started...
+        Antenna "Site  1 Antenna 1"
+    Check azimuth of antenna patterns done
+    Define prediction areas started...
+        Antenna "Site  1 Antenna 1"
+    Define prediction areas done
+
+    Check power settings started...
+        Antenna "Site  1 Antenna 1"
+    Check power settings done
+
+    Tramsmitters counted (1 transmitters)
+****************************************************************
+Preparation of transmitters for prediction completed
+****************************************************************
+  Check TRX settings
+  Check computation mode
+  Check delay spread settings
+  Check default material properties
+  Check prediction area
+  Check transition between IRT and COST postprocessing
+  Checks successful => Continue with further computation!
+Check project parameters done.
+Copy Project Parameters started....
+   Count number of transmitters
+   Allocate memory for 1 transmitters
+   Copy settings of transmitter 1
+   Copy location of transmitters
+   Copy further parameters started...
+       Copy further parameters
+       Copy name of building database
+       Copy prediction mode and model
+       Copy settings of area mode
+       Copy breakpoint settings (2.600, 3.300)
+       Copy SRT settings
+       Copy launching settings
+       Copy settings of postprocessing
+       Copy settings of empirical indoor coverage
+       Copy CNP settings
+       Copy parameters done
+   Copy further parameters done.
+   Copy parameters not successfully completed.
+Copy Project Parameters done.
+Antenna allocated.
+Preparation of antenna patttern of "Site  1 Antenna 1" started....
+Preparation of antenna patttern of "Site  1 Antenna 1" completed
+Calling dedicated urban propagation module...
+    Urban Propagation Model started...
+    Init coordinate system
+    Init prediction area
+    Init interface
+    Calling IRT...
+        IRT module started...
+        Check interface
+Error (0):  ERROR 
+ Number of reflections too high. Value must be between 0..6
+Error (0):  ERROR 
+ Number of diffractions too high. Value must be between 0..2
+Error (0):  ERROR 
+ Number of combined reflections and diffractions too high. Value must be between 0..6
+        Open building database to read preprocessed area
+        Allocate topo data
+        Open building database (reading preprocessed visibility data)
+        Select rays to be computed
+        Init prediction
+        Open building database (reading building data)
+        Init pixel in result matrix
+        Allocate memory
+        Start prediction
+        Prediction completed
+        Free IRT related memory
+Percent free memory:
+0%   10   20   30   40   50   60   70   80   90   100%
+|----|----|----|----|----|----|----|----|----|----|
+**************************************************
+        IRT module not successfully completed
+IRT Prediction Module finished successfully
+    IRT not successfully completed.
+    Free memory started...
+Free memory for locations
+    Free memory completed.
+Close Files
+Urban Module finished successfully
+Urban Propagation Module not successfully completed
+Free results started...
+Free results completed
+Init results started...
+Init results completed
+Free parameters of urban project started...
+    - free geometry of prediction area
+    - free transmitter information
+    - free CNP parameters
+Free parameters of urban project completed
+Error (29): Error starting prediction
+Free parameters of urban project started...
+    - free geometry of prediction area
+    - free transmitter information
+    - free CNP parameters
+Free parameters of urban project completed

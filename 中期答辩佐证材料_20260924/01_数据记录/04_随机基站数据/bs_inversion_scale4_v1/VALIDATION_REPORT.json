@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "status": "ok",
+  "manifest": {
+    "building_count": 1536,
+    "site_count": 6144,
+    "split_site_counts": {
+      "train": 4096,
+      "val": 1024,
+      "test": 1024
+    },
+    "location_sampling_strategy": "radial_bins",
+    "location_allocations": [
+      "radius_000_064m",
+      "radius_064_128m",
+      "radius_128_192m",
+      "radius_192_271m"
+    ],
+    "minimum_pairwise_site_separation_m": 64.0404924059435
+  },
+  "verify_hashes": true,
+  "samples_checked": 6144,
+  "sample_bytes": 587676593,
+  "failures": [],
+  "elapsed_seconds": 39.95676939999976
+}

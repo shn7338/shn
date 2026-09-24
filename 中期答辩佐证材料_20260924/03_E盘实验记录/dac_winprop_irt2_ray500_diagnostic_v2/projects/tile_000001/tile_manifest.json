@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "tile": "tile_000001",
+  "oib_base": "E:\\dac_irt_v2_8bounce\\oib_keep\\tile_000001\\tile_000001_irt3d_r4_h2_v2_origsource",
+  "grid": {
+    "xmin": 444928.0,
+    "ymin": 4367884.0,
+    "xmax": 445440.0,
+    "ymax": 4368396.0,
+    "resolution": 4.0,
+    "rows": 128,
+    "cols": 128
+  },
+  "max_building_height_m": 21.0,
+  "transmitter_height_m": 26.0,
+  "transmitter_xy_m": [
+    445184.0,
+    4368140.0
+  ],
+  "variants": [
+    {
+      "name": "iso",
+      "kind": "iso",
+      "azimuth_deg": null,
+      "pattern_base": null,
+      "project_base": "E:\\dac_winprop_irt2_ray500_diagnostic_v2\\projects\\tile_000001\\iso\\tile_000001_irt2_iso",
+      "net": "E:\\dac_winprop_irt2_ray500_diagnostic_v2\\projects\\tile_000001\\iso\\tile_000001_irt2_iso.net",
+      "result_dir": "E:\\dac_winprop_irt2_ray500_diagnostic_v2\\raw_results\\tile_000001\\iso"
+    }
+  ]
+}

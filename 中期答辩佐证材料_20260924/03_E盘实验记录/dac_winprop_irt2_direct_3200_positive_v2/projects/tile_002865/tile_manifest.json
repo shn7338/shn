@@ -1,0 +1,67 @@
+{
+  "version": 2,
+  "tile": "tile_002865",
+  "oib_base": "E:\\dac_winprop_irt2_direct_3200_positive_v2\\oib_keep\\tile_002865\\tile_002865_irt3d_r4_h2_v2_checked",
+  "grid": {
+    "xmin": 461312.0,
+    "ymin": 4448256.0,
+    "xmax": 461824.0,
+    "ymax": 4448768.0,
+    "resolution": 4.0,
+    "rows": 128,
+    "cols": 128
+  },
+  "max_building_height_m": 42.0,
+  "transmitter_height_m": 47.0,
+  "transmitter_xy_m": [
+    461568.0,
+    4448512.0
+  ],
+  "variants": [
+    {
+      "name": "iso",
+      "kind": "iso",
+      "azimuth_deg": null,
+      "pattern_base": null,
+      "project_base": "E:\\dac_winprop_irt2_direct_3200_positive_v2\\projects\\tile_002865\\iso\\tile_002865_irt2_iso",
+      "net": "E:\\dac_winprop_irt2_direct_3200_positive_v2\\projects\\tile_002865\\iso\\tile_002865_irt2_iso.net",
+      "result_dir": "E:\\dac_winprop_irt2_direct_3200_positive_v2\\raw_results\\tile_002865\\iso"
+    },
+    {
+      "name": "az022",
+      "kind": "directional",
+      "azimuth_deg": 22.0,
+      "pattern_base": "E:\\dac_irt_v2_8bounce\\patterns\\sector_h65_v8_g6p3dBi_az000_verified_roundtrip",
+      "project_base": "E:\\dac_winprop_irt2_direct_3200_positive_v2\\projects\\tile_002865\\az022\\tile_002865_irt2_az022",
+      "net": "E:\\dac_winprop_irt2_direct_3200_positive_v2\\projects\\tile_002865\\az022\\tile_002865_irt2_az022.net",
+      "result_dir": "E:\\dac_winprop_irt2_direct_3200_positive_v2\\raw_results\\tile_002865\\az022"
+    },
+    {
+      "name": "az073",
+      "kind": "directional",
+      "azimuth_deg": 73.0,
+      "pattern_base": "E:\\dac_irt_v2_8bounce\\patterns\\sector_h65_v8_g6p3dBi_az000_verified_roundtrip",
+      "project_base": "E:\\dac_winprop_irt2_direct_3200_positive_v2\\projects\\tile_002865\\az073\\tile_002865_irt2_az073",
+      "net": "E:\\dac_winprop_irt2_direct_3200_positive_v2\\projects\\tile_002865\\az073\\tile_002865_irt2_az073.net",
+      "result_dir": "E:\\dac_winprop_irt2_direct_3200_positive_v2\\raw_results\\tile_002865\\az073"
+    },
+    {
+      "name": "az092",
+      "kind": "directional",
+      "azimuth_deg": 92.0,
+      "pattern_base": "E:\\dac_irt_v2_8bounce\\patterns\\sector_h65_v8_g6p3dBi_az000_verified_roundtrip",
+      "project_base": "E:\\dac_winprop_irt2_direct_3200_positive_v2\\projects\\tile_002865\\az092\\tile_002865_irt2_az092",
+      "net": "E:\\dac_winprop_irt2_direct_3200_positive_v2\\projects\\tile_002865\\az092\\tile_002865_irt2_az092.net",
+      "result_dir": "E:\\dac_winprop_irt2_direct_3200_positive_v2\\raw_results\\tile_002865\\az092"
+    },
+    {
+      "name": "az271",
+      "kind": "directional",
+      "azimuth_deg": 271.0,
+      "pattern_base": "E:\\dac_irt_v2_8bounce\\patterns\\sector_h65_v8_g6p3dBi_az000_verified_roundtrip",
+      "project_base": "E:\\dac_winprop_irt2_direct_3200_positive_v2\\projects\\tile_002865\\az271\\tile_002865_irt2_az271",
+      "net": "E:\\dac_winprop_irt2_direct_3200_positive_v2\\projects\\tile_002865\\az271\\tile_002865_irt2_az271.net",
+      "result_dir": "E:\\dac_winprop_irt2_direct_3200_positive_v2\\raw_results\\tile_002865\\az271"
+    }
+  ]
+}

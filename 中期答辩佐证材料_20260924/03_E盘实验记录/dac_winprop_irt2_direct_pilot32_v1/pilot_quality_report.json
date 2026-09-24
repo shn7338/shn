@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "name": "winprop2020_irt2_direct_pilot32_v1",
+  "method": "direct WinProp; iso plus four directional runs per tile",
+  "physics": {
+    "frequency_mhz": 3500.0,
+    "superposition": "POWER",
+    "diffraction_model": "g",
+    "max_reflections": 2,
+    "max_diffractions": 2,
+    "max_scatterings": 0,
+    "max_reflections_and_diffractions": 2,
+    "post_processing": false,
+    "transition_post_processing": false,
+    "knife_edge_fill": false,
+    "ray_number_limit_enabled": true,
+    "max_saved_rays_per_pixel": 20,
+    "export_ascii_ray_paths": false
+  },
+  "directional_antenna": {
+    "pattern_base": "E:\\dac_irt_v2_8bounce\\patterns\\sector_h65_v8_g6p3dBi_az000_verified_roundtrip",
+    "boresight_gain_dbi": 6.3,
+    "horizontal_hpbw_deg": 65.0,
+    "vertical_hpbw_deg": 8.0,
+    "electrical_downtilt_in_pattern_deg": 10.0,
+    "mechanical_tilt_in_project_deg": 0.0,
+    "project_electrical_downtilt_deg": 0.0,
+    "labels_per_tile": 4,
+    "azimuth_seed": 20260724,
+    "azimuth_sampling": "four distinct integer degrees in [0, 359] per tile"
+  },
+  "tiles_expected": 32,
+  "tiles_completed": 32,
+  "failures": [],
+  "timing_seconds": {
+    "total": 4744.283441200154,
+    "mean": 148.2588575375048,
+    "median": 120.64589149999665,
+    "minimum": 1.304306500009261,
+    "maximum": 539.6557818000438
+  },
+  "storage_bytes": {
+    "compact_npz": 2652096,
+    "oib_keep": 9581126463,
+    "raw_results": 207992884,
+    "projects": 6142790
+  },
+  "label_range_db": {
+    "minimum": -199.875,
+    "maximum": -77.3125
+  },
+  "coordinate_resampling": {
+    "variants_resampled": 55,
+    "maximum_first_center_offset_m": 0.9859999995678663,
+    "maximum_allowed_offset_m": 4.0
+  },
+  "maximum_directional_gain_vs_isotropic_db": 21.625,
+  "maximum_directional_gain_99pct_vs_isotropic_db": 6.125,
+  "directional_gain_above_6p5_db": {
+    "pixels": 1432,
+    "common_pixels": 1400992,
+    "fraction": 0.0010221328886960096,
+    "interpretation": "Rare direct-WinProp nonlinear path-selection outliers; tile_000007 persisted with RAYS_MAX_NUMBER disabled"
+  },
+  "checks": {
+    "all_tiles_completed": true,
+    "five_variants_per_tile": true,
+    "compact_float16_raw_db": true,
+    "formal_quantity_is_path_loss": true,
+    "directional_gain_99pct_not_above_6p5_db": true,
+    "directional_gain_outlier_fraction_below_0p5_percent": true,
+    "resampling_offset_below_one_cell": true
+  },
+  "passed": true,
+  "tile_report_csv": "E:\\dac_winprop_irt2_direct_pilot32_v1\\pilot_quality_tiles.csv"
+}

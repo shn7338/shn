@@ -1,0 +1,9 @@
+{
+  "name": "iso",
+  "kind": "iso",
+  "azimuth_deg": null,
+  "pattern_base": null,
+  "project_base": "E:\\dac_irt_v2_8bounce\\projects\\tile_000001\\iso\\tile_000001_irt8_iso",
+  "net": "E:\\dac_irt_v2_8bounce\\projects\\tile_000001\\iso\\tile_000001_irt8_iso.net",
+  "result_dir": "E:\\dac_irt_v2_8bounce\\raw_results\\tile_000001\\iso"
+}

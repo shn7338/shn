@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "quantity": "WinProp path gain values read from Antenna Path Loss.txt; raw dB, finite pixels only",
+  "split_tile_counts": {
+    "train": 25,
+    "val": 5,
+    "test": 2
+  },
+  "statistics": {
+    "all": {
+      "p_iso": {
+        "count": 350335,
+        "mean_db": -112.08896556153393,
+        "std_db": 13.268940769122878,
+        "minimum_db": -198.75,
+        "maximum_db": -77.3125
+      },
+      "p_dir": {
+        "count": 1400992,
+        "mean_db": -126.0656483495266,
+        "std_db": 16.50185468422298,
+        "minimum_db": -199.875,
+        "maximum_db": -82.5625
+      }
+    },
+    "train": {
+      "p_iso": {
+        "count": 268377,
+        "mean_db": -112.25842331868974,
+        "std_db": 12.924137141702897,
+        "minimum_db": -198.75,
+        "maximum_db": -77.8125
+      },
+      "p_dir": {
+        "count": 1073259,
+        "mean_db": -126.40011381222986,
+        "std_db": 16.042077204754932,
+        "minimum_db": -199.875,
+        "maximum_db": -82.5625
+      }
+    },
+    "val": {
+      "p_iso": {
+        "count": 56871,
+        "mean_db": -112.88366434562431,
+        "std_db": 14.333826525851013,
+        "minimum_db": -196.875,
+        "maximum_db": -77.3125
+      },
+      "p_dir": {
+        "count": 227406,
+        "mean_db": -126.00471376085063,
+        "std_db": 18.22279799042308,
+        "minimum_db": -199.875,
+        "maximum_db": -85.125
+      }
+    },
+    "test": {
+      "p_iso": {
+        "count": 25087,
+        "mean_db": -108.47458843225574,
+        "std_db": 13.829143139007732,
+        "minimum_db": -197.375,
+        "maximum_db": -77.625
+      },
+      "p_dir": {
+        "count": 100327,
+        "mean_db": -122.62578493326822,
+        "std_db": 16.848988313278877,
+        "minimum_db": -197.875,
+        "maximum_db": -87.25
+      }
+    }
+  },
+  "synthetic_link_budget": {
+    "p_tx_dbm": "Uniform(10, 35)",
+    "g_tx_db": "Uniform(10, 20)",
+    "g_rx_db": "Uniform(10, 20)",
+    "insertion_loss_db": "Uniform(-10, 10)",
+    "combined_offset_formula": "P_TX + G_TX + G_RX - IL",
+    "mean_db": 52.5,
+    "variance_db2": 102.08333333333334
+  },
+  "stage2b_ss_normalization": {
+    "mean_db": -73.90011381222986,
+    "std_db": 18.95868071297819,
+    "formula": "(SS_db - mean_db) / std_db",
+    "source": "training directional path-gain moments plus independent synthetic link-budget moments"
+  }
+}

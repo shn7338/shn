@@ -1,0 +1,128 @@
+
+Reading building and topographical databases.
+  => 728 Buildings are considered during preprocessing.
+  => Determination of absolute height of buildings (incl. topography) started...
+Reading of databases finished.
+
+Preprocessing of COST postprocessing started...
+Saving buildings in preprocessed database.
+
+Determination of indoor pixels started...
+Determination of indoor pixels completed
+
+Saving of indoor pixels started...
+Saving of indoor pixels completed
+
+Preprocessing of COST postprocessing finished 
+
+
+Preprocessing of IRT started...
+Using 4 number of threads for the preprocessing!
+
+Determination of number of elements for IRT preprocessing:
+ - Number of pixels: 16383
+    => Number of outdoor pixels to preprocess: 12802
+ - Number of walls: 13230
+    =>Number of tiles: 13235
+ - Number of vertical edges: 8914
+    => Number of vertical segments: 8914
+    (Concave vertical edges (angle > 180 Degree) are not considered!)
+ - Number of horizontal edges: 13230
+    => Number of horizontal segments: 13235
+Determination of elements done!
+Writing parameters
+Writing walls/tiles
+
+Determination of visibility-relations between tiles and pixels started..
+
+Determination of visibility-relations between tiles and pixels finished.
+Writing visibility-relations between tiles and pixels...
+ ...completed.
+Visibility between tiles and pixels: 2285242
+
+Determination of visibility-relations between tiles and tiles started..
+
+Determination of visibility-relations between tiles and tiles finished.
+Writing visibility-relations between tiles and tiles...
+ ...completed.
+Visibility between tiles and tiles: 587970
+
+Determination of visibility-relations between tiles and vertical segments started..
+
+Determination of visibility-relations between tiles and vertical segments finished.
+Writing visibility-relations between tiles and vertical segments...
+ ...completed.
+Visibility between tiles and vertical segments: 506147
+Visibility between vertical segments and tiles: 506147
+
+Determination of visibility-relations between tiles and horizontal segments started..
+
+Determination of visibility-relations between tiles and horizontal segments finished.
+Writing visibility-relations between tiles and horizontal segments...
+ ...completed.
+Visibility between tiles and horizontal segments: 1365898
+Visibility between horizontal segments and tiles: 1365898
+
+Determination of visibility-relations between vertical segments and pixels started..
+
+Determination of visibility-relations between vertical segments and pixels finished.
+Writing visibility-relations between vertical segments and pixels...
+ ...completed.
+Visibility between vertical segments and pixels: 2043567
+
+Determination of visibility-relations between vertical segments and vertical segments started..
+
+Determination of visibility-relations between vertical segments and vertical segments finished.
+Writing visibility-relations between vertical segments and vertical segments...
+ ...completed.
+Visibility between vertical and vertical segments: 446654
+
+Determination of visibility-relations between vertical segments and horizontal segments started..
+
+Determination of visibility-relations between vertical segments and horizontal segments finished.
+Writing visibility-relations between vertical segments and horizontal segments...
+ ...completed.
+Visibility between vertical and horizontal segments: 1188184
+Visibility between horizontal and vertical segments: 1188184
+
+Determination of visibility-relations between horizontal segments and pixels started..
+
+Determination of visibility-relations between horizontal segments and pixels finished.
+Writing visibility-relations between horizontal segments and pixels...
+ ...completed.
+Visibility between horizontal segments and pixels: 2959694
+
+Determination of visibility-relations between horizontal and horizontal segments started..
+
+Determination of visibility-relations between horizontal and horizontal segments finished.
+Writing visibility-relations between horizontal and horizontal segments...
+ ...completed.
+
+Writing preprocessed database completed.
+
+Visibility between horizontal and horizontal segments: 15264914
+
+Free memory of prediction pixels...
+
+Free memory of prediction pixels completed.
+
+Free memory of walls (tiles)...
+
+Free memory of walls (tiles) completed.
+
+Free memory of wedges (vertical segments)...
+
+Free memory of wedges (vertical segments) completed.
+
+Free memory of wedges (horizontal segments)...
+
+Free memory of wedges (horizontal segments) completed.
+
+Preprocessing of IRT finished 
+
+
+Free memory!
+
+Total preprocessing time: 58 s (= 00:00:58 h:m:s)
+
+Preprocessing computed with WallMan Version 2020-38079 (2020-05-07)

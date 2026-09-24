@@ -1,0 +1,122 @@
+{
+  "version": 1,
+  "tile": "tile_000001",
+  "array_convention": "array[row, col]; row=0 north, col=0 west",
+  "grid": {
+    "xmin": 444928.0,
+    "ymin": 4367884.0,
+    "xmax": 445440.0,
+    "ymax": 4368396.0,
+    "resolution": 4.0,
+    "rows": 128,
+    "cols": 128
+  },
+  "azimuth_convention": "degrees clockwise from north",
+  "azimuths_deg": [
+    0.0,
+    90.0
+  ],
+  "variants": [
+    "iso",
+    "az000",
+    "az090"
+  ],
+  "dtype": "float16",
+  "superposition": "POWER",
+  "method": "WinProp isotropic IRT per-ray power reweighting using the ray DoD angles and the configured AMan antenna gain pattern",
+  "ray_header": {
+    "lower_left": [
+      444928.0,
+      4367884.0
+    ],
+    "height_m": 2.0,
+    "resolution_m": 4.0,
+    "columns": 128,
+    "lines": 128,
+    "transmitter_xyz_m": [
+      445184.0,
+      4368140.0,
+      26.0
+    ],
+    "frequency_mhz": 3500.0,
+    "paths": "YES",
+    "angles": "YES"
+  },
+  "ray_statistics": {
+    "points": 12767,
+    "paths": 254505,
+    "maximum_paths_per_point": 20,
+    "mean_paths_per_point": 19.93459700791102,
+    "out_of_bounds": 0,
+    "indoor_points_omitted_by_winprop": 3617
+  },
+  "validity_mask_audit": {
+    "winprop_finite_cells": 12767,
+    "winprop_missing_cells": 3617,
+    "prepared_building_cells": 5850,
+    "finite_cells_inside_prepared_building_mask": 2233,
+    "missing_cells_outside_prepared_building_mask": 0,
+    "authority": "WinProp Power.txt N.C. status"
+  },
+  "pattern": {
+    "path": "E:\\dac_irt_v2_8bounce\\patterns\\sector_h65_v8_g6p3dBi_az000.apa",
+    "sha256": "0e27b980ddf0c5bad75b70af4ad4beb5630972e1334991d074f843027dedc482",
+    "records": 65341,
+    "theta_samples": 181,
+    "phi_samples": 361,
+    "resolution_deg": 1.0,
+    "minimum_gain_dbi": -23.7,
+    "maximum_gain_dbi": 6.3
+  },
+  "iso_source": {
+    "source": "E:\\dac_winprop_irt2_ray_diagnostic_v1\\raw_results\\tile_000001\\iso\\Site  1 Antenna 1 Power.txt",
+    "header": {
+      "VERSION": "2020-38079",
+      "DATE": "2026-07-24, 15:03:51 (+0800)",
+      "ANTENNA 1": "ANTENNATYPE ISO",
+      "LOWER_LEFT": "444928.00000000 4367884.00000000",
+      "UPPER_RIGHT": "445440.00000000 4368396.00000000",
+      "HEIGHT": "2.000",
+      "TIME_STEP": "0.000",
+      "RESOLUTION": "4.00000000"
+    },
+    "records": 16384,
+    "valid_pixels": 12767,
+    "minimum_db": -178.50599670410156,
+    "maximum_db": -78.0864028930664
+  },
+  "direct_validation": {
+    "az000": {
+      "source": "E:\\dac_winprop_irt2_ray_diagnostic_v1\\raw_results\\tile_000001\\az000\\Site  1 Antenna 1 Power.txt",
+      "pixels": 12767,
+      "bias_db": 0.03289096820622442,
+      "mae_db": 0.5551006143539619,
+      "rmse_db": 0.7845196402431857,
+      "p95_absolute_error_db": 1.6290657043457026,
+      "maximum_absolute_error_db": 6.99169921875,
+      "passed": false
+    },
+    "az090": {
+      "source": "E:\\dac_winprop_irt2_ray_diagnostic_v1\\raw_results\\tile_000001\\az090\\Site  1 Antenna 1 Power.txt",
+      "pixels": 12766,
+      "bias_db": -0.15822561635467564,
+      "mae_db": 0.656924890048747,
+      "rmse_db": 1.0809483740051247,
+      "p95_absolute_error_db": 1.9617919921875,
+      "maximum_absolute_error_db": 13.009803771972656,
+      "passed": false
+    }
+  },
+  "elapsed_seconds": 1.1643444000510499,
+  "outputs": {
+    "compact": "E:\\dac_winprop_irt2_ray_diagnostic_v1\\compact_tiles\\tile_000001.npz",
+    "validation_float32": "E:\\dac_winprop_irt2_ray_diagnostic_v1\\compact_tiles\\tile_000001_validation_f32.npz"
+  },
+  "hashes_sha256": {
+    "ray_str": "bf88d1ad0ee976b721319f06283953f5a5c7bc0d21ce408bf5b08df50c83868d",
+    "iso_power_txt": "75e543a336be0ba623b02615f47b2f7a500a98a0ee724d3c2a663d736e735788",
+    "compact": "7069216319af6e4c7b354f5943a9ea2efc4cfd97986cc0bbcb281851cd528abc",
+    "validation_float32": "4a590d463acd4732e25017a4ae034dfb3cbbe46fdab921dba0d307d4d2dd21ba"
+  },
+  "direct_validation_passed": false
+}

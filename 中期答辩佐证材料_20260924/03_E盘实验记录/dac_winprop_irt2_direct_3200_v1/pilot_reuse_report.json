@@ -1,0 +1,15 @@
+{
+  "status": "ok",
+  "pilot_root": "E:\\dac_winprop_irt2_direct_pilot32_v1",
+  "target_root": "E:\\dac_winprop_irt2_direct_3200_v1",
+  "overlap_tiles": 6,
+  "reused_tiles": 6,
+  "tiles": [
+    "tile_000002",
+    "tile_000009",
+    "tile_000010",
+    "tile_000020",
+    "tile_000025",
+    "tile_000027"
+  ]
+}

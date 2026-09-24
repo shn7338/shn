@@ -1,0 +1,9 @@
+{
+  "name": "iso",
+  "kind": "iso",
+  "azimuth_deg": null,
+  "pattern_base": null,
+  "project_base": "E:\\dac_winprop_irt2_no_ray_cap_diagnostic\\projects\\tile_000007\\iso\\tile_000007_irt2_iso",
+  "net": "E:\\dac_winprop_irt2_no_ray_cap_diagnostic\\projects\\tile_000007\\iso\\tile_000007_irt2_iso.net",
+  "result_dir": "E:\\dac_winprop_irt2_no_ray_cap_diagnostic\\raw_results\\tile_000007\\iso"
+}

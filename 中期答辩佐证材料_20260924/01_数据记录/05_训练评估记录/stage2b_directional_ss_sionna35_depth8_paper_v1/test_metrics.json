@@ -1,0 +1,79 @@
+{
+  "status": "ok",
+  "accepted_for_final_evaluation": true,
+  "best_epoch": 154,
+  "best_val_rmse_db": 5.8328305200443555,
+  "best_val_metrics": {
+    "loss": 0.08943293593154195,
+    "rmse_db": 5.8328305200443555,
+    "mae_db": 3.1155271065634507,
+    "sparse_calibrated_iso_rmse_db": 13.12325881268451,
+    "sparse_calibrated_iso_mae_db": 9.576937950037607,
+    "rmse_improvement_vs_sparse_calibrated_iso_db": 7.290428292640154,
+    "mae_improvement_vs_sparse_calibrated_iso_db": 6.461410843474156,
+    "mean_sparse_points": 100.0,
+    "valid_pixels": 112161599.0
+  },
+  "test_by_sparse_points": {
+    "50": {
+      "loss": 0.09405443577738533,
+      "rmse_db": 5.981470015388409,
+      "mae_db": 3.2458861305764337,
+      "sparse_calibrated_iso_rmse_db": 13.220622959457687,
+      "sparse_calibrated_iso_mae_db": 9.640795822809356,
+      "rmse_improvement_vs_sparse_calibrated_iso_db": 7.239152944069279,
+      "mae_improvement_vs_sparse_calibrated_iso_db": 6.394909692232922,
+      "mean_sparse_points": 50.0,
+      "valid_pixels": 107837070.0
+    },
+    "100": {
+      "loss": 0.08738965639158298,
+      "rmse_db": 5.765120806897638,
+      "mae_db": 3.061846278835284,
+      "sparse_calibrated_iso_rmse_db": 13.102985402945507,
+      "sparse_calibrated_iso_mae_db": 9.559781423030133,
+      "rmse_improvement_vs_sparse_calibrated_iso_db": 7.337864596047869,
+      "mae_improvement_vs_sparse_calibrated_iso_db": 6.497935144194849,
+      "mean_sparse_points": 100.0,
+      "valid_pixels": 107837070.0
+    },
+    "200": {
+      "loss": 0.07962505194788788,
+      "rmse_db": 5.50308302777527,
+      "mae_db": 2.8657486776115113,
+      "sparse_calibrated_iso_rmse_db": 13.049566795763566,
+      "sparse_calibrated_iso_mae_db": 9.520078693718217,
+      "rmse_improvement_vs_sparse_calibrated_iso_db": 7.5464837679882955,
+      "mae_improvement_vs_sparse_calibrated_iso_db": 6.654330016106705,
+      "mean_sparse_points": 200.0,
+      "valid_pixels": 107837070.0
+    }
+  },
+  "acceptance_checks": {
+    "50": {
+      "rmse_improvement_db": 7.239152944069279,
+      "minimum_required_db": 0.2,
+      "rmse_pass": true,
+      "mae_improvement_db": 6.394909692232922,
+      "mae_pass": true
+    },
+    "100": {
+      "rmse_improvement_db": 7.337864596047869,
+      "minimum_required_db": 0.2,
+      "rmse_pass": true,
+      "mae_improvement_db": 6.497935144194849,
+      "mae_pass": true
+    },
+    "200": {
+      "rmse_improvement_db": 7.5464837679882955,
+      "minimum_required_db": 0.2,
+      "rmse_pass": true,
+      "mae_improvement_db": 6.654330016106705,
+      "mae_pass": true
+    }
+  },
+  "elapsed_seconds": 161.1913733999827,
+  "checkpoint": "D:\\桌面\\dac\\models\\stage2b_directional_ss_sionna35_depth8_paper_v1\\best.pt",
+  "checkpoint_sha256": "9c069c07b1443a7faf78a36903a5287b63bf538e12d3e65bc3b1afd35084cdcb",
+  "input": "[B, frozen Stage2-A isotropic IRT prediction, sparse directional SS, sparse mask]"
+}

@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "name": "sionna201_35ghz_depth8_27360_v1",
+  "selection_csv": "D:\\桌面\\dac\\normalized_4m_v1\\splits.csv",
+  "source_root": "D:\\桌面\\dac\\512mdata",
+  "prepared_root": "D:\\桌面\\dac\\prepared_4m",
+  "output_root": "E:\\dac_sionna_35ghz_depth8_27360_v1",
+  "environment_python": "E:\\dac_sionna_rt_env\\Scripts\\python.exe",
+  "runtime_sionna_version": "2.0.1",
+  "pilot_split_counts": {
+    "train": 26,
+    "val": 3,
+    "test": 3
+  },
+  "radio_map": {
+    "frequency_hz": 3500000000.0,
+    "area_size_m": [512.0, 512.0],
+    "cell_size_m": [4.0, 4.0],
+    "rows": 128,
+    "cols": 128,
+    "max_depth": 8,
+    "samples_per_tx": 7000000,
+    "los": true,
+    "specular_reflection": true,
+    "diffraction": true,
+    "diffuse_reflection": false,
+    "refraction": false,
+    "edge_diffraction": false,
+    "transmitter_xy": [256.0, 256.0],
+    "transmitter_height_rule": "max_building_height_plus_5m",
+    "receiver_height_m": 2.0,
+    "tx_polarization": "VH",
+    "rx_polarization": "VH",
+    "isotropic_gain_dbi": 0.0,
+    "directional_boresight_gain_dbi": 6.3,
+    "directional_horizontal_hpbw_deg": 65.0,
+    "directional_vertical_hpbw_deg": 8.0,
+    "directional_attenuation_cap_db": 30.0,
+    "directional_downtilt_deg": 0.0,
+    "directional_labels_per_tile": 4
+  },
+  "scene": {
+    "source_crs": "EPSG:32650",
+    "local_origin": "prepared_metadata.grid.[xmin,ymin]",
+    "building_height_field": "HEIGHT_M",
+    "building_material": "itu_concrete",
+    "building_material_thickness_m": 0.3,
+    "ground_material": "itu_concrete",
+    "ground_material_thickness_m": 0.5,
+    "include_ground": true,
+    "clip_buildings_to_grid": true
+  },
+  "randomness": {
+    "azimuth_seed": 20260724,
+    "ray_seed": 20260803,
+    "azimuth_sampling": "four distinct integer degrees in [0,359], deterministic per tile"
+  },
+  "execution": {
+    "max_parallel_tiles": 2,
+    "max_parallel_tiles_hard_limit": 2,
+    "tile_timeout_seconds": 300,
+    "max_attempts": 2,
+    "save_png": false,
+    "retain_raw_variant_npz": false,
+    "retain_scene_meshes": false,
+    "stop_flag": "<output_root>/STOP"
+  },
+  "storage": {
+    "dataset_method": "Sionna RT 2.0.1 radio map",
+    "quantity_description": "Sionna path_gain in dB; float16 with NaN for indoor or unhit outdoor pixels",
+    "compact_dtype": "float16",
+    "shard_size_tiles": 256,
+    "run_manifest_filename": "run_manifest.json"
+  },
+  "provenance": {
+    "tile_population": "all 27360 physical tile directories tile_000001 through tile_027360",
+    "split_population": "existing spatially isolated split: train 21789, val 2840, test 2731",
+    "frequency_note": "3.5 GHz selected by the project instead of the paper's 3.66 GHz.",
+    "paper_parameters_retained": "512 m area, 4 m cells, 128x128, depth 8, 7M rays, reflection and diffraction, BS=max building+5 m, UE=2 m, VH/VH, one isotropic plus four random-azimuth directional maps.",
+    "downtilt_note": "The synthetic paper setup does not specify a fixed downtilt; 0 degrees is used. Real-cell 10/16/18 degree tilts are reserved for real-data evaluation.",
+    "implementation_note": "The 30 dB directional attenuation cap is an explicit project assumption. Current Sionna RadioMap diffraction is not numerically equivalent to WinProp IRT."
+  }
+}

@@ -1,0 +1,34 @@
+﻿目录,状态,文件数,总字节数,已收录文件数,类型统计
+E:\dac_bs_inversion_scale4_v1_work,空目录,0,0,0,
+E:\dac_checkpoints,存在,139,702226914,8,.py:32; .ps1:16; (无后缀):15; .sample:14; .md:11; .txt:8; .csv:7; .mic:3
+E:\dac_irt_v2_8bounce,存在,30,374736627,8,.json:6; .log:5; .apa:3; .apb:3; .mic:3; .net:3; .nup:3; .wpi:3
+E:\dac_irt_v2_winprop2020_max6,存在,19,124681,6,.json:4; .mic:3; .net:3; .nup:3; .wpi:3; .log:2; .pid:1
+E:\dac_sionna_35ghz_depth8_3200_v1,存在,44,2363229,13,.json:24; .log:12; .npy:4; .npz:3; .csv:1
+E:\dac_sionna_35ghz_depth8_27360_v1,存在,416,25961099,11,.json:231; .log:140; .npz:41; .ply:4
+E:\dac_sionna_35ghz_depth8_27360_v2,存在,2075,66751696,13,.json:1197; .log:694; .npz:179; .ply:4; (无后缀):1
+E:\dac_sionna_35ghz_depth8_27360_v3,存在,314231,9446193116,21,.json:176112; .log:110325; .npz:27360; .npy:432; .csv:2
+E:\dac_sionna_35ghz_pilot,存在,17,2195220,5,.png:6; .npz:5; .json:4; .ply:2
+E:\dac_sionna_paper_pilot,存在,34,2829836,8,.npz:11; .png:11; .json:6; .log:4; .ply:2
+E:\dac_sionna_paper8_v1,存在,6,1045019,4,.log:2; .ply:2; .json:1; .xml:1
+E:\dac_sionna_rt_env,存在,26816,503917932,1,.ply:10355; .pyi:5948; .py:4095; .pyc:4095; .h:355; (无后缀):266; .pyd:170; .spd:142
+E:\dac_sionna_winprop_irt2_alignment,存在,19,2389467,6,.png:7; .npz:5; .json:5; .ply:2
+E:\dac_stage1_dpm_predictions_positive3200_v2,存在,9601,424760245,11,.npy:6400; .json:3200; .csv:1
+E:\dac_stage2a_pilot32_smoke_v1,存在,5,186471430,3,.pt:2; .json:2; .csv:1
+E:\dac_stage2a_sionna35_depth8_paper_smoke_20260805_205643,存在,5,496838580,3,.pt:2; .json:2; .csv:1
+E:\dac_stage2b_pilot32_smoke_v1,存在,5,186489010,3,.pt:2; .json:2; .csv:1
+E:\dac_stage2b_sionna35_depth8_paper_smoke_20260806_175904,存在,5,496862935,3,.pt:2; .json:2; .csv:1
+E:\dac_tools,存在,520,90679840,29,.mat:358; (无后缀):44; .sample:28; .py:17; .csv:14; .ipynb:11; .idx:9; .pack:9
+E:\dac_winprop_irt2_direct_3200_positive_v2,存在,397,80329154,20,.log:97; .json:77; .txt:51; .mic:25; .net:25; .nup:25; .wpi:25; .fpl:25
+E:\dac_winprop_irt2_direct_3200_v1,存在,616,58722787,19,.log:163; .json:96; .txt:81; .mic:45; .net:45; .nup:45; .wpi:45; .fpl:40
+E:\dac_winprop_irt2_direct_pilot32_v1,存在,2231,10175117164,23,.log:581; .txt:320; .json:294; .mic:160; .net:160; .nup:160; .wpi:160; .fpl:160
+E:\dac_winprop_irt2_direct_v1,存在,4,470016,3,.json:2; .npz:1; .png:1
+E:\dac_winprop_irt2_no_ray_cap_diagnostic,存在,25,2702349,11,.log:4; .txt:4; .json:3; .pid:2; .mic:2; .net:2; .nup:2; .wpi:2
+E:\dac_winprop_irt2_pattern_gain0_diagnostic,存在,13,1353402,6,.log:2; .json:2; .txt:2; .pid:1; .mic:1; .net:1; .nup:1; .wpi:1
+E:\dac_winprop_irt2_ray_diagnostic_v1,存在,50,109132066,9,.log:10; .pid:6; .txt:6; .json:5; .mic:3; .net:3; .nup:3; .wpi:3
+E:\dac_winprop_irt2_ray100_diagnostic_v1,存在,43,524283747,9,.log:6; .txt:6; .json:5; .pid:3; .mic:3; .net:3; .nup:3; .wpi:3
+E:\dac_winprop_irt2_ray500_diagnostic_v1,存在,8,44310,4,.log:2; .json:2; .mic:1; .net:1; .nup:1; .wpi:1
+E:\dac_winprop_irt2_ray500_diagnostic_v2,存在,17,737040652,9,.json:3; .npz:2; .log:2; .txt:2; .pid:1; .mic:1; .net:1; .nup:1
+E:\dac_winprop_irt2_roundtrip_pattern_validation_v3,存在,3,197577,3,.npz:2; .json:1
+E:\dac_winprop_irt2_verified_pattern_diagnostic_v1,存在,25,347538468,8,.log:4; .txt:4; .json:3; .mic:2; .net:2; .nup:2; .wpi:2; .fpl:2
+E:\dac_winprop_irt2_verified_pattern_validation_v1,存在,3,197479,3,.npz:2; .json:1
+E:\dac_winprop_irt6_direct_pilot_positive_v3,存在,41,432597218,12,.log:11; .json:9; .mic:5; .net:5; .nup:5; .wpi:5; .oib:1

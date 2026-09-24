@@ -1,0 +1,68 @@
+{
+  "version": 3,
+  "method": "Sionna RT 2.0.1 radio map",
+  "tile": "tile_000001",
+  "split": "val",
+  "array_convention": "array[row, col]; row=0 north, col=0 west",
+  "dtype": "float16",
+  "quantity": "path_gain_db",
+  "variants": [
+    "iso",
+    "az113",
+    "az195",
+    "az216",
+    "az283"
+  ],
+  "azimuths_deg": [
+    113,
+    195,
+    216,
+    283
+  ],
+  "resolved_directional_downtilt_deg": 6.225829124450684,
+  "sources": {
+    "iso": {
+      "source": "E:\\dac_sionna_35ghz_depth8_27360_v3\\work_tiles\\tile_000001\\iso_samples_7000000.npz",
+      "source_sha256": "8ae12678a9807003ca2d7be5e59f2fce23b1efd25ec5a18453a8aaf6305d1a45",
+      "valid_pixels": 9948,
+      "minimum_db": -163.5712432861328,
+      "maximum_db": -69.95716857910156,
+      "directional_downtilt_deg": 6.225829124450684
+    },
+    "az113": {
+      "source": "E:\\dac_sionna_35ghz_depth8_27360_v3\\work_tiles\\tile_000001\\az113_samples_7000000.npz",
+      "source_sha256": "2aa81b6748c7a1338bbca877abd6ab4ac3de54246157c1d36d96da02b5d6c4f4",
+      "valid_pixels": 9953,
+      "minimum_db": -173.970947265625,
+      "maximum_db": -82.166259765625,
+      "directional_downtilt_deg": 6.225829124450684
+    },
+    "az195": {
+      "source": "E:\\dac_sionna_35ghz_depth8_27360_v3\\work_tiles\\tile_000001\\az195_samples_7000000.npz",
+      "source_sha256": "0a2b77d69406e7b1d0a4c9d3625b220cefeb4949bca47e750653c139e7dd57c1",
+      "valid_pixels": 9934,
+      "minimum_db": -186.98275756835938,
+      "maximum_db": -81.34329986572266,
+      "directional_downtilt_deg": 6.225829124450684
+    },
+    "az216": {
+      "source": "E:\\dac_sionna_35ghz_depth8_27360_v3\\work_tiles\\tile_000001\\az216_samples_7000000.npz",
+      "source_sha256": "9ce8dfb647c125d9c3d65d9549dd9bf1074507eccaa60db0cd30c4aab52169df",
+      "valid_pixels": 9977,
+      "minimum_db": -187.11715698242188,
+      "maximum_db": -81.58879089355469,
+      "directional_downtilt_deg": 6.225829124450684
+    },
+    "az283": {
+      "source": "E:\\dac_sionna_35ghz_depth8_27360_v3\\work_tiles\\tile_000001\\az283_samples_7000000.npz",
+      "source_sha256": "cd453b8d028b803089f757e36883e53952a61dc9494d8969066c6d521733bcab",
+      "valid_pixels": 9953,
+      "minimum_db": -187.6400909423828,
+      "maximum_db": -80.93868255615234,
+      "directional_downtilt_deg": 6.225829124450684
+    }
+  },
+  "output": "E:\\dac_sionna_35ghz_depth8_27360_v3\\compact_tiles\\tile_000001.npz",
+  "output_bytes": 79074,
+  "output_sha256": "f73e63e140a5c1d633d8de3153acf0a46069a3437209d01ccccde57250b67522"
+}

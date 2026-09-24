@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "tile": "tile_000001",
+  "method": "direct WinProp maps; no offline directional reweighting",
+  "grid": {
+    "xmin": 444928.0,
+    "ymin": 4367884.0,
+    "xmax": 445440.0,
+    "ymax": 4368396.0,
+    "resolution": 4.0,
+    "rows": 128,
+    "cols": 128
+  },
+  "array_convention": "row 0 north; column 0 west",
+  "sources": {
+    "iso": {
+      "source": "E:\\dac_winprop_irt2_ray500_diagnostic_v2\\raw_results\\tile_000001\\iso\\Site  1 Antenna 1 Power.txt",
+      "header": {
+        "VERSION": "2020-38079",
+        "DATE": "2026-07-24, 15:35:07 (+0800)",
+        "ANTENNA 1": "ANTENNATYPE ISO",
+        "LOWER_LEFT": "444928.00000000 4367884.00000000",
+        "UPPER_RIGHT": "445440.00000000 4368396.00000000",
+        "HEIGHT": "2.000",
+        "TIME_STEP": "0.000",
+        "RESOLUTION": "4.00000000"
+      },
+      "records": 16384,
+      "valid_pixels": 12767,
+      "minimum_db": -178.50599670410156,
+      "maximum_db": -78.08599853515625
+    },
+    "az000": {
+      "source": "E:\\dac_winprop_irt2_verified_pattern_diagnostic_v1\\raw_results\\tile_000001\\az000\\Site  1 Antenna 1 Power.txt",
+      "header": {
+        "VERSION": "2020-38079",
+        "DATE": "2026-07-24, 15:45:51 (+0800)",
+        "ANTENNA 1": "VERTICAL 0.000",
+        "LOWER_LEFT": "444928.00000000 4367884.00000000",
+        "UPPER_RIGHT": "445440.00000000 4368396.00000000",
+        "HEIGHT": "2.000",
+        "TIME_STEP": "0.000",
+        "RESOLUTION": "4.00000000"
+      },
+      "records": 16384,
+      "valid_pixels": 12767,
+      "minimum_db": -199.88340759277344,
+      "maximum_db": -87.8302001953125
+    },
+    "az090": {
+      "source": "E:\\dac_winprop_irt2_verified_pattern_diagnostic_v1\\raw_results\\tile_000001\\az090\\Site  1 Antenna 1 Power.txt",
+      "header": {
+        "VERSION": "2020-38079",
+        "DATE": "2026-07-24, 15:45:51 (+0800)",
+        "ANTENNA 1": "VERTICAL 0.000",
+        "LOWER_LEFT": "444928.00000000 4367884.00000000",
+        "UPPER_RIGHT": "445440.00000000 4368396.00000000",
+        "HEIGHT": "2.000",
+        "TIME_STEP": "0.000",
+        "RESOLUTION": "4.00000000"
+      },
+      "records": 16384,
+      "valid_pixels": 12766,
+      "minimum_db": -189.88499450683594,
+      "maximum_db": -92.80010223388672
+    }
+  },
+  "valid_pixels": {
+    "iso": 12767,
+    "az000": 12767,
+    "az090": 12766
+  },
+  "mask_mismatch_vs_iso_pixels": {
+    "az000": 0,
+    "az090": 1
+  },
+  "directional_minus_isotropic": {
+    "az000": {
+      "common_valid_pixels": 12767,
+      "minimum_db": -24.821197509765625,
+      "maximum_db": 6.06610107421875,
+      "mean_db": -15.684893202555715,
+      "percentiles_db": {
+        "1": -23.673035278320313,
+        "5": -23.621632385253907,
+        "50": -19.89679718017578,
+        "95": 1.4729034423828113,
+        "99": 4.265831298828128
+      }
+    },
+    "az090": {
+      "common_valid_pixels": 12766,
+      "minimum_db": -23.800689697265625,
+      "maximum_db": 5.588096618652344,
+      "mean_db": -14.240655131984724,
+      "percentiles_db": {
+        "1": -23.68312759399414,
+        "5": -23.655797958374023,
+        "50": -17.36785125732422,
+        "95": 0.8126487731933594,
+        "99": 2.518643188476564
+      }
+    }
+  },
+  "region_mean_directional_gain_db": {
+    "az000": {
+      "north_db": -7.000675448805156,
+      "south_db": -21.827020469149282,
+      "east_db": -15.683632827672158,
+      "west_db": -15.686207420654297
+    },
+    "az090": {
+      "north_db": -15.202205000053556,
+      "south_db": -13.560703847905026,
+      "east_db": -6.992768588965339,
+      "west_db": -21.79938078422626
+    }
+  },
+  "orientation_contrast_db": {
+    "az000_north_minus_south": 14.826345020344126,
+    "az090_east_minus_west": 14.80661219526092
+  },
+  "checks": {
+    "grid_is_128_by_128": true,
+    "az000_points_north": true,
+    "az090_points_east": true,
+    "az000_gain_does_not_exceed_6p3_dbi": true,
+    "az090_gain_does_not_exceed_6p3_dbi": true,
+    "directional_mask_mismatch_at_most_one_pixel": true
+  },
+  "passed": true,
+  "figure": "E:\\dac_winprop_irt2_direct_v1\\qa\\tile_000001\\tile_000001_direct_validation.png"
+}

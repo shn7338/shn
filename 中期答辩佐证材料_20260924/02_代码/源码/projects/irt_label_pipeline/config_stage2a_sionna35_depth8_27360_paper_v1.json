@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "name": "stage2a_iso_refine_sionna35_depth8_27360_paper_v1",
+  "shard_root": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards",
+  "shard_manifest": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shard_manifest.csv",
+  "selection_csv": "D:\\桌面\\dac\\normalized_4m_v1\\splits.csv",
+  "normalized_root": "D:\\桌面\\dac\\normalized_4m_v1",
+  "stage1_code_root": "D:\\桌面\\dac\\code\\dpm_unet_stage1",
+  "stage1_model_dir": "D:\\桌面\\dac\\models\\stage1_dpm_unet_baseline_v1",
+  "residual_stats_path": "E:\\dac_sionna_35ghz_depth8_27360_v3\\stage2a_residual_stats_train.json",
+  "require_full_residual_stats": true,
+  "output_dir": "D:\\桌面\\dac\\models\\stage2a_iso_refine_sionna35_depth8_paper_v1",
+  "input": [
+    "building_height_norm",
+    "frozen_stage1_dpm_prediction_norm"
+  ],
+  "target": "P_iso_Sionna - P_iso_DPM_pred",
+  "model": {
+    "architecture": "geo2sigmap_unet",
+    "base_channels": 64,
+    "normalization": "batch_norm",
+    "activation": "relu",
+    "encoder_decoder_levels": 4,
+    "convolutions_per_block": 2,
+    "gradient_checkpointing": true,
+    "zero_init_output": true
+  },
+  "epochs": 200,
+  "batch_size": 64,
+  "gradient_accumulation": 1,
+  "effective_batch_size": 64,
+  "stats_batch_size": 16,
+  "workers": 2,
+  "prefetch_factor": 2,
+  "progress_every_batches": 25,
+  "optimizer": "adam",
+  "learning_rate": 0.001,
+  "weight_decay": 0.0,
+  "scheduler": "none",
+  "loss": "masked_mse",
+  "huber_delta_normalized": 1.0,
+  "patience": 200,
+  "gradient_clip": 5.0,
+  "seed": 20260724,
+  "device": "auto",
+  "amp": true,
+  "channels_last": true,
+  "augmentation": true,
+  "acceptance": {
+    "minimum_test_rmse_improvement_vs_dpm_db": 0.5,
+    "minimum_test_rmse_improvement_vs_calibrated_db": 0.2,
+    "require_test_mae_better_than_both_baselines": true
+  },
+  "provenance": {
+    "paper": "Geo2SigMap: High-Fidelity RF Signal Mapping Using Geographic Databases",
+    "paper_model": "U-Net-Iso: 9 convolution blocks, four down/up levels, base width 64, Conv-BN-ReLU, MSE, Adam lr=1e-3, effective batch=64, 200 epochs, D4 augmentation",
+    "stage1_checkpoint_sha256": "e44a4580aefaac6c0a2166a1824e4b140139ee23b0b87dcc7f78481ff4377c72",
+    "irt_shard_manifest_sha256": "d2f717928079fc5204f6b57d803f7d5f0947fd8507b3d61d84d964e7b0bbbe2c",
+    "irt_dataset": "E:\\dac_sionna_35ghz_depth8_27360_v3",
+    "formula": "P_iso_Sionna_hat = P_iso_DPM_hat + residual_center + residual_scale * U_IsoRefine(B, P_iso_DPM_hat_norm)",
+    "project_adaptations": [
+      "3.5 GHz project frequency instead of paper 3.66 GHz",
+      "frozen learned WinProp-DPM surrogate instead of analytical 3GPP UMa map",
+      "masked outdoor-pixel MSE because Sionna shards store indoor/unhit pixels as NaN",
+      "paper batch size 64 with AMP and gradient checkpointing, validated on the local 8 GB GPU",
+      "train/validation/test spatial split 21789/2840/2731 instead of paper 80/20 only"
+    ]
+  }
+}

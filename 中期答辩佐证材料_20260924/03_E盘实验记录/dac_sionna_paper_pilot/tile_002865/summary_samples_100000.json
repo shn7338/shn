@@ -1,0 +1,181 @@
+{
+  "version": 1,
+  "status": "ok",
+  "config": "C:\\Users\\pc\\Documents\\大创\\projects\\irt_label_pipeline\\config_sionna201_paper_tile002865.json",
+  "tile": "tile_002865",
+  "runtime": {
+    "python": "3.12.10",
+    "sionna_rt": "2.0.1",
+    "mitsuba_variant": "cuda_ad_mono_polarized"
+  },
+  "parameters": {
+    "frequency_hz": 3660000000.0,
+    "area_size_m": [
+      512.0,
+      512.0
+    ],
+    "cell_size_m": [
+      4.0,
+      4.0
+    ],
+    "rows": 128,
+    "cols": 128,
+    "max_depth": 8,
+    "samples_per_tx": 100000,
+    "los": true,
+    "specular_reflection": true,
+    "diffraction": true,
+    "diffuse_reflection": false,
+    "refraction": false,
+    "edge_diffraction": false,
+    "transmitter_xy": [
+      256.0,
+      256.0
+    ],
+    "transmitter_height_rule": "max_building_height_plus_5m",
+    "receiver_height_m": 2.0,
+    "tx_polarization": "VH",
+    "rx_polarization": "VH",
+    "isotropic_gain_dbi": 0.0,
+    "directional_boresight_gain_dbi": 6.3,
+    "directional_horizontal_hpbw_deg": 65.0,
+    "directional_vertical_hpbw_deg": 8.0,
+    "directional_attenuation_cap_db": 30.0,
+    "directional_downtilt_deg": 0.0,
+    "directional_azimuths_deg": [
+      22,
+      73,
+      92,
+      271
+    ],
+    "seed": 20260724,
+    "transmitter_height_m": 47.0
+  },
+  "scene_manifest": {
+    "version": 1,
+    "tile": "tile_002865",
+    "source_shapefile": "D:\\桌面\\dac\\512mdata\\tile_002865\\tile_002865.shp",
+    "source_crs": "EPSG:32650",
+    "source_grid": {
+      "xmin": 461312.0,
+      "ymin": 4448256.0,
+      "xmax": 461824.0,
+      "ymax": 4448768.0,
+      "resolution": 4.0,
+      "rows": 128,
+      "cols": 128
+    },
+    "local_bounds": [
+      0.0,
+      0.0,
+      512.0,
+      512.0
+    ],
+    "local_origin_utm": [
+      461312.0,
+      4448256.0
+    ],
+    "feature_count": 560,
+    "extruded_polygon_count": 560,
+    "skipped_feature_count": 0,
+    "repaired_feature_count": 0,
+    "max_building_height_m": 42.0,
+    "vertex_count": 18854,
+    "triangle_count": 35468,
+    "building_ply": "E:\\dac_sionna_paper_pilot\\tile_002865\\scene\\buildings.ply",
+    "ground_ply": "E:\\dac_sionna_paper_pilot\\tile_002865\\scene\\ground.ply"
+  },
+  "variants": {
+    "iso": {
+      "status": "ok",
+      "azimuth_deg": null,
+      "seed": 20260724,
+      "seconds": 0.052,
+      "shape": [
+        128,
+        128
+      ],
+      "valid_outdoor_cells": 6255,
+      "outdoor_cells": 9105,
+      "coverage_fraction_outdoor": 0.6869851729818781,
+      "path_gain_db_min": -158.64389038085938,
+      "path_gain_db_max": -74.59396362304688,
+      "path_gain_db_mean": -91.63709259033203,
+      "output": "E:\\dac_sionna_paper_pilot\\tile_002865\\iso_samples_100000.npz",
+      "preview": "E:\\dac_sionna_paper_pilot\\tile_002865\\iso_samples_100000.png"
+    },
+    "az022": {
+      "status": "ok",
+      "azimuth_deg": 22,
+      "seed": 20260725,
+      "seconds": 0.704,
+      "shape": [
+        128,
+        128
+      ],
+      "valid_outdoor_cells": 6294,
+      "outdoor_cells": 9105,
+      "coverage_fraction_outdoor": 0.6912685337726524,
+      "path_gain_db_min": -182.54843139648438,
+      "path_gain_db_max": -93.52024841308594,
+      "path_gain_db_mean": -114.60951232910156,
+      "output": "E:\\dac_sionna_paper_pilot\\tile_002865\\az022_samples_100000.npz",
+      "preview": "E:\\dac_sionna_paper_pilot\\tile_002865\\az022_samples_100000.png"
+    },
+    "az073": {
+      "status": "ok",
+      "azimuth_deg": 73,
+      "seed": 20260726,
+      "seconds": 0.046,
+      "shape": [
+        128,
+        128
+      ],
+      "valid_outdoor_cells": 6283,
+      "outdoor_cells": 9105,
+      "coverage_fraction_outdoor": 0.6900604063701263,
+      "path_gain_db_min": -182.4844512939453,
+      "path_gain_db_max": -88.22882080078125,
+      "path_gain_db_mean": -114.93160247802734,
+      "output": "E:\\dac_sionna_paper_pilot\\tile_002865\\az073_samples_100000.npz",
+      "preview": "E:\\dac_sionna_paper_pilot\\tile_002865\\az073_samples_100000.png"
+    },
+    "az092": {
+      "status": "ok",
+      "azimuth_deg": 92,
+      "seed": 20260727,
+      "seconds": 0.034,
+      "shape": [
+        128,
+        128
+      ],
+      "valid_outdoor_cells": 6271,
+      "outdoor_cells": 9105,
+      "coverage_fraction_outdoor": 0.6887424492037342,
+      "path_gain_db_min": -175.40725708007812,
+      "path_gain_db_max": -89.979736328125,
+      "path_gain_db_mean": -114.81314849853516,
+      "output": "E:\\dac_sionna_paper_pilot\\tile_002865\\az092_samples_100000.npz",
+      "preview": "E:\\dac_sionna_paper_pilot\\tile_002865\\az092_samples_100000.png"
+    },
+    "az271": {
+      "status": "ok",
+      "azimuth_deg": 271,
+      "seed": 20260728,
+      "seconds": 0.035,
+      "shape": [
+        128,
+        128
+      ],
+      "valid_outdoor_cells": 6252,
+      "outdoor_cells": 9105,
+      "coverage_fraction_outdoor": 0.6866556836902801,
+      "path_gain_db_min": -182.16529846191406,
+      "path_gain_db_max": -94.90853118896484,
+      "path_gain_db_mean": -114.06471252441406,
+      "output": "E:\\dac_sionna_paper_pilot\\tile_002865\\az271_samples_100000.npz",
+      "preview": "E:\\dac_sionna_paper_pilot\\tile_002865\\az271_samples_100000.png"
+    }
+  },
+  "total_seconds": 1.796
+}

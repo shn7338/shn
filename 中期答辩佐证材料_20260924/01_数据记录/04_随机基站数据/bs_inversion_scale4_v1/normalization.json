@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "source": "completed training split of the random-BS Pilot",
+  "building_height_positive_m": {
+    "count": 25907368,
+    "mean": 11.219438578245386,
+    "std": 9.352222711338701,
+    "minimum": 3.0,
+    "maximum": 126.0
+  },
+  "isotropic_path_gain_db": {
+    "count": 39794893,
+    "mean": -98.25599932665983,
+    "std": 15.846302256257003,
+    "minimum": -184.875,
+    "maximum": -62.3125
+  },
+  "directional_path_gain_db": {
+    "count": 159177198,
+    "mean": -113.20790651999971,
+    "std": 17.999790186706118,
+    "minimum": -217.4375457763672,
+    "maximum": -76.39741516113281
+  },
+  "directional_signal_strength_db": {
+    "count": 159177198,
+    "mean": -60.60341846718602,
+    "std": 20.63990547298158,
+    "minimum": -174.5,
+    "maximum": -8.9375
+  },
+  "effective_power_db": {
+    "count": 4096,
+    "mean": 52.57183168735355,
+    "std": 10.038076060154472,
+    "minimum": 35.00446701049805,
+    "maximum": 69.9903335571289
+  },
+  "training_formulas": {
+    "building_height_norm": "clip(height_m,0,42.005126953125) / 42.005126953125",
+    "signal_strength_norm": "(signal_strength_db - directional_signal_strength_db.mean) / directional_signal_strength_db.std",
+    "effective_power_norm": "(effective_power_db - 52.5) / 10.103629710818451"
+  },
+  "reference_used_for_saved_sparse_norm": {
+    "mean_db": -57.86771677215448,
+    "std_db": 19.549090075885392,
+    "source": "existing accepted Stage2-B training normalization; dataset-specific train moments are written after completion"
+  }
+}

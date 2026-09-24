@@ -1,0 +1,8 @@
+Reading building and topographical databases.
+ERROR 0: ERROR 
+ Database contains multi-buildings.
+But multi-buildings are not supported with this version!
+ERROR 0: Error during reading of databases!
+Free memory!
+Total preprocessing time: 1 s (= 00:00:01 h:m:s)
+Preprocessing computed with WallMan Version 2020-38079 (2020-05-07)

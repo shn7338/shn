@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "status": "ok",
+  "best_epoch": 7,
+  "best_phase": "adapter",
+  "best_val_rmse_db": 6.811668245481514,
+  "epochs_completed": 11,
+  "elapsed_seconds": 1656.881276,
+  "checkpoint": "D:\\桌面\\dac\\models\\stage2b_multiscale_adapter_scale4_v5\\best.pt",
+  "checkpoint_sha256": "d267f6e27b5f168644c8b82779d3809ab568e990705b9f5978307c60c05c8d66",
+  "zero_init_equivalence": {
+    "source_architecture": "Geo2SigMapUNet",
+    "target_architecture": "LatentAdapterGeo2SigMapUNet",
+    "input_channels": 11,
+    "maximum_absolute_output_difference": 0.0,
+    "mean_absolute_output_difference": 0.0,
+    "exactly_equivalent": true,
+    "adapter_parameters": 592592,
+    "total_parameters": 31634833
+  }
+}

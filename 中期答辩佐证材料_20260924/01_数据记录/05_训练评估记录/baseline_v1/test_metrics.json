@@ -1,0 +1,13 @@
+{
+  "split": "test",
+  "tiles": 2731,
+  "loss": 0.03282638996490958,
+  "mae_db": 1.3830060002654867,
+  "rmse_db": 2.6127523507541786,
+  "edge_radius_pixels": 2,
+  "edge_radius_m": 8,
+  "edge_mae_db": 1.8922353773429474,
+  "edge_rmse_db": 3.1118227444972764,
+  "non_edge_mae_db": 0.9183897080771635,
+  "non_edge_rmse_db": 2.054216371379152
+}

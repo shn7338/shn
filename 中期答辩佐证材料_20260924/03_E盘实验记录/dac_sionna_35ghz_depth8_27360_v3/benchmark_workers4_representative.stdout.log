@@ -1,0 +1,26 @@
+{"status": "ok", "output_root": "E:\\dac_sionna_35ghz_depth8_27360_v3", "tiles_planned": 27360, "tiles_complete": 0, "tiles_remaining": 27360, "split_complete": {"train": 0, "val": 0, "test": 0}, "selected_tiles": 4, "selected_complete": 0, "selected_failed": 0, "failed_first": [], "stop_requested": false}
+START tile_002628 split=train
+START tile_000001 split=val
+START tile_000095 split=test
+START tile_000093 split=train
+DONE tile_002628 status=ok seconds=3.20
+DONE tile_000093 status=ok seconds=3.66
+DONE tile_000001 status=ok seconds=3.85
+DONE tile_000095 status=ok seconds=3.85
+{
+  "status": "complete",
+  "output_root": "E:\\dac_sionna_35ghz_depth8_27360_v3",
+  "tiles_planned": 27360,
+  "tiles_complete": 4,
+  "tiles_remaining": 27356,
+  "split_complete": {
+    "train": 2,
+    "val": 1,
+    "test": 1
+  },
+  "selected_tiles": 4,
+  "selected_complete": 4,
+  "selected_failed": 0,
+  "failed_first": [],
+  "stop_requested": false
+}

@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "status": "ok",
+  "manifest": {
+    "building_count": 384,
+    "site_count": 1536,
+    "split_site_counts": {
+      "train": 1024,
+      "val": 256,
+      "test": 256
+    },
+    "minimum_pairwise_site_separation_m": 64.71270323204345
+  },
+  "verify_hashes": true,
+  "samples_checked": 1536,
+  "sample_bytes": 141498859,
+  "failures": [],
+  "elapsed_seconds": 11.741548999969382
+}

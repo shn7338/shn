@@ -1,0 +1,25 @@
+{
+  "version": 3,
+  "config": "C:\\Users\\pc\\Documents\\´ó´´\\projects\\irt_label_pipeline\\config_winprop2020_irt6_direct_pilot_positive_v3.json",
+  "config_sha256": "134d3a3e041c1805dbcff9c9a543b25dc1b2cf42077d8465379da3153a76b547",
+  "output_root": "E:\\dac_winprop_irt6_direct_pilot_positive_v3",
+  "tiles": [
+    {
+      "tile": "tile_002865",
+      "variants": [
+        "iso",
+        "az022",
+        "az073",
+        "az092",
+        "az271"
+      ]
+    }
+  ],
+  "max_parallel_propagations": 2,
+  "preprocess_threads": 4,
+  "timeout_seconds": 7200,
+  "dry_run": false
+}
+[1/1] PREPROCESS tile_002865
+[1/1] PREPARE tile_002865 iso az022 az073 az092 az271
+[1/1] PROPAGATE tile_002865 (2 parallel)

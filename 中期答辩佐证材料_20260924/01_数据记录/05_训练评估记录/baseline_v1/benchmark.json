@@ -1,0 +1,37 @@
+{
+  "checkpoint": "D:\\桌面\\dac\\stage1_dpm_unet_runs\\baseline_v1\\best.pt",
+  "gpu": "NVIDIA GeForce RTX 5070 Laptop GPU",
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "parameters": 7763041,
+  "input_channels": 3,
+  "tile_shape": [
+    128,
+    128
+  ],
+  "pure_gpu": {
+    "1": {
+      "batch_latency_ms": 4.218878999818116,
+      "latency_per_tile_ms": 4.218878999818116,
+      "tiles_per_second": 237.02978920303516
+    },
+    "16": {
+      "batch_latency_ms": 11.841346000146586,
+      "latency_per_tile_ms": 0.7400841250091617,
+      "tiles_per_second": 1351.1977438884003
+    },
+    "32": {
+      "batch_latency_ms": 26.411353000148665,
+      "latency_per_tile_ms": 0.8253547812546458,
+      "tiles_per_second": 1211.6001781438413
+    }
+  },
+  "end_to_end_batch1": {
+    "tiles": 200,
+    "mean_ms": 5.2100009987771045,
+    "median_ms": 5.019499993068166,
+    "p95_ms": 6.458859992562789,
+    "tiles_per_second_from_mean": 191.93854285915123,
+    "includes": "three NPY reads, NumPy stack, CPU-to-GPU copy, and synchronized inference"
+  }
+}
