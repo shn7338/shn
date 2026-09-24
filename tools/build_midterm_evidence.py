@@ -201,7 +201,7 @@ def d_records() -> None:
     copy(Path("D:/桌面/signal-2026-08-28.csv"), phone / "signal-2026-08-28.csv", "手机试采原始CSV")
     wx = Path("D:/微信/存储文件/xwechat_files/wxid_6gfzrt1x2m1m22_6183/msg/file/2026-09")
     copy_if(wx, ["signal-2026-09-01.csv", "Cellular-Z 20260831 224742.683 SLOT1.CSV"], phone, "手机试采原始CSV")
-    copy(REPO / "prediction_ready_summary.json", Path("01_数据记录/02_WinProp与预处理/prediction_ready_summary.json"), "数据集汇总")
+    copy(REPO / "01_data/prediction_records/prediction_ready_summary.json", Path("01_数据记录/02_WinProp与预处理/prediction_ready_summary.json"), "数据集汇总")
     d = REPO
     win = Path("01_数据记录/02_WinProp与预处理")
     copy(d / "01_data/512mdata/tile_000001/tile_000001_result1/Site  1 Antenna 1 Path Loss.txt", win / "原始样例/Site  1 Antenna 1 Path Loss.txt", "WinProp原始结果样本")

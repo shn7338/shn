@@ -6,7 +6,7 @@
 | --- | --- |
 | `projects/`、`scripts/`、`tools/` | 当前项目代码、配置与数据处理脚本 |
 | `bjtu_osm_buildings/`、`first try/` | 早期场景构建和试验代码 |
-| `01_data/` | WinProp 原始数据、天线方向图、原始与预处理数据 |
+| `01_data/` | WinProp 原始数据、天线方向图、原始与预处理数据，以及 `prediction_records/` 中的预测准备记录 |
 | `02_inversion/` | 随机基站反演数据集及工作目录 |
 | `03_runs/` | 模型权重、训练、推断及实验结果 |
 | `04_simulation/` | 原 E 盘的 Sionna、WinProp、IRT 多轮仿真资料 |

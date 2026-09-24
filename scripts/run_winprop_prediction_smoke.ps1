@@ -46,17 +46,16 @@ $ErrorActionPreference = 'Stop'
 
 $workspaceRoot = Split-Path -Parent $PSScriptRoot
 if ([string]::IsNullOrWhiteSpace($BaseDir)) {
-    $desktopName = -join @([char]0x684C, [char]0x9762)
-    $BaseDir = Join-Path "D:\$desktopName\dac" '512mdata'
+    $BaseDir = Join-Path $workspaceRoot '01_data/512mdata'
 }
 if ([string]::IsNullOrWhiteSpace($ReadyManifestPath)) {
-    $ReadyManifestPath = Join-Path $workspaceRoot 'prediction_ready_all_odb.csv'
+    $ReadyManifestPath = Join-Path $workspaceRoot '01_data/prediction_records/prediction_ready_all_odb.csv'
 }
 if ([string]::IsNullOrWhiteSpace($TileListPath)) {
-    $TileListPath = Join-Path $workspaceRoot 'prediction_smoke_10_tiles.csv'
+    $TileListPath = Join-Path $workspaceRoot '01_data/prediction_records/prediction_smoke_10_tiles.csv'
 }
 if ([string]::IsNullOrWhiteSpace($OutputRoot)) {
-    $OutputRoot = Join-Path $workspaceRoot 'prediction_smoke_results'
+    $OutputRoot = Join-Path $workspaceRoot '09_local_artifacts/prediction_smoke_results'
 }
 
 foreach ($directory in @($BaseDir)) {

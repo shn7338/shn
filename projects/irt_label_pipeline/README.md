@@ -141,7 +141,7 @@ these frozen predictions directly.
 ```powershell
 & $python projects\irt_label_pipeline\replace_negative_irt_selection.py `
   --source-selection D:\桌面\dac\04_simulation\winprop\dac_winprop_irt2_direct_3200_v1\selection_tiles.csv `
-  --ready-manifest D:\桌面\dac\prediction_ready_all_odb.csv `
+  --ready-manifest D:\桌面\dac\01_data\prediction_records\prediction_ready_all_odb.csv `
   --normalized-root D:\桌面\dac\01_data\normalized_4m_v1 `
   --prepared-root D:\桌面\dac\01_data\prepared_4m `
   --output-root D:\桌面\dac\04_simulation\winprop\dac_winprop_irt2_direct_3200_positive_v2
