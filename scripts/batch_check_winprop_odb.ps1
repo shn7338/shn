@@ -17,17 +17,17 @@
 
 .EXAMPLE
     powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\batch_check_winprop_odb.ps1 `
-      -RootPath 'D:\桌面\dac\512mdata'
+      -RootPath 'D:\桌面\dac\01_data\512mdata'
 
 .EXAMPLE
     # Preview which files would be processed.
     powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\batch_check_winprop_odb.ps1 `
-      -RootPath 'D:\桌面\dac\512mdata' -DryRun
+      -RootPath 'D:\桌面\dac\01_data\512mdata' -DryRun
 
 .EXAMPLE
     # Process one source ODB as a smoke test.
     powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\batch_check_winprop_odb.ps1 `
-      -RootPath 'D:\桌面\dac\512mdata' -Limit 1
+      -RootPath 'D:\桌面\dac\01_data\512mdata' -Limit 1
 #>
 
 [CmdletBinding()]

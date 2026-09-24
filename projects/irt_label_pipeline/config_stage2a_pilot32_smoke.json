@@ -1,12 +1,12 @@
 {
   "version": 1,
   "name": "stage2a_iso_refine_pilot32_smoke_v1",
-  "shard_root": "E:\\dac_winprop_irt2_direct_pilot32_v1\\shards_v2",
-  "shard_manifest": "E:\\dac_winprop_irt2_direct_pilot32_v1\\shard_manifest_v2.csv",
-  "selection_csv": "E:\\dac_winprop_irt2_direct_pilot32_v1\\pilot_selection.csv",
-  "normalized_root": "D:\\桌面\\dac\\normalized_4m_v1",
-  "stage1_model_dir": "D:\\桌面\\dac\\models\\stage1_dpm_unet_baseline_v1",
-  "output_dir": "E:\\dac_stage2a_pilot32_smoke_v1",
+  "shard_root": "D:\\桌面\\dac\\04_simulation\\winprop\\dac_winprop_irt2_direct_pilot32_v1\\shards_v2",
+  "shard_manifest": "D:\\桌面\\dac\\04_simulation\\winprop\\dac_winprop_irt2_direct_pilot32_v1\\shard_manifest_v2.csv",
+  "selection_csv": "D:\\桌面\\dac\\04_simulation\\winprop\\dac_winprop_irt2_direct_pilot32_v1\\pilot_selection.csv",
+  "normalized_root": "D:\\桌面\\dac\\01_data\\normalized_4m_v1",
+  "stage1_model_dir": "D:\\桌面\\dac\\03_runs\\models\\stage1_dpm_unet_baseline_v1",
+  "output_dir": "D:\\桌面\\dac\\03_runs\\E_stage\\dac_stage2a_pilot32_smoke_v1",
   "input": [
     "building_height_norm",
     "frozen_stage1_dpm_prediction_norm"
@@ -33,7 +33,7 @@
   "provenance": {
     "status": "pipeline_smoke_test_only",
     "stage1_checkpoint_sha256": "e44a4580aefaac6c0a2166a1824e4b140139ee23b0b87dcc7f78481ff4377c72",
-    "irt_dataset": "E:\\dac_winprop_irt2_direct_pilot32_v1",
+    "irt_dataset": "D:\\桌面\\dac\\04_simulation\\winprop\\dac_winprop_irt2_direct_pilot32_v1",
     "formula": "P_iso_IRT_hat = P_iso_DPM_hat + U_IsoRefine(B, P_iso_DPM_hat)"
   }
 }

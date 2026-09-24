@@ -1,11 +1,11 @@
 {
   "version": 1,
   "name": "winprop2020_irt2_verified_pattern_direct_diagnostic",
-  "source_root": "D:\\桌面\\dac\\512mdata",
-  "prepared_root": "D:\\桌面\\dac\\prepared_4m",
-  "normalized_root": "D:\\桌面\\dac\\normalized_4m_v1",
-  "ready_manifest": "C:\\Users\\pc\\Documents\\大创\\prediction_ready_all_odb.csv",
-  "output_root": "E:\\dac_winprop_irt2_verified_pattern_diagnostic_v1",
+  "source_root": "D:\\桌面\\dac\\01_data\\512mdata",
+  "prepared_root": "D:\\桌面\\dac\\01_data\\prepared_4m",
+  "normalized_root": "D:\\桌面\\dac\\01_data\\normalized_4m_v1",
+  "ready_manifest": "D:\\桌面\\dac\\prediction_ready_all_odb.csv",
+  "output_root": "D:\\桌面\\dac\\04_simulation\\winprop\\dac_winprop_irt2_verified_pattern_diagnostic_v1",
   "winprop": {
     "api_bin": "C:\\Program Files\\Altair\\2020\\feko\\api\\winprop\\bin",
     "cli": "C:\\Program Files\\Altair\\2020\\feko\\bin\\WinPropCLI.exe",
@@ -55,7 +55,7 @@
     "polarization": 0
   },
   "directional_antenna": {
-    "pattern_base": "E:\\dac_irt_v2_8bounce\\patterns\\sector_h65_v8_g6p3dBi_az000_verified",
+    "pattern_base": "D:\\桌面\\dac\\04_simulation\\irt\\dac_irt_v2_8bounce\\patterns\\sector_h65_v8_g6p3dBi_az000_verified",
     "boresight_gain_dbi": 6.3,
     "horizontal_hpbw_deg": 65.0,
     "vertical_hpbw_deg": 8.0,

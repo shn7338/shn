@@ -13,9 +13,9 @@ import shapefile
 from pyproj import CRS, Transformer
 
 
-INPUT_DIR = Path(r"D:\桌面\dac\datasets\Beijing_北京市")
-OSM_REFERENCE = Path(r"D:\桌面\dac\datasets\buildings.shp")
-OUT_DIR = Path(r"D:\桌面\dac\datasets\wallman_ready")
+INPUT_DIR = Path(r"D:\桌面\dac\01_data\raw_datasets\Beijing_北京市")
+OSM_REFERENCE = Path(r"D:\桌面\dac\01_data\raw_datasets\buildings.shp")
+OUT_DIR = Path(r"D:\桌面\dac\01_data\raw_datasets\wallman_ready")
 
 FULL_NAME = "beijing_25d_wallman_utm50n"
 SAMPLE_NAME = "beijing_25d_wallman_sample_utm50n"

@@ -48,7 +48,7 @@ DEFAULT_CONFIG = Path(__file__).with_name(
     "config_stage2b_sionna35_depth8_27360_paper_v1.json"
 )
 DEFAULT_OUTPUT = Path(
-    r"D:\桌面\dac\experiments\bs_sensitivity_stage123_v1"
+    r"D:\桌面\dac\03_runs\experiments\bs_sensitivity_stage123_v1"
 )
 
 

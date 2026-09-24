@@ -13,7 +13,7 @@ from shapely.geometry import MultiPolygon, Polygon
 from shapely.validation import make_valid
 
 
-OUT_DIR = Path(r"D:\桌面\dac\datasets\wallman_ready")
+OUT_DIR = Path(r"D:\桌面\dac\01_data\raw_datasets\wallman_ready")
 INPUT_BASE = OUT_DIR / "beijing_25d_wallman_utm50n"
 OUTPUT_BASE = OUT_DIR / "beijing_25d_wallman_dedup_utm50n"
 SAMPLE_OUTPUT_BASE = OUT_DIR / "beijing_25d_wallman_dedup_sample_utm50n"

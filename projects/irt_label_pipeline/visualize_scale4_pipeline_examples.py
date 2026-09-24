@@ -54,7 +54,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--estimator-checkpoint",
         type=Path,
-        default=Path(r"D:\桌面\dac\models\bs_parameter_estimator_scale4_v2\best.pt"),
+        default=Path(r"D:\桌面\dac\03_runs\models\bs_parameter_estimator_scale4_v2\best.pt"),
     )
     parser.add_argument(
         "--before-estimator-checkpoint",
@@ -70,7 +70,7 @@ def parse_args() -> argparse.Namespace:
         "--before-stage2b-checkpoint",
         type=Path,
         default=Path(
-            r"D:\桌面\dac\models\stage2b_bs_inversion_pilot_finetune_v2\best.pt"
+            r"D:\桌面\dac\03_runs\models\stage2b_bs_inversion_pilot_finetune_v2\best.pt"
         ),
         help="Legacy Stage2-B checkpoint used only for the before prediction.",
     )
@@ -78,14 +78,14 @@ def parse_args() -> argparse.Namespace:
         "--stage2b-checkpoint",
         type=Path,
         default=Path(
-            r"D:\桌面\dac\models\stage2b_position_encoding_scale4_v3\best.pt"
+            r"D:\桌面\dac\03_runs\models\stage2b_position_encoding_scale4_v3\best.pt"
         ),
         help="Complete Stage2-B V3 checkpoint used for the after prediction.",
     )
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=Path(r"D:\桌面\dac\experiments\scale4_visual_comparison_v3"),
+        default=Path(r"D:\桌面\dac\03_runs\experiments\scale4_visual_comparison_v3"),
     )
     parser.add_argument("--candidates-per-bin", type=int, default=64)
     parser.add_argument("--batch-size", type=int, default=8)

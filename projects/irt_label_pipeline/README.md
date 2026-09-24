@@ -51,7 +51,7 @@ the PowerShell window.
 
 `tile_000001` has passed direct isotropic plus 0°/90° validation for coordinate
 orientation, pattern gain and azimuth rotation. Its QA report is stored under
-`E:\dac_winprop_irt2_direct_v1\qa\tile_000001`.
+`D:\桌面\dac\04_simulation\winprop\dac_winprop_irt2_direct_v1\qa\tile_000001`.
 
 The WinProp User Guide states that APA values are gain/attenuation relative to
 an isotropic radiator. A direct `tile_000007` repeat with the project antenna
@@ -82,7 +82,7 @@ $python = 'C:\Users\pc\miniconda3\envs\sigmap\python.exe'
   --config projects\irt_label_pipeline\config_winprop2020_irt2_direct_pilot32.json
 
 & $python projects\irt_label_pipeline\verify_irt_shards.py `
-  --metadata E:\dac_winprop_irt2_direct_pilot32_v1\shard_metadata.json
+  --metadata D:\桌面\dac\04_simulation\winprop\dac_winprop_irt2_direct_pilot32_v1\shard_metadata.json
 ```
 
 The formal gate passes only when all 32 tiles contain one isotropic and four
@@ -114,13 +114,13 @@ final mmap shards add about 0.5 GB.
   --config projects\irt_label_pipeline\config_winprop2020_irt2_direct_3200.json
 
 & $python projects\irt_label_pipeline\verify_irt_shards.py `
-  --metadata E:\dac_winprop_irt2_direct_3200_v1\shard_metadata.json
+  --metadata D:\桌面\dac\04_simulation\winprop\dac_winprop_irt2_direct_3200_v1\shard_metadata.json
 
 & $python projects\irt_label_pipeline\compute_irt_shard_stats.py `
-  --shard-root E:\dac_winprop_irt2_direct_3200_v1\shards `
-  --shard-manifest E:\dac_winprop_irt2_direct_3200_v1\shard_manifest.csv `
-  --selection-csv E:\dac_winprop_irt2_direct_3200_v1\selection_tiles.csv `
-  --output E:\dac_winprop_irt2_direct_3200_v1\normalization_irt.json
+  --shard-root D:\桌面\dac\04_simulation\winprop\dac_winprop_irt2_direct_3200_v1\shards `
+  --shard-manifest D:\桌面\dac\04_simulation\winprop\dac_winprop_irt2_direct_3200_v1\shard_manifest.csv `
+  --selection-csv D:\桌面\dac\04_simulation\winprop\dac_winprop_irt2_direct_3200_v1\selection_tiles.csv `
+  --output D:\桌面\dac\04_simulation\winprop\dac_winprop_irt2_direct_3200_v1\normalization_irt.json
 ```
 
 ### 2a. Positive-coordinate V2 selection
@@ -133,24 +133,24 @@ split. It preserves 2,560/320/320 train/validation/test tiles and has zero
 2,048 m block overlap between splits.
 
 The replacement audit is stored under
-`E:\dac_winprop_irt2_direct_3200_positive_v2`. Stage-1 DPM predictions for all
+`D:\桌面\dac\04_simulation\winprop\dac_winprop_irt2_direct_3200_positive_v2`. Stage-1 DPM predictions for all
 3,200 V2 tiles are stored under
-`E:\dac_stage1_dpm_predictions_positive3200_v2`; Stage2-A and Stage2-B load
+`D:\桌面\dac\03_runs\E_stage\dac_stage1_dpm_predictions_positive3200_v2`; Stage2-A and Stage2-B load
 these frozen predictions directly.
 
 ```powershell
 & $python projects\irt_label_pipeline\replace_negative_irt_selection.py `
-  --source-selection E:\dac_winprop_irt2_direct_3200_v1\selection_tiles.csv `
-  --ready-manifest C:\Users\pc\Documents\大创\prediction_ready_all_odb.csv `
-  --normalized-root D:\桌面\dac\normalized_4m_v1 `
-  --prepared-root D:\桌面\dac\prepared_4m `
-  --output-root E:\dac_winprop_irt2_direct_3200_positive_v2
+  --source-selection D:\桌面\dac\04_simulation\winprop\dac_winprop_irt2_direct_3200_v1\selection_tiles.csv `
+  --ready-manifest D:\桌面\dac\prediction_ready_all_odb.csv `
+  --normalized-root D:\桌面\dac\01_data\normalized_4m_v1 `
+  --prepared-root D:\桌面\dac\01_data\prepared_4m `
+  --output-root D:\桌面\dac\04_simulation\winprop\dac_winprop_irt2_direct_3200_positive_v2
 
-& $python D:\桌面\dac\code\dpm_unet_stage1\batch_infer.py `
-  --model-dir D:\桌面\dac\models\stage1_dpm_unet_baseline_v1 `
-  --input-root D:\桌面\dac\normalized_4m_v1 `
-  --output-root E:\dac_stage1_dpm_predictions_positive3200_v2 `
-  --tiles-file E:\dac_winprop_irt2_direct_3200_positive_v2\selection_tiles.txt
+& $python D:\桌面\dac\05_legacy_code\code\dpm_unet_stage1\batch_infer.py `
+  --model-dir D:\桌面\dac\03_runs\models\stage1_dpm_unet_baseline_v1 `
+  --input-root D:\桌面\dac\01_data\normalized_4m_v1 `
+  --output-root D:\桌面\dac\03_runs\E_stage\dac_stage1_dpm_predictions_positive3200_v2 `
+  --tiles-file D:\桌面\dac\04_simulation\winprop\dac_winprop_irt2_direct_3200_positive_v2\selection_tiles.txt
 
 & $python projects\irt_label_pipeline\reuse_verified_irt_tiles.py `
   --source-config projects\irt_label_pipeline\config_winprop2020_irt2_direct_3200.json `
@@ -206,10 +206,10 @@ WinProp 6/2/6 labels. Treat the Sionna and WinProp label families as separate
 experiments.
 
 ```powershell
-$sionnaPython = 'E:\dac_sionna_rt_env\Scripts\python.exe'
+$sionnaPython = 'D:\桌面\dac\08_runtime\dac_sionna_rt_env\Scripts\python.exe'
 $config = 'projects\irt_label_pipeline\config_sionna201_paper_tile002865.json'
 
-python -m venv E:\dac_sionna_rt_env
+python -m venv D:\桌面\dac\08_runtime\dac_sionna_rt_env
 & $sionnaPython -m pip install `
   -r projects\irt_label_pipeline\requirements_sionna201_paper.txt
 
@@ -224,7 +224,7 @@ python -m venv E:\dac_sionna_rt_env
 ```
 
 The completed `tile_002865` pilot is stored under
-`E:\dac_sionna_paper_pilot\tile_002865`. All five maps were generated in
+`D:\桌面\dac\04_simulation\sionna\dac_sionna_paper_pilot\tile_002865`. All five maps were generated in
 1.908 seconds, outdoor valid coverage was 98.98-99.06%, and validation passed
 for array shape, indoor masks, finite values, non-identical directions and
 requested azimuth orientation. A monitored 7-million-ray isotropic run used
@@ -238,9 +238,9 @@ The paper-frequency result above remains immutable. The active 3.5 GHz Sionna
 experiment has a separate config and output root:
 
 - Config: `config_sionna201_35ghz_tile002865.json`.
-- Output: `E:\dac_sionna_35ghz_pilot\tile_002865`.
+- Output: `D:\桌面\dac\04_simulation\sionna\dac_sionna_35ghz_pilot\tile_002865`.
 - Comparison report:
-  `E:\dac_sionna_35ghz_pilot\tile_002865\comparison_winprop_irt2\comparison.json`.
+  `D:\桌面\dac\04_simulation\sionna\dac_sionna_35ghz_pilot\tile_002865\comparison_winprop_irt2\comparison.json`.
 
 Changing only Sionna's frequency from 3.66 GHz to 3.5 GHz produced a median
 increase of 0.389 dB, 0.469 dB MAE, 0.983 dB RMSE and 0.997 correlation on the
@@ -265,11 +265,11 @@ diagnostic is not a production label profile.
   --samples 7000000 --variants all --overwrite
 
 & $sionnaPython projects\irt_label_pipeline\compare_sionna_winprop.py `
-  --sionna-root E:\dac_sionna_35ghz_pilot\tile_002865 `
-  --reference-sionna-root E:\dac_sionna_paper_pilot\tile_002865 `
-  --winprop-compact E:\dac_winprop_irt2_direct_3200_positive_v2\compact_tiles\tile_002865.npz `
+  --sionna-root D:\桌面\dac\04_simulation\sionna\dac_sionna_35ghz_pilot\tile_002865 `
+  --reference-sionna-root D:\桌面\dac\04_simulation\sionna\dac_sionna_paper_pilot\tile_002865 `
+  --winprop-compact D:\桌面\dac\04_simulation\winprop\dac_winprop_irt2_direct_3200_positive_v2\compact_tiles\tile_002865.npz `
   --samples 7000000 `
-  --output-dir E:\dac_sionna_35ghz_pilot\tile_002865\comparison_winprop_irt2
+  --output-dir D:\桌面\dac\04_simulation\sionna\dac_sionna_35ghz_pilot\tile_002865\comparison_winprop_irt2
 ```
 
 #### Retained 3,200-tile 3.5 GHz depth-8 Sionna subset
@@ -296,7 +296,7 @@ tiles run concurrently on the current 8 GiB GPU. Create the pilot first, inspect
 status, then run the full set and finalize shards:
 
 ```powershell
-$launcher = 'C:\Users\pc\Documents\大创\projects\irt_label_pipeline\start_sionna_35ghz_dataset.ps1'
+$launcher = 'D:\桌面\dac\projects\irt_label_pipeline\start_sionna_35ghz_dataset.ps1'
 
 powershell -NoProfile -ExecutionPolicy Bypass -File $launcher -Mode DryRun
 powershell -NoProfile -ExecutionPolicy Bypass -File $launcher -Mode Pilot32 -Workers 2
@@ -308,7 +308,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File $launcher -Mode Finalize
 To stop safely, run `-Mode Stop` in another PowerShell window. Active tiles are
 allowed to finish; rerunning `Pilot32` or `Full` removes the stop flag and resumes
 from completed tiles. The formal output root is
-`E:\dac_sionna_35ghz_depth8_3200_v1`.
+`D:\桌面\dac\04_simulation\sionna\dac_sionna_35ghz_depth8_3200_v1`.
 
 #### Active all-tile 3.5 GHz depth-8 Sionna dataset
 
@@ -330,10 +330,10 @@ The active v3 profile deterministically aims the vertical boresight at the UE
 plane 220 m from the centered BS. Its per-tile downtilt is
 `atan2(BS height - 2 m, 220 m)`, clipped to 0-45 degrees; the observed dataset
 range is 1.562-30.386 degrees. The accepted all-tile run has its own immutable
-manifest and output root: `E:\dac_sionna_35ghz_depth8_27360_v3`.
+manifest and output root: `D:\桌面\dac\04_simulation\sionna\dac_sionna_35ghz_depth8_27360_v3`.
 
 ```powershell
-$launcher = 'C:\Users\pc\Documents\大创\projects\irt_label_pipeline\start_sionna_35ghz_all_tiles.ps1'
+$launcher = 'D:\桌面\dac\projects\irt_label_pipeline\start_sionna_35ghz_all_tiles.ps1'
 
 powershell -NoProfile -ExecutionPolicy Bypass -File $launcher -Mode DryRun
 powershell -NoProfile -ExecutionPolicy Bypass -File $launcher -Mode Pilot32 -Workers 4
@@ -405,7 +405,7 @@ train-mean calibrated DPM baseline.
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File `
-  "C:\Users\pc\Documents\大创\projects\irt_label_pipeline\start_stage2a_sionna35_training.ps1" `
+  "D:\桌面\dac\projects\irt_label_pipeline\start_stage2a_sionna35_training.ps1" `
   -Mode Smoke
 ```
 
@@ -414,7 +414,7 @@ residual statistics are generated automatically if missing:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File `
-  "C:\Users\pc\Documents\大创\projects\irt_label_pipeline\start_stage2a_sionna35_training.ps1" `
+  "D:\桌面\dac\projects\irt_label_pipeline\start_stage2a_sionna35_training.ps1" `
   -Mode Full
 ```
 
@@ -446,7 +446,7 @@ formal checkpoint:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File `
-  "C:\Users\pc\Documents\大创\projects\irt_label_pipeline\start_stage2b_sionna35_training.ps1" `
+  "D:\桌面\dac\projects\irt_label_pipeline\start_stage2b_sionna35_training.ps1" `
   -Mode Smoke
 ```
 
@@ -454,13 +454,13 @@ After the smoke run passes, start or resume the formal run:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File `
-  "C:\Users\pc\Documents\大创\projects\irt_label_pipeline\start_stage2b_sionna35_training.ps1" `
+  "D:\桌面\dac\projects\irt_label_pipeline\start_stage2b_sionna35_training.ps1" `
   -Mode Full
 
 powershell -NoProfile -ExecutionPolicy Bypass -File `
-  "C:\Users\pc\Documents\大创\projects\irt_label_pipeline\start_stage2b_sionna35_training.ps1" `
+  "D:\桌面\dac\projects\irt_label_pipeline\start_stage2b_sionna35_training.ps1" `
   -Mode Resume `
-  -Checkpoint "D:\桌面\dac\models\stage2b_directional_ss_sionna35_depth8_paper_v1\last.pt"
+  -Checkpoint "D:\桌面\dac\03_runs\models\stage2b_directional_ss_sionna35_depth8_paper_v1\last.pt"
 ```
 
 The formal result is accepted only if the 50/100/200-point test RMSE each
@@ -473,7 +473,7 @@ The pre-pipeline state is recoverable from:
 
 - Git tag: `pre-irt-8bounce-20260724`
 - Commit: `1153103160fe7ff0d997029e4182abee9dec6133`
-- Verified backup: `E:\dac_checkpoints\pre_irt_8bounce_20260724_1153103`
+- Verified backup: `D:\桌面\dac\07_backup\dac_checkpoints\pre_irt_8bounce_20260724_1153103`
 
 Do not use `git reset --hard` in a dirty working tree. Restore into a separate
 worktree or copy only the required versioned files from the verified backup.

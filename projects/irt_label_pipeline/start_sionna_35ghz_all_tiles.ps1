@@ -14,8 +14,8 @@ $runner = Join-Path $scriptRoot 'run_sionna_dataset.py'
 $sharder = Join-Path $scriptRoot 'build_irt_shards.py'
 $verifier = Join-Path $scriptRoot 'verify_irt_shards.py'
 $statsScript = Join-Path $scriptRoot 'compute_irt_shard_stats.py'
-$python = 'E:\dac_sionna_rt_env\Scripts\python.exe'
-$outputRoot = 'E:\dac_sionna_35ghz_depth8_27360_v3'
+$python = 'D:\桌面\dac\08_runtime\dac_sionna_rt_env\Scripts\python.exe'
+$outputRoot = 'D:\桌面\dac\04_simulation\sionna\dac_sionna_35ghz_depth8_27360_v3'
 $stopFlag = Join-Path $outputRoot 'STOP'
 $exitCode = 0
 

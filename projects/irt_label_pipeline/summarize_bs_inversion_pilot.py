@@ -10,8 +10,8 @@ from pathlib import Path
 from typing import Any
 
 
-DEFAULT_EXPERIMENT_ROOT = Path(r"D:\桌面\dac\experiments")
-DEFAULT_MODEL_ROOT = Path(r"D:\桌面\dac\models")
+DEFAULT_EXPERIMENT_ROOT = Path(r"D:\桌面\dac\03_runs\experiments")
+DEFAULT_MODEL_ROOT = Path(r"D:\桌面\dac\03_runs\models")
 
 
 def parse_args() -> argparse.Namespace:
@@ -232,7 +232,7 @@ def main() -> int:
             "pilot": str(args.model_root.parent / "bs_inversion_pilot_v1" / "normalization.json"),
             "stage1": str(Path(isotropic_training["stage1_checkpoint"]).parent / "normalization.json"),
             "stage1_tx_features": str(Path(isotropic_training["stage1_checkpoint"]).parent / "tx_feature_normalization.json"),
-            "stage2b": r"E:\dac_sionna_35ghz_depth8_27360_v3\normalization_irt.json",
+            "stage2b": r"D:\桌面\dac\04_simulation\sionna\dac_sionna_35ghz_depth8_27360_v3\normalization_irt.json",
         },
         "test_metrics": {
             "rmse_db": final_estimated_rmse,

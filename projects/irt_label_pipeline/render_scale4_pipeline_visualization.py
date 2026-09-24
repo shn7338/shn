@@ -19,13 +19,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--input-dir",
         type=Path,
-        default=Path(r"D:\桌面\dac\experiments\scale4_visual_comparison_v3"),
+        default=Path(r"D:\桌面\dac\03_runs\experiments\scale4_visual_comparison_v3"),
     )
     parser.add_argument(
         "--history",
         type=Path,
         default=Path(
-            r"D:\桌面\dac\models\stage2a_position_encoding_scale4_v3\history.csv"
+            r"D:\桌面\dac\03_runs\models\stage2a_position_encoding_scale4_v3\history.csv"
         ),
     )
     return parser.parse_args()

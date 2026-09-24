@@ -41,7 +41,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--dataset-root",
         type=Path,
-        default=Path(r"D:\桌面\dac\bs_inversion_pilot_v1"),
+        default=Path(r"D:\桌面\dac\02_inversion\bs_inversion_pilot_v1"),
     )
     parser.add_argument("--stage2b-config", type=Path, default=DEFAULT_STAGE2B_CONFIG)
     parser.add_argument(
@@ -53,7 +53,7 @@ def parse_args() -> argparse.Namespace:
         "--output",
         type=Path,
         default=Path(
-            r"D:\桌面\dac\experiments\bs_inversion_pilot_oracle_pipeline_v1.json"
+            r"D:\桌面\dac\03_runs\experiments\bs_inversion_pilot_oracle_pipeline_v1.json"
         ),
     )
     parser.add_argument("--split", choices=("val", "test"), default="test")

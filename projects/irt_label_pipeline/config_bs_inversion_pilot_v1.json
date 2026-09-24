@@ -1,12 +1,12 @@
 {
   "version": 1,
   "name": "bs_inversion_random_location_pilot_v1",
-  "selection_csv": "D:\\桌面\\dac\\normalized_4m_v1\\splits.csv",
-  "source_root": "D:\\桌面\\dac\\512mdata",
-  "prepared_root": "D:\\桌面\\dac\\prepared_4m",
-  "output_root": "D:\\桌面\\dac\\bs_inversion_pilot_v1",
-  "work_root": "E:\\dac_bs_inversion_pilot_v1_work",
-  "environment_python": "E:\\dac_sionna_rt_env\\Scripts\\python.exe",
+  "selection_csv": "D:\\桌面\\dac\\01_data\\normalized_4m_v1\\splits.csv",
+  "source_root": "D:\\桌面\\dac\\01_data\\512mdata",
+  "prepared_root": "D:\\桌面\\dac\\01_data\\prepared_4m",
+  "output_root": "D:\\桌面\\dac\\02_inversion\\bs_inversion_pilot_v1",
+  "work_root": "D:\\桌面\\dac\\02_inversion\\E_work\\dac_bs_inversion_pilot_v1_work",
+  "environment_python": "D:\\桌面\\dac\\08_runtime\\dac_sionna_rt_env\\Scripts\\python.exe",
   "runtime_sionna_version": "2.0.1",
   "pilot_split_counts": {
     "train": 256,

@@ -14,8 +14,8 @@ from shapely.geometry import GeometryCollection, MultiPolygon, Polygon, box
 from shapely.validation import make_valid
 
 
-INPUT_BASE = Path(r"D:\桌面\dac\datasets\wallman_ready\beijing_25d_wallman_dedup_utm50n")
-OUTPUT_ROOT = Path(r"D:\桌面\dac\512mdata")
+INPUT_BASE = Path(r"D:\桌面\dac\01_data\raw_datasets\wallman_ready\beijing_25d_wallman_dedup_utm50n")
+OUTPUT_ROOT = Path(r"D:\桌面\dac\01_data\512mdata")
 TILE_SIZE_M = 512.0
 MIN_BUILDING_COVERAGE = 0.20
 MIN_INTERSECTION_AREA_M2 = 0.01

@@ -68,3 +68,34 @@ first try/debug.log
 *.pt
 *.pth
 *.ckpt
+
+# Grouped local datasets and generated runs (2026-09-24)
+01_data/
+02_inversion/
+03_runs/
+04_simulation/
+05_legacy_code/
+06_reference/
+07_backup/
+08_runtime/
+09_local_artifacts/
+
+# Hidden compatibility junctions for historical absolute paths
+/512mdata/
+/antenna_patterns/
+/normalized_4m_v1/
+/prepared_4m/
+/raw_datasets/
+/bs_inversion_pilot_v1/
+/bs_inversion_scale4_v1/
+/experiments/
+/inference_demo/
+/models/
+/stage1_dpm_unet_runs/
+/code/
+/github code/
+/开题/
+/参考文献/
+/.superpowers/
+/.tmp_*/
+/prediction_*/

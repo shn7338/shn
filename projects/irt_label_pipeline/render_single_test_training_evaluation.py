@@ -27,27 +27,27 @@ from PIL import Image
 
 
 DEFAULT_SOURCE_DIR = Path(
-    r"D:\桌面\dac\experiments\scale4_visual_comparison_v5"
+    r"D:\桌面\dac\03_runs\experiments\scale4_visual_comparison_v5"
 )
 DEFAULT_OUTPUT_DIR = Path(
-    r"D:\桌面\dac\experiments\single_test_training_evaluation"
+    r"D:\桌面\dac\03_runs\experiments\single_test_training_evaluation"
 )
 DEFAULT_REPORTS = {
     "V3": Path(
-        r"D:\桌面\dac\experiments\bs_inversion_scale4_stage2b_v3_test_bins.json"
+        r"D:\桌面\dac\03_runs\experiments\bs_inversion_scale4_stage2b_v3_test_bins.json"
     ),
     "V4": Path(
-        r"D:\桌面\dac\experiments\bs_inversion_scale4_stage2b_latent_fusion_v4_test_bins.json"
+        r"D:\桌面\dac\03_runs\experiments\bs_inversion_scale4_stage2b_latent_fusion_v4_test_bins.json"
     ),
     "V5": Path(
-        r"D:\桌面\dac\experiments\bs_inversion_scale4_stage2b_multiscale_adapter_v5_test_bins.json"
+        r"D:\桌面\dac\03_runs\experiments\bs_inversion_scale4_stage2b_multiscale_adapter_v5_test_bins.json"
     ),
     "V6": Path(
-        r"D:\桌面\dac\experiments\bs_inversion_scale4_joint_estimator_stage2b_v6_test_bins.json"
+        r"D:\桌面\dac\03_runs\experiments\bs_inversion_scale4_joint_estimator_stage2b_v6_test_bins.json"
     ),
 }
 GATE_PATH = Path(
-    r"D:\桌面\dac\experiments\bs_inversion_scale4_stage2b_multiscale_adapter_v5_gate.json"
+    r"D:\桌面\dac\03_runs\experiments\bs_inversion_scale4_stage2b_multiscale_adapter_v5_gate.json"
 )
 
 

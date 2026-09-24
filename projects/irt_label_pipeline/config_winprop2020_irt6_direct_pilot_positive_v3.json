@@ -1,11 +1,11 @@
 {
   "version": 3,
   "name": "winprop2020_irt6_direct_pilot_positive_v3",
-  "source_root": "D:\\桌面\\dac\\512mdata",
-  "prepared_root": "D:\\桌面\\dac\\prepared_4m",
-  "normalized_root": "D:\\桌面\\dac\\normalized_4m_v1",
-  "ready_manifest": "C:\\Users\\pc\\Documents\\大创\\prediction_ready_all_odb.csv",
-  "output_root": "E:\\dac_winprop_irt6_direct_pilot_positive_v3",
+  "source_root": "D:\\桌面\\dac\\01_data\\512mdata",
+  "prepared_root": "D:\\桌面\\dac\\01_data\\prepared_4m",
+  "normalized_root": "D:\\桌面\\dac\\01_data\\normalized_4m_v1",
+  "ready_manifest": "D:\\桌面\\dac\\prediction_ready_all_odb.csv",
+  "output_root": "D:\\桌面\\dac\\04_simulation\\winprop\\dac_winprop_irt6_direct_pilot_positive_v3",
   "run_manifest_filename": "pilot_manifest.json",
   "run_summary_filename": "pilot_summary.json",
   "winprop": {
@@ -57,7 +57,7 @@
     "polarization": 0
   },
   "directional_antenna": {
-    "pattern_base": "E:\\dac_irt_v2_8bounce\\patterns\\sector_h65_v8_g6p3dBi_az000_verified_roundtrip",
+    "pattern_base": "D:\\桌面\\dac\\04_simulation\\irt\\dac_irt_v2_8bounce\\patterns\\sector_h65_v8_g6p3dBi_az000_verified_roundtrip",
     "boresight_gain_dbi": 6.3,
     "horizontal_hpbw_deg": 65.0,
     "vertical_hpbw_deg": 8.0,
@@ -88,8 +88,8 @@
     "installed_winprop_version": "2020-38079",
     "winprop_only": true,
     "profile": "maximum supported WinProp 2020 interaction profile: 6 reflections, 2 diffractions, 6 combined interactions, 0 scatterings",
-    "selection_metadata": "E:\\dac_winprop_irt2_direct_3200_positive_v2\\selection_metadata.json",
-    "stage1_prediction_root": "E:\\dac_stage1_dpm_predictions_positive3200_v2",
+    "selection_metadata": "D:\\桌面\\dac\\04_simulation\\winprop\\dac_winprop_irt2_direct_3200_positive_v2\\selection_metadata.json",
+    "stage1_prediction_root": "D:\\桌面\\dac\\03_runs\\E_stage\\dac_stage1_dpm_predictions_positive3200_v2",
     "ray_limit_policy": "Retain at most 20 rays per receiver pixel to keep memory bounded during the IRT6 feasibility gate.",
     "parallelism_policy": "Use only two concurrent WinPropCLI processes until IRT6 peak memory and duration are measured.",
     "pattern_apa_sha256": "00f1fe3d72ca9d2825652c55fcc03010a2288126b9dbf88c9803ba939bacbf9a",

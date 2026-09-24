@@ -18,8 +18,8 @@ from shapely.ops import unary_union
 from shapely.validation import make_valid
 
 
-DATASETS_ROOT = Path(r"D:\桌面\dac\datasets")
-OUTPUT_ROOT = Path(r"D:\桌面\dac\512mdata")
+DATASETS_ROOT = Path(r"D:\桌面\dac\01_data\raw_datasets")
+OUTPUT_ROOT = Path(r"D:\桌面\dac\01_data\512mdata")
 TMP_ROOT = OUTPUT_ROOT / "_append_tiles_tmp"
 
 REGIONS = [

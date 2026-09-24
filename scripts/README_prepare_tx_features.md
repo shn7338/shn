@@ -11,9 +11,9 @@ TX 坐标、高度、频率和接收机高度由每个瓦片对应的 WinProp `P
 
 ```powershell
 conda activate sigmap
-python C:\Users\pc\Documents\大创\scripts\prepare_tx_features.py `
-  --raw-root D:\桌面\dac\prepared_4m `
-  --normalized-root D:\桌面\dac\normalized_4m_v1 `
+python D:\桌面\dac\scripts\prepare_tx_features.py `
+  --raw-root D:\桌面\dac\01_data\prepared_4m `
+  --normalized-root D:\桌面\dac\01_data\normalized_4m_v1 `
   --workers 4
 ```
 

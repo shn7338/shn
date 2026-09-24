@@ -18,7 +18,7 @@ foreach ($requiredPath in @($pythonExe, $ConfigPath, $trainScript)) {
 switch ($Mode) {
     'Smoke' {
         $stamp = Get-Date -Format 'yyyyMMdd_HHmmss'
-        $smokeOutput = "E:\dac_stage2b_sionna35_depth8_paper_smoke_$stamp"
+        $smokeOutput = "D:\桌面\dac\03_runs\E_stage\dac_stage2b_sionna35_depth8_paper_smoke_$stamp"
         & $pythonExe $trainScript `
             --config $ConfigPath `
             --output-dir $smokeOutput `

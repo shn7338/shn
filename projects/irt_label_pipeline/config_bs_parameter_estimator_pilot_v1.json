@@ -1,8 +1,8 @@
 {
   "version": 1,
   "name": "bs_parameter_estimator_pilot_v1",
-  "dataset_root": "D:\\桌面\\dac\\bs_inversion_pilot_v1",
-  "output_dir": "D:\\桌面\\dac\\models\\bs_parameter_estimator_pilot_v1",
+  "dataset_root": "D:\\桌面\\dac\\02_inversion\\bs_inversion_pilot_v1",
+  "output_dir": "D:\\桌面\\dac\\03_runs\\models\\bs_parameter_estimator_pilot_v1",
   "model": {
     "architecture": "shared_unet_multitask_latent_bs_estimator",
     "input_channels": [
@@ -47,7 +47,7 @@
     "maximum_direction_mae_deg": 15.0
   },
   "provenance": {
-    "pilot": "D:\\桌面\\dac\\bs_inversion_pilot_v1",
+    "pilot": "D:\\桌面\\dac\\02_inversion\\bs_inversion_pilot_v1",
     "input_restriction": "inference uses only building height plus sparse signal values and mask",
     "height_note": "TX height is deterministic max building height plus 5 m and is not predicted in v1",
     "reuse_plan": "predicted position reconstructs Stage1 marker/distance; predicted effective power and azimuth remain explicit latent targets; existing Stage1/2-A/2-B are evaluated separately as the oracle map upper bound"

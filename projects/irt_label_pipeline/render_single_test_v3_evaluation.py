@@ -17,10 +17,10 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 DEFAULT_CONFIG = SCRIPT_DIR / "config_stage2b_position_encoding_scale4_v3.json"
 DEFAULT_ESTIMATOR_CONFIG = SCRIPT_DIR / "config_bs_parameter_estimator_scale4_v2.json"
 DEFAULT_REPORT = Path(
-    r"D:\桌面\dac\experiments\bs_inversion_scale4_stage2b_v3_test_bins.json"
+    r"D:\桌面\dac\03_runs\experiments\bs_inversion_scale4_stage2b_v3_test_bins.json"
 )
 DEFAULT_OUTPUT_DIR = Path(
-    r"D:\桌面\dac\experiments\single_test_v3_evaluation"
+    r"D:\桌面\dac\03_runs\experiments\single_test_v3_evaluation"
 )
 DEFAULT_SITE_ID = "tile_000222_site03"
 DEFAULT_DIRECTION = 0

@@ -1,8 +1,8 @@
 {
   "version": 2,
   "name": "bs_parameter_estimator_scale4_v2",
-  "dataset_root": "D:\\桌面\\dac\\bs_inversion_scale4_v1",
-  "output_dir": "D:\\桌面\\dac\\models\\bs_parameter_estimator_scale4_v2",
+  "dataset_root": "D:\\桌面\\dac\\02_inversion\\bs_inversion_scale4_v1",
+  "output_dir": "D:\\桌面\\dac\\03_runs\\models\\bs_parameter_estimator_scale4_v2",
   "model": {
     "architecture": "shared_unet_multitask_latent_bs_estimator",
     "input_channels": [
@@ -47,7 +47,7 @@
     "maximum_direction_mae_deg": 15.0
   },
   "provenance": {
-    "initial_checkpoint": "D:\\桌面\\dac\\models\\bs_parameter_estimator_pilot_v1\\best.pt",
+    "initial_checkpoint": "D:\\桌面\\dac\\03_runs\\models\\bs_parameter_estimator_pilot_v1\\best.pt",
     "dataset": "balanced four radial position bins on 1536 buildings",
     "input_restriction": "inference uses only building height plus sparse signal values and mask"
   }

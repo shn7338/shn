@@ -12,7 +12,7 @@ from shapely.ops import unary_union
 from shapely.validation import make_valid
 
 
-ROOT = Path(r"D:\桌面\dac\512mdata")
+ROOT = Path(r"D:\桌面\dac\01_data\512mdata")
 TMP_ROOT = ROOT / "_union_filtered_tmp"
 TILE_AREA_M2 = 512.0 * 512.0
 MIN_COVERAGE = 0.20

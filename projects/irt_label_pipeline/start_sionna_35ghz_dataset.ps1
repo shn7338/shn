@@ -14,8 +14,8 @@ $runner = Join-Path $scriptRoot 'run_sionna_dataset.py'
 $sharder = Join-Path $scriptRoot 'build_irt_shards.py'
 $verifier = Join-Path $scriptRoot 'verify_irt_shards.py'
 $statsScript = Join-Path $scriptRoot 'compute_irt_shard_stats.py'
-$python = 'E:\dac_sionna_rt_env\Scripts\python.exe'
-$outputRoot = 'E:\dac_sionna_35ghz_depth8_3200_v1'
+$python = 'D:\桌面\dac\08_runtime\dac_sionna_rt_env\Scripts\python.exe'
+$outputRoot = 'D:\桌面\dac\04_simulation\sionna\dac_sionna_35ghz_depth8_3200_v1'
 $stopFlag = Join-Path $outputRoot 'STOP'
 $exitCode = 0
 
@@ -64,7 +64,7 @@ switch ($Mode) {
         & $python $statsScript `
             --shard-root (Join-Path $outputRoot 'shards') `
             --shard-manifest (Join-Path $outputRoot 'shard_manifest.csv') `
-            --selection-csv 'E:\dac_winprop_irt2_direct_3200_positive_v2\selection_tiles.csv' `
+            --selection-csv 'D:\桌面\dac\04_simulation\winprop\dac_winprop_irt2_direct_3200_positive_v2\selection_tiles.csv' `
             --output (Join-Path $outputRoot 'normalization_irt.json')
         $exitCode = $LASTEXITCODE
     }

@@ -14,9 +14,9 @@
 
 ```powershell
 conda activate sigmap
-python C:\Users\pc\Documents\大创\scripts\normalize_winprop_dataset.py `
-  --input-root D:\桌面\dac\prepared_4m `
-  --output-root D:\桌面\dac\normalized_4m_v1 `
+python D:\桌面\dac\scripts\normalize_winprop_dataset.py `
+  --input-root D:\桌面\dac\01_data\prepared_4m `
+  --output-root D:\桌面\dac\01_data\normalized_4m_v1 `
   --workers 4
 ```
 

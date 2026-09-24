@@ -4,7 +4,7 @@
 
 .EXAMPLE
     powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\show_wallman_check_status.ps1 `
-      -RootPath 'D:\桌面\dac\512mdata' -Workers 8 -Watch
+      -RootPath 'D:\桌面\dac\01_data\512mdata' -Workers 8 -Watch
 #>
 
 [CmdletBinding()]

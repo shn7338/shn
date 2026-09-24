@@ -9,7 +9,7 @@ $repoRoot = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
 $python = 'C:\Users\pc\miniconda3\envs\sigmap\python.exe'
 $script = Join-Path $PSScriptRoot 'run_bs_inversion_pilot.py'
 $config = Join-Path $PSScriptRoot 'config_bs_inversion_pilot_v1.json'
-$outputRoot = 'D:\桌面\dac\bs_inversion_pilot_v1'
+$outputRoot = 'D:\桌面\dac\02_inversion\bs_inversion_pilot_v1'
 
 switch ($Mode) {
   'DryRun' {
