@@ -1,17 +1,17 @@
 # 大创项目导览
 
-本目录汇集无线信号地图项目的代码、数据准备记录、仿真实验、模型训练结果和中期答辩材料。先看 [仿真标签与 Stage 2 流程](projects/irt_label_pipeline/README.md)、[Stage 1 DPM 代理模型](projects/dpm_unet_stage1/README.md) 或 [中期答辩材料索引](中期答辩佐证材料_20260924/00_先看这里.md)。不同版本的实验记录都被保留，**目录存在不表示该轮实验已经达到目标**。
+本目录汇集无线信号地图项目的代码、数据准备记录、仿真实验、模型训练结果和中期答辩材料。先看 [当前 Sionna 数据与 Stage 2 训练路线](projects/irt_label_pipeline/SIONNA_CURRENT.md)、[Stage 1 DPM 代理模型](projects/dpm_unet_stage1/README.md) 或 [中期答辩材料索引](中期答辩佐证材料_20260924/00_先看这里.md)。不同版本的实验记录都被保留，**目录存在不表示该轮实验已经达到目标**。
 
-项目的大致流程是：建筑与 WinProp 数据经 `scripts/` 处理为 4 m 瓦片，Stage 1 模型预测 DPM 路径增益；WinProp 或 Sionna 生成后续仿真标签，`projects/irt_label_pipeline/` 负责 Stage 2 训练与评估。北交大场景的早期试验另见 `bjtu_osm_buildings/` 和 `first try/`。
+项目的大致流程是：建筑与 WinProp **DPM** 数据经 `scripts/` 处理为 4 m 瓦片，Stage 1 模型预测 DPM 路径增益；当前 Stage 2 使用 **Sionna** 仿真标签训练与评估。随机基站 Scale-4/V5 数据也由 Sionna RT 生成。旧 WinProp **IRT** 试验仍在仓库中供对照和追溯，但不作为当前 Stage 2 训练标签。`projects/irt_label_pipeline/` 的目录名是历史名称。北交大场景的早期试验另见 `bjtu_osm_buildings/` 和 `first try/`。
 
 下表列出实际目录；每个 `tile_*`、检查点和临时文件不逐一展开。
 
 | 目录 | 内容 |
 | --- | --- |
 | [`01_data/`](01_data/README.md) | WinProp 原始数据、天线方向图、预处理数据和预测准备记录 |
-| [`02_inversion/`](02_inversion/README.md) | 随机基站位置与参数反演的数据集和工作目录 |
+| [`02_inversion/`](02_inversion/README.md) | Sionna RT 生成的随机基站位置与参数反演数据集和工作目录 |
 | [`03_runs/`](03_runs/README.md) | 模型、训练、推断、评估及展示结果 |
-| [`04_simulation/`](04_simulation/README.md) | IRT、Sionna、WinProp 的多轮仿真运行 |
+| [`04_simulation/`](04_simulation/README.md) | 当前 Sionna 标签及历史 WinProp IRT 多轮仿真运行 |
 | [`05_legacy_code/`](05_legacy_code/README.md) | 原 D/E 盘的旧代码与第三方工具副本 |
 | [`06_reference/`](06_reference/README.md) | 开题、参考文献、归档和单样本评估图片 |
 | [`07_backup/`](07_backup/README.md) | 历史检查点及恢复材料 |
@@ -48,7 +48,7 @@
 | 子目录 | 存放内容 |
 | --- | --- |
 | `bs_inversion_pilot_v1/` | pilot 数据集、说明、归一化参数及最终报告。 |
-| `bs_inversion_scale4_v1/` | Scale-4 数据集和对应的说明、汇总。 |
+| `bs_inversion_scale4_v1/` | Sionna RT 生成的 Scale-4 随机基站数据集和对应说明、汇总；V5 使用该数据集。 |
 | `E_work/` | 原 E 盘 `dac_bs_inversion_scale4_v1_work` 工作目录；迁移时为空。 |
 
 ### `03_runs/`：训练和评估
@@ -71,8 +71,8 @@
 
 | 子目录 | 包含的运行及用途 |
 | --- | --- |
-| `irt/` | `dac_irt_v2_8bounce` 保存早期八次交互尝试；`dac_irt_v2_winprop2020_max6` 保存 WinProp 2020 上限相关尝试。 |
-| `sionna/` | `dac_sionna_35ghz_pilot`、`dac_sionna_paper_pilot`、`dac_sionna_paper8_v1` 是先导与论文参数试验；`dac_sionna_35ghz_depth8_3200_v1` 是 3,200 瓦片轮次；`dac_sionna_35ghz_depth8_27360_v1/v2/v3` 是全量数据的连续三轮记录；`dac_sionna_winprop_irt2_alignment` 用于两种仿真结果的对齐比较。 |
+| `irt/` | `dac_irt_v2_8bounce` 保存早期八次交互尝试；`dac_irt_v2_winprop2020_max6` 保存 WinProp 2020 上限相关尝试，均不属于当前 Stage 2 训练标签。 |
+| `sionna/` | `dac_sionna_35ghz_pilot`、`dac_sionna_paper_pilot`、`dac_sionna_paper8_v1` 是先导与论文参数试验；`dac_sionna_35ghz_depth8_3200_v1` 是 3,200 瓦片轮次；`dac_sionna_35ghz_depth8_27360_v1/v2` 保留早期全量尝试，`v3` 是当前 Stage 2 正式标签；`dac_sionna_winprop_irt2_alignment` 用于两种仿真结果的对齐比较。 |
 | `winprop/` 直接仿真 | `dac_winprop_irt2_direct_v1`、`dac_winprop_irt2_direct_pilot32_v1` 是直接仿真与 32 瓦片 pilot；`dac_winprop_irt2_direct_3200_v1`、`dac_winprop_irt2_direct_3200_positive_v2` 是 3,200 瓦片及正坐标替换轮次；`dac_winprop_irt6_direct_pilot_positive_v3` 是 IRT6 pilot。 |
 | `winprop/` 诊断与验证 | `dac_winprop_irt2_ray_diagnostic_v1`、`ray100_diagnostic_v1`、`ray500_diagnostic_v1/v2`、`no_ray_cap_diagnostic` 排查射线设置；`pattern_gain0_diagnostic`、`verified_pattern_diagnostic_v1`、`verified_pattern_validation_v1`、`roundtrip_pattern_validation_v3` 检查天线方向图与增益。以上省略了相同的 `dac_winprop_irt2_` 前缀。 |
 
@@ -99,7 +99,7 @@
 | 子目录或文件组 | 作用 |
 | --- | --- |
 | [`projects/dpm_unet_stage1/`](projects/dpm_unet_stage1/README.md) | `dataset.py`、`model.py` 定义数据和 DPM 代理 U-Net；`train.py`、`evaluate.py`、`benchmark.py` 训练与评估；`prepare_inference_inputs.py`、`infer.py`、`batch_infer.py` 做单样本和批量预测；`visualize_split.py`、`generate_stage1_report.py` 出图和报告。 |
-| [`projects/irt_label_pipeline/`](projects/irt_label_pipeline/README.md) 的仿真文件 | `run_winprop_direct_pilot.py`、`run_sionna_dataset.py`、`run_sionna_paper_pilot.py` 生成/运行标签；`preprocess_irt.py`、`build_irt_shards.py`、`verify_irt_shards.py` 处理和校验数据；`select_spatial_irt_tiles.py`、`replace_negative_irt_selection.py` 负责选样与修正。 |
+| [`projects/irt_label_pipeline/`](projects/irt_label_pipeline/SIONNA_CURRENT.md) 的仿真文件 | 当前 Sionna 路线由 `run_sionna_dataset.py`、`start_sionna_35ghz_all_tiles.ps1` 生成标签；`run_winprop_direct_pilot.py`、`preprocess_irt.py`、`build_irt_shards.py`、`verify_irt_shards.py` 等保留旧 WinProp IRT 路线及诊断代码。 |
 | `projects/irt_label_pipeline/` 的模型文件 | `stage2a_dataset.py`、`stage2b_dataset.py` 读取训练数据；`stage2_models.py`、`bs_parameter_model.py` 定义模型；`train_stage2a_iso_refine.py`、`train_stage2b_directional_ss.py`、`train_stage2b_latent_adapter_v5.py`、`train_joint_estimator_stage2b_v6.py`、`train_bs_parameter_estimator.py` 训练各方案。 |
 | `projects/irt_label_pipeline/` 的评估与配置 | `assess_*.py`、`evaluate_*.py`、`render_*.py` 汇总指标与生成展示图；`config_*.json` 固定实验参数；`start_*.ps1`、`watch_*.ps1` 用于启动和监看；`tests/` 放专项测试。 |
 | `projects/dachuang_kaiti_defense_ppt169_20260531/` | 早期开题答辩 PPT 的本机生成工作目录，属于产物，未纳入 GitHub。 |
