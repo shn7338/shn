@@ -1,0 +1,38 @@
+{
+  "status": "ok",
+  "best_epoch": 2,
+  "best_val_rmse_db": 15.546498733141014,
+  "test_by_sparse_points": {
+    "50": {
+      "loss": 0.36240874975919724,
+      "rmse_db": 17.462487543279128,
+      "mae_db": 13.576851508068616,
+      "sparse_calibrated_iso_rmse_db": 11.629545755799322,
+      "sparse_calibrated_iso_mae_db": 8.879747600346866,
+      "mean_sparse_points": 50.0,
+      "valid_pixels": 100327.0
+    },
+    "100": {
+      "loss": 0.36235666275024414,
+      "rmse_db": 17.461506328359963,
+      "mae_db": 13.575618352985737,
+      "sparse_calibrated_iso_rmse_db": 11.532958429840443,
+      "sparse_calibrated_iso_mae_db": 8.859400385738635,
+      "mean_sparse_points": 100.0,
+      "valid_pixels": 100327.0
+    },
+    "200": {
+      "loss": 0.3621641770005226,
+      "rmse_db": 17.456223145181305,
+      "mae_db": 13.570452121562491,
+      "sparse_calibrated_iso_rmse_db": 11.384740126750614,
+      "sparse_calibrated_iso_mae_db": 8.834414277811556,
+      "mean_sparse_points": 200.0,
+      "valid_pixels": 100327.0
+    }
+  },
+  "elapsed_seconds": 6.102500799926929,
+  "checkpoint": "E:\\dac_stage2b_pilot32_smoke_v1\\best.pt",
+  "checkpoint_sha256": "9e7d7dc6da3175caea4589971ff948722e897d26972349f839ba477f681fda25",
+  "input": "[B, frozen Stage2-A isotropic IRT prediction, sparse directional SS, sparse mask]"
+}

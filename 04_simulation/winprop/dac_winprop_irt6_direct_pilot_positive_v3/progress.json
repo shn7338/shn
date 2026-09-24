@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "status": "running",
+  "phase": "propagate",
+  "tile": "tile_002865",
+  "index": 1,
+  "total": 1,
+  "completed": 0,
+  "remaining": 1,
+  "updated_unix": 1785067467.0703576,
+  "error": null
+}

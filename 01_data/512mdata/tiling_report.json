@@ -1,0 +1,3031 @@
+{
+  "root": "D:\\桌面\\dac\\512mdata",
+  "tile_area_m2": 262144.0,
+  "minimum_union_building_coverage": 0.2,
+  "input_tile_count": 3899,
+  "kept_tile_count": 3396,
+  "dropped_tile_count": 503,
+  "min_kept_union_coverage": 0.200016,
+  "max_kept_union_coverage": 0.65043,
+  "tile_index_csv": "D:\\桌面\\dac\\512mdata\\tile_index.csv",
+  "dropped_tiles": [
+    {
+      "old_tile_name": "tile_000021",
+      "union_building_area_m2": "39497.523",
+      "union_building_coverage": "0.150671",
+      "feature_count": 428
+    },
+    {
+      "old_tile_name": "tile_000024",
+      "union_building_area_m2": "51080.041",
+      "union_building_coverage": "0.194855",
+      "feature_count": 362
+    },
+    {
+      "old_tile_name": "tile_000043",
+      "union_building_area_m2": "52079.597",
+      "union_building_coverage": "0.198668",
+      "feature_count": 330
+    },
+    {
+      "old_tile_name": "tile_000062",
+      "union_building_area_m2": "50118.938",
+      "union_building_coverage": "0.191189",
+      "feature_count": 337
+    },
+    {
+      "old_tile_name": "tile_000066",
+      "union_building_area_m2": "47054.210",
+      "union_building_coverage": "0.179498",
+      "feature_count": 331
+    },
+    {
+      "old_tile_name": "tile_000067",
+      "union_building_area_m2": "45877.819",
+      "union_building_coverage": "0.175010",
+      "feature_count": 373
+    },
+    {
+      "old_tile_name": "tile_000068",
+      "union_building_area_m2": "43353.848",
+      "union_building_coverage": "0.165382",
+      "feature_count": 355
+    },
+    {
+      "old_tile_name": "tile_000069",
+      "union_building_area_m2": "50284.920",
+      "union_building_coverage": "0.191822",
+      "feature_count": 418
+    },
+    {
+      "old_tile_name": "tile_000084",
+      "union_building_area_m2": "51380.950",
+      "union_building_coverage": "0.196003",
+      "feature_count": 380
+    },
+    {
+      "old_tile_name": "tile_000094",
+      "union_building_area_m2": "49395.992",
+      "union_building_coverage": "0.188431",
+      "feature_count": 386
+    },
+    {
+      "old_tile_name": "tile_000103",
+      "union_building_area_m2": "38918.208",
+      "union_building_coverage": "0.148461",
+      "feature_count": 302
+    },
+    {
+      "old_tile_name": "tile_000115",
+      "union_building_area_m2": "37273.652",
+      "union_building_coverage": "0.142188",
+      "feature_count": 411
+    },
+    {
+      "old_tile_name": "tile_000116",
+      "union_building_area_m2": "46961.311",
+      "union_building_coverage": "0.179143",
+      "feature_count": 424
+    },
+    {
+      "old_tile_name": "tile_000130",
+      "union_building_area_m2": "41741.150",
+      "union_building_coverage": "0.159230",
+      "feature_count": 415
+    },
+    {
+      "old_tile_name": "tile_000131",
+      "union_building_area_m2": "49923.920",
+      "union_building_coverage": "0.190445",
+      "feature_count": 397
+    },
+    {
+      "old_tile_name": "tile_000146",
+      "union_building_area_m2": "45787.943",
+      "union_building_coverage": "0.174667",
+      "feature_count": 351
+    },
+    {
+      "old_tile_name": "tile_000147",
+      "union_building_area_m2": "49849.792",
+      "union_building_coverage": "0.190162",
+      "feature_count": 393
+    },
+    {
+      "old_tile_name": "tile_000156",
+      "union_building_area_m2": "51639.889",
+      "union_building_coverage": "0.196991",
+      "feature_count": 622
+    },
+    {
+      "old_tile_name": "tile_000160",
+      "union_building_area_m2": "51419.919",
+      "union_building_coverage": "0.196151",
+      "feature_count": 468
+    },
+    {
+      "old_tile_name": "tile_000170",
+      "union_building_area_m2": "51713.933",
+      "union_building_coverage": "0.197273",
+      "feature_count": 354
+    },
+    {
+      "old_tile_name": "tile_000172",
+      "union_building_area_m2": "41846.474",
+      "union_building_coverage": "0.159632",
+      "feature_count": 460
+    },
+    {
+      "old_tile_name": "tile_000176",
+      "union_building_area_m2": "49265.287",
+      "union_building_coverage": "0.187932",
+      "feature_count": 356
+    },
+    {
+      "old_tile_name": "tile_000187",
+      "union_building_area_m2": "45592.878",
+      "union_building_coverage": "0.173923",
+      "feature_count": 593
+    },
+    {
+      "old_tile_name": "tile_000188",
+      "union_building_area_m2": "52100.013",
+      "union_building_coverage": "0.198746",
+      "feature_count": 108
+    },
+    {
+      "old_tile_name": "tile_000207",
+      "union_building_area_m2": "49344.989",
+      "union_building_coverage": "0.188236",
+      "feature_count": 374
+    },
+    {
+      "old_tile_name": "tile_000208",
+      "union_building_area_m2": "46271.598",
+      "union_building_coverage": "0.176512",
+      "feature_count": 390
+    },
+    {
+      "old_tile_name": "tile_000217",
+      "union_building_area_m2": "50222.853",
+      "union_building_coverage": "0.191585",
+      "feature_count": 339
+    },
+    {
+      "old_tile_name": "tile_000219",
+      "union_building_area_m2": "49938.560",
+      "union_building_coverage": "0.190500",
+      "feature_count": 500
+    },
+    {
+      "old_tile_name": "tile_000221",
+      "union_building_area_m2": "46959.873",
+      "union_building_coverage": "0.179138",
+      "feature_count": 361
+    },
+    {
+      "old_tile_name": "tile_000222",
+      "union_building_area_m2": "51110.661",
+      "union_building_coverage": "0.194972",
+      "feature_count": 245
+    },
+    {
+      "old_tile_name": "tile_000235",
+      "union_building_area_m2": "51692.413",
+      "union_building_coverage": "0.197191",
+      "feature_count": 334
+    },
+    {
+      "old_tile_name": "tile_000240",
+      "union_building_area_m2": "32283.840",
+      "union_building_coverage": "0.123153",
+      "feature_count": 260
+    },
+    {
+      "old_tile_name": "tile_000242",
+      "union_building_area_m2": "52378.373",
+      "union_building_coverage": "0.199808",
+      "feature_count": 361
+    },
+    {
+      "old_tile_name": "tile_000246",
+      "union_building_area_m2": "48435.503",
+      "union_building_coverage": "0.184767",
+      "feature_count": 943
+    },
+    {
+      "old_tile_name": "tile_000250",
+      "union_building_area_m2": "36310.380",
+      "union_building_coverage": "0.138513",
+      "feature_count": 592
+    },
+    {
+      "old_tile_name": "tile_000252",
+      "union_building_area_m2": "52379.314",
+      "union_building_coverage": "0.199811",
+      "feature_count": 367
+    },
+    {
+      "old_tile_name": "tile_000254",
+      "union_building_area_m2": "42130.800",
+      "union_building_coverage": "0.160716",
+      "feature_count": 521
+    },
+    {
+      "old_tile_name": "tile_000255",
+      "union_building_area_m2": "51965.798",
+      "union_building_coverage": "0.198234",
+      "feature_count": 268
+    },
+    {
+      "old_tile_name": "tile_000257",
+      "union_building_area_m2": "50585.293",
+      "union_building_coverage": "0.192968",
+      "feature_count": 296
+    },
+    {
+      "old_tile_name": "tile_000259",
+      "union_building_area_m2": "48952.567",
+      "union_building_coverage": "0.186739",
+      "feature_count": 326
+    },
+    {
+      "old_tile_name": "tile_000260",
+      "union_building_area_m2": "42287.741",
+      "union_building_coverage": "0.161315",
+      "feature_count": 992
+    },
+    {
+      "old_tile_name": "tile_000269",
+      "union_building_area_m2": "49221.993",
+      "union_building_coverage": "0.187767",
+      "feature_count": 353
+    },
+    {
+      "old_tile_name": "tile_000271",
+      "union_building_area_m2": "39618.908",
+      "union_building_coverage": "0.151134",
+      "feature_count": 492
+    },
+    {
+      "old_tile_name": "tile_000272",
+      "union_building_area_m2": "50725.941",
+      "union_building_coverage": "0.193504",
+      "feature_count": 433
+    },
+    {
+      "old_tile_name": "tile_000292",
+      "union_building_area_m2": "31564.052",
+      "union_building_coverage": "0.120407",
+      "feature_count": 454
+    },
+    {
+      "old_tile_name": "tile_000293",
+      "union_building_area_m2": "51044.496",
+      "union_building_coverage": "0.194719",
+      "feature_count": 377
+    },
+    {
+      "old_tile_name": "tile_000294",
+      "union_building_area_m2": "50525.099",
+      "union_building_coverage": "0.192738",
+      "feature_count": 390
+    },
+    {
+      "old_tile_name": "tile_000297",
+      "union_building_area_m2": "45140.308",
+      "union_building_coverage": "0.172197",
+      "feature_count": 391
+    },
+    {
+      "old_tile_name": "tile_000298",
+      "union_building_area_m2": "45043.386",
+      "union_building_coverage": "0.171827",
+      "feature_count": 487
+    },
+    {
+      "old_tile_name": "tile_000303",
+      "union_building_area_m2": "51502.054",
+      "union_building_coverage": "0.196465",
+      "feature_count": 324
+    },
+    {
+      "old_tile_name": "tile_000307",
+      "union_building_area_m2": "36289.036",
+      "union_building_coverage": "0.138432",
+      "feature_count": 291
+    },
+    {
+      "old_tile_name": "tile_000308",
+      "union_building_area_m2": "36684.819",
+      "union_building_coverage": "0.139941",
+      "feature_count": 330
+    },
+    {
+      "old_tile_name": "tile_000321",
+      "union_building_area_m2": "47277.080",
+      "union_building_coverage": "0.180348",
+      "feature_count": 561
+    },
+    {
+      "old_tile_name": "tile_000324",
+      "union_building_area_m2": "42180.087",
+      "union_building_coverage": "0.160904",
+      "feature_count": 483
+    },
+    {
+      "old_tile_name": "tile_000328",
+      "union_building_area_m2": "52065.280",
+      "union_building_coverage": "0.198613",
+      "feature_count": 205
+    },
+    {
+      "old_tile_name": "tile_000335",
+      "union_building_area_m2": "48903.443",
+      "union_building_coverage": "0.186552",
+      "feature_count": 287
+    },
+    {
+      "old_tile_name": "tile_000341",
+      "union_building_area_m2": "51806.156",
+      "union_building_coverage": "0.197625",
+      "feature_count": 299
+    },
+    {
+      "old_tile_name": "tile_000343",
+      "union_building_area_m2": "36058.128",
+      "union_building_coverage": "0.137551",
+      "feature_count": 421
+    },
+    {
+      "old_tile_name": "tile_000344",
+      "union_building_area_m2": "36085.902",
+      "union_building_coverage": "0.137657",
+      "feature_count": 848
+    },
+    {
+      "old_tile_name": "tile_000346",
+      "union_building_area_m2": "43699.662",
+      "union_building_coverage": "0.166701",
+      "feature_count": 416
+    },
+    {
+      "old_tile_name": "tile_000348",
+      "union_building_area_m2": "49917.413",
+      "union_building_coverage": "0.190420",
+      "feature_count": 249
+    },
+    {
+      "old_tile_name": "tile_000353",
+      "union_building_area_m2": "50962.266",
+      "union_building_coverage": "0.194406",
+      "feature_count": 328
+    },
+    {
+      "old_tile_name": "tile_000360",
+      "union_building_area_m2": "51291.306",
+      "union_building_coverage": "0.195661",
+      "feature_count": 384
+    },
+    {
+      "old_tile_name": "tile_000364",
+      "union_building_area_m2": "37683.971",
+      "union_building_coverage": "0.143753",
+      "feature_count": 831
+    },
+    {
+      "old_tile_name": "tile_000366",
+      "union_building_area_m2": "45976.925",
+      "union_building_coverage": "0.175388",
+      "feature_count": 355
+    },
+    {
+      "old_tile_name": "tile_000367",
+      "union_building_area_m2": "50265.790",
+      "union_building_coverage": "0.191749",
+      "feature_count": 273
+    },
+    {
+      "old_tile_name": "tile_000370",
+      "union_building_area_m2": "50040.412",
+      "union_building_coverage": "0.190889",
+      "feature_count": 268
+    },
+    {
+      "old_tile_name": "tile_000371",
+      "union_building_area_m2": "50979.994",
+      "union_building_coverage": "0.194473",
+      "feature_count": 468
+    },
+    {
+      "old_tile_name": "tile_000378",
+      "union_building_area_m2": "51997.075",
+      "union_building_coverage": "0.198353",
+      "feature_count": 317
+    },
+    {
+      "old_tile_name": "tile_000385",
+      "union_building_area_m2": "50202.209",
+      "union_building_coverage": "0.191506",
+      "feature_count": 315
+    },
+    {
+      "old_tile_name": "tile_000386",
+      "union_building_area_m2": "47222.778",
+      "union_building_coverage": "0.180141",
+      "feature_count": 374
+    },
+    {
+      "old_tile_name": "tile_000410",
+      "union_building_area_m2": "39098.767",
+      "union_building_coverage": "0.149150",
+      "feature_count": 584
+    },
+    {
+      "old_tile_name": "tile_000411",
+      "union_building_area_m2": "34717.405",
+      "union_building_coverage": "0.132436",
+      "feature_count": 474
+    },
+    {
+      "old_tile_name": "tile_000414",
+      "union_building_area_m2": "46630.794",
+      "union_building_coverage": "0.177882",
+      "feature_count": 320
+    },
+    {
+      "old_tile_name": "tile_000421",
+      "union_building_area_m2": "51557.055",
+      "union_building_coverage": "0.196675",
+      "feature_count": 357
+    },
+    {
+      "old_tile_name": "tile_000432",
+      "union_building_area_m2": "40902.709",
+      "union_building_coverage": "0.156031",
+      "feature_count": 432
+    },
+    {
+      "old_tile_name": "tile_000441",
+      "union_building_area_m2": "46247.062",
+      "union_building_coverage": "0.176419",
+      "feature_count": 596
+    },
+    {
+      "old_tile_name": "tile_000442",
+      "union_building_area_m2": "50425.516",
+      "union_building_coverage": "0.192358",
+      "feature_count": 332
+    },
+    {
+      "old_tile_name": "tile_000444",
+      "union_building_area_m2": "52145.216",
+      "union_building_coverage": "0.198918",
+      "feature_count": 333
+    },
+    {
+      "old_tile_name": "tile_000453",
+      "union_building_area_m2": "45516.180",
+      "union_building_coverage": "0.173630",
+      "feature_count": 432
+    },
+    {
+      "old_tile_name": "tile_000456",
+      "union_building_area_m2": "48624.276",
+      "union_building_coverage": "0.185487",
+      "feature_count": 355
+    },
+    {
+      "old_tile_name": "tile_000457",
+      "union_building_area_m2": "50209.509",
+      "union_building_coverage": "0.191534",
+      "feature_count": 640
+    },
+    {
+      "old_tile_name": "tile_000458",
+      "union_building_area_m2": "50960.758",
+      "union_building_coverage": "0.194400",
+      "feature_count": 279
+    },
+    {
+      "old_tile_name": "tile_000486",
+      "union_building_area_m2": "48440.770",
+      "union_building_coverage": "0.184787",
+      "feature_count": 470
+    },
+    {
+      "old_tile_name": "tile_000501",
+      "union_building_area_m2": "49607.884",
+      "union_building_coverage": "0.189239",
+      "feature_count": 560
+    },
+    {
+      "old_tile_name": "tile_000505",
+      "union_building_area_m2": "44250.609",
+      "union_building_coverage": "0.168803",
+      "feature_count": 883
+    },
+    {
+      "old_tile_name": "tile_000506",
+      "union_building_area_m2": "52268.590",
+      "union_building_coverage": "0.199389",
+      "feature_count": 537
+    },
+    {
+      "old_tile_name": "tile_000514",
+      "union_building_area_m2": "44482.199",
+      "union_building_coverage": "0.169686",
+      "feature_count": 389
+    },
+    {
+      "old_tile_name": "tile_000517",
+      "union_building_area_m2": "50406.148",
+      "union_building_coverage": "0.192284",
+      "feature_count": 279
+    },
+    {
+      "old_tile_name": "tile_000534",
+      "union_building_area_m2": "51861.261",
+      "union_building_coverage": "0.197835",
+      "feature_count": 100
+    },
+    {
+      "old_tile_name": "tile_000540",
+      "union_building_area_m2": "22561.611",
+      "union_building_coverage": "0.086066",
+      "feature_count": 758
+    },
+    {
+      "old_tile_name": "tile_000542",
+      "union_building_area_m2": "51726.737",
+      "union_building_coverage": "0.197322",
+      "feature_count": 309
+    },
+    {
+      "old_tile_name": "tile_000556",
+      "union_building_area_m2": "37350.827",
+      "union_building_coverage": "0.142482",
+      "feature_count": 416
+    },
+    {
+      "old_tile_name": "tile_000559",
+      "union_building_area_m2": "50980.853",
+      "union_building_coverage": "0.194477",
+      "feature_count": 423
+    },
+    {
+      "old_tile_name": "tile_000563",
+      "union_building_area_m2": "52192.423",
+      "union_building_coverage": "0.199098",
+      "feature_count": 286
+    },
+    {
+      "old_tile_name": "tile_000574",
+      "union_building_area_m2": "49765.435",
+      "union_building_coverage": "0.189840",
+      "feature_count": 472
+    },
+    {
+      "old_tile_name": "tile_000581",
+      "union_building_area_m2": "51456.276",
+      "union_building_coverage": "0.196290",
+      "feature_count": 670
+    },
+    {
+      "old_tile_name": "tile_000593",
+      "union_building_area_m2": "37088.365",
+      "union_building_coverage": "0.141481",
+      "feature_count": 579
+    },
+    {
+      "old_tile_name": "tile_000605",
+      "union_building_area_m2": "32068.728",
+      "union_building_coverage": "0.122332",
+      "feature_count": 648
+    },
+    {
+      "old_tile_name": "tile_000608",
+      "union_building_area_m2": "52103.664",
+      "union_building_coverage": "0.198760",
+      "feature_count": 204
+    },
+    {
+      "old_tile_name": "tile_000614",
+      "union_building_area_m2": "50935.155",
+      "union_building_coverage": "0.194302",
+      "feature_count": 405
+    },
+    {
+      "old_tile_name": "tile_000624",
+      "union_building_area_m2": "49310.661",
+      "union_building_coverage": "0.188105",
+      "feature_count": 622
+    },
+    {
+      "old_tile_name": "tile_000625",
+      "union_building_area_m2": "51943.934",
+      "union_building_coverage": "0.198150",
+      "feature_count": 578
+    },
+    {
+      "old_tile_name": "tile_000637",
+      "union_building_area_m2": "33252.328",
+      "union_building_coverage": "0.126848",
+      "feature_count": 480
+    },
+    {
+      "old_tile_name": "tile_000649",
+      "union_building_area_m2": "42338.138",
+      "union_building_coverage": "0.161507",
+      "feature_count": 230
+    },
+    {
+      "old_tile_name": "tile_000650",
+      "union_building_area_m2": "45774.923",
+      "union_building_coverage": "0.174617",
+      "feature_count": 308
+    },
+    {
+      "old_tile_name": "tile_000652",
+      "union_building_area_m2": "48939.495",
+      "union_building_coverage": "0.186689",
+      "feature_count": 324
+    },
+    {
+      "old_tile_name": "tile_000654",
+      "union_building_area_m2": "50794.488",
+      "union_building_coverage": "0.193766",
+      "feature_count": 606
+    },
+    {
+      "old_tile_name": "tile_000661",
+      "union_building_area_m2": "43342.974",
+      "union_building_coverage": "0.165340",
+      "feature_count": 603
+    },
+    {
+      "old_tile_name": "tile_000664",
+      "union_building_area_m2": "50603.838",
+      "union_building_coverage": "0.193038",
+      "feature_count": 265
+    },
+    {
+      "old_tile_name": "tile_000677",
+      "union_building_area_m2": "46460.812",
+      "union_building_coverage": "0.177234",
+      "feature_count": 638
+    },
+    {
+      "old_tile_name": "tile_000678",
+      "union_building_area_m2": "51650.577",
+      "union_building_coverage": "0.197031",
+      "feature_count": 568
+    },
+    {
+      "old_tile_name": "tile_000689",
+      "union_building_area_m2": "51315.563",
+      "union_building_coverage": "0.195753",
+      "feature_count": 177
+    },
+    {
+      "old_tile_name": "tile_000692",
+      "union_building_area_m2": "48961.555",
+      "union_building_coverage": "0.186774",
+      "feature_count": 62
+    },
+    {
+      "old_tile_name": "tile_000695",
+      "union_building_area_m2": "45981.717",
+      "union_building_coverage": "0.175406",
+      "feature_count": 315
+    },
+    {
+      "old_tile_name": "tile_000696",
+      "union_building_area_m2": "52139.836",
+      "union_building_coverage": "0.198898",
+      "feature_count": 414
+    },
+    {
+      "old_tile_name": "tile_000699",
+      "union_building_area_m2": "43465.676",
+      "union_building_coverage": "0.165808",
+      "feature_count": 41
+    },
+    {
+      "old_tile_name": "tile_000705",
+      "union_building_area_m2": "50810.879",
+      "union_building_coverage": "0.193828",
+      "feature_count": 168
+    },
+    {
+      "old_tile_name": "tile_000719",
+      "union_building_area_m2": "36805.678",
+      "union_building_coverage": "0.140403",
+      "feature_count": 368
+    },
+    {
+      "old_tile_name": "tile_000734",
+      "union_building_area_m2": "52286.858",
+      "union_building_coverage": "0.199459",
+      "feature_count": 189
+    },
+    {
+      "old_tile_name": "tile_000742",
+      "union_building_area_m2": "32798.950",
+      "union_building_coverage": "0.125118",
+      "feature_count": 442
+    },
+    {
+      "old_tile_name": "tile_000745",
+      "union_building_area_m2": "48744.673",
+      "union_building_coverage": "0.185946",
+      "feature_count": 468
+    },
+    {
+      "old_tile_name": "tile_000747",
+      "union_building_area_m2": "52376.962",
+      "union_building_coverage": "0.199802",
+      "feature_count": 255
+    },
+    {
+      "old_tile_name": "tile_000774",
+      "union_building_area_m2": "51630.885",
+      "union_building_coverage": "0.196956",
+      "feature_count": 238
+    },
+    {
+      "old_tile_name": "tile_000792",
+      "union_building_area_m2": "50148.058",
+      "union_building_coverage": "0.191300",
+      "feature_count": 308
+    },
+    {
+      "old_tile_name": "tile_000793",
+      "union_building_area_m2": "51955.864",
+      "union_building_coverage": "0.198196",
+      "feature_count": 105
+    },
+    {
+      "old_tile_name": "tile_000795",
+      "union_building_area_m2": "52187.488",
+      "union_building_coverage": "0.199079",
+      "feature_count": 548
+    },
+    {
+      "old_tile_name": "tile_000798",
+      "union_building_area_m2": "51669.237",
+      "union_building_coverage": "0.197102",
+      "feature_count": 207
+    },
+    {
+      "old_tile_name": "tile_000811",
+      "union_building_area_m2": "51730.483",
+      "union_building_coverage": "0.197336",
+      "feature_count": 649
+    },
+    {
+      "old_tile_name": "tile_000816",
+      "union_building_area_m2": "47432.641",
+      "union_building_coverage": "0.180941",
+      "feature_count": 756
+    },
+    {
+      "old_tile_name": "tile_000817",
+      "union_building_area_m2": "47132.135",
+      "union_building_coverage": "0.179795",
+      "feature_count": 554
+    },
+    {
+      "old_tile_name": "tile_000826",
+      "union_building_area_m2": "51756.587",
+      "union_building_coverage": "0.197436",
+      "feature_count": 231
+    },
+    {
+      "old_tile_name": "tile_000839",
+      "union_building_area_m2": "48566.416",
+      "union_building_coverage": "0.185266",
+      "feature_count": 416
+    },
+    {
+      "old_tile_name": "tile_000842",
+      "union_building_area_m2": "26076.061",
+      "union_building_coverage": "0.099472",
+      "feature_count": 797
+    },
+    {
+      "old_tile_name": "tile_000843",
+      "union_building_area_m2": "46555.424",
+      "union_building_coverage": "0.177595",
+      "feature_count": 318
+    },
+    {
+      "old_tile_name": "tile_000860",
+      "union_building_area_m2": "35799.922",
+      "union_building_coverage": "0.136566",
+      "feature_count": 655
+    },
+    {
+      "old_tile_name": "tile_000862",
+      "union_building_area_m2": "51813.579",
+      "union_building_coverage": "0.197653",
+      "feature_count": 837
+    },
+    {
+      "old_tile_name": "tile_000885",
+      "union_building_area_m2": "37262.889",
+      "union_building_coverage": "0.142147",
+      "feature_count": 653
+    },
+    {
+      "old_tile_name": "tile_000886",
+      "union_building_area_m2": "33211.150",
+      "union_building_coverage": "0.126690",
+      "feature_count": 609
+    },
+    {
+      "old_tile_name": "tile_000887",
+      "union_building_area_m2": "44644.864",
+      "union_building_coverage": "0.170307",
+      "feature_count": 381
+    },
+    {
+      "old_tile_name": "tile_000904",
+      "union_building_area_m2": "50681.167",
+      "union_building_coverage": "0.193333",
+      "feature_count": 533
+    },
+    {
+      "old_tile_name": "tile_000915",
+      "union_building_area_m2": "52354.658",
+      "union_building_coverage": "0.199717",
+      "feature_count": 185
+    },
+    {
+      "old_tile_name": "tile_000935",
+      "union_building_area_m2": "43983.771",
+      "union_building_coverage": "0.167785",
+      "feature_count": 316
+    },
+    {
+      "old_tile_name": "tile_000938",
+      "union_building_area_m2": "51628.040",
+      "union_building_coverage": "0.196945",
+      "feature_count": 151
+    },
+    {
+      "old_tile_name": "tile_000939",
+      "union_building_area_m2": "51609.600",
+      "union_building_coverage": "0.196875",
+      "feature_count": 193
+    },
+    {
+      "old_tile_name": "tile_000955",
+      "union_building_area_m2": "51153.786",
+      "union_building_coverage": "0.195136",
+      "feature_count": 365
+    },
+    {
+      "old_tile_name": "tile_000978",
+      "union_building_area_m2": "52356.545",
+      "union_building_coverage": "0.199724",
+      "feature_count": 645
+    },
+    {
+      "old_tile_name": "tile_000987",
+      "union_building_area_m2": "51991.009",
+      "union_building_coverage": "0.198330",
+      "feature_count": 189
+    },
+    {
+      "old_tile_name": "tile_000994",
+      "union_building_area_m2": "52384.192",
+      "union_building_coverage": "0.199830",
+      "feature_count": 262
+    },
+    {
+      "old_tile_name": "tile_001032",
+      "union_building_area_m2": "51183.968",
+      "union_building_coverage": "0.195251",
+      "feature_count": 554
+    },
+    {
+      "old_tile_name": "tile_001033",
+      "union_building_area_m2": "51401.290",
+      "union_building_coverage": "0.196080",
+      "feature_count": 665
+    },
+    {
+      "old_tile_name": "tile_001038",
+      "union_building_area_m2": "43594.879",
+      "union_building_coverage": "0.166301",
+      "feature_count": 370
+    },
+    {
+      "old_tile_name": "tile_001053",
+      "union_building_area_m2": "52054.910",
+      "union_building_coverage": "0.198574",
+      "feature_count": 105
+    },
+    {
+      "old_tile_name": "tile_001076",
+      "union_building_area_m2": "35888.294",
+      "union_building_coverage": "0.136903",
+      "feature_count": 359
+    },
+    {
+      "old_tile_name": "tile_001092",
+      "union_building_area_m2": "51693.896",
+      "union_building_coverage": "0.197197",
+      "feature_count": 193
+    },
+    {
+      "old_tile_name": "tile_001099",
+      "union_building_area_m2": "50713.617",
+      "union_building_coverage": "0.193457",
+      "feature_count": 171
+    },
+    {
+      "old_tile_name": "tile_001105",
+      "union_building_area_m2": "52128.921",
+      "union_building_coverage": "0.198856",
+      "feature_count": 471
+    },
+    {
+      "old_tile_name": "tile_001107",
+      "union_building_area_m2": "44631.322",
+      "union_building_coverage": "0.170255",
+      "feature_count": 278
+    },
+    {
+      "old_tile_name": "tile_001134",
+      "union_building_area_m2": "51183.134",
+      "union_building_coverage": "0.195248",
+      "feature_count": 262
+    },
+    {
+      "old_tile_name": "tile_001138",
+      "union_building_area_m2": "50181.495",
+      "union_building_coverage": "0.191427",
+      "feature_count": 320
+    },
+    {
+      "old_tile_name": "tile_001155",
+      "union_building_area_m2": "52400.663",
+      "union_building_coverage": "0.199893",
+      "feature_count": 186
+    },
+    {
+      "old_tile_name": "tile_001163",
+      "union_building_area_m2": "50687.634",
+      "union_building_coverage": "0.193358",
+      "feature_count": 125
+    },
+    {
+      "old_tile_name": "tile_001179",
+      "union_building_area_m2": "48135.337",
+      "union_building_coverage": "0.183622",
+      "feature_count": 72
+    },
+    {
+      "old_tile_name": "tile_001187",
+      "union_building_area_m2": "47684.041",
+      "union_building_coverage": "0.181900",
+      "feature_count": 420
+    },
+    {
+      "old_tile_name": "tile_001195",
+      "union_building_area_m2": "52371.411",
+      "union_building_coverage": "0.199781",
+      "feature_count": 256
+    },
+    {
+      "old_tile_name": "tile_001219",
+      "union_building_area_m2": "51514.224",
+      "union_building_coverage": "0.196511",
+      "feature_count": 129
+    },
+    {
+      "old_tile_name": "tile_001223",
+      "union_building_area_m2": "25983.651",
+      "union_building_coverage": "0.099120",
+      "feature_count": 663
+    },
+    {
+      "old_tile_name": "tile_001227",
+      "union_building_area_m2": "50223.143",
+      "union_building_coverage": "0.191586",
+      "feature_count": 503
+    },
+    {
+      "old_tile_name": "tile_001258",
+      "union_building_area_m2": "51854.022",
+      "union_building_coverage": "0.197807",
+      "feature_count": 93
+    },
+    {
+      "old_tile_name": "tile_001260",
+      "union_building_area_m2": "49105.106",
+      "union_building_coverage": "0.187321",
+      "feature_count": 141
+    },
+    {
+      "old_tile_name": "tile_001307",
+      "union_building_area_m2": "52202.211",
+      "union_building_coverage": "0.199136",
+      "feature_count": 150
+    },
+    {
+      "old_tile_name": "tile_001333",
+      "union_building_area_m2": "51774.671",
+      "union_building_coverage": "0.197505",
+      "feature_count": 147
+    },
+    {
+      "old_tile_name": "tile_001334",
+      "union_building_area_m2": "52219.958",
+      "union_building_coverage": "0.199203",
+      "feature_count": 319
+    },
+    {
+      "old_tile_name": "tile_001341",
+      "union_building_area_m2": "48761.357",
+      "union_building_coverage": "0.186010",
+      "feature_count": 201
+    },
+    {
+      "old_tile_name": "tile_001363",
+      "union_building_area_m2": "52031.689",
+      "union_building_coverage": "0.198485",
+      "feature_count": 159
+    },
+    {
+      "old_tile_name": "tile_001366",
+      "union_building_area_m2": "52282.410",
+      "union_building_coverage": "0.199442",
+      "feature_count": 120
+    },
+    {
+      "old_tile_name": "tile_001379",
+      "union_building_area_m2": "51711.461",
+      "union_building_coverage": "0.197264",
+      "feature_count": 503
+    },
+    {
+      "old_tile_name": "tile_001380",
+      "union_building_area_m2": "43921.759",
+      "union_building_coverage": "0.167548",
+      "feature_count": 307
+    },
+    {
+      "old_tile_name": "tile_001421",
+      "union_building_area_m2": "52398.491",
+      "union_building_coverage": "0.199884",
+      "feature_count": 200
+    },
+    {
+      "old_tile_name": "tile_001434",
+      "union_building_area_m2": "51188.484",
+      "union_building_coverage": "0.195269",
+      "feature_count": 69
+    },
+    {
+      "old_tile_name": "tile_001450",
+      "union_building_area_m2": "52322.840",
+      "union_building_coverage": "0.199596",
+      "feature_count": 221
+    },
+    {
+      "old_tile_name": "tile_001473",
+      "union_building_area_m2": "51951.459",
+      "union_building_coverage": "0.198179",
+      "feature_count": 173
+    },
+    {
+      "old_tile_name": "tile_001540",
+      "union_building_area_m2": "52178.196",
+      "union_building_coverage": "0.199044",
+      "feature_count": 469
+    },
+    {
+      "old_tile_name": "tile_001577",
+      "union_building_area_m2": "52074.378",
+      "union_building_coverage": "0.198648",
+      "feature_count": 146
+    },
+    {
+      "old_tile_name": "tile_001601",
+      "union_building_area_m2": "51510.438",
+      "union_building_coverage": "0.196497",
+      "feature_count": 252
+    },
+    {
+      "old_tile_name": "tile_001623",
+      "union_building_area_m2": "52350.105",
+      "union_building_coverage": "0.199700",
+      "feature_count": 216
+    },
+    {
+      "old_tile_name": "tile_001626",
+      "union_building_area_m2": "51660.698",
+      "union_building_coverage": "0.197070",
+      "feature_count": 198
+    },
+    {
+      "old_tile_name": "tile_001632",
+      "union_building_area_m2": "50090.112",
+      "union_building_coverage": "0.191079",
+      "feature_count": 155
+    },
+    {
+      "old_tile_name": "tile_001661",
+      "union_building_area_m2": "51171.848",
+      "union_building_coverage": "0.195205",
+      "feature_count": 544
+    },
+    {
+      "old_tile_name": "tile_001758",
+      "union_building_area_m2": "51813.054",
+      "union_building_coverage": "0.197651",
+      "feature_count": 224
+    },
+    {
+      "old_tile_name": "tile_001795",
+      "union_building_area_m2": "50332.387",
+      "union_building_coverage": "0.192003",
+      "feature_count": 854
+    },
+    {
+      "old_tile_name": "tile_001801",
+      "union_building_area_m2": "42057.023",
+      "union_building_coverage": "0.160435",
+      "feature_count": 477
+    },
+    {
+      "old_tile_name": "tile_001864",
+      "union_building_area_m2": "47482.012",
+      "union_building_coverage": "0.181130",
+      "feature_count": 245
+    },
+    {
+      "old_tile_name": "tile_001928",
+      "union_building_area_m2": "51836.508",
+      "union_building_coverage": "0.197741",
+      "feature_count": 325
+    },
+    {
+      "old_tile_name": "tile_001961",
+      "union_building_area_m2": "48246.856",
+      "union_building_coverage": "0.184047",
+      "feature_count": 359
+    },
+    {
+      "old_tile_name": "tile_001993",
+      "union_building_area_m2": "51446.475",
+      "union_building_coverage": "0.196253",
+      "feature_count": 339
+    },
+    {
+      "old_tile_name": "tile_001994",
+      "union_building_area_m2": "50512.331",
+      "union_building_coverage": "0.192689",
+      "feature_count": 353
+    },
+    {
+      "old_tile_name": "tile_001996",
+      "union_building_area_m2": "48302.400",
+      "union_building_coverage": "0.184259",
+      "feature_count": 265
+    },
+    {
+      "old_tile_name": "tile_001997",
+      "union_building_area_m2": "51617.509",
+      "union_building_coverage": "0.196905",
+      "feature_count": 164
+    },
+    {
+      "old_tile_name": "tile_002026",
+      "union_building_area_m2": "51805.234",
+      "union_building_coverage": "0.197621",
+      "feature_count": 251
+    },
+    {
+      "old_tile_name": "tile_002028",
+      "union_building_area_m2": "41629.739",
+      "union_building_coverage": "0.158805",
+      "feature_count": 595
+    },
+    {
+      "old_tile_name": "tile_002050",
+      "union_building_area_m2": "47307.946",
+      "union_building_coverage": "0.180465",
+      "feature_count": 600
+    },
+    {
+      "old_tile_name": "tile_002092",
+      "union_building_area_m2": "50986.601",
+      "union_building_coverage": "0.194498",
+      "feature_count": 164
+    },
+    {
+      "old_tile_name": "tile_002100",
+      "union_building_area_m2": "52420.793",
+      "union_building_coverage": "0.199969",
+      "feature_count": 135
+    },
+    {
+      "old_tile_name": "tile_002108",
+      "union_building_area_m2": "31337.744",
+      "union_building_coverage": "0.119544",
+      "feature_count": 661
+    },
+    {
+      "old_tile_name": "tile_002123",
+      "union_building_area_m2": "51859.973",
+      "union_building_coverage": "0.197830",
+      "feature_count": 171
+    },
+    {
+      "old_tile_name": "tile_002135",
+      "union_building_area_m2": "31248.917",
+      "union_building_coverage": "0.119205",
+      "feature_count": 747
+    },
+    {
+      "old_tile_name": "tile_002139",
+      "union_building_area_m2": "51967.580",
+      "union_building_coverage": "0.198241",
+      "feature_count": 129
+    },
+    {
+      "old_tile_name": "tile_002151",
+      "union_building_area_m2": "52416.985",
+      "union_building_coverage": "0.199955",
+      "feature_count": 95
+    },
+    {
+      "old_tile_name": "tile_002163",
+      "union_building_area_m2": "29356.880",
+      "union_building_coverage": "0.111988",
+      "feature_count": 746
+    },
+    {
+      "old_tile_name": "tile_002184",
+      "union_building_area_m2": "51919.206",
+      "union_building_coverage": "0.198056",
+      "feature_count": 221
+    },
+    {
+      "old_tile_name": "tile_002209",
+      "union_building_area_m2": "52377.702",
+      "union_building_coverage": "0.199805",
+      "feature_count": 163
+    },
+    {
+      "old_tile_name": "tile_002242",
+      "union_building_area_m2": "51123.162",
+      "union_building_coverage": "0.195019",
+      "feature_count": 419
+    },
+    {
+      "old_tile_name": "tile_002243",
+      "union_building_area_m2": "23631.872",
+      "union_building_coverage": "0.090148",
+      "feature_count": 930
+    },
+    {
+      "old_tile_name": "tile_002244",
+      "union_building_area_m2": "29471.972",
+      "union_building_coverage": "0.112427",
+      "feature_count": 810
+    },
+    {
+      "old_tile_name": "tile_002246",
+      "union_building_area_m2": "52174.747",
+      "union_building_coverage": "0.199031",
+      "feature_count": 186
+    },
+    {
+      "old_tile_name": "tile_002259",
+      "union_building_area_m2": "48499.114",
+      "union_building_coverage": "0.185009",
+      "feature_count": 444
+    },
+    {
+      "old_tile_name": "tile_002303",
+      "union_building_area_m2": "52294.784",
+      "union_building_coverage": "0.199489",
+      "feature_count": 149
+    },
+    {
+      "old_tile_name": "tile_002327",
+      "union_building_area_m2": "48456.547",
+      "union_building_coverage": "0.184847",
+      "feature_count": 264
+    },
+    {
+      "old_tile_name": "tile_002348",
+      "union_building_area_m2": "52190.914",
+      "union_building_coverage": "0.199093",
+      "feature_count": 192
+    },
+    {
+      "old_tile_name": "tile_002353",
+      "union_building_area_m2": "29507.849",
+      "union_building_coverage": "0.112564",
+      "feature_count": 776
+    },
+    {
+      "old_tile_name": "tile_002359",
+      "union_building_area_m2": "49516.019",
+      "union_building_coverage": "0.188889",
+      "feature_count": 430
+    },
+    {
+      "old_tile_name": "tile_002375",
+      "union_building_area_m2": "50940.846",
+      "union_building_coverage": "0.194324",
+      "feature_count": 267
+    },
+    {
+      "old_tile_name": "tile_002393",
+      "union_building_area_m2": "52403.899",
+      "union_building_coverage": "0.199905",
+      "feature_count": 184
+    },
+    {
+      "old_tile_name": "tile_002412",
+      "union_building_area_m2": "51849.210",
+      "union_building_coverage": "0.197789",
+      "feature_count": 210
+    },
+    {
+      "old_tile_name": "tile_002428",
+      "union_building_area_m2": "52156.335",
+      "union_building_coverage": "0.198961",
+      "feature_count": 182
+    },
+    {
+      "old_tile_name": "tile_002448",
+      "union_building_area_m2": "51998.487",
+      "union_building_coverage": "0.198358",
+      "feature_count": 361
+    },
+    {
+      "old_tile_name": "tile_002453",
+      "union_building_area_m2": "51601.757",
+      "union_building_coverage": "0.196845",
+      "feature_count": 220
+    },
+    {
+      "old_tile_name": "tile_002462",
+      "union_building_area_m2": "47884.683",
+      "union_building_coverage": "0.182666",
+      "feature_count": 354
+    },
+    {
+      "old_tile_name": "tile_002492",
+      "union_building_area_m2": "50568.760",
+      "union_building_coverage": "0.192905",
+      "feature_count": 183
+    },
+    {
+      "old_tile_name": "tile_002493",
+      "union_building_area_m2": "50624.463",
+      "union_building_coverage": "0.193117",
+      "feature_count": 310
+    },
+    {
+      "old_tile_name": "tile_002494",
+      "union_building_area_m2": "48988.834",
+      "union_building_coverage": "0.186878",
+      "feature_count": 174
+    },
+    {
+      "old_tile_name": "tile_002522",
+      "union_building_area_m2": "51485.990",
+      "union_building_coverage": "0.196403",
+      "feature_count": 392
+    },
+    {
+      "old_tile_name": "tile_002523",
+      "union_building_area_m2": "51877.433",
+      "union_building_coverage": "0.197897",
+      "feature_count": 368
+    },
+    {
+      "old_tile_name": "tile_002541",
+      "union_building_area_m2": "51818.833",
+      "union_building_coverage": "0.197673",
+      "feature_count": 635
+    },
+    {
+      "old_tile_name": "tile_002544",
+      "union_building_area_m2": "46172.913",
+      "union_building_coverage": "0.176136",
+      "feature_count": 739
+    },
+    {
+      "old_tile_name": "tile_002548",
+      "union_building_area_m2": "51003.146",
+      "union_building_coverage": "0.194562",
+      "feature_count": 99
+    },
+    {
+      "old_tile_name": "tile_002567",
+      "union_building_area_m2": "51816.006",
+      "union_building_coverage": "0.197662",
+      "feature_count": 225
+    },
+    {
+      "old_tile_name": "tile_002568",
+      "union_building_area_m2": "34175.298",
+      "union_building_coverage": "0.130368",
+      "feature_count": 344
+    },
+    {
+      "old_tile_name": "tile_002578",
+      "union_building_area_m2": "50169.200",
+      "union_building_coverage": "0.191380",
+      "feature_count": 167
+    },
+    {
+      "old_tile_name": "tile_002587",
+      "union_building_area_m2": "51065.959",
+      "union_building_coverage": "0.194801",
+      "feature_count": 310
+    },
+    {
+      "old_tile_name": "tile_002620",
+      "union_building_area_m2": "50491.683",
+      "union_building_coverage": "0.192610",
+      "feature_count": 382
+    },
+    {
+      "old_tile_name": "tile_002675",
+      "union_building_area_m2": "51874.595",
+      "union_building_coverage": "0.197886",
+      "feature_count": 397
+    },
+    {
+      "old_tile_name": "tile_002677",
+      "union_building_area_m2": "51714.841",
+      "union_building_coverage": "0.197276",
+      "feature_count": 327
+    },
+    {
+      "old_tile_name": "tile_002704",
+      "union_building_area_m2": "51592.875",
+      "union_building_coverage": "0.196811",
+      "feature_count": 297
+    },
+    {
+      "old_tile_name": "tile_002712",
+      "union_building_area_m2": "52035.437",
+      "union_building_coverage": "0.198499",
+      "feature_count": 321
+    },
+    {
+      "old_tile_name": "tile_002733",
+      "union_building_area_m2": "36482.024",
+      "union_building_coverage": "0.139168",
+      "feature_count": 705
+    },
+    {
+      "old_tile_name": "tile_002737",
+      "union_building_area_m2": "51716.820",
+      "union_building_coverage": "0.197284",
+      "feature_count": 250
+    },
+    {
+      "old_tile_name": "tile_002743",
+      "union_building_area_m2": "51987.113",
+      "union_building_coverage": "0.198315",
+      "feature_count": 265
+    },
+    {
+      "old_tile_name": "tile_002745",
+      "union_building_area_m2": "50535.887",
+      "union_building_coverage": "0.192779",
+      "feature_count": 401
+    },
+    {
+      "old_tile_name": "tile_002778",
+      "union_building_area_m2": "48614.212",
+      "union_building_coverage": "0.185449",
+      "feature_count": 483
+    },
+    {
+      "old_tile_name": "tile_002786",
+      "union_building_area_m2": "32750.051",
+      "union_building_coverage": "0.124932",
+      "feature_count": 455
+    },
+    {
+      "old_tile_name": "tile_002804",
+      "union_building_area_m2": "52216.420",
+      "union_building_coverage": "0.199190",
+      "feature_count": 77
+    },
+    {
+      "old_tile_name": "tile_002810",
+      "union_building_area_m2": "52127.837",
+      "union_building_coverage": "0.198852",
+      "feature_count": 296
+    },
+    {
+      "old_tile_name": "tile_002832",
+      "union_building_area_m2": "49537.197",
+      "union_building_coverage": "0.188969",
+      "feature_count": 354
+    },
+    {
+      "old_tile_name": "tile_002855",
+      "union_building_area_m2": "37817.748",
+      "union_building_coverage": "0.144263",
+      "feature_count": 359
+    },
+    {
+      "old_tile_name": "tile_002856",
+      "union_building_area_m2": "48852.004",
+      "union_building_coverage": "0.186356",
+      "feature_count": 401
+    },
+    {
+      "old_tile_name": "tile_002859",
+      "union_building_area_m2": "49222.241",
+      "union_building_coverage": "0.187768",
+      "feature_count": 434
+    },
+    {
+      "old_tile_name": "tile_002860",
+      "union_building_area_m2": "52092.084",
+      "union_building_coverage": "0.198716",
+      "feature_count": 302
+    },
+    {
+      "old_tile_name": "tile_002891",
+      "union_building_area_m2": "48164.872",
+      "union_building_coverage": "0.183734",
+      "feature_count": 635
+    },
+    {
+      "old_tile_name": "tile_002921",
+      "union_building_area_m2": "51100.000",
+      "union_building_coverage": "0.194931",
+      "feature_count": 336
+    },
+    {
+      "old_tile_name": "tile_002929",
+      "union_building_area_m2": "51719.345",
+      "union_building_coverage": "0.197294",
+      "feature_count": 431
+    },
+    {
+      "old_tile_name": "tile_002950",
+      "union_building_area_m2": "50397.175",
+      "union_building_coverage": "0.192250",
+      "feature_count": 376
+    },
+    {
+      "old_tile_name": "tile_002956",
+      "union_building_area_m2": "52007.510",
+      "union_building_coverage": "0.198393",
+      "feature_count": 459
+    },
+    {
+      "old_tile_name": "tile_002965",
+      "union_building_area_m2": "51793.541",
+      "union_building_coverage": "0.197577",
+      "feature_count": 212
+    },
+    {
+      "old_tile_name": "tile_002980",
+      "union_building_area_m2": "49441.651",
+      "union_building_coverage": "0.188605",
+      "feature_count": 799
+    },
+    {
+      "old_tile_name": "tile_002999",
+      "union_building_area_m2": "51895.383",
+      "union_building_coverage": "0.197965",
+      "feature_count": 427
+    },
+    {
+      "old_tile_name": "tile_003010",
+      "union_building_area_m2": "48997.725",
+      "union_building_coverage": "0.186911",
+      "feature_count": 269
+    },
+    {
+      "old_tile_name": "tile_003011",
+      "union_building_area_m2": "45075.601",
+      "union_building_coverage": "0.171950",
+      "feature_count": 275
+    },
+    {
+      "old_tile_name": "tile_003045",
+      "union_building_area_m2": "51308.678",
+      "union_building_coverage": "0.195727",
+      "feature_count": 257
+    },
+    {
+      "old_tile_name": "tile_003052",
+      "union_building_area_m2": "48378.379",
+      "union_building_coverage": "0.184549",
+      "feature_count": 381
+    },
+    {
+      "old_tile_name": "tile_003054",
+      "union_building_area_m2": "50928.814",
+      "union_building_coverage": "0.194278",
+      "feature_count": 419
+    },
+    {
+      "old_tile_name": "tile_003061",
+      "union_building_area_m2": "52378.118",
+      "union_building_coverage": "0.199807",
+      "feature_count": 413
+    },
+    {
+      "old_tile_name": "tile_003064",
+      "union_building_area_m2": "52114.655",
+      "union_building_coverage": "0.198802",
+      "feature_count": 139
+    },
+    {
+      "old_tile_name": "tile_003068",
+      "union_building_area_m2": "51923.993",
+      "union_building_coverage": "0.198074",
+      "feature_count": 449
+    },
+    {
+      "old_tile_name": "tile_003099",
+      "union_building_area_m2": "51702.943",
+      "union_building_coverage": "0.197231",
+      "feature_count": 56
+    },
+    {
+      "old_tile_name": "tile_003103",
+      "union_building_area_m2": "50352.180",
+      "union_building_coverage": "0.192078",
+      "feature_count": 306
+    },
+    {
+      "old_tile_name": "tile_003114",
+      "union_building_area_m2": "44745.797",
+      "union_building_coverage": "0.170692",
+      "feature_count": 628
+    },
+    {
+      "old_tile_name": "tile_003119",
+      "union_building_area_m2": "52256.916",
+      "union_building_coverage": "0.199344",
+      "feature_count": 430
+    },
+    {
+      "old_tile_name": "tile_003122",
+      "union_building_area_m2": "48270.718",
+      "union_building_coverage": "0.184138",
+      "feature_count": 437
+    },
+    {
+      "old_tile_name": "tile_003126",
+      "union_building_area_m2": "50994.306",
+      "union_building_coverage": "0.194528",
+      "feature_count": 874
+    },
+    {
+      "old_tile_name": "tile_003140",
+      "union_building_area_m2": "45198.569",
+      "union_building_coverage": "0.172419",
+      "feature_count": 390
+    },
+    {
+      "old_tile_name": "tile_003145",
+      "union_building_area_m2": "51476.667",
+      "union_building_coverage": "0.196368",
+      "feature_count": 341
+    },
+    {
+      "old_tile_name": "tile_003154",
+      "union_building_area_m2": "50847.807",
+      "union_building_coverage": "0.193969",
+      "feature_count": 352
+    },
+    {
+      "old_tile_name": "tile_003155",
+      "union_building_area_m2": "51613.441",
+      "union_building_coverage": "0.196890",
+      "feature_count": 420
+    },
+    {
+      "old_tile_name": "tile_003159",
+      "union_building_area_m2": "45745.941",
+      "union_building_coverage": "0.174507",
+      "feature_count": 812
+    },
+    {
+      "old_tile_name": "tile_003161",
+      "union_building_area_m2": "49755.868",
+      "union_building_coverage": "0.189804",
+      "feature_count": 216
+    },
+    {
+      "old_tile_name": "tile_003166",
+      "union_building_area_m2": "38301.518",
+      "union_building_coverage": "0.146109",
+      "feature_count": 556
+    },
+    {
+      "old_tile_name": "tile_003171",
+      "union_building_area_m2": "49321.444",
+      "union_building_coverage": "0.188146",
+      "feature_count": 230
+    },
+    {
+      "old_tile_name": "tile_003176",
+      "union_building_area_m2": "45458.860",
+      "union_building_coverage": "0.173412",
+      "feature_count": 310
+    },
+    {
+      "old_tile_name": "tile_003187",
+      "union_building_area_m2": "47664.046",
+      "union_building_coverage": "0.181824",
+      "feature_count": 614
+    },
+    {
+      "old_tile_name": "tile_003193",
+      "union_building_area_m2": "46985.317",
+      "union_building_coverage": "0.179235",
+      "feature_count": 550
+    },
+    {
+      "old_tile_name": "tile_003229",
+      "union_building_area_m2": "50817.831",
+      "union_building_coverage": "0.193855",
+      "feature_count": 305
+    },
+    {
+      "old_tile_name": "tile_003230",
+      "union_building_area_m2": "48746.002",
+      "union_building_coverage": "0.185951",
+      "feature_count": 363
+    },
+    {
+      "old_tile_name": "tile_003246",
+      "union_building_area_m2": "49019.413",
+      "union_building_coverage": "0.186994",
+      "feature_count": 442
+    },
+    {
+      "old_tile_name": "tile_003249",
+      "union_building_area_m2": "48898.831",
+      "union_building_coverage": "0.186534",
+      "feature_count": 528
+    },
+    {
+      "old_tile_name": "tile_003256",
+      "union_building_area_m2": "50557.830",
+      "union_building_coverage": "0.192863",
+      "feature_count": 351
+    },
+    {
+      "old_tile_name": "tile_003271",
+      "union_building_area_m2": "41201.417",
+      "union_building_coverage": "0.157171",
+      "feature_count": 575
+    },
+    {
+      "old_tile_name": "tile_003275",
+      "union_building_area_m2": "51096.207",
+      "union_building_coverage": "0.194917",
+      "feature_count": 434
+    },
+    {
+      "old_tile_name": "tile_003289",
+      "union_building_area_m2": "48922.124",
+      "union_building_coverage": "0.186623",
+      "feature_count": 343
+    },
+    {
+      "old_tile_name": "tile_003299",
+      "union_building_area_m2": "52190.905",
+      "union_building_coverage": "0.199093",
+      "feature_count": 597
+    },
+    {
+      "old_tile_name": "tile_003307",
+      "union_building_area_m2": "49748.479",
+      "union_building_coverage": "0.189775",
+      "feature_count": 1189
+    },
+    {
+      "old_tile_name": "tile_003312",
+      "union_building_area_m2": "48783.171",
+      "union_building_coverage": "0.186093",
+      "feature_count": 727
+    },
+    {
+      "old_tile_name": "tile_003320",
+      "union_building_area_m2": "51167.125",
+      "union_building_coverage": "0.195187",
+      "feature_count": 290
+    },
+    {
+      "old_tile_name": "tile_003324",
+      "union_building_area_m2": "52190.721",
+      "union_building_coverage": "0.199092",
+      "feature_count": 154
+    },
+    {
+      "old_tile_name": "tile_003326",
+      "union_building_area_m2": "48639.090",
+      "union_building_coverage": "0.185543",
+      "feature_count": 410
+    },
+    {
+      "old_tile_name": "tile_003329",
+      "union_building_area_m2": "51044.795",
+      "union_building_coverage": "0.194720",
+      "feature_count": 458
+    },
+    {
+      "old_tile_name": "tile_003332",
+      "union_building_area_m2": "50695.835",
+      "union_building_coverage": "0.193389",
+      "feature_count": 428
+    },
+    {
+      "old_tile_name": "tile_003346",
+      "union_building_area_m2": "40210.640",
+      "union_building_coverage": "0.153391",
+      "feature_count": 310
+    },
+    {
+      "old_tile_name": "tile_003350",
+      "union_building_area_m2": "44820.624",
+      "union_building_coverage": "0.170977",
+      "feature_count": 909
+    },
+    {
+      "old_tile_name": "tile_003352",
+      "union_building_area_m2": "44996.966",
+      "union_building_coverage": "0.171650",
+      "feature_count": 454
+    },
+    {
+      "old_tile_name": "tile_003354",
+      "union_building_area_m2": "49057.538",
+      "union_building_coverage": "0.187140",
+      "feature_count": 319
+    },
+    {
+      "old_tile_name": "tile_003357",
+      "union_building_area_m2": "51595.445",
+      "union_building_coverage": "0.196821",
+      "feature_count": 378
+    },
+    {
+      "old_tile_name": "tile_003358",
+      "union_building_area_m2": "50722.347",
+      "union_building_coverage": "0.193490",
+      "feature_count": 399
+    },
+    {
+      "old_tile_name": "tile_003364",
+      "union_building_area_m2": "47234.153",
+      "union_building_coverage": "0.180184",
+      "feature_count": 293
+    },
+    {
+      "old_tile_name": "tile_003368",
+      "union_building_area_m2": "50039.448",
+      "union_building_coverage": "0.190885",
+      "feature_count": 350
+    },
+    {
+      "old_tile_name": "tile_003373",
+      "union_building_area_m2": "47038.571",
+      "union_building_coverage": "0.179438",
+      "feature_count": 345
+    },
+    {
+      "old_tile_name": "tile_003375",
+      "union_building_area_m2": "42644.747",
+      "union_building_coverage": "0.162677",
+      "feature_count": 664
+    },
+    {
+      "old_tile_name": "tile_003376",
+      "union_building_area_m2": "44609.272",
+      "union_building_coverage": "0.170171",
+      "feature_count": 604
+    },
+    {
+      "old_tile_name": "tile_003378",
+      "union_building_area_m2": "52142.825",
+      "union_building_coverage": "0.198909",
+      "feature_count": 392
+    },
+    {
+      "old_tile_name": "tile_003380",
+      "union_building_area_m2": "50860.671",
+      "union_building_coverage": "0.194018",
+      "feature_count": 315
+    },
+    {
+      "old_tile_name": "tile_003384",
+      "union_building_area_m2": "29473.612",
+      "union_building_coverage": "0.112433",
+      "feature_count": 531
+    },
+    {
+      "old_tile_name": "tile_003385",
+      "union_building_area_m2": "52110.418",
+      "union_building_coverage": "0.198785",
+      "feature_count": 423
+    },
+    {
+      "old_tile_name": "tile_003390",
+      "union_building_area_m2": "49094.255",
+      "union_building_coverage": "0.187280",
+      "feature_count": 538
+    },
+    {
+      "old_tile_name": "tile_003394",
+      "union_building_area_m2": "43550.955",
+      "union_building_coverage": "0.166134",
+      "feature_count": 320
+    },
+    {
+      "old_tile_name": "tile_003395",
+      "union_building_area_m2": "45323.116",
+      "union_building_coverage": "0.172894",
+      "feature_count": 454
+    },
+    {
+      "old_tile_name": "tile_003402",
+      "union_building_area_m2": "41062.965",
+      "union_building_coverage": "0.156643",
+      "feature_count": 279
+    },
+    {
+      "old_tile_name": "tile_003403",
+      "union_building_area_m2": "46521.587",
+      "union_building_coverage": "0.177466",
+      "feature_count": 523
+    },
+    {
+      "old_tile_name": "tile_003405",
+      "union_building_area_m2": "35140.346",
+      "union_building_coverage": "0.134050",
+      "feature_count": 682
+    },
+    {
+      "old_tile_name": "tile_003406",
+      "union_building_area_m2": "42995.865",
+      "union_building_coverage": "0.164016",
+      "feature_count": 346
+    },
+    {
+      "old_tile_name": "tile_003411",
+      "union_building_area_m2": "33794.693",
+      "union_building_coverage": "0.128917",
+      "feature_count": 475
+    },
+    {
+      "old_tile_name": "tile_003413",
+      "union_building_area_m2": "51691.535",
+      "union_building_coverage": "0.197188",
+      "feature_count": 376
+    },
+    {
+      "old_tile_name": "tile_003423",
+      "union_building_area_m2": "28113.214",
+      "union_building_coverage": "0.107243",
+      "feature_count": 911
+    },
+    {
+      "old_tile_name": "tile_003431",
+      "union_building_area_m2": "52186.348",
+      "union_building_coverage": "0.199075",
+      "feature_count": 386
+    },
+    {
+      "old_tile_name": "tile_003434",
+      "union_building_area_m2": "42998.735",
+      "union_building_coverage": "0.164027",
+      "feature_count": 352
+    },
+    {
+      "old_tile_name": "tile_003437",
+      "union_building_area_m2": "39744.227",
+      "union_building_coverage": "0.151612",
+      "feature_count": 548
+    },
+    {
+      "old_tile_name": "tile_003446",
+      "union_building_area_m2": "49854.290",
+      "union_building_coverage": "0.190179",
+      "feature_count": 333
+    },
+    {
+      "old_tile_name": "tile_003448",
+      "union_building_area_m2": "45687.187",
+      "union_building_coverage": "0.174283",
+      "feature_count": 494
+    },
+    {
+      "old_tile_name": "tile_003449",
+      "union_building_area_m2": "43657.612",
+      "union_building_coverage": "0.166541",
+      "feature_count": 712
+    },
+    {
+      "old_tile_name": "tile_003450",
+      "union_building_area_m2": "32742.826",
+      "union_building_coverage": "0.124904",
+      "feature_count": 812
+    },
+    {
+      "old_tile_name": "tile_003457",
+      "union_building_area_m2": "47100.692",
+      "union_building_coverage": "0.179675",
+      "feature_count": 279
+    },
+    {
+      "old_tile_name": "tile_003459",
+      "union_building_area_m2": "38917.690",
+      "union_building_coverage": "0.148459",
+      "feature_count": 476
+    },
+    {
+      "old_tile_name": "tile_003464",
+      "union_building_area_m2": "51398.362",
+      "union_building_coverage": "0.196069",
+      "feature_count": 285
+    },
+    {
+      "old_tile_name": "tile_003465",
+      "union_building_area_m2": "41888.302",
+      "union_building_coverage": "0.159791",
+      "feature_count": 461
+    },
+    {
+      "old_tile_name": "tile_003466",
+      "union_building_area_m2": "48156.032",
+      "union_building_coverage": "0.183701",
+      "feature_count": 599
+    },
+    {
+      "old_tile_name": "tile_003467",
+      "union_building_area_m2": "41949.810",
+      "union_building_coverage": "0.160026",
+      "feature_count": 517
+    },
+    {
+      "old_tile_name": "tile_003468",
+      "union_building_area_m2": "46705.615",
+      "union_building_coverage": "0.178168",
+      "feature_count": 275
+    },
+    {
+      "old_tile_name": "tile_003469",
+      "union_building_area_m2": "47237.264",
+      "union_building_coverage": "0.180196",
+      "feature_count": 299
+    },
+    {
+      "old_tile_name": "tile_003471",
+      "union_building_area_m2": "51601.215",
+      "union_building_coverage": "0.196843",
+      "feature_count": 454
+    },
+    {
+      "old_tile_name": "tile_003472",
+      "union_building_area_m2": "40899.259",
+      "union_building_coverage": "0.156018",
+      "feature_count": 392
+    },
+    {
+      "old_tile_name": "tile_003476",
+      "union_building_area_m2": "44140.796",
+      "union_building_coverage": "0.168384",
+      "feature_count": 468
+    },
+    {
+      "old_tile_name": "tile_003477",
+      "union_building_area_m2": "40047.759",
+      "union_building_coverage": "0.152770",
+      "feature_count": 880
+    },
+    {
+      "old_tile_name": "tile_003481",
+      "union_building_area_m2": "44580.096",
+      "union_building_coverage": "0.170060",
+      "feature_count": 529
+    },
+    {
+      "old_tile_name": "tile_003487",
+      "union_building_area_m2": "45863.568",
+      "union_building_coverage": "0.174956",
+      "feature_count": 583
+    },
+    {
+      "old_tile_name": "tile_003488",
+      "union_building_area_m2": "43038.499",
+      "union_building_coverage": "0.164179",
+      "feature_count": 594
+    },
+    {
+      "old_tile_name": "tile_003491",
+      "union_building_area_m2": "48897.495",
+      "union_building_coverage": "0.186529",
+      "feature_count": 360
+    },
+    {
+      "old_tile_name": "tile_003493",
+      "union_building_area_m2": "50849.936",
+      "union_building_coverage": "0.193977",
+      "feature_count": 281
+    },
+    {
+      "old_tile_name": "tile_003496",
+      "union_building_area_m2": "43148.084",
+      "union_building_coverage": "0.164597",
+      "feature_count": 322
+    },
+    {
+      "old_tile_name": "tile_003507",
+      "union_building_area_m2": "51976.651",
+      "union_building_coverage": "0.198275",
+      "feature_count": 1174
+    },
+    {
+      "old_tile_name": "tile_003513",
+      "union_building_area_m2": "50131.522",
+      "union_building_coverage": "0.191237",
+      "feature_count": 375
+    },
+    {
+      "old_tile_name": "tile_003519",
+      "union_building_area_m2": "43575.001",
+      "union_building_coverage": "0.166225",
+      "feature_count": 568
+    },
+    {
+      "old_tile_name": "tile_003522",
+      "union_building_area_m2": "51932.747",
+      "union_building_coverage": "0.198108",
+      "feature_count": 408
+    },
+    {
+      "old_tile_name": "tile_003527",
+      "union_building_area_m2": "46182.017",
+      "union_building_coverage": "0.176170",
+      "feature_count": 292
+    },
+    {
+      "old_tile_name": "tile_003528",
+      "union_building_area_m2": "43778.065",
+      "union_building_coverage": "0.167000",
+      "feature_count": 385
+    },
+    {
+      "old_tile_name": "tile_003531",
+      "union_building_area_m2": "34642.934",
+      "union_building_coverage": "0.132152",
+      "feature_count": 541
+    },
+    {
+      "old_tile_name": "tile_003533",
+      "union_building_area_m2": "46230.190",
+      "union_building_coverage": "0.176354",
+      "feature_count": 397
+    },
+    {
+      "old_tile_name": "tile_003535",
+      "union_building_area_m2": "51240.186",
+      "union_building_coverage": "0.195466",
+      "feature_count": 268
+    },
+    {
+      "old_tile_name": "tile_003543",
+      "union_building_area_m2": "46078.374",
+      "union_building_coverage": "0.175775",
+      "feature_count": 685
+    },
+    {
+      "old_tile_name": "tile_003547",
+      "union_building_area_m2": "52398.545",
+      "union_building_coverage": "0.199885",
+      "feature_count": 136
+    },
+    {
+      "old_tile_name": "tile_003562",
+      "union_building_area_m2": "51726.489",
+      "union_building_coverage": "0.197321",
+      "feature_count": 382
+    },
+    {
+      "old_tile_name": "tile_003563",
+      "union_building_area_m2": "49881.341",
+      "union_building_coverage": "0.190282",
+      "feature_count": 381
+    },
+    {
+      "old_tile_name": "tile_003564",
+      "union_building_area_m2": "46058.416",
+      "union_building_coverage": "0.175699",
+      "feature_count": 1065
+    },
+    {
+      "old_tile_name": "tile_003565",
+      "union_building_area_m2": "43040.947",
+      "union_building_coverage": "0.164188",
+      "feature_count": 450
+    },
+    {
+      "old_tile_name": "tile_003568",
+      "union_building_area_m2": "52425.162",
+      "union_building_coverage": "0.199986",
+      "feature_count": 253
+    },
+    {
+      "old_tile_name": "tile_003575",
+      "union_building_area_m2": "50790.058",
+      "union_building_coverage": "0.193749",
+      "feature_count": 418
+    },
+    {
+      "old_tile_name": "tile_003577",
+      "union_building_area_m2": "50799.056",
+      "union_building_coverage": "0.193783",
+      "feature_count": 335
+    },
+    {
+      "old_tile_name": "tile_003578",
+      "union_building_area_m2": "30622.177",
+      "union_building_coverage": "0.116814",
+      "feature_count": 881
+    },
+    {
+      "old_tile_name": "tile_003593",
+      "union_building_area_m2": "45386.541",
+      "union_building_coverage": "0.173136",
+      "feature_count": 649
+    },
+    {
+      "old_tile_name": "tile_003602",
+      "union_building_area_m2": "35779.027",
+      "union_building_coverage": "0.136486",
+      "feature_count": 489
+    },
+    {
+      "old_tile_name": "tile_003610",
+      "union_building_area_m2": "49794.684",
+      "union_building_coverage": "0.189952",
+      "feature_count": 244
+    },
+    {
+      "old_tile_name": "tile_003617",
+      "union_building_area_m2": "47919.870",
+      "union_building_coverage": "0.182800",
+      "feature_count": 451
+    },
+    {
+      "old_tile_name": "tile_003620",
+      "union_building_area_m2": "51748.973",
+      "union_building_coverage": "0.197407",
+      "feature_count": 349
+    },
+    {
+      "old_tile_name": "tile_003622",
+      "union_building_area_m2": "48922.888",
+      "union_building_coverage": "0.186626",
+      "feature_count": 295
+    },
+    {
+      "old_tile_name": "tile_003623",
+      "union_building_area_m2": "34054.617",
+      "union_building_coverage": "0.129908",
+      "feature_count": 878
+    },
+    {
+      "old_tile_name": "tile_003636",
+      "union_building_area_m2": "52129.896",
+      "union_building_coverage": "0.198860",
+      "feature_count": 328
+    },
+    {
+      "old_tile_name": "tile_003639",
+      "union_building_area_m2": "38384.848",
+      "union_building_coverage": "0.146427",
+      "feature_count": 801
+    },
+    {
+      "old_tile_name": "tile_003647",
+      "union_building_area_m2": "43639.370",
+      "union_building_coverage": "0.166471",
+      "feature_count": 824
+    },
+    {
+      "old_tile_name": "tile_003650",
+      "union_building_area_m2": "50008.472",
+      "union_building_coverage": "0.190767",
+      "feature_count": 335
+    },
+    {
+      "old_tile_name": "tile_003653",
+      "union_building_area_m2": "51565.411",
+      "union_building_coverage": "0.196706",
+      "feature_count": 221
+    },
+    {
+      "old_tile_name": "tile_003659",
+      "union_building_area_m2": "41970.773",
+      "union_building_coverage": "0.160106",
+      "feature_count": 330
+    },
+    {
+      "old_tile_name": "tile_003667",
+      "union_building_area_m2": "46893.625",
+      "union_building_coverage": "0.178885",
+      "feature_count": 409
+    },
+    {
+      "old_tile_name": "tile_003669",
+      "union_building_area_m2": "52379.040",
+      "union_building_coverage": "0.199810",
+      "feature_count": 445
+    },
+    {
+      "old_tile_name": "tile_003673",
+      "union_building_area_m2": "35751.702",
+      "union_building_coverage": "0.136382",
+      "feature_count": 630
+    },
+    {
+      "old_tile_name": "tile_003677",
+      "union_building_area_m2": "52187.660",
+      "union_building_coverage": "0.199080",
+      "feature_count": 904
+    },
+    {
+      "old_tile_name": "tile_003678",
+      "union_building_area_m2": "51870.855",
+      "union_building_coverage": "0.197872",
+      "feature_count": 348
+    },
+    {
+      "old_tile_name": "tile_003679",
+      "union_building_area_m2": "42666.138",
+      "union_building_coverage": "0.162758",
+      "feature_count": 425
+    },
+    {
+      "old_tile_name": "tile_003680",
+      "union_building_area_m2": "44568.459",
+      "union_building_coverage": "0.170015",
+      "feature_count": 405
+    },
+    {
+      "old_tile_name": "tile_003682",
+      "union_building_area_m2": "32008.687",
+      "union_building_coverage": "0.122103",
+      "feature_count": 342
+    },
+    {
+      "old_tile_name": "tile_003690",
+      "union_building_area_m2": "51665.501",
+      "union_building_coverage": "0.197088",
+      "feature_count": 398
+    },
+    {
+      "old_tile_name": "tile_003695",
+      "union_building_area_m2": "45805.929",
+      "union_building_coverage": "0.174736",
+      "feature_count": 761
+    },
+    {
+      "old_tile_name": "tile_003697",
+      "union_building_area_m2": "46768.839",
+      "union_building_coverage": "0.178409",
+      "feature_count": 277
+    },
+    {
+      "old_tile_name": "tile_003704",
+      "union_building_area_m2": "52121.135",
+      "union_building_coverage": "0.198826",
+      "feature_count": 181
+    },
+    {
+      "old_tile_name": "tile_003706",
+      "union_building_area_m2": "51024.214",
+      "union_building_coverage": "0.194642",
+      "feature_count": 341
+    },
+    {
+      "old_tile_name": "tile_003708",
+      "union_building_area_m2": "51898.849",
+      "union_building_coverage": "0.197978",
+      "feature_count": 358
+    },
+    {
+      "old_tile_name": "tile_003709",
+      "union_building_area_m2": "45133.833",
+      "union_building_coverage": "0.172172",
+      "feature_count": 542
+    },
+    {
+      "old_tile_name": "tile_003711",
+      "union_building_area_m2": "49482.920",
+      "union_building_coverage": "0.188762",
+      "feature_count": 388
+    },
+    {
+      "old_tile_name": "tile_003712",
+      "union_building_area_m2": "39327.610",
+      "union_building_coverage": "0.150023",
+      "feature_count": 561
+    },
+    {
+      "old_tile_name": "tile_003713",
+      "union_building_area_m2": "36701.677",
+      "union_building_coverage": "0.140006",
+      "feature_count": 364
+    },
+    {
+      "old_tile_name": "tile_003718",
+      "union_building_area_m2": "43084.113",
+      "union_building_coverage": "0.164353",
+      "feature_count": 447
+    },
+    {
+      "old_tile_name": "tile_003719",
+      "union_building_area_m2": "33889.521",
+      "union_building_coverage": "0.129278",
+      "feature_count": 562
+    },
+    {
+      "old_tile_name": "tile_003720",
+      "union_building_area_m2": "29409.336",
+      "union_building_coverage": "0.112188",
+      "feature_count": 692
+    },
+    {
+      "old_tile_name": "tile_003721",
+      "union_building_area_m2": "32445.041",
+      "union_building_coverage": "0.123768",
+      "feature_count": 554
+    },
+    {
+      "old_tile_name": "tile_003722",
+      "union_building_area_m2": "39120.842",
+      "union_building_coverage": "0.149234",
+      "feature_count": 430
+    },
+    {
+      "old_tile_name": "tile_003727",
+      "union_building_area_m2": "38469.279",
+      "union_building_coverage": "0.146749",
+      "feature_count": 913
+    },
+    {
+      "old_tile_name": "tile_003728",
+      "union_building_area_m2": "42073.891",
+      "union_building_coverage": "0.160499",
+      "feature_count": 907
+    },
+    {
+      "old_tile_name": "tile_003729",
+      "union_building_area_m2": "41159.545",
+      "union_building_coverage": "0.157011",
+      "feature_count": 630
+    },
+    {
+      "old_tile_name": "tile_003732",
+      "union_building_area_m2": "52220.616",
+      "union_building_coverage": "0.199206",
+      "feature_count": 426
+    },
+    {
+      "old_tile_name": "tile_003736",
+      "union_building_area_m2": "36649.001",
+      "union_building_coverage": "0.139805",
+      "feature_count": 468
+    },
+    {
+      "old_tile_name": "tile_003740",
+      "union_building_area_m2": "50522.407",
+      "union_building_coverage": "0.192728",
+      "feature_count": 796
+    },
+    {
+      "old_tile_name": "tile_003741",
+      "union_building_area_m2": "50850.713",
+      "union_building_coverage": "0.193980",
+      "feature_count": 357
+    },
+    {
+      "old_tile_name": "tile_003742",
+      "union_building_area_m2": "50394.270",
+      "union_building_coverage": "0.192239",
+      "feature_count": 376
+    },
+    {
+      "old_tile_name": "tile_003743",
+      "union_building_area_m2": "45974.018",
+      "union_building_coverage": "0.175377",
+      "feature_count": 351
+    },
+    {
+      "old_tile_name": "tile_003744",
+      "union_building_area_m2": "49152.362",
+      "union_building_coverage": "0.187501",
+      "feature_count": 547
+    },
+    {
+      "old_tile_name": "tile_003751",
+      "union_building_area_m2": "49430.458",
+      "union_building_coverage": "0.188562",
+      "feature_count": 482
+    },
+    {
+      "old_tile_name": "tile_003752",
+      "union_building_area_m2": "26316.212",
+      "union_building_coverage": "0.100388",
+      "feature_count": 848
+    },
+    {
+      "old_tile_name": "tile_003753",
+      "union_building_area_m2": "36301.395",
+      "union_building_coverage": "0.138479",
+      "feature_count": 481
+    },
+    {
+      "old_tile_name": "tile_003756",
+      "union_building_area_m2": "49745.106",
+      "union_building_coverage": "0.189763",
+      "feature_count": 760
+    },
+    {
+      "old_tile_name": "tile_003757",
+      "union_building_area_m2": "51637.997",
+      "union_building_coverage": "0.196983",
+      "feature_count": 319
+    },
+    {
+      "old_tile_name": "tile_003765",
+      "union_building_area_m2": "30833.703",
+      "union_building_coverage": "0.117621",
+      "feature_count": 1326
+    },
+    {
+      "old_tile_name": "tile_003772",
+      "union_building_area_m2": "42551.589",
+      "union_building_coverage": "0.162321",
+      "feature_count": 542
+    },
+    {
+      "old_tile_name": "tile_003774",
+      "union_building_area_m2": "48855.238",
+      "union_building_coverage": "0.186368",
+      "feature_count": 696
+    },
+    {
+      "old_tile_name": "tile_003777",
+      "union_building_area_m2": "50067.097",
+      "union_building_coverage": "0.190991",
+      "feature_count": 380
+    },
+    {
+      "old_tile_name": "tile_003778",
+      "union_building_area_m2": "47909.783",
+      "union_building_coverage": "0.182761",
+      "feature_count": 923
+    },
+    {
+      "old_tile_name": "tile_003781",
+      "union_building_area_m2": "48591.511",
+      "union_building_coverage": "0.185362",
+      "feature_count": 433
+    },
+    {
+      "old_tile_name": "tile_003791",
+      "union_building_area_m2": "41988.417",
+      "union_building_coverage": "0.160173",
+      "feature_count": 476
+    },
+    {
+      "old_tile_name": "tile_003792",
+      "union_building_area_m2": "35420.104",
+      "union_building_coverage": "0.135117",
+      "feature_count": 477
+    },
+    {
+      "old_tile_name": "tile_003794",
+      "union_building_area_m2": "45924.447",
+      "union_building_coverage": "0.175188",
+      "feature_count": 256
+    },
+    {
+      "old_tile_name": "tile_003803",
+      "union_building_area_m2": "42769.387",
+      "union_building_coverage": "0.163152",
+      "feature_count": 492
+    },
+    {
+      "old_tile_name": "tile_003804",
+      "union_building_area_m2": "40330.497",
+      "union_building_coverage": "0.153849",
+      "feature_count": 419
+    },
+    {
+      "old_tile_name": "tile_003805",
+      "union_building_area_m2": "50457.724",
+      "union_building_coverage": "0.192481",
+      "feature_count": 360
+    },
+    {
+      "old_tile_name": "tile_003807",
+      "union_building_area_m2": "42739.208",
+      "union_building_coverage": "0.163037",
+      "feature_count": 580
+    },
+    {
+      "old_tile_name": "tile_003817",
+      "union_building_area_m2": "27534.474",
+      "union_building_coverage": "0.105036",
+      "feature_count": 1242
+    },
+    {
+      "old_tile_name": "tile_003818",
+      "union_building_area_m2": "40292.168",
+      "union_building_coverage": "0.153702",
+      "feature_count": 640
+    },
+    {
+      "old_tile_name": "tile_003819",
+      "union_building_area_m2": "46431.789",
+      "union_building_coverage": "0.177123",
+      "feature_count": 514
+    },
+    {
+      "old_tile_name": "tile_003820",
+      "union_building_area_m2": "48895.670",
+      "union_building_coverage": "0.186522",
+      "feature_count": 384
+    },
+    {
+      "old_tile_name": "tile_003823",
+      "union_building_area_m2": "22609.174",
+      "union_building_coverage": "0.086247",
+      "feature_count": 1150
+    },
+    {
+      "old_tile_name": "tile_003824",
+      "union_building_area_m2": "50086.282",
+      "union_building_coverage": "0.191064",
+      "feature_count": 763
+    },
+    {
+      "old_tile_name": "tile_003825",
+      "union_building_area_m2": "49028.233",
+      "union_building_coverage": "0.187028",
+      "feature_count": 625
+    },
+    {
+      "old_tile_name": "tile_003827",
+      "union_building_area_m2": "23184.942",
+      "union_building_coverage": "0.088444",
+      "feature_count": 676
+    },
+    {
+      "old_tile_name": "tile_003828",
+      "union_building_area_m2": "23391.107",
+      "union_building_coverage": "0.089230",
+      "feature_count": 858
+    },
+    {
+      "old_tile_name": "tile_003829",
+      "union_building_area_m2": "40839.055",
+      "union_building_coverage": "0.155789",
+      "feature_count": 598
+    },
+    {
+      "old_tile_name": "tile_003831",
+      "union_building_area_m2": "42215.887",
+      "union_building_coverage": "0.161041",
+      "feature_count": 872
+    },
+    {
+      "old_tile_name": "tile_003832",
+      "union_building_area_m2": "37487.837",
+      "union_building_coverage": "0.143005",
+      "feature_count": 994
+    },
+    {
+      "old_tile_name": "tile_003833",
+      "union_building_area_m2": "43647.691",
+      "union_building_coverage": "0.166503",
+      "feature_count": 887
+    },
+    {
+      "old_tile_name": "tile_003834",
+      "union_building_area_m2": "33920.841",
+      "union_building_coverage": "0.129398",
+      "feature_count": 730
+    },
+    {
+      "old_tile_name": "tile_003835",
+      "union_building_area_m2": "37759.978",
+      "union_building_coverage": "0.144043",
+      "feature_count": 839
+    },
+    {
+      "old_tile_name": "tile_003837",
+      "union_building_area_m2": "35650.700",
+      "union_building_coverage": "0.135997",
+      "feature_count": 510
+    },
+    {
+      "old_tile_name": "tile_003839",
+      "union_building_area_m2": "51003.433",
+      "union_building_coverage": "0.194563",
+      "feature_count": 403
+    },
+    {
+      "old_tile_name": "tile_003840",
+      "union_building_area_m2": "21074.199",
+      "union_building_coverage": "0.080392",
+      "feature_count": 1072
+    },
+    {
+      "old_tile_name": "tile_003842",
+      "union_building_area_m2": "40458.357",
+      "union_building_coverage": "0.154336",
+      "feature_count": 676
+    },
+    {
+      "old_tile_name": "tile_003845",
+      "union_building_area_m2": "40799.581",
+      "union_building_coverage": "0.155638",
+      "feature_count": 296
+    },
+    {
+      "old_tile_name": "tile_003846",
+      "union_building_area_m2": "34953.895",
+      "union_building_coverage": "0.133339",
+      "feature_count": 556
+    },
+    {
+      "old_tile_name": "tile_003847",
+      "union_building_area_m2": "39807.969",
+      "union_building_coverage": "0.151855",
+      "feature_count": 637
+    },
+    {
+      "old_tile_name": "tile_003849",
+      "union_building_area_m2": "49453.614",
+      "union_building_coverage": "0.188651",
+      "feature_count": 375
+    },
+    {
+      "old_tile_name": "tile_003853",
+      "union_building_area_m2": "50522.126",
+      "union_building_coverage": "0.192727",
+      "feature_count": 567
+    },
+    {
+      "old_tile_name": "tile_003856",
+      "union_building_area_m2": "49257.012",
+      "union_building_coverage": "0.187901",
+      "feature_count": 955
+    },
+    {
+      "old_tile_name": "tile_003858",
+      "union_building_area_m2": "41995.183",
+      "union_building_coverage": "0.160199",
+      "feature_count": 360
+    },
+    {
+      "old_tile_name": "tile_003860",
+      "union_building_area_m2": "39527.244",
+      "union_building_coverage": "0.150784",
+      "feature_count": 271
+    },
+    {
+      "old_tile_name": "tile_003861",
+      "union_building_area_m2": "35383.606",
+      "union_building_coverage": "0.134978",
+      "feature_count": 753
+    },
+    {
+      "old_tile_name": "tile_003862",
+      "union_building_area_m2": "27556.608",
+      "union_building_coverage": "0.105120",
+      "feature_count": 643
+    },
+    {
+      "old_tile_name": "tile_003863",
+      "union_building_area_m2": "41836.080",
+      "union_building_coverage": "0.159592",
+      "feature_count": 447
+    },
+    {
+      "old_tile_name": "tile_003864",
+      "union_building_area_m2": "46939.801",
+      "union_building_coverage": "0.179061",
+      "feature_count": 773
+    },
+    {
+      "old_tile_name": "tile_003865",
+      "union_building_area_m2": "38448.965",
+      "union_building_coverage": "0.146671",
+      "feature_count": 434
+    },
+    {
+      "old_tile_name": "tile_003866",
+      "union_building_area_m2": "33289.682",
+      "union_building_coverage": "0.126990",
+      "feature_count": 423
+    },
+    {
+      "old_tile_name": "tile_003867",
+      "union_building_area_m2": "37685.652",
+      "union_building_coverage": "0.143759",
+      "feature_count": 895
+    },
+    {
+      "old_tile_name": "tile_003868",
+      "union_building_area_m2": "30212.113",
+      "union_building_coverage": "0.115250",
+      "feature_count": 845
+    },
+    {
+      "old_tile_name": "tile_003870",
+      "union_building_area_m2": "33711.638",
+      "union_building_coverage": "0.128600",
+      "feature_count": 1235
+    },
+    {
+      "old_tile_name": "tile_003871",
+      "union_building_area_m2": "51133.900",
+      "union_building_coverage": "0.195060",
+      "feature_count": 685
+    },
+    {
+      "old_tile_name": "tile_003873",
+      "union_building_area_m2": "25820.706",
+      "union_building_coverage": "0.098498",
+      "feature_count": 559
+    },
+    {
+      "old_tile_name": "tile_003874",
+      "union_building_area_m2": "27022.981",
+      "union_building_coverage": "0.103084",
+      "feature_count": 499
+    },
+    {
+      "old_tile_name": "tile_003875",
+      "union_building_area_m2": "23275.338",
+      "union_building_coverage": "0.088788",
+      "feature_count": 719
+    },
+    {
+      "old_tile_name": "tile_003876",
+      "union_building_area_m2": "43291.661",
+      "union_building_coverage": "0.165145",
+      "feature_count": 497
+    },
+    {
+      "old_tile_name": "tile_003877",
+      "union_building_area_m2": "28556.874",
+      "union_building_coverage": "0.108936",
+      "feature_count": 1439
+    },
+    {
+      "old_tile_name": "tile_003878",
+      "union_building_area_m2": "45644.636",
+      "union_building_coverage": "0.174120",
+      "feature_count": 1017
+    },
+    {
+      "old_tile_name": "tile_003879",
+      "union_building_area_m2": "21120.557",
+      "union_building_coverage": "0.080569",
+      "feature_count": 921
+    },
+    {
+      "old_tile_name": "tile_003882",
+      "union_building_area_m2": "28437.603",
+      "union_building_coverage": "0.108481",
+      "feature_count": 962
+    },
+    {
+      "old_tile_name": "tile_003883",
+      "union_building_area_m2": "42996.921",
+      "union_building_coverage": "0.164020",
+      "feature_count": 923
+    },
+    {
+      "old_tile_name": "tile_003884",
+      "union_building_area_m2": "40944.678",
+      "union_building_coverage": "0.156192",
+      "feature_count": 581
+    },
+    {
+      "old_tile_name": "tile_003885",
+      "union_building_area_m2": "40834.142",
+      "union_building_coverage": "0.155770",
+      "feature_count": 1159
+    },
+    {
+      "old_tile_name": "tile_003886",
+      "union_building_area_m2": "19298.247",
+      "union_building_coverage": "0.073617",
+      "feature_count": 876
+    },
+    {
+      "old_tile_name": "tile_003887",
+      "union_building_area_m2": "21451.202",
+      "union_building_coverage": "0.081830",
+      "feature_count": 919
+    },
+    {
+      "old_tile_name": "tile_003888",
+      "union_building_area_m2": "29050.472",
+      "union_building_coverage": "0.110819",
+      "feature_count": 1068
+    },
+    {
+      "old_tile_name": "tile_003889",
+      "union_building_area_m2": "26959.091",
+      "union_building_coverage": "0.102841",
+      "feature_count": 671
+    },
+    {
+      "old_tile_name": "tile_003890",
+      "union_building_area_m2": "28008.386",
+      "union_building_coverage": "0.106844",
+      "feature_count": 587
+    },
+    {
+      "old_tile_name": "tile_003891",
+      "union_building_area_m2": "33117.263",
+      "union_building_coverage": "0.126332",
+      "feature_count": 522
+    },
+    {
+      "old_tile_name": "tile_003892",
+      "union_building_area_m2": "44902.137",
+      "union_building_coverage": "0.171288",
+      "feature_count": 600
+    },
+    {
+      "old_tile_name": "tile_003893",
+      "union_building_area_m2": "50110.832",
+      "union_building_coverage": "0.191158",
+      "feature_count": 683
+    },
+    {
+      "old_tile_name": "tile_003894",
+      "union_building_area_m2": "28912.744",
+      "union_building_coverage": "0.110293",
+      "feature_count": 699
+    },
+    {
+      "old_tile_name": "tile_003895",
+      "union_building_area_m2": "40129.134",
+      "union_building_coverage": "0.153080",
+      "feature_count": 689
+    },
+    {
+      "old_tile_name": "tile_003896",
+      "union_building_area_m2": "28839.739",
+      "union_building_coverage": "0.110015",
+      "feature_count": 1331
+    },
+    {
+      "old_tile_name": "tile_003897",
+      "union_building_area_m2": "26127.354",
+      "union_building_coverage": "0.099668",
+      "feature_count": 952
+    },
+    {
+      "old_tile_name": "tile_003898",
+      "union_building_area_m2": "39164.501",
+      "union_building_coverage": "0.149401",
+      "feature_count": 694
+    },
+    {
+      "old_tile_name": "tile_003899",
+      "union_building_area_m2": "23140.699",
+      "union_building_coverage": "0.088275",
+      "feature_count": 1093
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "status": "ok",
+  "task": "Infer latent BS parameters internally from building height and sparse signals, then reconstruct the full signal map.",
+  "inference_inputs": [
+    "building_height_norm",
+    "100 sparse signal-strength values",
+    "sparse measurement mask"
+  ],
+  "test_set": {
+    "sites": 256,
+    "directional_samples": 1024
+  },
+  "latent_parameter_estimator": {
+    "location_mean_error_px": 5.441100759062465,
+    "location_median_error_px": 3.1466227769851685,
+    "location_p90_error_px": 11.315974521636967,
+    "power_mae_db": 1.8598833717405796,
+    "direction_mae_deg": 12.807161514370819,
+    "checkpoint": "D:\\桌面\\dac\\models\\bs_parameter_estimator_pilot_v1\\best.pt",
+    "checkpoint_sha256": "fdae41e2a6bf0a2f54f5db8b62750abb909875e31c734fd77b761fe9ef9fc904"
+  },
+  "end_to_end_test_rmse_db": {
+    "original_stage2b_oracle_location": 7.6382902889602535,
+    "original_stage2b_estimated_location": 7.886150534407357,
+    "adapted_stage2b_oracle_location": 7.08805809547655,
+    "adapted_stage2b_estimated_location": 7.2843120377338,
+    "adapted_estimated_unmeasured": 7.321026326486149,
+    "adapted_estimated_sparse_baseline": 13.118364236000989
+  },
+  "derived": {
+    "stage2b_adaptation_gain_db": 0.6018384966735573,
+    "location_penalty_before_adaptation_db": 0.24786024544710372,
+    "location_penalty_after_adaptation_db": 0.19625394225724957,
+    "gain_vs_sparse_baseline_db": 5.834052198267189,
+    "stage2b_adaptation_acceptance_passed": true
+  },
+  "adapted_stage2b": {
+    "best_epoch": 12,
+    "best_val_rmse_db": 6.982883904204284,
+    "checkpoint": "D:\\桌面\\dac\\models\\stage2b_bs_inversion_pilot_finetune_v1\\best.pt",
+    "checkpoint_sha256": "2195ef6fb4fe8b1991761a710b41499917910a369c5522e1927132dfb57a7ed0"
+  },
+  "decision": {
+    "current_pipeline_is_viable": true,
+    "reason": "Estimated-location penalty is small end-to-end, while adapting Stage2-B gives a materially larger gain.",
+    "next_priority": "Adapt Stage1/Stage2-A to random BS positions before building a larger location estimator."
+  },
+  "source_reports": {
+    "original_oracle": "D:\\桌面\\dac\\experiments\\bs_inversion_pilot_oracle_pipeline_v1_rerun.json",
+    "original_estimated": "D:\\桌面\\dac\\experiments\\bs_inversion_pilot_estimated_pipeline_v1.json",
+    "adapted_oracle": "D:\\桌面\\dac\\experiments\\bs_inversion_pilot_oracle_pipeline_finetuned_stage2b_v1.json",
+    "adapted_estimated": "D:\\桌面\\dac\\experiments\\bs_inversion_pilot_estimated_pipeline_finetuned_stage2b_v1.json",
+    "estimator": "D:\\桌面\\dac\\models\\bs_parameter_estimator_pilot_v1\\test_metrics.json",
+    "adaptation_training": "D:\\桌面\\dac\\models\\stage2b_bs_inversion_pilot_finetune_v1\\training_summary.json"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "version": 2,
+  "status": "ok",
+  "task": "Infer latent BS parameters internally from building height and sparse signals, then reconstruct the full signal map.",
+  "inference_inputs": [
+    "building_height_norm",
+    "100 sparse signal-strength values",
+    "sparse measurement mask"
+  ],
+  "test_set": {
+    "sites": 256,
+    "directional_samples": 1024
+  },
+  "latent_parameter_estimator": {
+    "location_mean_error_px": 5.441100759062465,
+    "location_median_error_px": 3.1466227769851685,
+    "location_p90_error_px": 11.315974521636967,
+    "power_mae_db": 1.8598833717405796,
+    "direction_mae_deg": 12.807161514370819,
+    "checkpoint": "D:\\桌面\\dac\\models\\bs_parameter_estimator_pilot_v1\\best.pt",
+    "checkpoint_sha256": "fdae41e2a6bf0a2f54f5db8b62750abb909875e31c734fd77b761fe9ef9fc904"
+  },
+  "end_to_end_test_rmse_db": {
+    "original_models_oracle_location": 7.6382902889602535,
+    "original_models_estimated_location": 7.886150534407357,
+    "stage2b_v1_only_oracle_location": 7.08805809547655,
+    "stage2b_v1_only_estimated_location": 7.2843120377338,
+    "adapted_isotropic_old_stage2b_estimated_location": 6.909992391955528,
+    "fully_adapted_oracle_location": 6.429430988828851,
+    "fully_adapted_estimated_location": 6.812062670450507,
+    "fully_adapted_estimated_unmeasured": 6.846448769975612,
+    "fully_adapted_sparse_baseline": 12.332495399653938
+  },
+  "derived": {
+    "full_gain_vs_original_estimated_db": 1.0740878639568505,
+    "gain_vs_stage2b_v1_pipeline_db": 0.47224936728329325,
+    "isotropic_chain_direct_gain_db": 0.3743196457782716,
+    "stage2b_v2_additional_gain_db": 0.09792972150502166,
+    "final_location_penalty_db": 0.38263168162165595,
+    "gain_vs_sparse_baseline_db": 5.520432729203431,
+    "full_pipeline_acceptance_passed": true
+  },
+  "final_models": {
+    "estimator": {
+      "checkpoint": "D:\\桌面\\dac\\models\\bs_parameter_estimator_pilot_v1\\best.pt",
+      "sha256": "fdae41e2a6bf0a2f54f5db8b62750abb909875e31c734fd77b761fe9ef9fc904"
+    },
+    "stage1": {
+      "checkpoint": "D:\\桌面\\dac\\models\\stage1_bs_inversion_pilot_finetune_v1\\best.pt",
+      "sha256": "39ce3c079ded144aa8589aad3d8ef539797b2f69dfd2de60858787422ad0d815"
+    },
+    "stage2a": {
+      "checkpoint": "D:\\桌面\\dac\\models\\stage2a_bs_inversion_pilot_finetune_v1\\best.pt",
+      "sha256": "be744d9aa0312f9aef7c1275ced6906610baafe7b5471ac34363db9d7e7ef00b",
+      "best_epoch": 11
+    },
+    "stage2b": {
+      "checkpoint": "D:\\桌面\\dac\\models\\stage2b_bs_inversion_pilot_finetune_v2\\best.pt",
+      "sha256": "5b6f90448f1c814c7a8019f6f526239d3630d779f626bb9524ea6551ca562f74",
+      "best_epoch": 4
+    }
+  },
+  "decision": {
+    "current_pipeline_is_viable": true,
+    "reason": "All three map stages were successfully reused and adapted; inference does not require user-supplied BS parameters.",
+    "next_priority": "Improve location robustness or estimator localization because the remaining oracle gap is now material relative to Stage2-B v2's incremental gain."
+  },
+  "source_reports": {
+    "original_oracle": "D:\\桌面\\dac\\experiments\\bs_inversion_pilot_oracle_pipeline_v1_rerun.json",
+    "original_estimated": "D:\\桌面\\dac\\experiments\\bs_inversion_pilot_estimated_pipeline_v1.json",
+    "stage2b_v1_oracle": "D:\\桌面\\dac\\experiments\\bs_inversion_pilot_oracle_pipeline_finetuned_stage2b_v1.json",
+    "stage2b_v1_estimated": "D:\\桌面\\dac\\experiments\\bs_inversion_pilot_estimated_pipeline_finetuned_stage2b_v1.json",
+    "adapted_iso_old_stage2b": "D:\\桌面\\dac\\experiments\\bs_inversion_pilot_adapted_iso_old_stage2b_v1.json",
+    "final_oracle": "D:\\桌面\\dac\\experiments\\bs_inversion_pilot_oracle_pipeline_finetuned_all_v2.json",
+    "final_estimated": "D:\\桌面\\dac\\experiments\\bs_inversion_pilot_estimated_pipeline_finetuned_all_v2.json",
+    "estimator": "D:\\桌面\\dac\\models\\bs_parameter_estimator_pilot_v1\\test_metrics.json",
+    "stage2b_v1_training": "D:\\桌面\\dac\\models\\stage2b_bs_inversion_pilot_finetune_v1\\training_summary.json",
+    "isotropic_training": "D:\\桌面\\dac\\models\\stage2a_bs_inversion_pilot_finetune_v1\\training_summary.json",
+    "stage2b_v2_training": "D:\\桌面\\dac\\models\\stage2b_bs_inversion_pilot_finetune_v2\\training_summary.json"
+  }
+}

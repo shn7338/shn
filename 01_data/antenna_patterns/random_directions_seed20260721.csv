@@ -1,0 +1,5 @@
+index,filename,azimuth_deg,downtilt_deg,horizontal_hpbw_deg,vertical_hpbw_deg,max_gain_dbi,max_attenuation_db,resolution_deg,seed
+1,random_sector_h65_v8_g6p3dBi_az094.apa,94,0,65,8,6.3,30,1,20260721
+2,random_sector_h65_v8_g6p3dBi_az193.apa,193,0,65,8,6.3,30,1,20260721
+3,random_sector_h65_v8_g6p3dBi_az203.apa,203,0,65,8,6.3,30,1,20260721
+4,random_sector_h65_v8_g6p3dBi_az313.apa,313,0,65,8,6.3,30,1,20260721

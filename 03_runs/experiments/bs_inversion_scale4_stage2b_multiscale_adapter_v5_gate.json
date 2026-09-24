@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "status": "rejected",
+  "accepted": false,
+  "v3_final_rmse_db": 6.946207715784639,
+  "v4_final_rmse_db": 6.9217791530628565,
+  "v5_final_rmse_db": 6.897000033591471,
+  "v5_improvement_vs_v3_db": 0.049207682193167734,
+  "v5_improvement_vs_v4_db": 0.024779119471385336,
+  "checks": {
+    "overall_rmse": {
+      "passed": false,
+      "actual_db": 6.897000033591471,
+      "maximum_db": 6.82
+    },
+    "improvement_vs_v3": {
+      "passed": false,
+      "actual_db": 0.049207682193167734,
+      "minimum_db": 0.08
+    },
+    "improvement_vs_v4": {
+      "passed": false,
+      "actual_db": 0.024779119471385336,
+      "minimum_db": 0.03
+    },
+    "far_center_bin": {
+      "passed": false,
+      "actual_db": 7.426852539881849,
+      "maximum_db": 7.35
+    },
+    "near_center_degradation_vs_v4": {
+      "passed": true,
+      "actual_db": -0.019142989820940315,
+      "maximum_db": 0.02
+    }
+  },
+  "recommendation": "do not promote V5 under the predeclared gate"
+}

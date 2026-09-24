@@ -1,0 +1,23 @@
+{
+  "status": "ok",
+  "best_epoch": 2,
+  "best_val_rmse_db": 7.903273807597271,
+  "test": {
+    "loss": 0.8050743639469147,
+    "rmse_db": 7.634580273368919,
+    "mae_db": 4.543052925486756,
+    "dpm_baseline_rmse_db": 13.583530061257335,
+    "dpm_baseline_mae_db": 12.489664115150948,
+    "calibrated_dpm_rmse_db": 8.459935988830235,
+    "calibrated_dpm_mae_db": 5.7189335258201055,
+    "rmse_improvement_vs_dpm_db": 5.948949787888416,
+    "mae_improvement_vs_dpm_db": 7.946611189664192,
+    "rmse_improvement_vs_calibrated_db": 0.825355715461316,
+    "mae_improvement_vs_calibrated_db": 1.1758806003333495,
+    "valid_pixels": 1313337.0
+  },
+  "elapsed_seconds": 38.46867139999813,
+  "checkpoint": "E:\\dac_stage2a_sionna35_depth8_paper_smoke_20260805_205643\\best.pt",
+  "checkpoint_sha256": "87fc6a5b283f29044f15c73bec4f09c615998e2e22c4ee1db493f3edd02cf76c",
+  "formula": "P_iso_IRT_hat = P_iso_DPM_hat + residual_center_db + residual_scale_db * U_IsoRefine(B, P_iso_DPM_hat_norm)"
+}

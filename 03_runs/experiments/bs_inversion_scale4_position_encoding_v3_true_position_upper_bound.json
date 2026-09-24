@@ -1,0 +1,136 @@
+{
+  "version": 1,
+  "status": "ok",
+  "meaning": "oracle upper bound: true random-BS position/height supplied to Stage1",
+  "split": "test",
+  "sites": 1024,
+  "directional_samples": 4096,
+  "sparse_points": 100,
+  "device": "cuda",
+  "stage1_checkpoint": "D:\\桌面\\dac\\models\\stage1_position_encoding_scale4_v3\\best.pt",
+  "stage2a_checkpoint": "D:\\桌面\\dac\\models\\stage2a_position_encoding_scale4_v3\\best.pt",
+  "stage2b_checkpoint": "D:\\桌面\\dac\\models\\stage2b_bs_inversion_pilot_finetune_v2\\best.pt",
+  "stage2b_checkpoint_sha256": "5b6f90448f1c814c7a8019f6f526239d3630d779f626bb9524ea6551ca562f74",
+  "estimator_checkpoint": null,
+  "estimator_checkpoint_sha256": null,
+  "elapsed_seconds": 23.545832600007998,
+  "oracle_stage2a_iso_pixels": 39972080,
+  "oracle_stage2a_iso_rmse_db": 6.645296295069812,
+  "oracle_stage2a_iso_mae_db": 3.739616312807983,
+  "sparse_calibrated_iso_baseline_pixels": 39969863,
+  "sparse_calibrated_iso_baseline_rmse_db": 11.986187553675501,
+  "sparse_calibrated_iso_baseline_mae_db": 8.574294057684355,
+  "sparse_calibrated_iso_baseline_unmeasured_pixels": 39560263,
+  "sparse_calibrated_iso_baseline_unmeasured_rmse_db": 11.98705511089114,
+  "sparse_calibrated_iso_baseline_unmeasured_mae_db": 8.575170741660965,
+  "oracle_final_pixels": 39969863,
+  "oracle_final_rmse_db": 6.700870338131054,
+  "oracle_final_mae_db": 3.9066875793536826,
+  "oracle_final_unmeasured_pixels": 39560263,
+  "oracle_final_unmeasured_rmse_db": 6.735179554860349,
+  "oracle_final_unmeasured_mae_db": 3.942858784535068,
+  "oracle_final_measured_pixels": 409600,
+  "oracle_final_measured_rmse_db": 0.6155882911800438,
+  "oracle_final_measured_mae_db": 0.413175885011442,
+  "stage2a_iso_pixels": 39972080,
+  "stage2a_iso_rmse_db": 6.645296295069812,
+  "stage2a_iso_mae_db": 3.739616312807983,
+  "final_pixels": 39969863,
+  "final_rmse_db": 6.700870338131054,
+  "final_mae_db": 3.9066875793536826,
+  "final_unmeasured_pixels": 39560263,
+  "final_unmeasured_rmse_db": 6.735179554860349,
+  "final_unmeasured_mae_db": 3.942858784535068,
+  "final_measured_pixels": 409600,
+  "final_measured_rmse_db": 0.6155882911800438,
+  "final_measured_mae_db": 0.413175885011442,
+  "coordinate_source": "oracle",
+  "position_bins": {
+    "by_minimum_edge_distance": {
+      "064-096m": {
+        "directional_samples": 1204,
+        "stage2a_iso_pixels": 11480740,
+        "stage2a_iso_rmse_db": 7.247871918020979,
+        "stage2a_iso_mae_db": 4.181943367650366,
+        "final_pixels": 11480495,
+        "final_rmse_db": 7.205118517624164,
+        "final_mae_db": 4.274425025167522
+      },
+      "096-128m": {
+        "directional_samples": 604,
+        "stage2a_iso_pixels": 5989668,
+        "stage2a_iso_rmse_db": 6.969217381837039,
+        "stage2a_iso_mae_db": 3.961980504825061,
+        "final_pixels": 5988684,
+        "final_rmse_db": 6.918714404056229,
+        "final_mae_db": 4.064172844697306
+      },
+      "128-160m": {
+        "directional_samples": 636,
+        "stage2a_iso_pixels": 6262656,
+        "stage2a_iso_rmse_db": 6.581639660367898,
+        "stage2a_iso_mae_db": 3.6685169263758985,
+        "final_pixels": 6262191,
+        "final_rmse_db": 6.6635635421060835,
+        "final_mae_db": 3.8726210697246923
+      },
+      "160-192m": {
+        "directional_samples": 564,
+        "stage2a_iso_pixels": 5452812,
+        "stage2a_iso_rmse_db": 6.293507077206711,
+        "stage2a_iso_mae_db": 3.5229196774322444,
+        "final_pixels": 5452911,
+        "final_rmse_db": 6.424987361771339,
+        "final_mae_db": 3.7287035277656604
+      },
+      "192-256m": {
+        "directional_samples": 1088,
+        "stage2a_iso_pixels": 10786204,
+        "stage2a_iso_rmse_db": 5.9657542363641625,
+        "stage2a_iso_mae_db": 3.296156075628154,
+        "final_pixels": 10785582,
+        "final_rmse_db": 6.157164993897653,
+        "final_mae_db": 3.5375767410096137
+      }
+    },
+    "by_center_distance": {
+      "000-064m": {
+        "directional_samples": 1024,
+        "stage2a_iso_pixels": 10122080,
+        "stage2a_iso_rmse_db": 5.998662782005572,
+        "stage2a_iso_mae_db": 3.3165811724568037,
+        "final_pixels": 10121448,
+        "final_rmse_db": 6.179115488289989,
+        "final_mae_db": 3.550938754810029
+      },
+      "064-128m": {
+        "directional_samples": 1024,
+        "stage2a_iso_pixels": 10066380,
+        "stage2a_iso_rmse_db": 6.35787204296945,
+        "stage2a_iso_mae_db": 3.5342822871503086,
+        "final_pixels": 10066320,
+        "final_rmse_db": 6.47010472074583,
+        "final_mae_db": 3.742962684350844
+      },
+      "128-192m": {
+        "directional_samples": 1024,
+        "stage2a_iso_pixels": 9952372,
+        "stage2a_iso_rmse_db": 6.85739732709547,
+        "stage2a_iso_mae_db": 3.897339260890019,
+        "final_pixels": 9950963,
+        "final_rmse_db": 6.853349841437873,
+        "final_mae_db": 4.028844446220871
+      },
+      "192m-plus": {
+        "directional_samples": 1024,
+        "stage2a_iso_pixels": 9831248,
+        "stage2a_iso_rmse_db": 7.314740591452143,
+        "stage2a_iso_mae_db": 4.225744667051174,
+        "final_pixels": 9831132,
+        "final_rmse_db": 7.2691467659450115,
+        "final_mae_db": 4.316937584272074
+      }
+    }
+  },
+  "final_rmse_improvement_vs_baseline_db": 5.285317215544447
+}

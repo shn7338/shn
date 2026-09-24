@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "status": "ready_for_pilot_inference",
+  "inputs": [
+    "building_height_norm",
+    "100 sparse signal-strength values",
+    "sparse measurement mask"
+  ],
+  "models_in_order": {
+    "estimator": {
+      "checkpoint": "D:\\桌面\\dac\\models\\bs_parameter_estimator_pilot_v1\\best.pt",
+      "sha256": "fdae41e2a6bf0a2f54f5db8b62750abb909875e31c734fd77b761fe9ef9fc904"
+    },
+    "stage1": {
+      "checkpoint": "D:\\桌面\\dac\\models\\stage1_bs_inversion_pilot_finetune_v1\\best.pt",
+      "sha256": "39ce3c079ded144aa8589aad3d8ef539797b2f69dfd2de60858787422ad0d815"
+    },
+    "stage2a": {
+      "checkpoint": "D:\\桌面\\dac\\models\\stage2a_bs_inversion_pilot_finetune_v1\\best.pt",
+      "sha256": "be744d9aa0312f9aef7c1275ced6906610baafe7b5471ac34363db9d7e7ef00b",
+      "best_epoch": 11
+    },
+    "stage2b": {
+      "checkpoint": "D:\\桌面\\dac\\models\\stage2b_bs_inversion_pilot_finetune_v2\\best.pt",
+      "sha256": "5b6f90448f1c814c7a8019f6f526239d3630d779f626bb9524ea6551ca562f74",
+      "best_epoch": 4
+    }
+  },
+  "normalization": {
+    "pilot": "D:\\桌面\\dac\\bs_inversion_pilot_v1\\normalization.json",
+    "stage1": "D:\\桌面\\dac\\models\\stage1_bs_inversion_pilot_finetune_v1\\normalization.json",
+    "stage1_tx_features": "D:\\桌面\\dac\\models\\stage1_bs_inversion_pilot_finetune_v1\\tx_feature_normalization.json",
+    "stage2b": "E:\\dac_sionna_35ghz_depth8_27360_v3\\normalization_irt.json"
+  },
+  "test_metrics": {
+    "rmse_db": 6.812062670450507,
+    "mae_db": 3.757205321341251,
+    "unmeasured_rmse_db": 6.846448769975612
+  },
+  "audit_report": "D:\\桌面\\dac\\experiments\\bs_inversion_pilot_v2_summary.json"
+}

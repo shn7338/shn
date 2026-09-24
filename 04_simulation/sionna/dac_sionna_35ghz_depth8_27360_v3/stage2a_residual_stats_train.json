@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "created_at_utc": "2026-08-05T12:58:30.808731+00:00",
+  "split": "train",
+  "full_split": true,
+  "tiles": 21789,
+  "valid_pixels": 214833375,
+  "residual_db": {
+    "definition": "P_iso_Sionna_dB - P_iso_DPM_pred_dB",
+    "mean_db": 10.519432444802115,
+    "std_db": 8.378550045312174,
+    "minimum_db": -87.40408325195312,
+    "maximum_db": 56.176185607910156,
+    "rmse_from_zero_db": 13.448366436952707,
+    "mae_from_zero_db": 12.37074799487881,
+    "calibrated_constant_baseline_rmse_db": 8.378550045312174
+  },
+  "source": {
+    "config": "C:\\Users\\pc\\Documents\\大创\\projects\\irt_label_pipeline\\config_stage2a_sionna35_depth8_27360_paper_v1.json",
+    "config_sha256": "19ea096b1bdaa47a980600954aeeb8a0713c52977339a1eef402177d806ee931",
+    "shard_manifest": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shard_manifest.csv",
+    "shard_manifest_sha256": "d2f717928079fc5204f6b57d803f7d5f0947fd8507b3d61d84d964e7b0bbbe2c",
+    "stage1_checkpoint": "D:\\桌面\\dac\\models\\stage1_dpm_unet_baseline_v1\\best.pt",
+    "stage1_checkpoint_sha256": "e44a4580aefaac6c0a2166a1824e4b140139ee23b0b87dcc7f78481ff4377c72",
+    "stage1_mean_db": -107.34759535264241,
+    "stage1_std_db": 10.106487505584935
+  },
+  "runtime": {
+    "device": "cuda",
+    "torch_version": "2.13.0+cu130",
+    "cuda_version": "13.0",
+    "batch_size": 16,
+    "workers": 2,
+    "amp": true,
+    "elapsed_seconds": 33.53171599999769
+  }
+}

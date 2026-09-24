@@ -1,0 +1,17 @@
+{
+  "status": "ok",
+  "best_epoch": 2,
+  "best_val_rmse_db": 7.278280257813649,
+  "test": {
+    "loss": 0.13809262216091156,
+    "rmse_db": 5.6774218397756275,
+    "mae_db": 3.303835153665245,
+    "dpm_baseline_rmse_db": 6.439855847237612,
+    "dpm_baseline_mae_db": 4.1068400715510025,
+    "valid_pixels": 25087.0
+  },
+  "elapsed_seconds": 7.011556399986148,
+  "checkpoint": "E:\\dac_stage2a_pilot32_smoke_v1\\best.pt",
+  "checkpoint_sha256": "741768394963398fa118c7b4ba9e5bfc45f881f54ff5b32a7ec99727e7fe492a",
+  "formula": "P_iso_IRT_hat = P_iso_DPM_hat + residual_scale_db * U_IsoRefine(B, P_iso_DPM_hat_norm)"
+}

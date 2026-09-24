@@ -1,0 +1,2796 @@
+{
+  "version": 3,
+  "method": "Sionna RT 2.0.1 radio map",
+  "quantity": "Sionna path_gain in dB; float16 with NaN for indoor or unhit outdoor pixels",
+  "array_convention": "row 0 north; column 0 west",
+  "tiles_planned": 27360,
+  "tiles_packed": 27360,
+  "tiles_missing": [],
+  "shard_size": 256,
+  "shards": [
+    {
+      "shard": 0,
+      "tiles": 256,
+      "first_tile": "tile_000001",
+      "last_tile": "tile_000256",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0000.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0000.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0000.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0000.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "547416bd36a6220608406124990e1d799f7cb42d9cff50d9888b5b9fb3a86907",
+        "p_dir": "1d989d769b2d5d878f09a1193254dc65bae0eb022d7fc0c6cc8646c7f6494e9e",
+        "azimuth_deg": "e2699723406690bb889cf054af58660e787a129a4dceed685f0622584ad4552c",
+        "tile_number": "973f1781e91d01c5ef7b2814baaf59fc0d1facb6301e6c9710ed899566f4427a"
+      },
+      "valid_counts": {
+        "p_iso_min": 3327,
+        "p_iso_max": 12274,
+        "p_dir_min": 13331,
+        "p_dir_max": 49124
+      },
+      "minimum_db": -197.0,
+      "maximum_db": -67.625
+    },
+    {
+      "shard": 1,
+      "tiles": 256,
+      "first_tile": "tile_000257",
+      "last_tile": "tile_000512",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0001.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0001.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0001.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0001.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "7776d21465ddb4fb49c006a06fb052e619a3fdf8af17b14ccbf2647af94bf171",
+        "p_dir": "b75096a30c0315375fe536bfc4641e2afeb9d76659bf611cb40b8bdd28b70fb1",
+        "azimuth_deg": "4ca5a12290cfef1166e05bec28348acc2d8159f3183a4086d89f7f88f32650d2",
+        "tile_number": "8eac6690ad01bef4af0cbdd5ea723e24da7e22be47548a76cacf656f1e7698ec"
+      },
+      "valid_counts": {
+        "p_iso_min": 4018,
+        "p_iso_max": 12433,
+        "p_dir_min": 16087,
+        "p_dir_max": 49734
+      },
+      "minimum_db": -221.375,
+      "maximum_db": -62.59375
+    },
+    {
+      "shard": 2,
+      "tiles": 256,
+      "first_tile": "tile_000513",
+      "last_tile": "tile_000768",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0002.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0002.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0002.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0002.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "8de1ade4a0bcac5f94727d508e821161085fddc849450f2b2bd285c8335e0971",
+        "p_dir": "e8d0e1328d4e02ababcfba99d179536e884e2324df604d15aab6044f678ac978",
+        "azimuth_deg": "382b055b45473627f0786279dad564b4b62b3290677a77f01054e264ae91b528",
+        "tile_number": "ecdcf82d971b7a71a4ce2eb78e1e819ac8ac01f87bda8941a3c7779718aaebde"
+      },
+      "valid_counts": {
+        "p_iso_min": 3054,
+        "p_iso_max": 12105,
+        "p_dir_min": 12219,
+        "p_dir_max": 48409
+      },
+      "minimum_db": -197.25,
+      "maximum_db": -67.75
+    },
+    {
+      "shard": 3,
+      "tiles": 256,
+      "first_tile": "tile_000769",
+      "last_tile": "tile_001024",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0003.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0003.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0003.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0003.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "2f49a4819293d834b4ea909e39d57deb7de3aaee4d1861d525feac85418b4ef0",
+        "p_dir": "11733e8e5b56777f927f887e68ac379c0ac271bef4eaa696c35871aa29ffa55b",
+        "azimuth_deg": "2a3552ee042d2d01e2bba32596369a85c6a887fc1e5eee85723aeb038dd48c4a",
+        "tile_number": "5fdb551f9bfd5326e65047b19ebd4321dc883a8c9bee8741d4e333a0340146b6"
+      },
+      "valid_counts": {
+        "p_iso_min": 4526,
+        "p_iso_max": 12361,
+        "p_dir_min": 18124,
+        "p_dir_max": 49454
+      },
+      "minimum_db": -205.625,
+      "maximum_db": -68.0625
+    },
+    {
+      "shard": 4,
+      "tiles": 256,
+      "first_tile": "tile_001025",
+      "last_tile": "tile_001280",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0004.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0004.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0004.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0004.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "7a7e4dd20f7e8bcb1b0cc6c30f4bd584995b1f4d7c8e2889505d7a5227296904",
+        "p_dir": "1af8fde694fdefccae0c9d8a1e91db34090768fc1836c26591de1916db83b992",
+        "azimuth_deg": "ae14baa8ba911633df3f5f96e2f7afa7c7553c9a8ae660c9f98a4c2ff6baae7f",
+        "tile_number": "cd041f447585e1dd78ef7d3e8bc8df75428984ac99700a80dda6758894def3b6"
+      },
+      "valid_counts": {
+        "p_iso_min": 2462,
+        "p_iso_max": 12040,
+        "p_dir_min": 9868,
+        "p_dir_max": 48154
+      },
+      "minimum_db": -202.625,
+      "maximum_db": -69.0625
+    },
+    {
+      "shard": 5,
+      "tiles": 256,
+      "first_tile": "tile_001281",
+      "last_tile": "tile_001536",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0005.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0005.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0005.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0005.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "be99e4f0b6b3f968a9fbdbda8317b868a6d3584505ce32235a08f8202975e007",
+        "p_dir": "d7f6776caed77c0cf0cfeee175f949080b2f28c5416bc20dacb02417eed1b1fd",
+        "azimuth_deg": "7d6d82f60ed6f9655ad24065ff47d99d02b1c433d2c7c53406fb4359746e74d3",
+        "tile_number": "6c53476fea4b6475895221fa2b94f82e2226b6d2453367758fc1374a89664f6b"
+      },
+      "valid_counts": {
+        "p_iso_min": 4837,
+        "p_iso_max": 12155,
+        "p_dir_min": 19342,
+        "p_dir_max": 48630
+      },
+      "minimum_db": -218.5,
+      "maximum_db": -67.875
+    },
+    {
+      "shard": 6,
+      "tiles": 256,
+      "first_tile": "tile_001537",
+      "last_tile": "tile_001792",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0006.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0006.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0006.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0006.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "24e00869b32601ac5ca2e8afa3dabf8802ffe1fbfe9c3468b7d4d57882e8b039",
+        "p_dir": "e725e0688a902ce3bad21d606899c97e2f87a4cc34e10f5cb7919fa78f4b7028",
+        "azimuth_deg": "6592a66d51ca4493ee9ef46e31f993bbd8aa98c0fc3b9fd18ee5899a75c07ba4",
+        "tile_number": "df548505a98ac2d68af2dd5d6d6ebd4a4ff459443fd67de88d748ef2541506e4"
+      },
+      "valid_counts": {
+        "p_iso_min": 4043,
+        "p_iso_max": 12079,
+        "p_dir_min": 16189,
+        "p_dir_max": 48256
+      },
+      "minimum_db": -200.25,
+      "maximum_db": -68.875
+    },
+    {
+      "shard": 7,
+      "tiles": 256,
+      "first_tile": "tile_001793",
+      "last_tile": "tile_002048",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0007.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0007.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0007.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0007.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "69043770b864ef7a724c1554bcf9d3c40b381b69fa4571f5afd396d34bb973a1",
+        "p_dir": "d6d9746bbf42fcc1de10fe2fa627901391ef9b4744a9c4fe06e07d743cf68a49",
+        "azimuth_deg": "44baa54512641758940b236e48053ff0fdab0ec586c21e82ba59f30c86123d75",
+        "tile_number": "d37ec5f1bf205876ad9b0d09b22d50cc3baab65424065083bda64c3506e7b43c"
+      },
+      "valid_counts": {
+        "p_iso_min": 3526,
+        "p_iso_max": 11821,
+        "p_dir_min": 14100,
+        "p_dir_max": 47281
+      },
+      "minimum_db": -209.75,
+      "maximum_db": -68.75
+    },
+    {
+      "shard": 8,
+      "tiles": 256,
+      "first_tile": "tile_002049",
+      "last_tile": "tile_002304",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0008.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0008.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0008.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0008.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "21d2da6ad5cd63277d25e09215dca5ffda083c73c254bdbdb80d73c3c564603f",
+        "p_dir": "6f291b63c24f5f9520070df7534d37b91c7cd4654b6fc5ba251865b81e0c5177",
+        "azimuth_deg": "6c4cfd9075aeab846256ea4c6f0b8f6f1013f1212c873769c23ad1a10e52491d",
+        "tile_number": "68ddc3764794effb51aaba1f56794282824e5793874ebebf89b7dff8abba1912"
+      },
+      "valid_counts": {
+        "p_iso_min": 2933,
+        "p_iso_max": 12131,
+        "p_dir_min": 11733,
+        "p_dir_max": 48555
+      },
+      "minimum_db": -204.125,
+      "maximum_db": -67.5
+    },
+    {
+      "shard": 9,
+      "tiles": 256,
+      "first_tile": "tile_002305",
+      "last_tile": "tile_002560",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0009.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0009.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0009.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0009.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "5dd57a41ce109ed04bc94b4d508b0d0cbd87d4773798e95699283e8172a625d6",
+        "p_dir": "31e81979209b2f9f482e395b4c68cfa551a5b0b741e362dc04c5370543bbc590",
+        "azimuth_deg": "30dab88324bbd21ba8e1d0701760f4394f1602c80d5fc199be56183edc3f296c",
+        "tile_number": "9016e512512f7d2f6e01d527e5361452fdb9822d532dbf3741effb16385ffa25"
+      },
+      "valid_counts": {
+        "p_iso_min": 2362,
+        "p_iso_max": 12368,
+        "p_dir_min": 9430,
+        "p_dir_max": 49470
+      },
+      "minimum_db": -202.125,
+      "maximum_db": -66.625
+    },
+    {
+      "shard": 10,
+      "tiles": 256,
+      "first_tile": "tile_002561",
+      "last_tile": "tile_002816",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0010.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0010.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0010.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0010.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "7c1fa749a05bc842bd44b2320b530e90baf59b48db078707152a0c5456c8645c",
+        "p_dir": "39e3d456ccf549a76ccb663575eb9f5c13ec96569a6a151621f0f055802f37c7",
+        "azimuth_deg": "2f12c162ca07180e9ee7621badaee94b1bf403af948161b1a1ea14ae6ae1165c",
+        "tile_number": "207620c0498d8f552272f354b43a3cf71c0e925991098300a87fe95004115e09"
+      },
+      "valid_counts": {
+        "p_iso_min": 3039,
+        "p_iso_max": 12504,
+        "p_dir_min": 12134,
+        "p_dir_max": 50022
+      },
+      "minimum_db": -225.875,
+      "maximum_db": -67.625
+    },
+    {
+      "shard": 11,
+      "tiles": 256,
+      "first_tile": "tile_002817",
+      "last_tile": "tile_003072",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0011.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0011.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0011.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0011.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "9698d0f7971fb80a5346c2e652536d282e3ea3895d03332a738e6e5125b99bad",
+        "p_dir": "3a29ff4a051536020e666941e632d7a14b63e0ad8f568ee97a1b9d27edc4a1e7",
+        "azimuth_deg": "0a31eaf1f6da8e5d84c5e0a57f741693183ccef04d767cce8abbcf0c6468e9f1",
+        "tile_number": "cb4d36cdf8dc138a89e81883a6953026071f82b4671cb0b85a0f96b202890144"
+      },
+      "valid_counts": {
+        "p_iso_min": 4184,
+        "p_iso_max": 12815,
+        "p_dir_min": 16741,
+        "p_dir_max": 51258
+      },
+      "minimum_db": -206.25,
+      "maximum_db": -67.5
+    },
+    {
+      "shard": 12,
+      "tiles": 256,
+      "first_tile": "tile_003073",
+      "last_tile": "tile_003328",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0012.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0012.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0012.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0012.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "9dc28d7c1fd2780688dd314c649228d890b9de449c162e885408a8a8d93fea0d",
+        "p_dir": "ef2819925ff28a8ba7ed604c84b61c4ab6871ade0f14d3cf867fba72a24b85b0",
+        "azimuth_deg": "a6b9916537710a448e3247aa299e919bac2f8001b434701ad21cedde819ea627",
+        "tile_number": "6f2d51e2b25a23a5151ec7217df45f8a5a68665a113893c7ce7bb26e18145a4a"
+      },
+      "valid_counts": {
+        "p_iso_min": 4564,
+        "p_iso_max": 12548,
+        "p_dir_min": 18270,
+        "p_dir_max": 50207
+      },
+      "minimum_db": -195.5,
+      "maximum_db": -59.4375
+    },
+    {
+      "shard": 13,
+      "tiles": 256,
+      "first_tile": "tile_003329",
+      "last_tile": "tile_003584",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0013.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0013.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0013.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0013.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "3d33a86331b940f4430931ce3d0101c77a5d5d63c4aa19fabb9a2c19c4bbb9de",
+        "p_dir": "78a8dcce380752ec1fceaaf4db5e0433c50b52304833c895cde8be62a954883a",
+        "azimuth_deg": "ae2b414bc5514e9b48b272f2ccf9e3e1f31dd90fa1597954a8479741a2e1bb7f",
+        "tile_number": "5996f13c3a0e8a6b05aea4e3b9069621d50a14393a220eb4cf4f59fab0081d3b"
+      },
+      "valid_counts": {
+        "p_iso_min": 3597,
+        "p_iso_max": 12444,
+        "p_dir_min": 14396,
+        "p_dir_max": 49825
+      },
+      "minimum_db": -197.625,
+      "maximum_db": -59.65625
+    },
+    {
+      "shard": 14,
+      "tiles": 256,
+      "first_tile": "tile_003585",
+      "last_tile": "tile_003840",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0014.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0014.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0014.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0014.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "7d4525c6787db296b74633e145c8a223a64eb7cfd2d1bb7164a7dc25a69f6910",
+        "p_dir": "d33fb43314ae7783aec86af4eeae56c31bf9cb645857b2a26f98ceb4ab20a5c1",
+        "azimuth_deg": "a5b93a6ba274d2a5a9bfd46b03f70a73733dfa21d5740690f6e531265ae5eacd",
+        "tile_number": "a1c56d8d34f1648799a25c77e75246b5200f2df53ae7514a758afc5e45d1d9d0"
+      },
+      "valid_counts": {
+        "p_iso_min": 7360,
+        "p_iso_max": 12684,
+        "p_dir_min": 29446,
+        "p_dir_max": 50734
+      },
+      "minimum_db": -198.625,
+      "maximum_db": -64.8125
+    },
+    {
+      "shard": 15,
+      "tiles": 256,
+      "first_tile": "tile_003841",
+      "last_tile": "tile_004096",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0015.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0015.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0015.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0015.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "2c3878a11e70faacaafb2a13aa722c8534310abe122bd1c069a2d02cd9a3b9fe",
+        "p_dir": "0afcc96324418ab8fe6f856dc3367cd738ac38a996bb42a7fc5ce2ce5e5c49b1",
+        "azimuth_deg": "28902327c1b28b96ab173802e7378d0705567a9a29215dc82dcfc7e23665a975",
+        "tile_number": "d123a37d2f60d4366acc150e93adaa449bab959aa2eadb1e24689ab9619dba76"
+      },
+      "valid_counts": {
+        "p_iso_min": 6816,
+        "p_iso_max": 12691,
+        "p_dir_min": 27260,
+        "p_dir_max": 50764
+      },
+      "minimum_db": -198.125,
+      "maximum_db": -67.9375
+    },
+    {
+      "shard": 16,
+      "tiles": 256,
+      "first_tile": "tile_004097",
+      "last_tile": "tile_004352",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0016.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0016.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0016.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0016.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "f1fd94bc5b2a52a5e9a8fd849eca71ccc929b5d6f60a772a8992b1db3947a335",
+        "p_dir": "98f24af52053fec793b0ef1a191e730fa9f8857dabdab68a29e82d2d35c6d807",
+        "azimuth_deg": "7ff068ba4eef01298cb8734df71de0bc972e8b157f472621be67f20b8d0fbb13",
+        "tile_number": "574bdf3f815cc9ae3e92a3684dbff66e368447c1653d987bbdf7987295538bb6"
+      },
+      "valid_counts": {
+        "p_iso_min": 7657,
+        "p_iso_max": 12478,
+        "p_dir_min": 30636,
+        "p_dir_max": 49907
+      },
+      "minimum_db": -200.625,
+      "maximum_db": -67.6875
+    },
+    {
+      "shard": 17,
+      "tiles": 256,
+      "first_tile": "tile_004353",
+      "last_tile": "tile_004608",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0017.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0017.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0017.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0017.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "685a37decd4c74d0a5e09954ebfae38121eadcfde6b3a96318beb1f5e3e40a0b",
+        "p_dir": "90ac64ae541cc852203b91d2f48c52c5e99194c8f96e86bcf1a68ef5aa7667b5",
+        "azimuth_deg": "05fd0311f0890020af89731e0150234468e7a7676ff7f82ff317ec821f0dd0bd",
+        "tile_number": "11620426dcd49367948f1ed1ffe4304c14ffdb94beb2c65659abcb0df1d9a6d0"
+      },
+      "valid_counts": {
+        "p_iso_min": 7272,
+        "p_iso_max": 12200,
+        "p_dir_min": 29085,
+        "p_dir_max": 48762
+      },
+      "minimum_db": -198.625,
+      "maximum_db": -68.0
+    },
+    {
+      "shard": 18,
+      "tiles": 256,
+      "first_tile": "tile_004609",
+      "last_tile": "tile_004864",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0018.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0018.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0018.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0018.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "eac4f4c06d07e533a69905b3f80854c7e68d92d4fa70bf8e93403b06b451d9a7",
+        "p_dir": "b12beae4dcf96fd9e2adcaec86c5b30fbd41547269657ec5a88ee4c42a8580a2",
+        "azimuth_deg": "1fe1748690c92a46e232fefd111ab13cd2217900a58f5f7a24c12e8a2c99d918",
+        "tile_number": "0ec67e3648817a748959ad55c44a80f2a8faf88f2c2ce16428f81ec1ccc4ce86"
+      },
+      "valid_counts": {
+        "p_iso_min": 6385,
+        "p_iso_max": 12458,
+        "p_dir_min": 25445,
+        "p_dir_max": 49831
+      },
+      "minimum_db": -208.625,
+      "maximum_db": -69.125
+    },
+    {
+      "shard": 19,
+      "tiles": 256,
+      "first_tile": "tile_004865",
+      "last_tile": "tile_005120",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0019.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0019.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0019.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0019.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "3eded3f8d477aacc74f6f7488cc130b7583977c31d12368811b00c7b85102f34",
+        "p_dir": "3be9043812ec8de0af446b5a835b6214dd14c1dfb27f1bb8f6da57dbcc92b07f",
+        "azimuth_deg": "812aba971f669994bb3862f7d303a1c782dc98e033c8d79972feabd9e24051af",
+        "tile_number": "e7c4ef13ad0951a1a417ae9359707cace6ea8fd20a648bc5e448f761a0bc86a4"
+      },
+      "valid_counts": {
+        "p_iso_min": 7093,
+        "p_iso_max": 12050,
+        "p_dir_min": 28337,
+        "p_dir_max": 48197
+      },
+      "minimum_db": -206.625,
+      "maximum_db": -59.46875
+    },
+    {
+      "shard": 20,
+      "tiles": 256,
+      "first_tile": "tile_005121",
+      "last_tile": "tile_005376",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0020.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0020.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0020.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0020.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "b783ada99e358d0d945a01bc2c7835bdf1624ff9d96f3d61ac20fc4881a8a26e",
+        "p_dir": "411733951235ca92d4a9a70056e025cd37fab71c70852ec40b219673d53d3bd9",
+        "azimuth_deg": "3f56fdc8ca841d51b5832e40bf56b3bf6d79c6a9b9fba071365a463fe0875545",
+        "tile_number": "2139ead1ecc92fedc2e18649bcf993798d0641c261e085b8c813b49b1af341df"
+      },
+      "valid_counts": {
+        "p_iso_min": 5666,
+        "p_iso_max": 12070,
+        "p_dir_min": 22623,
+        "p_dir_max": 48243
+      },
+      "minimum_db": -200.75,
+      "maximum_db": -68.75
+    },
+    {
+      "shard": 21,
+      "tiles": 256,
+      "first_tile": "tile_005377",
+      "last_tile": "tile_005632",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0021.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0021.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0021.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0021.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "f05c7bc92e29aae852107c6cee8d55dce7b45b51034e9ef3df53b02eae21a79b",
+        "p_dir": "56bf936112bc539421d4a84222e1d4d7efdebf3f04451f14ffdea2a09c9eadf4",
+        "azimuth_deg": "07d6a18f99c60c710f9ff6818c22da51574cf0b971e67d03b5becdf3c1165686",
+        "tile_number": "f49182861003b7ed3a5a85aa6ba4eff688d45a1e5fe261bd75feb79d1315908a"
+      },
+      "valid_counts": {
+        "p_iso_min": 6551,
+        "p_iso_max": 11970,
+        "p_dir_min": 26187,
+        "p_dir_max": 47836
+      },
+      "minimum_db": -200.0,
+      "maximum_db": -69.1875
+    },
+    {
+      "shard": 22,
+      "tiles": 256,
+      "first_tile": "tile_005633",
+      "last_tile": "tile_005888",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0022.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0022.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0022.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0022.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "faa9d9fd28c90ec081915ccc2d2265d3d69af50f7bb873dd3f2543a7be79b323",
+        "p_dir": "4a8d1fee27b1005febd69bc27264ca2b6aeb0915b93f278b729fc307a7b51e25",
+        "azimuth_deg": "729259c9a2406cd5de607a106cc998317f43086118341c61b82aebe62e4fd660",
+        "tile_number": "7305b2eabc273b0dda2ef49a7c7dd67364749030ea2a0757e4b4a229744110eb"
+      },
+      "valid_counts": {
+        "p_iso_min": 5340,
+        "p_iso_max": 12223,
+        "p_dir_min": 21315,
+        "p_dir_max": 48888
+      },
+      "minimum_db": -218.0,
+      "maximum_db": -68.75
+    },
+    {
+      "shard": 23,
+      "tiles": 256,
+      "first_tile": "tile_005889",
+      "last_tile": "tile_006144",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0023.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0023.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0023.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0023.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "45305d658dd289641ccb70728268238bc4686968ab3f3a83cdb59bad25edb4a9",
+        "p_dir": "772d3eb48b6f5ec2fbacb42bc75097a4a2da9578c86f4671ea3c7de4d7619d46",
+        "azimuth_deg": "a99d119eabc3a7439dbfdaa850a5147332ac79010c4dec081c7c93c0d1f9a87a",
+        "tile_number": "35bd6307390f17b6856da420419bffdb16b244c89c639d42e853817d6e92cfef"
+      },
+      "valid_counts": {
+        "p_iso_min": 6594,
+        "p_iso_max": 12192,
+        "p_dir_min": 26372,
+        "p_dir_max": 48789
+      },
+      "minimum_db": -201.375,
+      "maximum_db": -68.9375
+    },
+    {
+      "shard": 24,
+      "tiles": 256,
+      "first_tile": "tile_006145",
+      "last_tile": "tile_006400",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0024.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0024.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0024.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0024.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "03be30c751073981440637c4b7b95cf7aaa162d30a7682fd7392889ca7ce2675",
+        "p_dir": "95d407c504b1ba746365b63ea3ad7edd7c9d09a56f0c6ce1c1e4d2a52ec3d66f",
+        "azimuth_deg": "50fe6240df4d5c58f27290e2ce0cd3c8edb8d9ea441399206bee13fea2281938",
+        "tile_number": "ad97f8fb9fb846dae13879c862b4210ebbff76c7cc3734d5031251e980d6bfc3"
+      },
+      "valid_counts": {
+        "p_iso_min": 6897,
+        "p_iso_max": 12549,
+        "p_dir_min": 27561,
+        "p_dir_max": 50196
+      },
+      "minimum_db": -195.375,
+      "maximum_db": -59.625
+    },
+    {
+      "shard": 25,
+      "tiles": 256,
+      "first_tile": "tile_006401",
+      "last_tile": "tile_006656",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0025.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0025.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0025.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0025.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "446146f976510fc6c530ddce8486d4ef65a0dae103b867a9bd713cca94c1a811",
+        "p_dir": "986416bf436cb7022f2939d0027e7086d86a0a0d4d007473ce82a5f048d4ecac",
+        "azimuth_deg": "4a5ae61312f60cbec19b67c1c514b4433645dcf54f9c705964151e3790fe27fa",
+        "tile_number": "e75a8dcb7ad7192276101b413570f057b7923f073c2cb4ee9e26b36a16bd0d07"
+      },
+      "valid_counts": {
+        "p_iso_min": 6688,
+        "p_iso_max": 12615,
+        "p_dir_min": 26766,
+        "p_dir_max": 50459
+      },
+      "minimum_db": -196.375,
+      "maximum_db": -62.59375
+    },
+    {
+      "shard": 26,
+      "tiles": 256,
+      "first_tile": "tile_006657",
+      "last_tile": "tile_006912",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0026.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0026.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0026.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0026.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "cb6af05a6288addf5f354363acd8b876d2250ab632768ee039f38bdfa46cd927",
+        "p_dir": "fe9329ad0d64b578533d806b27e662bf6b06f6b048004b1bbb8a91d25aa17021",
+        "azimuth_deg": "784cccb9ae4412cc396d45b8f1b58b9ac40d5d408816dd54adc436eb5db0e0ad",
+        "tile_number": "4878703099166065686b02fc83283f55a66da241b29a8114d65e92d3a3f727e8"
+      },
+      "valid_counts": {
+        "p_iso_min": 6345,
+        "p_iso_max": 12549,
+        "p_dir_min": 25344,
+        "p_dir_max": 50195
+      },
+      "minimum_db": -197.0,
+      "maximum_db": -59.625
+    },
+    {
+      "shard": 27,
+      "tiles": 256,
+      "first_tile": "tile_006913",
+      "last_tile": "tile_007168",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0027.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0027.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0027.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0027.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "d29f2520ed0dffec92fa962ae374108f20277577e8a08dc5970b206d1af8cdb8",
+        "p_dir": "4b1c773b054e75a5591de18c6ab5e6c893c96ab6d394af15b64b312329a77fb2",
+        "azimuth_deg": "61c2831f09df58f514f537da3b98b4bc08f90d7defd9ff7dd25a3297d043ef6a",
+        "tile_number": "cab11ac4e17eedbc0c94689dd432a695fcf2904cff7a4631e164099231a8dcd6"
+      },
+      "valid_counts": {
+        "p_iso_min": 4799,
+        "p_iso_max": 12650,
+        "p_dir_min": 19166,
+        "p_dir_max": 50597
+      },
+      "minimum_db": -205.5,
+      "maximum_db": -59.65625
+    },
+    {
+      "shard": 28,
+      "tiles": 256,
+      "first_tile": "tile_007169",
+      "last_tile": "tile_007424",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0028.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0028.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0028.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0028.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "666e135afa4d56995c7dc09d0efd018bba5e5964eb1ec53c0c87d1a13897c9ed",
+        "p_dir": "93df0db7a68d69983e387314501756034fdf560ecbc88ab534067297b806676c",
+        "azimuth_deg": "8fcd576229516e2ce3b15b563af073cb97e958ffdcb92b15faf7041e5cf144e3",
+        "tile_number": "0e15ad9d4fe1c6442c4d61fa240a0956ebd1eb2c9a89b7d9c0848e3f9f3649ce"
+      },
+      "valid_counts": {
+        "p_iso_min": 5063,
+        "p_iso_max": 11902,
+        "p_dir_min": 20242,
+        "p_dir_max": 47608
+      },
+      "minimum_db": -218.125,
+      "maximum_db": -59.65625
+    },
+    {
+      "shard": 29,
+      "tiles": 256,
+      "first_tile": "tile_007425",
+      "last_tile": "tile_007680",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0029.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0029.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0029.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0029.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "0d84955d84e34a8ff8a694520eba0ace8a0d82de1874977e85c18fbbc2a939e2",
+        "p_dir": "fddee3327a476e602e7cacc0220baeefe197303b00a2eb0c74042e3033f6ddc1",
+        "azimuth_deg": "04910730ee1531182b7aaca1bf6554ba6311c3f33311cf5eb852a1fda1dc25ed",
+        "tile_number": "23105cf50b47b9ba27a080cd88ad2d736347c3b374222531a3463c3a1a461d52"
+      },
+      "valid_counts": {
+        "p_iso_min": 6421,
+        "p_iso_max": 12487,
+        "p_dir_min": 25683,
+        "p_dir_max": 49959
+      },
+      "minimum_db": -218.5,
+      "maximum_db": -68.5
+    },
+    {
+      "shard": 30,
+      "tiles": 256,
+      "first_tile": "tile_007681",
+      "last_tile": "tile_007936",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0030.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0030.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0030.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0030.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "ab388e6969fd1f963192a8be128bbdd85829bdd5d16062878c6c8c88523dbd60",
+        "p_dir": "5175c6ce3967d3e1fae6cd3a3c8be58f01a6a453ef580afc774eb95931bfd50e",
+        "azimuth_deg": "dd656785d0c4f0c6b5394a4383a1ed8c96ea86edd4802e87739a060a7bb915ac",
+        "tile_number": "238d02045f57130feb7a2b03790e8f0f18d09efddc302404d27ce83bea6bd076"
+      },
+      "valid_counts": {
+        "p_iso_min": 4952,
+        "p_iso_max": 12660,
+        "p_dir_min": 19840,
+        "p_dir_max": 50639
+      },
+      "minimum_db": -210.5,
+      "maximum_db": -64.75
+    },
+    {
+      "shard": 31,
+      "tiles": 256,
+      "first_tile": "tile_007937",
+      "last_tile": "tile_008192",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0031.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0031.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0031.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0031.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "5ceb54764f292e13e34f7abd496bfc09d842fcdb22ef89f3dc45c513e07c713e",
+        "p_dir": "d87ddec5a9659c6028421ec31abd1a22dacb6edede3a7569eba158a728787528",
+        "azimuth_deg": "ff92a501dcf9733d602de63e4a05c07bbbd00598b033205a32636dfaf7641d73",
+        "tile_number": "70152642d579ac054d65023517ae9ae97dd42781f909814b5464cb046c121c45"
+      },
+      "valid_counts": {
+        "p_iso_min": 4013,
+        "p_iso_max": 12666,
+        "p_dir_min": 16061,
+        "p_dir_max": 50681
+      },
+      "minimum_db": -205.0,
+      "maximum_db": -67.8125
+    },
+    {
+      "shard": 32,
+      "tiles": 256,
+      "first_tile": "tile_008193",
+      "last_tile": "tile_008448",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0032.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0032.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0032.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0032.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "0f8b449a1b6f76bfed4ef62d1d3ddb50248a7c2c0b8ff435fb160c914505291f",
+        "p_dir": "c9d34fe0c67329033ff16623bcc316517762216880335bd30f5b213bdcff2200",
+        "azimuth_deg": "d779d0178680314dc6245af5153c8483f651555a89f120c92c7414caa1eb2234",
+        "tile_number": "bebdb11762463de79fdfc7c1e4c5046b7d5b768d6840bb9733c6d02a0fcb1ff5"
+      },
+      "valid_counts": {
+        "p_iso_min": 4155,
+        "p_iso_max": 12457,
+        "p_dir_min": 16638,
+        "p_dir_max": 49825
+      },
+      "minimum_db": -208.0,
+      "maximum_db": -67.75
+    },
+    {
+      "shard": 33,
+      "tiles": 256,
+      "first_tile": "tile_008449",
+      "last_tile": "tile_008704",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0033.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0033.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0033.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0033.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "4d430073085bb4a976b86af312ae25c9074299eea1d446aafc095cbdc48d91f5",
+        "p_dir": "38e7250b313c3a37b8482c301a9f36001261b6df02babbb0046dca7a4e14d7e2",
+        "azimuth_deg": "de3cfa8214392edba599eef7c1fcc6bce0cb8104dc9d220e085c40a9c699fc14",
+        "tile_number": "ed5622068737cafb08b6c24b561fa6a9a30a552d1a845f9d98315f9611d50d1a"
+      },
+      "valid_counts": {
+        "p_iso_min": 3605,
+        "p_iso_max": 12367,
+        "p_dir_min": 14442,
+        "p_dir_max": 49468
+      },
+      "minimum_db": -198.625,
+      "maximum_db": -59.625
+    },
+    {
+      "shard": 34,
+      "tiles": 256,
+      "first_tile": "tile_008705",
+      "last_tile": "tile_008960",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0034.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0034.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0034.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0034.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "3a052dd67e7592c8144601a0ee6dbfe1b6a7d94578fac4e0d87e92c309c03d78",
+        "p_dir": "cceb60fcbb9659ca9373f79bb9748a2d2ce2ae7884ca285fa6726db8e250c95b",
+        "azimuth_deg": "e1677e149aa3a3d6683eaf1171f087a74aa1cee576ba331ac5ac7560043a1a89",
+        "tile_number": "65e998c468d6c8ec07286c9e6a42f530b656daf0d6c69311742d47c22dab9a3f"
+      },
+      "valid_counts": {
+        "p_iso_min": 4297,
+        "p_iso_max": 12693,
+        "p_dir_min": 17179,
+        "p_dir_max": 50775
+      },
+      "minimum_db": -196.625,
+      "maximum_db": -59.65625
+    },
+    {
+      "shard": 35,
+      "tiles": 256,
+      "first_tile": "tile_008961",
+      "last_tile": "tile_009216",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0035.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0035.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0035.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0035.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "493681508ffb72624cbc7e8dd1bc5d11f782488a72b49053292db4e79107559a",
+        "p_dir": "477192b43787eb0e4c8641abc5ff736bd1fc53e0da966934fa2374ac1bcfc7cf",
+        "azimuth_deg": "a4c9a7c2723f95f9b4f1692cd8c2e46f84b06bf9370336230030c141dc0aa353",
+        "tile_number": "1825b03658cc91842e1af1cf47cac197061bfdf45bae6de59bec485a2c56ad49"
+      },
+      "valid_counts": {
+        "p_iso_min": 5390,
+        "p_iso_max": 12687,
+        "p_dir_min": 21576,
+        "p_dir_max": 50748
+      },
+      "minimum_db": -195.375,
+      "maximum_db": -59.65625
+    },
+    {
+      "shard": 36,
+      "tiles": 256,
+      "first_tile": "tile_009217",
+      "last_tile": "tile_009472",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0036.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0036.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0036.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0036.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "fa61b854d706f3d99aba8e027bfe5791e38b67e27f072e96d1d244bc402f5d43",
+        "p_dir": "adfe2ccfe5bd49a12cc61bb869ced96f98b1b041563376c20591b241393e31c9",
+        "azimuth_deg": "11b01fd44f2bb839304b31995db7857c3b58fbffb34b792711574047a6b09687",
+        "tile_number": "b0c5f5715e70ba54d2f6f1902878c251a050644a0f485a33a99af4bbc5f56017"
+      },
+      "valid_counts": {
+        "p_iso_min": 6056,
+        "p_iso_max": 12579,
+        "p_dir_min": 24227,
+        "p_dir_max": 50310
+      },
+      "minimum_db": -199.625,
+      "maximum_db": -59.65625
+    },
+    {
+      "shard": 37,
+      "tiles": 256,
+      "first_tile": "tile_009473",
+      "last_tile": "tile_009728",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0037.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0037.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0037.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0037.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "49e3e79a23dcf539d3524138f14b8e9bcb9af0509d8fcf5177edc426cf4bb054",
+        "p_dir": "e58d15ddee49e37742ee3ccf5d27ade2f26beed660c4760d69dec14374da9534",
+        "azimuth_deg": "61ca8d9bc79e6957f04f6d5d140722586fe75f5f6f26d88797eb0042b0ab06e7",
+        "tile_number": "666816b228afb8dfbd11a36c749216000a205ae9d39c222746a149cc3d4e8313"
+      },
+      "valid_counts": {
+        "p_iso_min": 3554,
+        "p_iso_max": 12433,
+        "p_dir_min": 14185,
+        "p_dir_max": 49732
+      },
+      "minimum_db": -200.375,
+      "maximum_db": -59.59375
+    },
+    {
+      "shard": 38,
+      "tiles": 256,
+      "first_tile": "tile_009729",
+      "last_tile": "tile_009984",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0038.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0038.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0038.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0038.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "680970145bde39b9863a7d3cc6dc75ad11083b0eb76b768a98035b895cc457df",
+        "p_dir": "7082e53c27c5c165b337eb437960881b09ab4cd766b2caf9fdfb3550416ed4e1",
+        "azimuth_deg": "954aa8aea814a1004a0ae5ee423352b0938157a9d4ab1a96b47a6bb940dfc73b",
+        "tile_number": "d63502c1285c72cdf73c13e8f8cb02d5f1e14fbee84a905c9ca8492ae61391a0"
+      },
+      "valid_counts": {
+        "p_iso_min": 3733,
+        "p_iso_max": 12673,
+        "p_dir_min": 14943,
+        "p_dir_max": 50691
+      },
+      "minimum_db": -204.375,
+      "maximum_db": -59.625
+    },
+    {
+      "shard": 39,
+      "tiles": 256,
+      "first_tile": "tile_009985",
+      "last_tile": "tile_010240",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0039.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0039.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0039.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0039.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "58340813f10267fd2c148625b409af6291da978241c6dbd72b4bd96a0b6132fc",
+        "p_dir": "806aef86e29df46887eb71574555bae5cc77c8c3034f63e9e2c0f424e07f8ae8",
+        "azimuth_deg": "c66f4f78cd67a691ea76aec9776579388083e5f81f1b6ea9ab370835f0c6622a",
+        "tile_number": "81ee12ebe6584e427155440f752de1cc7de455f868792efdd4c0fb8e83d9cce5"
+      },
+      "valid_counts": {
+        "p_iso_min": 3874,
+        "p_iso_max": 12773,
+        "p_dir_min": 15499,
+        "p_dir_max": 51057
+      },
+      "minimum_db": -205.25,
+      "maximum_db": -62.59375
+    },
+    {
+      "shard": 40,
+      "tiles": 256,
+      "first_tile": "tile_010241",
+      "last_tile": "tile_010496",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0040.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0040.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0040.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0040.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "6ff03ca6731197e2e82221fe28000b7f684011b4ceee47b30ec79d0b02818796",
+        "p_dir": "9212404b26bd435f94018a933f4e9a938532fb1b9ef8c93b4e32461763c1871d",
+        "azimuth_deg": "a6f3f79c7bcc3da0583c7fbecaea83fbb1c667d3d61a5a2e46718a24e412d3c2",
+        "tile_number": "31fffac1ab1fa4ffd9dea3989c0383d673c6159d3778a121584890cea4f2923e"
+      },
+      "valid_counts": {
+        "p_iso_min": 4585,
+        "p_iso_max": 12617,
+        "p_dir_min": 18347,
+        "p_dir_max": 50442
+      },
+      "minimum_db": -206.5,
+      "maximum_db": -68.5
+    },
+    {
+      "shard": 41,
+      "tiles": 256,
+      "first_tile": "tile_010497",
+      "last_tile": "tile_010752",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0041.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0041.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0041.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0041.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "c48367fac2c289380bd3a62ead5ee5e8b1ae36518aee88255a7bfb627462b39c",
+        "p_dir": "720a958ec9aec934415afbe8f1ae52474128d6c21640dffc275d044f11e8925c",
+        "azimuth_deg": "308f5faacd7b7f23fa226bcd1e1dd483b15787bdac001de743a1512d566de609",
+        "tile_number": "8be8f32dbb3175a4e54e592ab7b114fed7553e3bc42e85662d488ef1f757a35e"
+      },
+      "valid_counts": {
+        "p_iso_min": 3425,
+        "p_iso_max": 12503,
+        "p_dir_min": 13727,
+        "p_dir_max": 50029
+      },
+      "minimum_db": -207.875,
+      "maximum_db": -64.8125
+    },
+    {
+      "shard": 42,
+      "tiles": 256,
+      "first_tile": "tile_010753",
+      "last_tile": "tile_011008",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0042.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0042.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0042.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0042.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "9e1098b818443c6e3c471a334fbcab349e8726b41b131937bf749176332b20a4",
+        "p_dir": "150c747765963ce9a21480c2d11a931e39ef6a42c7cc3d645ad429ee9b45cd1c",
+        "azimuth_deg": "411360b363606519de41dca8311a3c152883704af39d860e1599c2e3fb3bb757",
+        "tile_number": "d5cf1885de2064ca17f06cde9d8a31e37da65a6c9e042163da73997b8304ca60"
+      },
+      "valid_counts": {
+        "p_iso_min": 5179,
+        "p_iso_max": 12410,
+        "p_dir_min": 20706,
+        "p_dir_max": 49636
+      },
+      "minimum_db": -196.0,
+      "maximum_db": -59.625
+    },
+    {
+      "shard": 43,
+      "tiles": 256,
+      "first_tile": "tile_011009",
+      "last_tile": "tile_011264",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0043.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0043.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0043.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0043.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "3d83b9605bf089b39622c5fb0408e51cdc6f3840cb7e4c343e24dd5c0304195c",
+        "p_dir": "c8a59dfabd3c4f04a60e9c95c7ad0b7da09e9edbfd4ae33cc76ef80aafaa0144",
+        "azimuth_deg": "7b7355524950682dff4fd9164e6cfdcd040d562452af28dbce9890965ec2b6d2",
+        "tile_number": "d67ac781a6008e87b72bd6a10023b18eb3b0d08a80f1a4f68967904a1184311e"
+      },
+      "valid_counts": {
+        "p_iso_min": 5962,
+        "p_iso_max": 12530,
+        "p_dir_min": 23838,
+        "p_dir_max": 50122
+      },
+      "minimum_db": -198.625,
+      "maximum_db": -64.8125
+    },
+    {
+      "shard": 44,
+      "tiles": 256,
+      "first_tile": "tile_011265",
+      "last_tile": "tile_011520",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0044.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0044.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0044.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0044.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "06affc0ca289b0eb9d0a47fded9aabff5c3ef49b901c6d9bbb5b5285e64668d4",
+        "p_dir": "7f4a6be949310845945d1f932caf801400d0898ae5027b44f29905d33ba0d94b",
+        "azimuth_deg": "d185bce780b3fc1733b775ace55aa197035df6ab141f0ee785e7fe7afaf8d3c2",
+        "tile_number": "5fd37982d3c3e05122646036727b21dfa06a9f3eb17d9aca563c6fd8c381527c"
+      },
+      "valid_counts": {
+        "p_iso_min": 3784,
+        "p_iso_max": 12652,
+        "p_dir_min": 15138,
+        "p_dir_max": 50623
+      },
+      "minimum_db": -214.625,
+      "maximum_db": -64.8125
+    },
+    {
+      "shard": 45,
+      "tiles": 256,
+      "first_tile": "tile_011521",
+      "last_tile": "tile_011776",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0045.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0045.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0045.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0045.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "b9c8d7128466781900f3f9427f402355851d95f3f60dbf143da276cc1ef1ab1c",
+        "p_dir": "4823ccab78b2bb45fdb25e8df4049fa9e25f65a0ade1540649b16a0f33d5643c",
+        "azimuth_deg": "d7888196b6262b544ed53628afb7c1dc23901852ec3e43a5040458d959c5d7e2",
+        "tile_number": "a8e4a156c2289b0cefd661f1b9512c24edd89a087a9c91b569ba57a94f3f6920"
+      },
+      "valid_counts": {
+        "p_iso_min": 4031,
+        "p_iso_max": 12227,
+        "p_dir_min": 16100,
+        "p_dir_max": 48888
+      },
+      "minimum_db": -210.375,
+      "maximum_db": -66.5
+    },
+    {
+      "shard": 46,
+      "tiles": 256,
+      "first_tile": "tile_011777",
+      "last_tile": "tile_012032",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0046.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0046.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0046.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0046.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "ac688577390e9f40ab8f76dae629ca361f3772759c93a359cba0b8a4e0a0c88f",
+        "p_dir": "08f71aacf88cb3f6f7ecd7435fc010874beb89963284b01c8c64ae225a8d96ff",
+        "azimuth_deg": "526bf63c679b7e71e645268f0e8516e86c9a3ec3b83bb98e73a22938a1fdb80a",
+        "tile_number": "cc5e940fa31c6f8640cec2fce381912a8e756582d92ea7a48c7629609d907462"
+      },
+      "valid_counts": {
+        "p_iso_min": 2887,
+        "p_iso_max": 12299,
+        "p_dir_min": 11573,
+        "p_dir_max": 49195
+      },
+      "minimum_db": -202.5,
+      "maximum_db": -66.625
+    },
+    {
+      "shard": 47,
+      "tiles": 256,
+      "first_tile": "tile_012033",
+      "last_tile": "tile_012288",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0047.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0047.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0047.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0047.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "3b0509c6b4932c36bd31f9968f4708ec73bcd524e1e3908417f65911c50df7d8",
+        "p_dir": "1e6c450b97c73e327bffd1c4ba0c12bee3c87042c557bf7b0a2909c5ed94f1a4",
+        "azimuth_deg": "f7d5cb32b4ba54127ecbeae953fccbe134f2dc27a137d1be9cce9965d9b664fc",
+        "tile_number": "3c9775dda1d6396d4bdd748b4a2f86fa26ae3951a2f53d21d5722adeb9759e22"
+      },
+      "valid_counts": {
+        "p_iso_min": 4112,
+        "p_iso_max": 12300,
+        "p_dir_min": 16461,
+        "p_dir_max": 49186
+      },
+      "minimum_db": -207.875,
+      "maximum_db": -68.1875
+    },
+    {
+      "shard": 48,
+      "tiles": 256,
+      "first_tile": "tile_012289",
+      "last_tile": "tile_012544",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0048.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0048.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0048.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0048.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "0b1a2b317b2dbf55646a86309bef28473db9ecc8882d91227ef2c94483da1460",
+        "p_dir": "d8bde980bea24e0dc8d5604eec2acb09c888843cca425b0abbe396af200c0198",
+        "azimuth_deg": "e68456f74d82b59da5bb395ac748543182d8bcf153be2df7724e952f3d9999c4",
+        "tile_number": "1b13234f48fd3bdc8e8220a229c3e0c87b3d38537e6088f4f5781df0adb514ca"
+      },
+      "valid_counts": {
+        "p_iso_min": 4619,
+        "p_iso_max": 12097,
+        "p_dir_min": 18463,
+        "p_dir_max": 48411
+      },
+      "minimum_db": -205.5,
+      "maximum_db": -68.125
+    },
+    {
+      "shard": 49,
+      "tiles": 256,
+      "first_tile": "tile_012545",
+      "last_tile": "tile_012800",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0049.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0049.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0049.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0049.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "35e67d89e94403e8f293527beaa32f3ff671e30ba4b6ae64ca68e6ddaed3fb63",
+        "p_dir": "3a5fde3ae09c9c51fe226dce6c4d2dd7994f57d81737157324a5e3d0a1cadd8f",
+        "azimuth_deg": "9e5a919d66d4c2dc443872b6095f0eb3609f6aafcb78cbea237e8139402729b1",
+        "tile_number": "3bc161000b913339a5d80a4477148a0d0064661da02a4014b290ea363765c623"
+      },
+      "valid_counts": {
+        "p_iso_min": 5778,
+        "p_iso_max": 11981,
+        "p_dir_min": 23107,
+        "p_dir_max": 47952
+      },
+      "minimum_db": -201.0,
+      "maximum_db": -62.59375
+    },
+    {
+      "shard": 50,
+      "tiles": 256,
+      "first_tile": "tile_012801",
+      "last_tile": "tile_013056",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0050.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0050.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0050.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0050.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "e0bfb3fdbb0b3c448ec6ff0d1541efbbc5ce39346da7602abbbfaa101fc65c65",
+        "p_dir": "ff12d4025f2e0768de2e29fff98fb6c77187daba372504ce5e3719a7a6363fa3",
+        "azimuth_deg": "69b8d86b5bd154363a5a16880dcbfa520b405a74ee757d0bcc537660d8d6cef2",
+        "tile_number": "6f25fa40febe212d70c4638c6d7a36de4b962aaf29c482c9a4eb8505fafe9e3d"
+      },
+      "valid_counts": {
+        "p_iso_min": 4995,
+        "p_iso_max": 12378,
+        "p_dir_min": 19973,
+        "p_dir_max": 49517
+      },
+      "minimum_db": -205.875,
+      "maximum_db": -68.1875
+    },
+    {
+      "shard": 51,
+      "tiles": 256,
+      "first_tile": "tile_013057",
+      "last_tile": "tile_013312",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0051.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0051.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0051.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0051.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "12f3783572033be9fef2c997733914b7c6221ffe160a58be72ea8c2f8f16afd3",
+        "p_dir": "34521d1f192c696b18ad2faf0351de0db3e065934f609f6dffdfe6f29a043a42",
+        "azimuth_deg": "ed98188505a7d149e17751aaf3c5b28458a064da515c92c6c49944c71196cf82",
+        "tile_number": "7a4712287140a3aa7d07ebd3a78c1a8fe8b7a776116cea61f83ac17a32978217"
+      },
+      "valid_counts": {
+        "p_iso_min": 5527,
+        "p_iso_max": 12295,
+        "p_dir_min": 22115,
+        "p_dir_max": 49157
+      },
+      "minimum_db": -202.0,
+      "maximum_db": -66.5
+    },
+    {
+      "shard": 52,
+      "tiles": 256,
+      "first_tile": "tile_013313",
+      "last_tile": "tile_013568",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0052.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0052.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0052.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0052.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "bb94bdb7d2fca6f143fdba730c0c6da7b9084c7e78687b61e71ebd860bd422b2",
+        "p_dir": "63810876aec2aaaa06d37a05424ed5223e1ce85ff8fc6da9447fc771bd8c5851",
+        "azimuth_deg": "f2c35a18baf64890c3aaf34108bd09e674aeca9e24e375f734a72500828efc3f",
+        "tile_number": "017c54233278f99694e9a78373c614abfc99c3310d48c879a033ab2513a99ea1"
+      },
+      "valid_counts": {
+        "p_iso_min": 3812,
+        "p_iso_max": 12189,
+        "p_dir_min": 15248,
+        "p_dir_max": 48768
+      },
+      "minimum_db": -204.25,
+      "maximum_db": -67.8125
+    },
+    {
+      "shard": 53,
+      "tiles": 256,
+      "first_tile": "tile_013569",
+      "last_tile": "tile_013824",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0053.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0053.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0053.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0053.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "555295828858be2ead9d7835f3ea001e0e5b3d13a6747c3271a43b31258f30ee",
+        "p_dir": "4041c613a22597943fb9ea82ba211dc7a245365f7b5ba128c1c1564493888b54",
+        "azimuth_deg": "cc48df9520098f6902431008ac9d39c52eafb887f5d161345846f2dcebf789f6",
+        "tile_number": "802aec3b15af7b8594ef8a60c30b4457d90281d7eb7ed9222e13c049c3243983"
+      },
+      "valid_counts": {
+        "p_iso_min": 5424,
+        "p_iso_max": 12621,
+        "p_dir_min": 21698,
+        "p_dir_max": 50489
+      },
+      "minimum_db": -198.875,
+      "maximum_db": -66.4375
+    },
+    {
+      "shard": 54,
+      "tiles": 256,
+      "first_tile": "tile_013825",
+      "last_tile": "tile_014080",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0054.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0054.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0054.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0054.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "b27367dcfcb09259916e19f0b3142e9589242dec0505fba2ae803e02d13cbebf",
+        "p_dir": "17712001b5e825c65e3943d47bbc84183af86eafe4a3f2177ccea6282c549faa",
+        "azimuth_deg": "acd76536d75a397bf599697e8e663b3c20ea2006346844908a4b075ef106d5d0",
+        "tile_number": "82b1ab1d700e79468eee33e06944261bb20efc7ca94c650dca09fff8a20697d6"
+      },
+      "valid_counts": {
+        "p_iso_min": 5013,
+        "p_iso_max": 12203,
+        "p_dir_min": 20037,
+        "p_dir_max": 48822
+      },
+      "minimum_db": -212.875,
+      "maximum_db": -68.6875
+    },
+    {
+      "shard": 55,
+      "tiles": 256,
+      "first_tile": "tile_014081",
+      "last_tile": "tile_014336",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0055.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0055.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0055.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0055.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "9e3b660d084e4d29dead54d487f21afb50160d6363a22c089313607bde0c2ff0",
+        "p_dir": "e1bdc5b0aac17eac9950f7c086db5c9de3230958b8418a9773111534c2d96d18",
+        "azimuth_deg": "e1b0fbc665c8a5bdbc9ba899c068618c9ad796049acb71c94ae0925e1b19d45a",
+        "tile_number": "00e3af52ff37e4c0d06493897f34dc34efcb3a5cc0fcaeb420a38d602a93b632"
+      },
+      "valid_counts": {
+        "p_iso_min": 5717,
+        "p_iso_max": 12398,
+        "p_dir_min": 22890,
+        "p_dir_max": 49589
+      },
+      "minimum_db": -212.375,
+      "maximum_db": -66.625
+    },
+    {
+      "shard": 56,
+      "tiles": 256,
+      "first_tile": "tile_014337",
+      "last_tile": "tile_014592",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0056.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0056.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0056.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0056.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "1939c1ecead310fad00546a99154b3ce41bcbb6b7111cef72487eed6908b2b0a",
+        "p_dir": "d94fc6d660ce0b313b71116a056a59b7e657b148165070349d62eec76b61fd4d",
+        "azimuth_deg": "aa9df205788a87df10652d8da0c9f5686727cd5089224a3423c660dbf91bfbf0",
+        "tile_number": "fadf5eb1e78d334b5888f4d9c3d436b9604731e2a95b7bbe5a447d1bac5943c0"
+      },
+      "valid_counts": {
+        "p_iso_min": 4411,
+        "p_iso_max": 12505,
+        "p_dir_min": 17668,
+        "p_dir_max": 50021
+      },
+      "minimum_db": -201.125,
+      "maximum_db": -68.125
+    },
+    {
+      "shard": 57,
+      "tiles": 256,
+      "first_tile": "tile_014593",
+      "last_tile": "tile_014848",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0057.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0057.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0057.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0057.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "8c8a32c50fd904182c45d5dca5717f6701a3e64e3a5bcfffed348d45c373d125",
+        "p_dir": "b1f7817c4edced4c07bda38b79da33743da13b794a455a3647e1d022c50a4e4f",
+        "azimuth_deg": "79034ae02498b0214c9566b1c81d7ad03af12cdc7c1898cef5d54e62a43bb12b",
+        "tile_number": "e4ca96c7a4fd7d326b609e299ed0702ff0ec94fe2f9f115fabc701ac9970586f"
+      },
+      "valid_counts": {
+        "p_iso_min": 3947,
+        "p_iso_max": 12329,
+        "p_dir_min": 15768,
+        "p_dir_max": 49309
+      },
+      "minimum_db": -206.0,
+      "maximum_db": -67.125
+    },
+    {
+      "shard": 58,
+      "tiles": 256,
+      "first_tile": "tile_014849",
+      "last_tile": "tile_015104",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0058.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0058.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0058.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0058.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "98084575e7dbb78f736258f0bea793983b674ae0462ae9efc8db7ef8b79abcd2",
+        "p_dir": "d071f98d204e8091654409870e84ee31d885ef66eee4d841bf003542f969969b",
+        "azimuth_deg": "2a92f3f2d0c8cba75d2b934642b59f5bd453f6ebfe5abd3d26aea3dbdb352780",
+        "tile_number": "0b6d21ed2afac381fdc114a4def1c7ecd1e2fa412988f6f2cab655bfaa3c241e"
+      },
+      "valid_counts": {
+        "p_iso_min": 5406,
+        "p_iso_max": 12317,
+        "p_dir_min": 21619,
+        "p_dir_max": 49268
+      },
+      "minimum_db": -199.0,
+      "maximum_db": -67.6875
+    },
+    {
+      "shard": 59,
+      "tiles": 256,
+      "first_tile": "tile_015105",
+      "last_tile": "tile_015360",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0059.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0059.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0059.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0059.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "2ea167674a9a990de1ea49f495755ecd76325f31116f0cbc372604f31473ab65",
+        "p_dir": "e2390f30f31622d89a1e76cd635e32e24904be51eff46488e675e3cb27795968",
+        "azimuth_deg": "cf8dc373822fed822c369461ae94e88eb4e5093adcd658cfc8066ec18bb9485f",
+        "tile_number": "f72b5a019e509cb00591c704d0cb23316d3b7ce087390a9c3288420c684456d5"
+      },
+      "valid_counts": {
+        "p_iso_min": 5662,
+        "p_iso_max": 12300,
+        "p_dir_min": 22641,
+        "p_dir_max": 49191
+      },
+      "minimum_db": -196.0,
+      "maximum_db": -67.8125
+    },
+    {
+      "shard": 60,
+      "tiles": 256,
+      "first_tile": "tile_015361",
+      "last_tile": "tile_015616",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0060.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0060.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0060.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0060.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "d8e10cf6665aa2d83a863d936bc43fe93ded1f40c95be61de9e0a66864e139a2",
+        "p_dir": "a9b21e35f37cf4a57cf5a9ee2da500ecd2a5bf388ac543bd339ee5a69f91da3b",
+        "azimuth_deg": "ec3ec27cdd5c2bb1b89b46583904b344cb843d1492ebdd5b0ff929f1c38b7572",
+        "tile_number": "8bc1bfd27971767a6da8071381ef1536027021822de5d8df83320d8dc21e031c"
+      },
+      "valid_counts": {
+        "p_iso_min": 4868,
+        "p_iso_max": 12428,
+        "p_dir_min": 19474,
+        "p_dir_max": 49719
+      },
+      "minimum_db": -198.0,
+      "maximum_db": -67.875
+    },
+    {
+      "shard": 61,
+      "tiles": 256,
+      "first_tile": "tile_015617",
+      "last_tile": "tile_015872",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0061.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0061.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0061.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0061.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "f51e9d7237901178fc24a78d43242355e69b2deccd115f5a80485eafa6f3e07c",
+        "p_dir": "6699b13b415c5030252b76c7c58cfe7c426cc26c8053d9b58b655eb35056ddb0",
+        "azimuth_deg": "8717275618ad15c91b4fa91a82545f1c0818e8aeeda0f36bb52f17fed8e93c09",
+        "tile_number": "08f497eaac6e597c43eb188454e1a529953060c2e88ad8200a8f1052d3aac502"
+      },
+      "valid_counts": {
+        "p_iso_min": 3309,
+        "p_iso_max": 11945,
+        "p_dir_min": 13232,
+        "p_dir_max": 47768
+      },
+      "minimum_db": -199.625,
+      "maximum_db": -68.3125
+    },
+    {
+      "shard": 62,
+      "tiles": 256,
+      "first_tile": "tile_015873",
+      "last_tile": "tile_016128",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0062.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0062.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0062.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0062.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "6b3aeb79beac3bb9e1072e56f1dc969d6330adecf9224a3310e3b4af71fdf372",
+        "p_dir": "a7b0cec1e236a548f4ccfc408e05e192838eaf43a18901c5baa5935552bf02e0",
+        "azimuth_deg": "3e00342125bc1c4d4c5e53e7f573f8d0cc72b10e10b881b5932c3d31f9be383e",
+        "tile_number": "fa2f0f81558ff34a7ed7e316a2eb58af8801a687a010aa10bca0c71139d16fd4"
+      },
+      "valid_counts": {
+        "p_iso_min": 4800,
+        "p_iso_max": 12284,
+        "p_dir_min": 19180,
+        "p_dir_max": 49136
+      },
+      "minimum_db": -197.25,
+      "maximum_db": -68.0625
+    },
+    {
+      "shard": 63,
+      "tiles": 256,
+      "first_tile": "tile_016129",
+      "last_tile": "tile_016384",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0063.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0063.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0063.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0063.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "5a8068316bfc5b3d3a9755d01c175a1bf3df9ff7d0b605a9c2e9d818cd81f41a",
+        "p_dir": "682e2a2feec654fe2806ab06e41d0699fd4ded38e4030bf35f362035aca6aa79",
+        "azimuth_deg": "41a067b9654f8e0a56417d2f8d48b95784dad18aa4abec2f6696119c7a21bcf4",
+        "tile_number": "d823ff22bb13694f560162aa7c2382f7dfb768c6f85c0a19d539fefa5c3973dd"
+      },
+      "valid_counts": {
+        "p_iso_min": 4268,
+        "p_iso_max": 12294,
+        "p_dir_min": 17057,
+        "p_dir_max": 49162
+      },
+      "minimum_db": -195.5,
+      "maximum_db": -67.0
+    },
+    {
+      "shard": 64,
+      "tiles": 256,
+      "first_tile": "tile_016385",
+      "last_tile": "tile_016640",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0064.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0064.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0064.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0064.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "55f7e53f4ce39a12e3b0e29e237a1777e3708da91946750d6262c901001e29a5",
+        "p_dir": "34ee1c702c8e0477de46cb75958cd7ef77954ebc07b7937513a97a0422301382",
+        "azimuth_deg": "dac127f0b8fd15b33d3e71df26356d0ecb8a98043b7600cd61e0362387ded2df",
+        "tile_number": "7995e549a23f3e500bc68549d3688a75ff8c1b251158d241299da402c9ea7903"
+      },
+      "valid_counts": {
+        "p_iso_min": 4677,
+        "p_iso_max": 12321,
+        "p_dir_min": 18763,
+        "p_dir_max": 49285
+      },
+      "minimum_db": -196.375,
+      "maximum_db": -67.875
+    },
+    {
+      "shard": 65,
+      "tiles": 256,
+      "first_tile": "tile_016641",
+      "last_tile": "tile_016896",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0065.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0065.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0065.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0065.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "96fb5430dc951ef996e4c3ee8fa3525fd23a92c3dac5ad5a9c3f3c7403b82260",
+        "p_dir": "29c510b9645d1b4b7df7d41296b4e63f8a50a3bd08a32a4c843920165997af2e",
+        "azimuth_deg": "9e58000df8099b451f31ee5d3b109954118cdcb17b5546efd36eb8827c8819ea",
+        "tile_number": "fd17753e976dff31ca1562b394ea9f38b38cd1002ec40c831def6aec6862bd40"
+      },
+      "valid_counts": {
+        "p_iso_min": 5236,
+        "p_iso_max": 12262,
+        "p_dir_min": 20922,
+        "p_dir_max": 49050
+      },
+      "minimum_db": -195.125,
+      "maximum_db": -66.5
+    },
+    {
+      "shard": 66,
+      "tiles": 256,
+      "first_tile": "tile_016897",
+      "last_tile": "tile_017152",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0066.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0066.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0066.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0066.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "c48acf617613da9822ee7c68ce4c7cdbb4ffb1ef284304171fa205b0b82a054d",
+        "p_dir": "d97e5f3de7150715cbb7b206af29c5cd96332a0e6beea3e84e6a6e581d8d28e7",
+        "azimuth_deg": "aec593aaeac445118c9c293de0338a832fa0a0a671af6b77f7d37f96260431e8",
+        "tile_number": "6a7b85530ef9c3ab40a59c9021a625be4d5d70ccf0a46d11528c537329ea0a5b"
+      },
+      "valid_counts": {
+        "p_iso_min": 5847,
+        "p_iso_max": 12653,
+        "p_dir_min": 23379,
+        "p_dir_max": 50612
+      },
+      "minimum_db": -198.625,
+      "maximum_db": -67.8125
+    },
+    {
+      "shard": 67,
+      "tiles": 256,
+      "first_tile": "tile_017153",
+      "last_tile": "tile_017408",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0067.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0067.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0067.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0067.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "5a5c5d039171626021022d4456641465e8ac36bd06a8cf6cff75210bc6fbc3db",
+        "p_dir": "ca05d6ec4f4131a96147989bd7cb351655b174a33fc976e3e2a569e597eda229",
+        "azimuth_deg": "8b74a82387cec89f9ad033173be09adeab1a2261a10feb81de819b87376a2df0",
+        "tile_number": "782bf4d78c7f30e9ca6d83c44d6a8e8249c7a9aa031882b6c7f749a09992f69a"
+      },
+      "valid_counts": {
+        "p_iso_min": 4764,
+        "p_iso_max": 12280,
+        "p_dir_min": 19069,
+        "p_dir_max": 49108
+      },
+      "minimum_db": -200.125,
+      "maximum_db": -67.75
+    },
+    {
+      "shard": 68,
+      "tiles": 256,
+      "first_tile": "tile_017409",
+      "last_tile": "tile_017664",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0068.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0068.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0068.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0068.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "d120afcbba666db749f10e10f9933901260b3cc94e5e9489cf0ebaf37d9119d8",
+        "p_dir": "5660ce7a0068331d1633a054e7704db83c843a66433456994b671630cefe0311",
+        "azimuth_deg": "1709fc87ae14381d518168ca0959476867f717cedc5d94aba9c121b4b1f89472",
+        "tile_number": "9021653c3f13645be0acae07c50cb61889512b473e7e33068c4817c42de4545c"
+      },
+      "valid_counts": {
+        "p_iso_min": 2920,
+        "p_iso_max": 12228,
+        "p_dir_min": 11672,
+        "p_dir_max": 48916
+      },
+      "minimum_db": -221.0,
+      "maximum_db": -66.625
+    },
+    {
+      "shard": 69,
+      "tiles": 256,
+      "first_tile": "tile_017665",
+      "last_tile": "tile_017920",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0069.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0069.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0069.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0069.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "f9bc3ec31da21023490a487a87077335b0e8b12c014d7965ad2a29ceb803f7f7",
+        "p_dir": "0def35dcaae8b7751eadf8a3d53eef490b84d77db8bbb8bdf1fd3178b85c8b61",
+        "azimuth_deg": "6f0294d57464632927868aacba1f79ea8573ffc696dcedaacb8d2ee75b4f6f42",
+        "tile_number": "f1fdba848477a8ad3f1cb2da2b6d74b4a1e75ea24d47172d15c6c8258212210f"
+      },
+      "valid_counts": {
+        "p_iso_min": 4454,
+        "p_iso_max": 12495,
+        "p_dir_min": 17835,
+        "p_dir_max": 49981
+      },
+      "minimum_db": -202.0,
+      "maximum_db": -59.65625
+    },
+    {
+      "shard": 70,
+      "tiles": 256,
+      "first_tile": "tile_017921",
+      "last_tile": "tile_018176",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0070.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0070.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0070.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0070.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "d8d4ac03284dc175b6ef2abbabd0f4ffb75d229c782918b2b138644b393f51ff",
+        "p_dir": "869c7ee0b586763df5398e9f0f714bcb840d062d5558cdda16441f0496ed81d3",
+        "azimuth_deg": "a1af10d40207388b33486db84f69f731fb2de97a9d7dd64c48041d0d5e90fcf3",
+        "tile_number": "c057567a651ad89b123f2eb10ff6858e638047787213c82ac79d7b7c99f01d3f"
+      },
+      "valid_counts": {
+        "p_iso_min": 3897,
+        "p_iso_max": 12338,
+        "p_dir_min": 15644,
+        "p_dir_max": 49338
+      },
+      "minimum_db": -196.25,
+      "maximum_db": -68.75
+    },
+    {
+      "shard": 71,
+      "tiles": 256,
+      "first_tile": "tile_018177",
+      "last_tile": "tile_018432",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0071.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0071.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0071.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0071.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "d3acc6e4661682af0ac7ec43401287ed2072f7f78313b8e8b188377e6d025304",
+        "p_dir": "e500725929b36708123df518da14166ffad2c2d730f278b54b32608c78706975",
+        "azimuth_deg": "7f8ee31142cac9619efceee625cade9c0b18f65065009a100b4717821914d230",
+        "tile_number": "60e168f4dfd42ff9ecb1b3490a13402082785dd52cdf3ea218fbaba6d3887599"
+      },
+      "valid_counts": {
+        "p_iso_min": 5252,
+        "p_iso_max": 12587,
+        "p_dir_min": 20985,
+        "p_dir_max": 50348
+      },
+      "minimum_db": -203.75,
+      "maximum_db": -64.8125
+    },
+    {
+      "shard": 72,
+      "tiles": 256,
+      "first_tile": "tile_018433",
+      "last_tile": "tile_018688",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0072.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0072.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0072.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0072.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "0e3de49bddd643b4dbe482727502510b26e8fddd3c7717f8b4e4f6ca5df8e866",
+        "p_dir": "a39c8c940c9b03c81ee398bbb40881f147032c53e45e6adfb008c809b8c9e88f",
+        "azimuth_deg": "be1b308ce2955177013e50ea48f48eb939e2c6564681214b4e08a9ff57536319",
+        "tile_number": "68dddd5feef888aad8622f1cccbff9291b24e75558b105ba942eb9529effda7d"
+      },
+      "valid_counts": {
+        "p_iso_min": 2534,
+        "p_iso_max": 12360,
+        "p_dir_min": 10141,
+        "p_dir_max": 49440
+      },
+      "minimum_db": -195.5,
+      "maximum_db": -66.625
+    },
+    {
+      "shard": 73,
+      "tiles": 256,
+      "first_tile": "tile_018689",
+      "last_tile": "tile_018944",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0073.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0073.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0073.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0073.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "106bb18187e4b9771d5a7f21a8ec892348fdc25cd00aacabe878b626e6d27db9",
+        "p_dir": "c9b982217a62eeefd1d932b552dc9f69fd0eb9b506753f1f4de7dd3e886d46f8",
+        "azimuth_deg": "a3163e8f8329de99798a9ced063e5a93015cc59555dfbdb86235c8585b69f88c",
+        "tile_number": "e944cdca4de3399e50b8fa8ac77e7d9aa3e6c29882598b40ce467808d473797e"
+      },
+      "valid_counts": {
+        "p_iso_min": 4088,
+        "p_iso_max": 12584,
+        "p_dir_min": 16347,
+        "p_dir_max": 50327
+      },
+      "minimum_db": -199.25,
+      "maximum_db": -66.625
+    },
+    {
+      "shard": 74,
+      "tiles": 256,
+      "first_tile": "tile_018945",
+      "last_tile": "tile_019200",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0074.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0074.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0074.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0074.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "cd8f3c8250fb481d17c1c1bba6b8de4a6ec1256c3e806ff511c9cae80259d035",
+        "p_dir": "5784f1e3afa17064798491f1162d625c218a1296de88ae6847349b4b039a30ba",
+        "azimuth_deg": "fbbd9cde9eb93bb778e95945a23c852599efbf7be286b2f34d074e644890e770",
+        "tile_number": "472232471ae983eecd20d96c0afb922148632676e8cc9ec5a63e555e98718379"
+      },
+      "valid_counts": {
+        "p_iso_min": 3837,
+        "p_iso_max": 12236,
+        "p_dir_min": 15370,
+        "p_dir_max": 48931
+      },
+      "minimum_db": -204.875,
+      "maximum_db": -68.125
+    },
+    {
+      "shard": 75,
+      "tiles": 256,
+      "first_tile": "tile_019201",
+      "last_tile": "tile_019456",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0075.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0075.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0075.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0075.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "6d487708ba82d704ee50d2ac8b7f2113155d5c779ecd403ab6b2ce874eda36f8",
+        "p_dir": "329e85f60363a6864222c5e640e2cf2025a0214d7120caa8d241aad80791716e",
+        "azimuth_deg": "165a832ccd110f94a558f3ac9ed26882d293e59d6dace1916dffd0c6ac8a1e67",
+        "tile_number": "eb1999d09efc03a61ff48bd0a533fcfa561940a8abea766e5656aa383dd1be17"
+      },
+      "valid_counts": {
+        "p_iso_min": 2519,
+        "p_iso_max": 12639,
+        "p_dir_min": 10106,
+        "p_dir_max": 50566
+      },
+      "minimum_db": -216.625,
+      "maximum_db": -67.75
+    },
+    {
+      "shard": 76,
+      "tiles": 256,
+      "first_tile": "tile_019457",
+      "last_tile": "tile_019712",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0076.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0076.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0076.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0076.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "d270810789333539a81332dd9bff74efe4236831784f78f9b3312a04b74b7d17",
+        "p_dir": "c1ed8bf31afa22e92766ed1f855f8bf6a8834a7d7a0ce17941184a8a210256a9",
+        "azimuth_deg": "ed28cd88c9c2c397f947b023a04bff620bb03bbf523a00e3a65700e411767238",
+        "tile_number": "240185e1a091c0fdc0f55cf674c385378abe3c7227aca25ce859ece155604133"
+      },
+      "valid_counts": {
+        "p_iso_min": 3287,
+        "p_iso_max": 12395,
+        "p_dir_min": 13201,
+        "p_dir_max": 49574
+      },
+      "minimum_db": -208.125,
+      "maximum_db": -66.6875
+    },
+    {
+      "shard": 77,
+      "tiles": 256,
+      "first_tile": "tile_019713",
+      "last_tile": "tile_019968",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0077.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0077.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0077.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0077.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "5d869a720b566f19db23d7849f93797c085d30b9c08fb9adc90a9b28273ab7d4",
+        "p_dir": "86db9b74f5304943d6d8ed2bc194ab4b2b2970a405a7c365c3d319d29ca16483",
+        "azimuth_deg": "b63e9cac9c5db30d16f36ad6e8a39561c445b9fe1a7ea88a331a8d1936d6592a",
+        "tile_number": "0adf5c00725f534f3b5f5c942bcc871bde5c7bfaa6d071464f31b3434ba4cc2e"
+      },
+      "valid_counts": {
+        "p_iso_min": 3373,
+        "p_iso_max": 12460,
+        "p_dir_min": 13490,
+        "p_dir_max": 49865
+      },
+      "minimum_db": -202.0,
+      "maximum_db": -67.4375
+    },
+    {
+      "shard": 78,
+      "tiles": 256,
+      "first_tile": "tile_019969",
+      "last_tile": "tile_020224",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0078.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0078.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0078.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0078.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "65730f9dfd6c015d55e3f116da8c2d60c7f4ef7f693710e3e44db90725a17926",
+        "p_dir": "9cc3ee1652f694664e08659a087e3d01c38c5f98e8607ce9b3027fcb20ba19e5",
+        "azimuth_deg": "a8d88febe4a72318fe376721ef9fcaf604ef760ba4addc2eb0ed2ded8486b13a",
+        "tile_number": "e4b1056f8b9bceb2a6f73236b2b3f2f6bc25278e63c7945db0d3453d5c369ace"
+      },
+      "valid_counts": {
+        "p_iso_min": 3879,
+        "p_iso_max": 12510,
+        "p_dir_min": 15505,
+        "p_dir_max": 50043
+      },
+      "minimum_db": -199.375,
+      "maximum_db": -68.125
+    },
+    {
+      "shard": 79,
+      "tiles": 256,
+      "first_tile": "tile_020225",
+      "last_tile": "tile_020480",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0079.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0079.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0079.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0079.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "dd466c1b10ab4616ef21d5db8d85aba58134d53aee1753ac1968aa1f98e8003e",
+        "p_dir": "155db5d83cade837ec220cf8a68641334e572b79075a77abf1d57cd5d9b51ab9",
+        "azimuth_deg": "28d0934e6fa4fd3c2522518a08fce0b9c57f09bb8344e1c1d1536d66c7746e86",
+        "tile_number": "89f91e089d20ee76abeb204d4b5a08db1d69175fb9bb24f4dab974815714777a"
+      },
+      "valid_counts": {
+        "p_iso_min": 2587,
+        "p_iso_max": 12307,
+        "p_dir_min": 10331,
+        "p_dir_max": 49203
+      },
+      "minimum_db": -202.625,
+      "maximum_db": -68.5625
+    },
+    {
+      "shard": 80,
+      "tiles": 256,
+      "first_tile": "tile_020481",
+      "last_tile": "tile_020736",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0080.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0080.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0080.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0080.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "17d1d77502be076ded21dc13f38b45b6202cf3eb7dc4ca96f09660a97dfaaf34",
+        "p_dir": "566c92b36c325e51bb2cd51ca87da1a378422d9e6293c7023b02b08d05dec43d",
+        "azimuth_deg": "726b7c67535c2a5faaec95606806e3368912af569d0515d33b59cb0025a2be8b",
+        "tile_number": "cb8df4500a38bf7541043787e5feb87275f8ce671c12a044df3f3f2b229e34d9"
+      },
+      "valid_counts": {
+        "p_iso_min": 4802,
+        "p_iso_max": 12424,
+        "p_dir_min": 19211,
+        "p_dir_max": 49693
+      },
+      "minimum_db": -208.875,
+      "maximum_db": -68.875
+    },
+    {
+      "shard": 81,
+      "tiles": 256,
+      "first_tile": "tile_020737",
+      "last_tile": "tile_020992",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0081.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0081.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0081.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0081.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "94c305deba8497390546b4b7a7fda54e9ca268472bedf16194527ae19eb6fe8b",
+        "p_dir": "522a188df02dd4d6aba952ee0f28b7a34d5a324f74c3372db7f72b223d407f4f",
+        "azimuth_deg": "d02ea5400ebc48f28fc08b7387f427da512d89e0862fb892bfcdf631a2265aa0",
+        "tile_number": "ae3b0e5154c1e9ab760a8bd54c93347fe2fcd7995be9fadb61a2b40b708bc53e"
+      },
+      "valid_counts": {
+        "p_iso_min": 4057,
+        "p_iso_max": 12470,
+        "p_dir_min": 16243,
+        "p_dir_max": 49888
+      },
+      "minimum_db": -204.875,
+      "maximum_db": -67.875
+    },
+    {
+      "shard": 82,
+      "tiles": 256,
+      "first_tile": "tile_020993",
+      "last_tile": "tile_021248",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0082.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0082.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0082.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0082.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "f63f3481d24d918a03f9edf10b32b614efb602bb3575d6d0dd1f375b0a698d70",
+        "p_dir": "2d3d2adf329f177f4ea107cd1880ee559442c6e618cffc48ffc5c1e12f7b433a",
+        "azimuth_deg": "0b1aeae8bbb832a5aef571a93227091c0862d92fe297845cd2b2b6d548e929d9",
+        "tile_number": "e089114000627dcfc858735b2a90a3dc7a5b57fb2dab152af3961d593881ca55"
+      },
+      "valid_counts": {
+        "p_iso_min": 3444,
+        "p_iso_max": 12398,
+        "p_dir_min": 13769,
+        "p_dir_max": 49578
+      },
+      "minimum_db": -211.125,
+      "maximum_db": -68.5625
+    },
+    {
+      "shard": 83,
+      "tiles": 256,
+      "first_tile": "tile_021249",
+      "last_tile": "tile_021504",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0083.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0083.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0083.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0083.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "a078a037fe5f3e6e0943899587f81d15f1ea80258c33eaa0e475c63ad0eae2de",
+        "p_dir": "fea5a7a5c9eb8b8f4ae5eea45c5830dbd0bf141913f2c900c84ebe76466d05ab",
+        "azimuth_deg": "027baacd04cb118eee19357939bc043d4fd768e2c206e2ea4adcea7df4671e1e",
+        "tile_number": "1afce400fdff2d8ccad007e16588d6c6f9455e98df3023f9d23795b53ced13ae"
+      },
+      "valid_counts": {
+        "p_iso_min": 2592,
+        "p_iso_max": 12309,
+        "p_dir_min": 10392,
+        "p_dir_max": 49224
+      },
+      "minimum_db": -201.625,
+      "maximum_db": -67.5625
+    },
+    {
+      "shard": 84,
+      "tiles": 256,
+      "first_tile": "tile_021505",
+      "last_tile": "tile_021760",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0084.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0084.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0084.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0084.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "96e488ace3c301cf854e1a6d12eb8a157e5acdb1fdf3b1ba2a59cbb493653e30",
+        "p_dir": "abb25c7cec93d6fa0f9e7d0a6d10ae07284c4f17796ce5d2b14e30043b1ba636",
+        "azimuth_deg": "31132377a4ecf4de19dd8644ba96c32b12b72b3b962296f1345dd4828b111c8c",
+        "tile_number": "17a41e481ae84ec3034dca68c9627cbd941b0976c210ff8881cf21ab7c4afff0"
+      },
+      "valid_counts": {
+        "p_iso_min": 5804,
+        "p_iso_max": 12260,
+        "p_dir_min": 23243,
+        "p_dir_max": 49054
+      },
+      "minimum_db": -210.0,
+      "maximum_db": -67.8125
+    },
+    {
+      "shard": 85,
+      "tiles": 256,
+      "first_tile": "tile_021761",
+      "last_tile": "tile_022016",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0085.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0085.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0085.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0085.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "9aec6fdf0ffdfb0f78e5aef4ab5a3940079abea086c1cd64a5e311c38bd4e5f4",
+        "p_dir": "a20219291254cf354020ad9a24e8544b6dd7e2d15073862af13c2dce5055ad18",
+        "azimuth_deg": "9245774892218b589ee5a8b855e4d185495d83f0a1ccbb5f85ea8c8576655658",
+        "tile_number": "02f21171aedf1500f76ff9b7426cf552900e689c2786b57370ff9e946c543268"
+      },
+      "valid_counts": {
+        "p_iso_min": 5264,
+        "p_iso_max": 12562,
+        "p_dir_min": 21055,
+        "p_dir_max": 50251
+      },
+      "minimum_db": -197.25,
+      "maximum_db": -67.6875
+    },
+    {
+      "shard": 86,
+      "tiles": 256,
+      "first_tile": "tile_022017",
+      "last_tile": "tile_022272",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0086.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0086.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0086.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0086.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "5a9a11de47338452ad18b89132222f8b106f1bc930396aba1cc6c62b6e8f1c4e",
+        "p_dir": "ac7ca7667976fb715359c451a426c0d77e83aa5cb186823b8353a9de25e26155",
+        "azimuth_deg": "703f5bc655864e72090845abb096bc35f2e918165753892eeb43babca0f61564",
+        "tile_number": "19723946b31d787055653227adadd07c428d9fcaaa00688606d3a9835448bdf8"
+      },
+      "valid_counts": {
+        "p_iso_min": 4315,
+        "p_iso_max": 12409,
+        "p_dir_min": 17307,
+        "p_dir_max": 49640
+      },
+      "minimum_db": -198.125,
+      "maximum_db": -68.4375
+    },
+    {
+      "shard": 87,
+      "tiles": 256,
+      "first_tile": "tile_022273",
+      "last_tile": "tile_022528",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0087.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0087.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0087.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0087.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "67a863cff6d32305e3f094839d651351f3a939b69ed92a77156c5291db33dfcc",
+        "p_dir": "82294f853ee58024606f08a1c08fcc5d31a4de6173612646da62ec7498d76441",
+        "azimuth_deg": "0f3ed4209541fdee04572d7ab2698280f043383399ffe0072cf5c193231f25a1",
+        "tile_number": "e070ef2ad569d67c72d4c31ab8c1bf66b38e09ef02f4363bac9a75c4c6c29de5"
+      },
+      "valid_counts": {
+        "p_iso_min": 4429,
+        "p_iso_max": 12434,
+        "p_dir_min": 17715,
+        "p_dir_max": 49728
+      },
+      "minimum_db": -198.375,
+      "maximum_db": -68.5625
+    },
+    {
+      "shard": 88,
+      "tiles": 256,
+      "first_tile": "tile_022529",
+      "last_tile": "tile_022784",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0088.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0088.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0088.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0088.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "32d69970d38d0a55234131fc8db5b7cfdb44e6b8b2e0077d95203d5df1532d1d",
+        "p_dir": "e72e8bcfb0779abcadbc95a3e7e05034252d5304330ac8a4a891eb0ee4c30493",
+        "azimuth_deg": "d3598367b5aa313c6b573651221a11492cd480625e50c327a1421a7b8931203e",
+        "tile_number": "ac1c27e3458cd5bcd09d2da89430a7eb3f95e38cf4fe343d67a43dfab21b6b53"
+      },
+      "valid_counts": {
+        "p_iso_min": 3735,
+        "p_iso_max": 12390,
+        "p_dir_min": 14928,
+        "p_dir_max": 49566
+      },
+      "minimum_db": -196.0,
+      "maximum_db": -67.9375
+    },
+    {
+      "shard": 89,
+      "tiles": 256,
+      "first_tile": "tile_022785",
+      "last_tile": "tile_023040",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0089.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0089.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0089.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0089.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "a530543b79b1cbaf96de57043a8b96fa730e3cca32aaf41c699eba9e117cc4a4",
+        "p_dir": "dea607e703e5b854412d870a7c82d303631e65afd389b59cfaa7ede8b9c9cec4",
+        "azimuth_deg": "df8c288465b59ea93de36719abb990c52081ba726f134bddff15a682592d8458",
+        "tile_number": "f3efa677e718de916c2a4d50baa8a63b715168420dbddb4a9af8b2c4323e0728"
+      },
+      "valid_counts": {
+        "p_iso_min": 3525,
+        "p_iso_max": 12268,
+        "p_dir_min": 14090,
+        "p_dir_max": 49072
+      },
+      "minimum_db": -196.5,
+      "maximum_db": -68.125
+    },
+    {
+      "shard": 90,
+      "tiles": 256,
+      "first_tile": "tile_023041",
+      "last_tile": "tile_023296",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0090.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0090.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0090.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0090.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "6f9e53d26a18a2ac82e4462f1aa9be198d5dfcd932f33a57d31b7ff72b0f51de",
+        "p_dir": "f0db3be107123b5e6883d1d1b6aa6e5fd91a4526ed62a3fb0a1d77247966b107",
+        "azimuth_deg": "1831dda569cd10866607401fbfea8fcaf049afbeea2588efecefdb0c6ea93144",
+        "tile_number": "eafe7e15c661239297e052774222a04b0f64bd2f0f8cd6913021ab450359ebd2"
+      },
+      "valid_counts": {
+        "p_iso_min": 2043,
+        "p_iso_max": 12861,
+        "p_dir_min": 8203,
+        "p_dir_max": 51442
+      },
+      "minimum_db": -200.875,
+      "maximum_db": -67.6875
+    },
+    {
+      "shard": 91,
+      "tiles": 256,
+      "first_tile": "tile_023297",
+      "last_tile": "tile_023552",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0091.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0091.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0091.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0091.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "e0610edd3c5a19c6f464891b2392811ed38407a342733a710e7462207cc74368",
+        "p_dir": "1bc7a712c91a1c38f610dcbb0c7073e554918a4064ead5cba9b61248cd6815f9",
+        "azimuth_deg": "a9f3d49c17c825f6d36be019f6175a2c5a585cc114f7362a2b73473ba0528a3d",
+        "tile_number": "f5087c811483d619f4ae4d39fa8547a5562e0be6096080585b12a4046ec96927"
+      },
+      "valid_counts": {
+        "p_iso_min": 2991,
+        "p_iso_max": 12336,
+        "p_dir_min": 11951,
+        "p_dir_max": 49364
+      },
+      "minimum_db": -202.25,
+      "maximum_db": -66.625
+    },
+    {
+      "shard": 92,
+      "tiles": 256,
+      "first_tile": "tile_023553",
+      "last_tile": "tile_023808",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0092.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0092.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0092.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0092.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "55e49112967be533b497a86b2207b95a14d239f7679eef30749f13067f584574",
+        "p_dir": "0f1e09ec241bf0579d856bf1fa733a64fb023ae105f617af080b2a95d4f4a5ba",
+        "azimuth_deg": "f3df755b60cf80c30d84e1b43555fad055f06bf6942edd7805bbcccc4154e268",
+        "tile_number": "b86de8aa2a2709289b7bac476d944ab4685c2dcb3bcbc13db750e67bef4813fe"
+      },
+      "valid_counts": {
+        "p_iso_min": 3609,
+        "p_iso_max": 12539,
+        "p_dir_min": 14454,
+        "p_dir_max": 50171
+      },
+      "minimum_db": -203.25,
+      "maximum_db": -68.0625
+    },
+    {
+      "shard": 93,
+      "tiles": 256,
+      "first_tile": "tile_023809",
+      "last_tile": "tile_024064",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0093.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0093.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0093.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0093.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "274d7e9b9fa5af12d978fd7ce3f7a744bcbe85fc27b2139893f36d3df7c3a206",
+        "p_dir": "4b5823b64f445b63ea1edcfadcd63b53cab44c56ee81020a2dda0b10004b03d5",
+        "azimuth_deg": "971460b36c0cd283d8adf5c3f481ceadeb457fb9daada8301a42a8178ce1de81",
+        "tile_number": "5cd068e8d31e00c9a96ab6eaabde9425db6f6ae4e57a45244c38acea8db4b6e4"
+      },
+      "valid_counts": {
+        "p_iso_min": 3647,
+        "p_iso_max": 12479,
+        "p_dir_min": 14627,
+        "p_dir_max": 49918
+      },
+      "minimum_db": -199.375,
+      "maximum_db": -67.0
+    },
+    {
+      "shard": 94,
+      "tiles": 256,
+      "first_tile": "tile_024065",
+      "last_tile": "tile_024320",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0094.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0094.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0094.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0094.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "cb5af8c71217630bf04c091a24e481f5397dcc86576a0ba3fbfce767ffb13655",
+        "p_dir": "7866ebf578c5683fa95ae78b81d64741d8a29506555a62bb6155c00a9f9ed2ff",
+        "azimuth_deg": "cbd6a8d114fc762e50942a0e21abe552204bd643877b499f1f7a0f80cf6dea2b",
+        "tile_number": "cacbb27e49be6c75abb032df8a60e9c34ed3945c8c5f2f7bfd88894a2f514a3f"
+      },
+      "valid_counts": {
+        "p_iso_min": 3061,
+        "p_iso_max": 12705,
+        "p_dir_min": 12252,
+        "p_dir_max": 50821
+      },
+      "minimum_db": -203.375,
+      "maximum_db": -68.625
+    },
+    {
+      "shard": 95,
+      "tiles": 256,
+      "first_tile": "tile_024321",
+      "last_tile": "tile_024576",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0095.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0095.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0095.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0095.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "adbfb9de67fff554101401253e0a677b37ac80dd632a7e0b73b8224ca3ec72e7",
+        "p_dir": "c637d91cf59c5c36c3ee46d1847678fa540f75f203d23133b10aa8d920cb388d",
+        "azimuth_deg": "d72e7b277711bafa1c6ca05d52d489fe2f4cf9f0b6319747eeb8e5433862f076",
+        "tile_number": "ae6a30dec1f095e9d239341e2c48bcbedd9ad311f718bd5e8ef4dc261750611b"
+      },
+      "valid_counts": {
+        "p_iso_min": 2692,
+        "p_iso_max": 12548,
+        "p_dir_min": 10809,
+        "p_dir_max": 50195
+      },
+      "minimum_db": -208.75,
+      "maximum_db": -68.6875
+    },
+    {
+      "shard": 96,
+      "tiles": 256,
+      "first_tile": "tile_024577",
+      "last_tile": "tile_024832",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0096.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0096.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0096.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0096.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "a71c9a9b2f4500c103d8d9b78bd211903894a9446a261a97e282c1819d3fa797",
+        "p_dir": "8630896342ae1901241a2242d6826d0d2d2d2e49091914d060598040feb4ec1f",
+        "azimuth_deg": "cd6c8ddabe8ccd739a16bcc1ca58e6c697e7fd336c3fc8f3ff82f320a80b53a6",
+        "tile_number": "4d789168f7045a2d857c974a27fcafbdb31239e7b0803b76d4a02696bf80bd67"
+      },
+      "valid_counts": {
+        "p_iso_min": 2420,
+        "p_iso_max": 12402,
+        "p_dir_min": 9694,
+        "p_dir_max": 49606
+      },
+      "minimum_db": -203.125,
+      "maximum_db": -67.5
+    },
+    {
+      "shard": 97,
+      "tiles": 256,
+      "first_tile": "tile_024833",
+      "last_tile": "tile_025088",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0097.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0097.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0097.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0097.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "277268c559dac6729c8497f50e2f1f0bfe080251921362c8ff8b4c3e0ec1ee73",
+        "p_dir": "beba76cef568f23ffbacb7c5a592ab4c39915d0b28eee77d2e7eb012724b80e5",
+        "azimuth_deg": "b89dfab29feefb38f40e2ccb0e98acd7134646aba497da2810188115f0c9ac11",
+        "tile_number": "bf34c3f777161fc20dd6a51d500fd498f50212b568c99ffa4d01aec88ae6e377"
+      },
+      "valid_counts": {
+        "p_iso_min": 2322,
+        "p_iso_max": 12389,
+        "p_dir_min": 9312,
+        "p_dir_max": 49538
+      },
+      "minimum_db": -209.0,
+      "maximum_db": -66.625
+    },
+    {
+      "shard": 98,
+      "tiles": 256,
+      "first_tile": "tile_025089",
+      "last_tile": "tile_025344",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0098.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0098.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0098.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0098.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "3bbd8c6cec7c4fa94851b6c7c3bc6b9731be1750e03f994363dec9cc80c05577",
+        "p_dir": "09de9573c2258b52f4746b638bf23e98fcdc7adbdc12861f7943465d3ce195ee",
+        "azimuth_deg": "f9596f8b9e2ea8c2bb7abf2915e1607bd0bdcd82cd9c248560670c239696e156",
+        "tile_number": "e28b7323eaa0a258b54c3845011c83c58d597239bf03425b172d4af8fbd8c9a7"
+      },
+      "valid_counts": {
+        "p_iso_min": 2393,
+        "p_iso_max": 12174,
+        "p_dir_min": 9539,
+        "p_dir_max": 48718
+      },
+      "minimum_db": -197.25,
+      "maximum_db": -68.3125
+    },
+    {
+      "shard": 99,
+      "tiles": 256,
+      "first_tile": "tile_025345",
+      "last_tile": "tile_025600",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0099.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0099.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0099.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0099.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "0a9250be7eb2a23b6672aeea83916e60bc1b1ce3709a76c4a25f5ab34612299b",
+        "p_dir": "8e193cc64e488d1dfc7750d4176926b9aaba9f293320b713dd4fa60e40ef64ea",
+        "azimuth_deg": "4f94d4afbdaa67daa8555ca8c31ca04116fc91054c178d3a7db473da89257684",
+        "tile_number": "d4e8f2958e0157b1d3c261c4b1537dd9587a3dcd5d472d856d60f01ec3f5ceb5"
+      },
+      "valid_counts": {
+        "p_iso_min": 4678,
+        "p_iso_max": 12248,
+        "p_dir_min": 18725,
+        "p_dir_max": 48990
+      },
+      "minimum_db": -198.25,
+      "maximum_db": -68.5625
+    },
+    {
+      "shard": 100,
+      "tiles": 256,
+      "first_tile": "tile_025601",
+      "last_tile": "tile_025856",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0100.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0100.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0100.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0100.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "3a1638a8eb36d47a4bec3cbf2dabb48932c1cf205dfb235f94427e77d43719a6",
+        "p_dir": "f1efb3d8c070b4c33f5b80e954840d78eec0938a60e78e0cd5da1181766bddda",
+        "azimuth_deg": "9ddef737d88e13cbcdcd5969a6706b08fa4abb65298e015a41e3fa5466bc5e3e",
+        "tile_number": "320474ac6462c82837cda28b380d44910d50f538a6ac5a79c8696ecdd7a9a402"
+      },
+      "valid_counts": {
+        "p_iso_min": 5877,
+        "p_iso_max": 12315,
+        "p_dir_min": 23530,
+        "p_dir_max": 49270
+      },
+      "minimum_db": -198.25,
+      "maximum_db": -67.6875
+    },
+    {
+      "shard": 101,
+      "tiles": 256,
+      "first_tile": "tile_025857",
+      "last_tile": "tile_026112",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0101.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0101.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0101.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0101.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "0bb76621443aaa243bbb245a6b5cb867e13ed517373b1b123b3acc9057ff4b5b",
+        "p_dir": "8f43f335e6aacb2de9cf31d47b3e4bbfb1402438928c9e9f7798b9a0985eded0",
+        "azimuth_deg": "07347b56790eefa18c2b79a05e4a5aa4d6e2d9947dad009a89b9c72386bfdd53",
+        "tile_number": "ae6514d28cdc1a33057d13fd4836162c704a08b94d758565926d51f3a241e7c1"
+      },
+      "valid_counts": {
+        "p_iso_min": 5788,
+        "p_iso_max": 12489,
+        "p_dir_min": 23180,
+        "p_dir_max": 49956
+      },
+      "minimum_db": -200.875,
+      "maximum_db": -61.78125
+    },
+    {
+      "shard": 102,
+      "tiles": 256,
+      "first_tile": "tile_026113",
+      "last_tile": "tile_026368",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0102.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0102.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0102.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0102.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "a0937927ede9b2550564a4b28ecbe82f57987bb5a5a84b7155f401d379818ac9",
+        "p_dir": "da8a6877965ed3ba963897fac6846bdade4dc07c2e86e929794511b2f1dd6f7c",
+        "azimuth_deg": "8f4cb5ffb3bf2b178c3538eabd2086cb28c33b161ada69ea8d6e58d6b6b724f3",
+        "tile_number": "c793f5b1fa4708212d9df3ee7f1ca662e83352c8e87b6957fbe80ef1b98d1f3e"
+      },
+      "valid_counts": {
+        "p_iso_min": 3693,
+        "p_iso_max": 12417,
+        "p_dir_min": 14761,
+        "p_dir_max": 49660
+      },
+      "minimum_db": -201.625,
+      "maximum_db": -66.625
+    },
+    {
+      "shard": 103,
+      "tiles": 256,
+      "first_tile": "tile_026369",
+      "last_tile": "tile_026624",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0103.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0103.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0103.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0103.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "a928409f29c03a94931f12175ced93e2f9a2af4e2ab512676481329bbfe94585",
+        "p_dir": "63efe8b2c4d595556d6da99c3fc9bb80ad04a5da96269da39af97b7935c4c6de",
+        "azimuth_deg": "69ca6c6b16cb56365fb49f695b335dcfd2f486022f294309d67a5b42b0ee2fa6",
+        "tile_number": "8105ffbd0cd4eaffb44ffc8659b9464e9ad5bb90659d874f8a3022047771a574"
+      },
+      "valid_counts": {
+        "p_iso_min": 6093,
+        "p_iso_max": 12484,
+        "p_dir_min": 24364,
+        "p_dir_max": 49933
+      },
+      "minimum_db": -196.625,
+      "maximum_db": -67.125
+    },
+    {
+      "shard": 104,
+      "tiles": 256,
+      "first_tile": "tile_026625",
+      "last_tile": "tile_026880",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0104.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0104.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0104.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0104.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "f152f5b65c004b749ec785621f0f74acf04c832170e0eece41c097ece75441b2",
+        "p_dir": "2e99de48cbacb743f541f301f7a18d3e7b342aec094456a4185222cb9c7892c6",
+        "azimuth_deg": "64595288ed342fb5c55b69412933f0f9cfe7884495a46d7059389d61610d0a37",
+        "tile_number": "9923260fbea0db855d94a56945fab88d96008cf0e35f28a7b32618797d798ee9"
+      },
+      "valid_counts": {
+        "p_iso_min": 4160,
+        "p_iso_max": 12409,
+        "p_dir_min": 16644,
+        "p_dir_max": 49635
+      },
+      "minimum_db": -196.625,
+      "maximum_db": -66.625
+    },
+    {
+      "shard": 105,
+      "tiles": 256,
+      "first_tile": "tile_026881",
+      "last_tile": "tile_027136",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0105.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0105.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0105.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0105.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "5cc8b9a4325a65f2fad1c7521ccd2df1d753769859af6bc1ff0f5bc83060917a",
+        "p_dir": "76bb73a9014dfe44aca2a4d9ec9e1a80680f62c8de7f8075bf7445a244605006",
+        "azimuth_deg": "a8cf3d868d9dcadd6cb25f830f3a68102564cff4f1a59a1ce4b246b9a4b576c6",
+        "tile_number": "96157eaae6d96c9cc8871270befc0842c3961773d50995201bd67d46fde0e393"
+      },
+      "valid_counts": {
+        "p_iso_min": 2383,
+        "p_iso_max": 12516,
+        "p_dir_min": 9523,
+        "p_dir_max": 50061
+      },
+      "minimum_db": -210.375,
+      "maximum_db": -59.53125
+    },
+    {
+      "shard": 106,
+      "tiles": 224,
+      "first_tile": "tile_027137",
+      "last_tile": "tile_027360",
+      "paths": {
+        "p_iso": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_iso_0106.npy",
+        "p_dir": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\p_dir_0106.npy",
+        "azimuth_deg": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\azimuth_deg_0106.npy",
+        "tile_number": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shards\\tile_number_0106.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "82a7e6113e95a8894f69bcc4919331f332c90462f4a6df49362e1b5c676e1740",
+        "p_dir": "54b01c55ae46df8689dc9758d2bf67146388e0f6ce7a065e4d00c28725f70501",
+        "azimuth_deg": "86ec88cfed90c7cda92d1ab1445c0373bec80805685af1852ac8ebe71c4dee47",
+        "tile_number": "4ad2badb2443ffa42ea249b62d115ac4ac83b5e1b557c0c87d594fd28f34ce29"
+      },
+      "valid_counts": {
+        "p_iso_min": 4754,
+        "p_iso_max": 12662,
+        "p_dir_min": 19015,
+        "p_dir_max": 50655
+      },
+      "minimum_db": -195.75,
+      "maximum_db": -64.8125
+    }
+  ],
+  "manifest": "E:\\dac_sionna_35ghz_depth8_27360_v3\\shard_manifest.csv",
+  "manifest_sha256": "d2f717928079fc5204f6b57d803f7d5f0947fd8507b3d61d84d964e7b0bbbe2c"
+}

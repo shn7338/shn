@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "status": "running",
+  "phase": "preprocess",
+  "tile": "tile_022654",
+  "index": 14,
+  "total": 3200,
+  "completed": 13,
+  "remaining": 3187,
+  "updated_unix": 1785067258.0030377,
+  "error": null
+}

@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "method": "direct WinProp IRT",
+  "quantity": "negative-dB path gain values exported by WinProp in Antenna Path Loss.txt; raw float16 with NaN invalids",
+  "array_convention": "row 0 north; column 0 west",
+  "tiles_planned": 32,
+  "tiles_packed": 32,
+  "tiles_missing": [],
+  "shard_size": 32,
+  "shards": [
+    {
+      "shard": 0,
+      "tiles": 32,
+      "first_tile": "tile_000001",
+      "last_tile": "tile_000032",
+      "paths": {
+        "p_iso": "E:\\dac_winprop_irt2_direct_pilot32_v1\\shards_v2\\p_iso_0000.npy",
+        "p_dir": "E:\\dac_winprop_irt2_direct_pilot32_v1\\shards_v2\\p_dir_0000.npy",
+        "azimuth_deg": "E:\\dac_winprop_irt2_direct_pilot32_v1\\shards_v2\\azimuth_deg_0000.npy",
+        "tile_number": "E:\\dac_winprop_irt2_direct_pilot32_v1\\shards_v2\\tile_number_0000.npy"
+      },
+      "hashes_sha256": {
+        "p_iso": "840346156ddf93ba603ee85a82b8222ce2e686bde415974323b9918797f54114",
+        "p_dir": "f42e3f6fad536bed33b44e1936e6d199c94dd00e5da88e0cf33c96be0b55be9c",
+        "azimuth_deg": "588305e9fa8d5a2d637dbd8026ac0ff4d5e44773fa0accf33c5da3eea812760e",
+        "tile_number": "4224b4007052e36b7bf231c38bf5d81b1acbf954e1a54d59465452509a0b121f"
+      },
+      "valid_counts": {
+        "p_iso_min": 8280,
+        "p_iso_max": 12970,
+        "p_dir_min": 33096,
+        "p_dir_max": 51878
+      },
+      "minimum_db": -199.875,
+      "maximum_db": -77.3125
+    }
+  ],
+  "manifest": "E:\\dac_winprop_irt2_direct_pilot32_v1\\shard_manifest_v2.csv",
+  "manifest_sha256": "b725c25f3e946f4f5cc42e1db8910200f61272071a8a10a5cd0664c814bf5b98"
+}

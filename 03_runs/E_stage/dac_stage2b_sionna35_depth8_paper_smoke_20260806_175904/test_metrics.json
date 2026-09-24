@@ -1,0 +1,79 @@
+{
+  "status": "completed_not_accepted",
+  "accepted_for_final_evaluation": false,
+  "best_epoch": 1,
+  "best_val_rmse_db": 16.901054903062374,
+  "best_val_metrics": {
+    "loss": 0.7488776445388794,
+    "rmse_db": 16.901054903062374,
+    "mae_db": 13.563170633751467,
+    "sparse_calibrated_iso_rmse_db": 13.146098351476962,
+    "sparse_calibrated_iso_mae_db": 9.646178611813854,
+    "rmse_improvement_vs_sparse_calibrated_iso_db": -3.754956551585412,
+    "mae_improvement_vs_sparse_calibrated_iso_db": -3.916992021937613,
+    "mean_sparse_points": 100.0,
+    "valid_pixels": 1215082.0
+  },
+  "test_by_sparse_points": {
+    "50": {
+      "loss": 0.7574037313461304,
+      "rmse_db": 17.01219826636715,
+      "mae_db": 13.616951685272692,
+      "sparse_calibrated_iso_rmse_db": 13.354932661606648,
+      "sparse_calibrated_iso_mae_db": 10.021579279948812,
+      "rmse_improvement_vs_sparse_calibrated_iso_db": -3.657265604760502,
+      "mae_improvement_vs_sparse_calibrated_iso_db": -3.5953724053238805,
+      "mean_sparse_points": 50.0,
+      "valid_pixels": 1258105.0
+    },
+    "100": {
+      "loss": 0.7544631361961365,
+      "rmse_db": 16.979163920048116,
+      "mae_db": 13.590749579725063,
+      "sparse_calibrated_iso_rmse_db": 13.338631467439741,
+      "sparse_calibrated_iso_mae_db": 9.954659587236359,
+      "rmse_improvement_vs_sparse_calibrated_iso_db": -3.640532452608374,
+      "mae_improvement_vs_sparse_calibrated_iso_db": -3.6360899924887047,
+      "mean_sparse_points": 100.0,
+      "valid_pixels": 1258105.0
+    },
+    "200": {
+      "loss": 0.7488809823989868,
+      "rmse_db": 16.91626777429557,
+      "mae_db": 13.540292741861768,
+      "sparse_calibrated_iso_rmse_db": 13.309026585620364,
+      "sparse_calibrated_iso_mae_db": 9.889730984297813,
+      "rmse_improvement_vs_sparse_calibrated_iso_db": -3.6072411886752054,
+      "mae_improvement_vs_sparse_calibrated_iso_db": -3.6505617575639544,
+      "mean_sparse_points": 200.0,
+      "valid_pixels": 1258105.0
+    }
+  },
+  "acceptance_checks": {
+    "50": {
+      "rmse_improvement_db": -3.657265604760502,
+      "minimum_required_db": 0.2,
+      "rmse_pass": false,
+      "mae_improvement_db": -3.5953724053238805,
+      "mae_pass": false
+    },
+    "100": {
+      "rmse_improvement_db": -3.640532452608374,
+      "minimum_required_db": 0.2,
+      "rmse_pass": false,
+      "mae_improvement_db": -3.6360899924887047,
+      "mae_pass": false
+    },
+    "200": {
+      "rmse_improvement_db": -3.6072411886752054,
+      "minimum_required_db": 0.2,
+      "rmse_pass": false,
+      "mae_improvement_db": -3.6505617575639544,
+      "mae_pass": false
+    }
+  },
+  "elapsed_seconds": 29.016729999973904,
+  "checkpoint": "E:\\dac_stage2b_sionna35_depth8_paper_smoke_20260806_175904\\best.pt",
+  "checkpoint_sha256": "dfde08f2bae12612018c4d46cdf843fe461da4c511ed53f33db05809d6f2fb03",
+  "input": "[B, frozen Stage2-A isotropic IRT prediction, sparse directional SS, sparse mask]"
+}

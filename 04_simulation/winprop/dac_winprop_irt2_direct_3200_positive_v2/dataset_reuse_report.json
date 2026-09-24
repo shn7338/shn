@@ -1,0 +1,23 @@
+{
+  "status": "ok",
+  "source_root": "E:\\dac_winprop_irt2_direct_3200_v1",
+  "target_root": "E:\\dac_winprop_irt2_direct_3200_positive_v2",
+  "target_tiles": 3200,
+  "reused_tiles": 14,
+  "tiles": [
+    "tile_000002",
+    "tile_000009",
+    "tile_000010",
+    "tile_000020",
+    "tile_000025",
+    "tile_000027",
+    "tile_003456",
+    "tile_004311",
+    "tile_005699",
+    "tile_009123",
+    "tile_014919",
+    "tile_018241",
+    "tile_023218",
+    "tile_027078"
+  ]
+}

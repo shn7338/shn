@@ -1,0 +1,162 @@
+{
+  "output_root": "D:\\桌面\\dac\\512mdata",
+  "target_crs": "EPSG:32650",
+  "tile_size_m": 512.0,
+  "minimum_union_building_coverage": 0.2,
+  "existing_tiles_before_append": 3396,
+  "first_appended_tile": "tile_003397",
+  "new_tiles_appended": 23964,
+  "final_tile_count": 27360,
+  "regions": [
+    {
+      "region": "Shanghai",
+      "input_dir": "D:\\桌面\\dac\\raw_datasets\\Shanghai_上海市",
+      "input_files": [
+        {
+          "path": "D:\\桌面\\dac\\raw_datasets\\Shanghai_上海市\\Shanghai_上海市_part1.shp",
+          "records": 1189390,
+          "crs": "EPSG:4490",
+          "src": "sh_p01"
+        },
+        {
+          "path": "D:\\桌面\\dac\\raw_datasets\\Shanghai_上海市\\Shanghai_上海市_part2.shp",
+          "records": 941942,
+          "crs": "EPSG:4326",
+          "src": "sh_p02"
+        }
+      ],
+      "source_records": 2131332,
+      "non_empty_tiles_before_filter": 24819,
+      "candidate_tiles_sum_area_ge_20pct": 4356,
+      "kept_tiles_union_ge_20pct": 3192,
+      "dropped_candidate_tiles_union_lt_20pct": 1164,
+      "bad_height": 0,
+      "bad_geometry": 0,
+      "skipped_near_duplicate_or_severe_overlap_inside_tiles": 162025,
+      "origin": [
+        869376.0,
+        3400192.0
+      ],
+      "elapsed_s": 579.12
+    },
+    {
+      "region": "Tianjin",
+      "input_dir": "D:\\桌面\\dac\\raw_datasets\\Tianjin_天津市",
+      "input_files": [
+        {
+          "path": "D:\\桌面\\dac\\raw_datasets\\Tianjin_天津市\\Tianjin_天津市_part1.shp",
+          "records": 725546,
+          "crs": "EPSG:4490",
+          "src": "tj_p01"
+        },
+        {
+          "path": "D:\\桌面\\dac\\raw_datasets\\Tianjin_天津市\\Tianjin_天津市_part2.shp",
+          "records": 2026511,
+          "crs": "EPSG:4326",
+          "src": "tj_p02"
+        }
+      ],
+      "source_records": 2752057,
+      "non_empty_tiles_before_filter": 31294,
+      "candidate_tiles_sum_area_ge_20pct": 4182,
+      "kept_tiles_union_ge_20pct": 2833,
+      "dropped_candidate_tiles_union_lt_20pct": 1349,
+      "bad_height": 0,
+      "bad_geometry": 0,
+      "skipped_near_duplicate_or_severe_overlap_inside_tiles": 222717,
+      "origin": [
+        473600.0,
+        4267520.0
+      ],
+      "elapsed_s": 790.76
+    },
+    {
+      "region": "Guangdong",
+      "input_dir": "D:\\桌面\\dac\\raw_datasets\\Guangdong_广东省",
+      "input_files": [
+        {
+          "path": "D:\\桌面\\dac\\raw_datasets\\Guangdong_广东省\\Guangdong_广东省_part1.shp",
+          "records": 3069356,
+          "crs": "EPSG:4490",
+          "src": "gd_p01"
+        },
+        {
+          "path": "D:\\桌面\\dac\\raw_datasets\\Guangdong_广东省\\Guangdong_广东省_part2.shp",
+          "records": 3076909,
+          "crs": "EPSG:4326",
+          "src": "gd_p02"
+        },
+        {
+          "path": "D:\\桌面\\dac\\raw_datasets\\Guangdong_广东省\\Guangdong_广东省_part3.shp",
+          "records": 380669,
+          "crs": "EPSG:4490",
+          "src": "gd_p03"
+        },
+        {
+          "path": "D:\\桌面\\dac\\raw_datasets\\Guangdong_广东省\\Guangdong_广东省_part4.shp",
+          "records": 2513435,
+          "crs": "EPSG:4326",
+          "src": "gd_p04"
+        },
+        {
+          "path": "D:\\桌面\\dac\\raw_datasets\\Guangdong_广东省\\Guangdong_广东省_part5.shp",
+          "records": 2842122,
+          "crs": "EPSG:4326",
+          "src": "gd_p05"
+        },
+        {
+          "path": "D:\\桌面\\dac\\raw_datasets\\Guangdong_广东省\\Guangdong_广东省_part6.shp",
+          "records": 3008696,
+          "crs": "EPSG:4326",
+          "src": "gd_p06"
+        },
+        {
+          "path": "D:\\桌面\\dac\\raw_datasets\\Guangdong_广东省\\Guangdong_广东省_part7.shp",
+          "records": 278585,
+          "crs": "EPSG:4326",
+          "src": "gd_p07"
+        },
+        {
+          "path": "D:\\桌面\\dac\\raw_datasets\\Guangdong_广东省\\Guangdong_广东省_part8.shp",
+          "records": 3129421,
+          "crs": "EPSG:4326",
+          "src": "gd_p08"
+        },
+        {
+          "path": "D:\\桌面\\dac\\raw_datasets\\Guangdong_广东省\\Guangdong_广东省_part9.shp",
+          "records": 2905617,
+          "crs": "EPSG:4326",
+          "src": "gd_p09"
+        },
+        {
+          "path": "D:\\桌面\\dac\\raw_datasets\\Guangdong_广东省\\Guangdong_广东省_part10.shp",
+          "records": 3177199,
+          "crs": "EPSG:4326",
+          "src": "gd_p10"
+        },
+        {
+          "path": "D:\\桌面\\dac\\raw_datasets\\Guangdong_广东省\\Guangdong_广东省_part11.shp",
+          "records": 2683000,
+          "crs": "EPSG:4326",
+          "src": "gd_p11"
+        }
+      ],
+      "source_records": 27065009,
+      "non_empty_tiles_before_filter": 401617,
+      "candidate_tiles_sum_area_ge_20pct": 29167,
+      "kept_tiles_union_ge_20pct": 17939,
+      "dropped_candidate_tiles_union_lt_20pct": 11228,
+      "bad_height": 0,
+      "bad_geometry": 0,
+      "skipped_near_duplicate_or_severe_overlap_inside_tiles": 2088212,
+      "origin": [
+        -267264.0,
+        2252288.0
+      ],
+      "elapsed_s": 7819.59
+    }
+  ],
+  "tile_index_csv": "D:\\桌面\\dac\\512mdata\\tile_index.csv",
+  "tile_index_all_csv": "D:\\桌面\\dac\\512mdata\\tile_index_all.csv",
+  "elapsed_s": 9205.49
+}

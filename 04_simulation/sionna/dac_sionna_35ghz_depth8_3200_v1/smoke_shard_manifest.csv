@@ -1,0 +1,2 @@
+﻿tile,tile_number,shard,offset,azimuth_0_deg,azimuth_1_deg,azimuth_2_deg,azimuth_3_deg,iso_valid_pixels,directional_valid_pixels,source_npz_sha256
+tile_002865,2865,0,0,22,73,92,271,9016,36068,8b25594a85144ca3563f12dda41ead287ce648bec9d11d641ed0121cb83e4246

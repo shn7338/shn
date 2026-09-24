@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "source": "WinProp Path Loss file headers",
+  "normalization_fit_split": "train",
+  "transmitter_height": {
+    "cap_m": 131.0,
+    "p99_m": 131.0,
+    "min_m": 8.0,
+    "normalization": "min(tx_height_m, cap_m) / cap_m at the transmitter pixel; zero elsewhere"
+  },
+  "distance": {
+    "max_m": 366.2813126546316,
+    "normalization": "log1p(distance_m) / log1p(max_m)"
+  },
+  "frequency_mhz_values": [
+    3500.0
+  ],
+  "receiver_height_m_values": [
+    2.0
+  ],
+  "tile_count": 27360,
+  "training_tile_count": 21789
+}

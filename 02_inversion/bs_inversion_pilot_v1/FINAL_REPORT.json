@@ -1,0 +1,25 @@
+{
+  "status": "complete_and_verified",
+  "building_count": 384,
+  "site_count": 1536,
+  "sites_complete": 1536,
+  "sites_remaining": 0,
+  "sites_failed": 0,
+  "split_sites_total": {
+    "train": 1024,
+    "val": 256,
+    "test": 256
+  },
+  "split_sites_complete": {
+    "train": 1024,
+    "val": 256,
+    "test": 256
+  },
+  "propagation_maps_complete": 7680,
+  "directional_training_samples_complete": 6144,
+  "failed_first": [],
+  "stop_requested": false,
+  "normalization": "D:\\桌面\\dac\\bs_inversion_pilot_v1\\normalization.json",
+  "dataset_readme": "D:\\桌面\\dac\\bs_inversion_pilot_v1\\DATASET_README.md",
+  "completed_at_unix": 1786260996.659261
+}
