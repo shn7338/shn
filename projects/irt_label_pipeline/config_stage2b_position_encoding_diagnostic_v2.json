@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "name": "stage2b_position_encoding_diagnostic_v2",
+  "dataset_root": "D:\\桌面\\dac\\bs_inversion_pilot_v1",
+  "irt_normalization": "E:\\dac_sionna_35ghz_depth8_27360_v3\\normalization_irt.json",
+  "stage1_model_dir": "D:\\桌面\\dac\\models\\stage1_position_encoding_pilot_v2",
+  "stage2a_model_dir": "D:\\桌面\\dac\\models\\stage2a_position_encoding_pilot_v2",
+  "require_accepted_stage2a": false,
+  "output_dir": "D:\\桌面\\dac\\models\\stage2b_bs_inversion_pilot_finetune_v2",
+  "device": "auto",
+  "amp": true,
+  "channels_last": true,
+  "seed": 20260816,
+  "provenance": {
+    "stage1_checkpoint_sha256": "1732d083dd803defd8901e7c9d6e7d3eeeb5bf399ab2b47b7452c2d4c1cc7ed1",
+    "stage2a_checkpoint_sha256": "6b41b1ba285e7f53e3a61fd9a559a9afbe399b22ad464413e409826cc202b7e7",
+    "purpose": "diagnose six-channel Stage1 before allowing Stage2-B retraining"
+  }
+}

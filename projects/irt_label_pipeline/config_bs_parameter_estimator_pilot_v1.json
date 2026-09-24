@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "name": "bs_parameter_estimator_pilot_v1",
+  "dataset_root": "D:\\桌面\\dac\\bs_inversion_pilot_v1",
+  "output_dir": "D:\\桌面\\dac\\models\\bs_parameter_estimator_pilot_v1",
+  "model": {
+    "architecture": "shared_unet_multitask_latent_bs_estimator",
+    "input_channels": [
+      "building_height_norm",
+      "sparse_signal_strength_norm",
+      "sparse_measurement_mask"
+    ],
+    "base_channels": 16,
+    "scalar_hidden_channels": 128,
+    "softargmax_temperature": 1.0,
+    "heads": [
+      "location_heatmap_and_softargmax",
+      "effective_power",
+      "azimuth_sin_cos",
+      "auxiliary_full_signal_map"
+    ]
+  },
+  "epochs": 50,
+  "batch_size": 32,
+  "workers": 2,
+  "prefetch_factor": 2,
+  "progress_every_batches": 32,
+  "learning_rate": 0.0003,
+  "weight_decay": 0.0001,
+  "gradient_clip": 5.0,
+  "patience": 10,
+  "augmentation": true,
+  "amp": true,
+  "channels_last": true,
+  "device": "auto",
+  "seed": 20260812,
+  "loss_weights": {
+    "heatmap": 1.0,
+    "coordinate": 1.0,
+    "power": 1.0,
+    "direction": 2.0,
+    "map": 0.25
+  },
+  "acceptance": {
+    "maximum_location_mean_error_px": 2.0,
+    "maximum_power_mae_db": 3.0,
+    "maximum_direction_mae_deg": 15.0
+  },
+  "provenance": {
+    "pilot": "D:\\桌面\\dac\\bs_inversion_pilot_v1",
+    "input_restriction": "inference uses only building height plus sparse signal values and mask",
+    "height_note": "TX height is deterministic max building height plus 5 m and is not predicted in v1",
+    "reuse_plan": "predicted position reconstructs Stage1 marker/distance; predicted effective power and azimuth remain explicit latent targets; existing Stage1/2-A/2-B are evaluated separately as the oracle map upper bound"
+  }
+}

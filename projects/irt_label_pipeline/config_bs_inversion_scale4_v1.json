@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "name": "bs_inversion_random_location_scale4_v1",
+  "selection_csv": "D:\\桌面\\dac\\normalized_4m_v1\\splits.csv",
+  "source_root": "D:\\桌面\\dac\\512mdata",
+  "prepared_root": "D:\\桌面\\dac\\prepared_4m",
+  "output_root": "D:\\桌面\\dac\\bs_inversion_scale4_v1",
+  "work_root": "E:\\dac_bs_inversion_scale4_v1_work",
+  "environment_python": "E:\\dac_sionna_rt_env\\Scripts\\python.exe",
+  "runtime_sionna_version": "2.0.1",
+  "pilot_split_counts": {
+    "train": 1024,
+    "val": 256,
+    "test": 256
+  },
+  "sites_per_building": 4,
+  "location_sampling": {
+    "strategy": "radial_bins",
+    "margin_m": 64.0,
+    "margin_pixels": 16.0,
+    "center_radius_bins_m": [[0.0, 64.0], [64.0, 128.0], [128.0, 192.0], [192.0, 271.0]],
+    "minimum_pairwise_separation_m": 64.0,
+    "coordinates": "continuous local metres",
+    "heatmap_sigma_px": 1.5
+  },
+  "effective_power": {
+    "meaning": "identifiable combined link-budget offset P_TX + G_TX + G_RX - insertion loss",
+    "sampling": "one deterministic draw per site, shared by its four directional counterfactuals",
+    "distribution": "Uniform(35,70) dB",
+    "range_db": [35.0, 70.0],
+    "normalization_mean_db": 52.5,
+    "normalization_std_db": 10.103629710818451
+  },
+  "sparse_measurements": {
+    "point_count": 100,
+    "sampling": "uniform without replacement among valid outdoor cells, deterministic per site-direction",
+    "noise_std_db": 0.0,
+    "outlier_probability": 0.0,
+    "storage": "flat uint16 indices plus float16 dB values; dense masks are reconstructed online"
+  },
+  "normalization_reference": {
+    "building_height_cap_m": 42.005126953125,
+    "tx_height_cap_m": 131.0,
+    "signal_strength": {
+      "mean_db": -57.86771677215448,
+      "std_db": 19.549090075885392,
+      "source": "existing accepted Stage2-B training normalization; dataset-specific train moments are written after completion"
+    }
+  },
+  "radio_map": {
+    "frequency_hz": 3500000000.0,
+    "area_size_m": [512.0, 512.0],
+    "cell_size_m": [4.0, 4.0],
+    "rows": 128,
+    "cols": 128,
+    "max_depth": 8,
+    "samples_per_tx": 7000000,
+    "los": true,
+    "specular_reflection": true,
+    "diffraction": true,
+    "diffuse_reflection": false,
+    "refraction": false,
+    "edge_diffraction": false,
+    "radio_map_center_xy": [256.0, 256.0],
+    "transmitter_height_rule": "max_building_height_plus_5m",
+    "receiver_height_m": 2.0,
+    "tx_polarization": "VH",
+    "rx_polarization": "VH",
+    "isotropic_gain_dbi": 0.0,
+    "directional_boresight_gain_dbi": 6.3,
+    "directional_horizontal_hpbw_deg": 65.0,
+    "directional_vertical_hpbw_deg": 8.0,
+    "directional_attenuation_cap_db": 30.0,
+    "directional_downtilt_mode": "target_ground_radius",
+    "directional_downtilt_target_radius_m": 220.0,
+    "directional_downtilt_min_deg": 0.0,
+    "directional_downtilt_max_deg": 45.0,
+    "directional_labels_per_site": 4
+  },
+  "scene": {
+    "source_crs": "EPSG:32650",
+    "local_origin": "prepared_metadata.grid.[xmin,ymin]",
+    "building_height_field": "HEIGHT_M",
+    "building_material": "itu_concrete",
+    "building_material_thickness_m": 0.3,
+    "ground_material": "itu_concrete",
+    "ground_material_thickness_m": 0.5,
+    "include_ground": true,
+    "clip_buildings_to_grid": true
+  },
+  "randomness": {
+    "location_seed": 20260817,
+    "azimuth_seed": 20260724,
+    "effective_power_seed": 20260810,
+    "ray_seed": 20260803,
+    "sparse_seed": 20260811
+  },
+  "execution": {
+    "max_parallel_sites": 4,
+    "max_parallel_sites_hard_limit": 4,
+    "site_timeout_seconds": 300,
+    "max_attempts": 2,
+    "save_png": false,
+    "retain_work_files": false,
+    "stop_flag": "<output_root>/STOP"
+  },
+  "storage": {
+    "dataset_method": "Sionna RT 2.0.1 balanced-radial random-BS scale-4 dataset",
+    "sample_unit": "one building tile and one BS location; four directional examples per NPZ",
+    "compact_dtype": "float16 maps with float32 scalar labels",
+    "run_manifest_filename": "run_manifest.json"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "version": 6,
+  "name": "joint_estimator_stage2b_scale4_v6",
+  "dataset_root": "D:\\桌面\\dac\\bs_inversion_scale4_v1",
+  "irt_normalization": "E:\\dac_sionna_35ghz_depth8_27360_v3\\normalization_irt.json",
+  "stage1_model_dir": "D:\\桌面\\dac\\models\\stage1_position_encoding_scale4_v3",
+  "stage2a_model_dir": "D:\\桌面\\dac\\models\\stage2a_position_encoding_scale4_v3",
+  "require_accepted_stage2a": false,
+  "estimator_config": "C:\\Users\\pc\\Documents\\大创\\projects\\irt_label_pipeline\\config_bs_parameter_estimator_scale4_v2.json",
+  "initial_estimator_checkpoint": "D:\\桌面\\dac\\models\\bs_parameter_estimator_scale4_v2\\best.pt",
+  "initial_stage2b_checkpoint": "D:\\桌面\\dac\\models\\stage2b_multiscale_adapter_scale4_v5\\best.pt",
+  "output_dir": "D:\\桌面\\dac\\models\\joint_estimator_stage2b_scale4_v6",
+  "latent_fusion": {
+    "enabled": true,
+    "features": [
+      "location_probability",
+      "location_confidence",
+      "effective_power",
+      "azimuth_sin",
+      "azimuth_cos",
+      "sector_gain_prior",
+      "estimator_auxiliary_map"
+    ],
+    "power_min_db": 35.0,
+    "power_max_db": 70.0,
+    "horizontal_hpbw_deg": 65.0,
+    "attenuation_cap_db": 30.0,
+    "coordinate_convention": "local x east, local y north; azimuth 0 east and 90 north"
+  },
+  "latent_adapter": {
+    "spatial_features": [
+      "location_probability",
+      "sector_gain_prior",
+      "estimator_auxiliary_map"
+    ],
+    "scalar_features": [
+      "location_confidence",
+      "effective_power",
+      "azimuth_sin",
+      "azimuth_cos"
+    ],
+    "spatial_hidden_channels": 24,
+    "film_hidden_channels": 128,
+    "film_scale": 0.1,
+    "zero_initialized": false
+  },
+  "model": {
+    "architecture": "latent_adapter_geo2sigmap_unet",
+    "base_channels": 64,
+    "gradient_checkpointing": true,
+    "zero_init_output": false
+  },
+  "optimization": {
+    "stage2b_adapter_learning_rate": 0.00002,
+    "stage2b_adapter_minimum_learning_rate": 0.000002,
+    "estimator_spatial_modules": ["up3", "up4", "spatial_head"],
+    "estimator_scalar_modules": ["scalar_head"],
+    "estimator_spatial_learning_rate": 0.000003,
+    "estimator_spatial_minimum_learning_rate": 0.0000003,
+    "estimator_scalar_learning_rate": 0.000002,
+    "estimator_scalar_minimum_learning_rate": 0.0000002
+  },
+  "joint_loss": {
+    "final_map_weight": 1.0,
+    "estimator_auxiliary_scale": 0.02,
+    "estimator_component_weights": {
+      "heatmap": 1.5,
+      "coordinate": 2.0,
+      "power": 0.5,
+      "direction": 1.0,
+      "map": 0.1
+    }
+  },
+  "preservation_constraints": {
+    "maximum_val_location_mean_error_px": 4.55,
+    "maximum_val_power_mae_db": 1.85,
+    "maximum_val_direction_mae_deg": 12.3
+  },
+  "epochs": 8,
+  "patience": 3,
+  "batch_size": 8,
+  "workers": 2,
+  "prefetch_factor": 2,
+  "progress_every_batches": 256,
+  "weight_decay": 0.00001,
+  "gradient_clip": 2.0,
+  "require_gradient_audit": true,
+  "augmentation": true,
+  "amp": true,
+  "channels_last": true,
+  "device": "auto",
+  "seed": 20260822,
+  "acceptance": {
+    "baseline_v5_final_test_rmse_db": 6.897000033591471,
+    "maximum_test_rmse_db": 6.82,
+    "minimum_improvement_vs_v5_db": 0.03,
+    "maximum_test_location_mean_error_px": 4.35,
+    "maximum_test_power_mae_db": 1.85,
+    "maximum_test_direction_mae_deg": 12.5,
+    "maximum_far_center_bin_rmse_db": 7.35
+  },
+  "provenance": {
+    "initial_v5_checkpoint_sha256": "d267f6e27b5f168644c8b82779d3809ab568e990705b9f5978307c60c05c8d66",
+    "initial_estimator_checkpoint_sha256": "697e744f95afbf1d4fb82f4d8818ab3531708ec91a06803a0df60631c35aad3a",
+    "gradient_path": "final map loss reaches the estimator through V5 latent feature channels; coarse Stage1 coordinate is detached",
+    "input_restriction": "inference still uses only building height plus sparse signal values and mask"
+  }
+}

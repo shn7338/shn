@@ -80,7 +80,7 @@
   "run": {
     "tile_count": 3200,
     "selection": "2560 train, 320 validation, 320 test; spatial round-robin within the existing 2048 m block split",
-    "max_parallel_propagations": 5,
+    "max_parallel_propagations": 3,
     "preprocess_threads": 4,
     "propagation_timeout_seconds": 1800
   },

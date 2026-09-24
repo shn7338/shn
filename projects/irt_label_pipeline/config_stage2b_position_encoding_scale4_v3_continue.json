@@ -1,0 +1,53 @@
+{
+  "version": 3,
+  "name": "stage2b_position_encoding_scale4_v3_continue",
+  "dataset_root": "D:\\桌面\\dac\\bs_inversion_scale4_v1",
+  "irt_normalization": "E:\\dac_sionna_35ghz_depth8_27360_v3\\normalization_irt.json",
+  "stage1_model_dir": "D:\\桌面\\dac\\models\\stage1_position_encoding_scale4_v3",
+  "stage2a_model_dir": "D:\\桌面\\dac\\models\\stage2a_position_encoding_scale4_v3",
+  "require_accepted_stage2a": false,
+  "estimator_config": "C:\\Users\\pc\\Documents\\大创\\projects\\irt_label_pipeline\\config_bs_parameter_estimator_scale4_v2.json",
+  "estimator_checkpoint": "D:\\桌面\\dac\\models\\bs_parameter_estimator_scale4_v2\\best.pt",
+  "initial_stage2b_checkpoint": "D:\\桌面\\dac\\models\\stage2b_position_encoding_scale4_v3\\best.pt",
+  "output_dir": "D:\\桌面\\dac\\models\\stage2b_position_encoding_scale4_v3_continue",
+  "epochs": 5,
+  "batch_size": 16,
+  "workers": 2,
+  "prefetch_factor": 2,
+  "progress_every_batches": 64,
+  "learning_rate": 0.000002,
+  "minimum_learning_rate": 0.0000005,
+  "weight_decay": 0.00001,
+  "gradient_clip": 5.0,
+  "patience": 3,
+  "augmentation": true,
+  "amp": true,
+  "channels_last": true,
+  "device": "auto",
+  "seed": 20260821,
+  "model": {
+    "architecture": "geo2sigmap_unet",
+    "base_channels": 64,
+    "normalization": "batch_norm",
+    "activation": "relu",
+    "encoder_decoder_levels": 4,
+    "convolutions_per_block": 2,
+    "gradient_checkpointing": true,
+    "zero_init_output": false
+  },
+  "acceptance": {
+    "baseline_final_test_rmse_db": 6.946207715784639,
+    "maximum_test_rmse_db": 6.9,
+    "minimum_improvement_db": 0.03,
+    "maximum_far_center_bin_rmse_db": 7.45,
+    "maximum_near_center_bin_degradation_db": 0.02
+  },
+  "provenance": {
+    "stage1_checkpoint_sha256": "3747800fbf4acae115c70d6572427a8bf8e0f4f095a1b82c875c831ae57b6da6",
+    "stage2a_checkpoint_sha256": "1de80649e89e6ef70a6c474c06e34c2efc9e2fa054a98fa19a947e4b4a5d493f",
+    "initial_stage2b_checkpoint_sha256": "3a2617f41842fd851462989c4fa76ed985f82afa066c8747280240a6ecfa90aa",
+    "estimator_checkpoint_sha256": "697e744f95afbf1d4fb82f4d8818ab3531708ec91a06803a0df60631c35aad3a",
+    "continuation_strategy": "restart optimizer and cosine schedule from the best Scale-4 Stage2-B checkpoint at a lower learning rate"
+  }
+}
+

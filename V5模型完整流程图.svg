@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow-gray" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto">
+      <path d="M0,0 L11,5.5 L0,11 Z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto">
+      <path d="M0,0 L11,5.5 L0,11 Z" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrow-cyan" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#0ea5e9"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#f59e0b"/>
+    </marker>
+    <style>
+      text { font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif; fill: #0f172a; }
+      .title { font-size: 46px; font-weight: 800; letter-spacing: 1px; }
+      .subtitle { font-size: 21px; font-weight: 500; fill: #64748b; }
+      .section { font-size: 22px; font-weight: 800; fill: #2563eb; letter-spacing: 1px; }
+      .node-title { font-size: 24px; font-weight: 800; }
+      .node-body { font-size: 18px; font-weight: 500; fill: #334155; }
+      .small { font-size: 16px; font-weight: 500; fill: #475569; }
+      .tiny { font-size: 14px; font-weight: 500; fill: #64748b; }
+      .white { fill: #ffffff; }
+      .blue { fill: #2563eb; }
+      .orange { fill: #d97706; }
+      .green { fill: #15803d; }
+    </style>
+  </defs>
+
+  <rect width="1920" height="1080" fill="#f8fafc"/>
+  <rect x="0" y="0" width="1920" height="12" fill="#3b82f6"/>
+
+  <!-- Header -->
+  <text x="70" y="70" class="title">V5 多尺度潜在适配器：完整模型流程</text>
+  <text x="72" y="108" class="subtitle">从 100 个稀疏测点与建筑环境，重建 512 m × 512 m 的 128 × 128 方向性信号强度图</text>
+  <rect x="1545" y="45" width="305" height="52" rx="26" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2"/>
+  <text x="1698" y="78" text-anchor="middle" font-size="19" font-weight="800" class="blue">V5 仅负责最后一步定向化修正</text>
+
+  <!-- Section 1 label -->
+  <text x="70" y="160" class="section">01  三阶段重建主流程</text>
+
+  <!-- Main-flow connectors behind nodes -->
+  <line x1="295" y1="255" x2="340" y2="255" stroke="#94a3b8" stroke-width="7" marker-end="url(#arrow-gray)"/>
+  <line x1="575" y1="255" x2="620" y2="255" stroke="#94a3b8" stroke-width="7" marker-end="url(#arrow-gray)"/>
+  <line x1="835" y1="255" x2="880" y2="255" stroke="#94a3b8" stroke-width="7" marker-end="url(#arrow-gray)"/>
+  <line x1="1095" y1="255" x2="1140" y2="255" stroke="#3b82f6" stroke-width="8" marker-end="url(#arrow-blue)"/>
+  <line x1="1435" y1="255" x2="1480" y2="255" stroke="#3b82f6" stroke-width="8" marker-end="url(#arrow-blue)"/>
+
+  <!-- Main-flow nodes -->
+  <g filter="url(#shadow)">
+    <rect x="70" y="190" width="225" height="132" rx="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <rect x="340" y="190" width="235" height="132" rx="18" fill="#fff7ed" stroke="#f59e0b" stroke-width="2"/>
+    <rect x="620" y="190" width="215" height="132" rx="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <rect x="880" y="190" width="215" height="132" rx="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <rect x="1140" y="180" width="295" height="152" rx="20" fill="#dbeafe" stroke="#3b82f6" stroke-width="4"/>
+    <rect x="1480" y="190" width="370" height="132" rx="18" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+  </g>
+
+  <text x="182" y="227" text-anchor="middle" class="node-title">输入</text>
+  <text x="182" y="255" text-anchor="middle" class="node-body">建筑高度图</text>
+  <text x="182" y="280" text-anchor="middle" class="node-body">100 个稀疏信号点</text>
+  <text x="182" y="305" text-anchor="middle" class="node-body">测点位置掩码</text>
+
+  <text x="457" y="225" text-anchor="middle" class="node-title">基站参数估计</text>
+  <text x="457" y="257" text-anchor="middle" class="node-body">位置概率与置信度</text>
+  <text x="457" y="282" text-anchor="middle" class="node-body">有效发射功率</text>
+  <text x="457" y="307" text-anchor="middle" class="node-body">方向角</text>
+
+  <text x="727" y="230" text-anchor="middle" class="node-title">Stage 1</text>
+  <text x="727" y="263" text-anchor="middle" class="node-body">粗略传播图</text>
+  <text x="727" y="290" text-anchor="middle" class="small">各向同性底图</text>
+
+  <text x="987" y="230" text-anchor="middle" class="node-title">Stage 2A</text>
+  <text x="987" y="263" text-anchor="middle" class="node-body">各向同性底图</text>
+  <text x="987" y="290" text-anchor="middle" class="small">残差修正</text>
+
+  <text x="1287" y="222" text-anchor="middle" class="node-title blue">Stage 2B · V5</text>
+  <text x="1287" y="257" text-anchor="middle" font-size="21" font-weight="750">位置先验 + 方向修正</text>
+  <text x="1287" y="288" text-anchor="middle" class="node-body">多尺度适配器 + FiLM</text>
+  <text x="1287" y="314" text-anchor="middle" class="small">增量学习，不重训整条流水线</text>
+
+  <text x="1665" y="225" text-anchor="middle" class="node-title green">最终输出</text>
+  <text x="1665" y="258" text-anchor="middle" font-size="21" font-weight="700">方向性信号强度地图</text>
+  <text x="1665" y="287" text-anchor="middle" class="node-body">512 m × 512 m · 128 × 128 像素</text>
+
+  <!-- Callout link to detailed V5 block -->
+  <path d="M1287 336 L1287 365 L960 365 L960 394" fill="none" stroke="#3b82f6" stroke-width="3" stroke-dasharray="9 7" marker-end="url(#arrow-blue)"/>
+
+  <!-- Section 2 panel -->
+  <rect x="50" y="380" width="1820" height="440" rx="26" fill="#ffffff" stroke="#dbeafe" stroke-width="2" filter="url(#shadow)"/>
+  <text x="80" y="425" class="section">02  Stage 2B · V5 内部结构</text>
+
+  <!-- Input fusion area -->
+  <rect x="82" y="455" width="465" height="300" rx="20" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="315" y="492" text-anchor="middle" class="node-title">11 通道输入构造</text>
+
+  <rect x="105" y="515" width="130" height="205" rx="15" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+  <rect x="250" y="515" width="130" height="205" rx="15" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2"/>
+  <rect x="395" y="515" width="130" height="205" rx="15" fill="#fff7ed" stroke="#f59e0b" stroke-width="2"/>
+
+  <text x="170" y="550" text-anchor="middle" font-size="19" font-weight="800">4 个基础输入</text>
+  <text x="170" y="585" text-anchor="middle" class="small">建筑高度图</text>
+  <text x="170" y="612" text-anchor="middle" class="tiny">修正后的各向同性图</text>
+  <text x="170" y="639" text-anchor="middle" class="small">稀疏信号值</text>
+  <text x="170" y="666" text-anchor="middle" class="small">测点掩码</text>
+
+  <text x="315" y="550" text-anchor="middle" font-size="19" font-weight="800" class="blue">3 张空间特征</text>
+  <text x="315" y="585" text-anchor="middle" class="small">位置概率图</text>
+  <text x="315" y="612" text-anchor="middle" class="small">扇区增益先验图</text>
+  <text x="315" y="639" text-anchor="middle" class="small">估计器辅助图</text>
+  <text x="315" y="685" text-anchor="middle" class="tiny">用于“在哪里修正”</text>
+
+  <text x="460" y="550" text-anchor="middle" font-size="19" font-weight="800" class="orange">4 个标量条件</text>
+  <text x="460" y="585" text-anchor="middle" class="small">位置置信度</text>
+  <text x="460" y="612" text-anchor="middle" class="small">有效发射功率</text>
+  <text x="460" y="639" text-anchor="middle" class="small">方位角 sin</text>
+  <text x="460" y="666" text-anchor="middle" class="small">方位角 cos</text>
+  <text x="460" y="698" text-anchor="middle" class="tiny">用于“如何调制”</text>
+
+  <!-- Internal V5 connectors first -->
+  <line x1="547" y1="615" x2="622" y2="615" stroke="#3b82f6" stroke-width="7" marker-end="url(#arrow-blue)"/>
+  <line x1="815" y1="615" x2="860" y2="615" stroke="#94a3b8" stroke-width="6" marker-end="url(#arrow-gray)"/>
+  <line x1="1040" y1="615" x2="1085" y2="615" stroke="#94a3b8" stroke-width="6" marker-end="url(#arrow-gray)"/>
+  <line x1="1265" y1="615" x2="1310" y2="615" stroke="#94a3b8" stroke-width="6" marker-end="url(#arrow-gray)"/>
+  <line x1="1490" y1="615" x2="1535" y2="615" stroke="#3b82f6" stroke-width="7" marker-end="url(#arrow-blue)"/>
+
+  <!-- Adapter injection arrows -->
+  <line x1="720" y1="750" x2="720" y2="686" stroke="#0ea5e9" stroke-width="4" marker-end="url(#arrow-cyan)"/>
+  <line x1="950" y1="750" x2="950" y2="686" stroke="#0ea5e9" stroke-width="4" marker-end="url(#arrow-cyan)"/>
+  <line x1="1175" y1="750" x2="1175" y2="686" stroke="#0ea5e9" stroke-width="4" marker-end="url(#arrow-cyan)"/>
+  <line x1="1400" y1="750" x2="1400" y2="686" stroke="#0ea5e9" stroke-width="4" marker-end="url(#arrow-cyan)"/>
+
+  <!-- FiLM modulation arrows -->
+  <line x1="950" y1="510" x2="950" y2="544" stroke="#f59e0b" stroke-width="4" marker-end="url(#arrow-orange)"/>
+  <line x1="1175" y1="510" x2="1175" y2="544" stroke="#f59e0b" stroke-width="4" marker-end="url(#arrow-orange)"/>
+  <line x1="1400" y1="510" x2="1400" y2="544" stroke="#f59e0b" stroke-width="4" marker-end="url(#arrow-orange)"/>
+
+  <!-- FiLM bar and model nodes -->
+  <rect x="840" y="458" width="680" height="52" rx="13" fill="#ffedd5" stroke="#f59e0b" stroke-width="2"/>
+  <text x="1180" y="491" text-anchor="middle" font-size="20" font-weight="800" class="orange">4 个标量条件 → FiLM 动态缩放 / 平移深层与解码特征</text>
+
+  <g filter="url(#shadow)">
+    <rect x="625" y="545" width="190" height="140" rx="18" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+    <rect x="860" y="545" width="180" height="140" rx="18" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+    <rect x="1085" y="545" width="180" height="140" rx="18" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+    <rect x="1310" y="545" width="180" height="140" rx="18" fill="#dbeafe" stroke="#3b82f6" stroke-width="3"/>
+    <rect x="1535" y="545" width="270" height="140" rx="18" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+  </g>
+
+  <text x="720" y="592" text-anchor="middle" class="node-title">编码器</text>
+  <text x="720" y="624" text-anchor="middle" class="node-body">多尺度特征提取</text>
+  <text x="720" y="653" text-anchor="middle" class="small">继承 V4 U-Net</text>
+
+  <text x="950" y="592" text-anchor="middle" class="node-title">深层语义</text>
+  <text x="950" y="624" text-anchor="middle" class="node-body">瓶颈</text>
+  <text x="950" y="653" text-anchor="middle" class="small">融合全局信息</text>
+
+  <text x="1175" y="592" text-anchor="middle" class="node-title">解码器 1–2</text>
+  <text x="1175" y="626" text-anchor="middle" class="node-body">逐级恢复空间结构</text>
+
+  <text x="1400" y="592" text-anchor="middle" class="node-title blue">解码器 3–4</text>
+  <text x="1400" y="626" text-anchor="middle" class="node-body">末端精细修正</text>
+  <text x="1400" y="655" text-anchor="middle" class="small">第二阶段可解冻</text>
+
+  <text x="1670" y="589" text-anchor="middle" class="node-title green">方向性信号图</text>
+  <text x="1670" y="623" text-anchor="middle" class="node-body">补全 16,384 个网格位置</text>
+  <text x="1670" y="652" text-anchor="middle" class="small">依据建筑遮挡、传播与基站方向推断</text>
+
+  <!-- Adapter strip -->
+  <rect x="620" y="748" width="900" height="48" rx="13" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="2"/>
+  <text x="1070" y="779" text-anchor="middle" font-size="20" font-weight="800" fill="#0369a1">3 张空间特征 → 多尺度空间适配器 → 在多个尺度注入“修正位置”先验</text>
+
+  <!-- Section 3 training strategy -->
+  <text x="70" y="872" class="section">03  两阶段增量训练</text>
+
+  <!-- Training connectors behind nodes -->
+  <line x1="345" y1="951" x2="410" y2="951" stroke="#94a3b8" stroke-width="6" marker-end="url(#arrow-gray)"/>
+  <line x1="830" y1="951" x2="895" y2="951" stroke="#3b82f6" stroke-width="7" marker-end="url(#arrow-blue)"/>
+  <line x1="1390" y1="951" x2="1455" y2="951" stroke="#22c55e" stroke-width="7" marker-end="url(#arrow-blue)"/>
+
+  <rect x="70" y="900" width="275" height="103" rx="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="410" y="890" width="420" height="123" rx="18" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2"/>
+  <rect x="895" y="890" width="495" height="123" rx="18" fill="#dbeafe" stroke="#3b82f6" stroke-width="3"/>
+  <rect x="1455" y="900" width="395" height="103" rx="18" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+
+  <text x="207" y="935" text-anchor="middle" class="node-title">零初始化</text>
+  <text x="207" y="966" text-anchor="middle" class="node-body">加载 V4 权重</text>
+  <text x="207" y="990" text-anchor="middle" class="small">初始输出与 V4 完全一致</text>
+
+  <text x="620" y="927" text-anchor="middle" class="node-title blue">阶段 1 · Epoch 1–7</text>
+  <text x="620" y="960" text-anchor="middle" class="node-body">冻结 V4 主干</text>
+  <text x="620" y="987" text-anchor="middle" class="small">仅训练空间适配器与 FiLM</text>
+
+  <text x="1142" y="927" text-anchor="middle" class="node-title blue">阶段 2 · Epoch 8–11</text>
+  <text x="1142" y="960" text-anchor="middle" class="node-body">继续训练适配器，解冻 up3 / up4 / 输出层</text>
+  <text x="1142" y="987" text-anchor="middle" class="small">联合微调；验证集不再改善时提前停止</text>
+
+  <text x="1652" y="935" text-anchor="middle" class="node-title green">选择最佳检查点</text>
+  <text x="1652" y="968" text-anchor="middle" class="node-body">用于最终推理与测试</text>
+  <text x="1652" y="992" text-anchor="middle" class="small">训练策略不参与在线推理</text>
+
+  <!-- Footer -->
+  <line x1="70" y1="1040" x2="1850" y2="1040" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="70" y="1067" class="tiny">依据：V5模型工作原理与流程展示.pptx（现有工作区模型说明）</text>
+  <text x="1850" y="1067" text-anchor="end" class="tiny">灰：既有 V4 流程　蓝：V5 空间适配　橙：FiLM 条件调制　绿：模型输出</text>
+</svg>

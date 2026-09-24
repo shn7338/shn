@@ -22,7 +22,12 @@ from torch.optim import Adam, AdamW
 from torch.optim.lr_scheduler import CosineAnnealingLR
 from torch.utils.data import DataLoader
 
-from stage2_models import Geo2SigMapUNet, ResidualUNet, parameter_count
+from stage2_models import (
+    Geo2SigMapUNet,
+    LatentAdapterGeo2SigMapUNet,
+    ResidualUNet,
+    parameter_count,
+)
 from stage2b_dataset import Stage2BDirectionalDataset
 
 
@@ -137,6 +142,58 @@ def build_configured_unet(
                 model_config.get("zero_init_output", False)
             ),
         )
+    if architecture == "latent_adapter_geo2sigmap_unet":
+        fusion_names = tuple(
+            str(name)
+            for name in config.get("latent_fusion", {}).get("features", ())
+        )
+        adapter_config = config.get("latent_adapter", {})
+
+        def indices_for(names: tuple[str, ...]) -> tuple[int, ...]:
+            missing = sorted(set(names) - set(fusion_names))
+            if missing:
+                raise ValueError(
+                    f"V5 adapter features are absent from latent_fusion: {missing}"
+                )
+            return tuple(4 + fusion_names.index(name) for name in names)
+
+        spatial_names = tuple(
+            str(name)
+            for name in adapter_config.get(
+                "spatial_features",
+                (
+                    "location_probability",
+                    "sector_gain_prior",
+                    "estimator_auxiliary_map",
+                ),
+            )
+        )
+        scalar_names = tuple(
+            str(name)
+            for name in adapter_config.get(
+                "scalar_features",
+                (
+                    "location_confidence",
+                    "effective_power",
+                    "azimuth_sin",
+                    "azimuth_cos",
+                ),
+            )
+        )
+        return LatentAdapterGeo2SigMapUNet(
+            in_channels=in_channels,
+            base_channels=base_channels,
+            gradient_checkpointing=bool(
+                model_config.get("gradient_checkpointing", False)
+            ),
+            spatial_channel_indices=indices_for(spatial_names),
+            scalar_channel_indices=indices_for(scalar_names),
+            adapter_hidden_channels=int(
+                adapter_config.get("spatial_hidden_channels", 24)
+            ),
+            film_hidden_channels=int(adapter_config.get("film_hidden_channels", 128)),
+            film_scale=float(adapter_config.get("film_scale", 0.1)),
+        )
     if architecture == "stable_residual_unet":
         return ResidualUNet(
             in_channels=in_channels,
@@ -201,8 +258,11 @@ def load_frozen_models(
     stage1_base = int(
         stage1_checkpoint.get("args", {}).get("base_channels", 32)
     )
+    stage1_in_channels = int(
+        stage1_checkpoint.get("args", {}).get("in_channels", 3)
+    )
     stage1 = ResidualUNet(
-        in_channels=3,
+        in_channels=stage1_in_channels,
         base_channels=stage1_base,
     ).to(device)
     stage1.load_state_dict(stage1_checkpoint["model"], strict=True)
@@ -246,6 +306,7 @@ def load_frozen_models(
     metadata: dict[str, Any] = {
         "stage1_mean_db": float(path_gain["mean_db"]),
         "stage1_std_db": float(path_gain["std_db"]),
+        "stage1_in_channels": stage1_in_channels,
         "stage2a_residual_center_db": float(
             stage2a_checkpoint.get("residual_center_db", 0.0)
         ),

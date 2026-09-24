@@ -123,6 +123,7 @@ def save_preview(
     output_path: Path,
     path_gain_db: np.ndarray,
     title: str,
+    transmitter_xy: tuple[float, float],
 ) -> None:
     finite = path_gain_db[np.isfinite(path_gain_db)]
     if finite.size:
@@ -139,7 +140,14 @@ def save_preview(
         vmax=vmax,
         extent=[0.0, 512.0, 0.0, 512.0],
     )
-    axis.scatter([256.0], [256.0], marker="+", s=100, c="red", linewidths=1.5)
+    axis.scatter(
+        [transmitter_xy[0]],
+        [transmitter_xy[1]],
+        marker="+",
+        s=100,
+        c="red",
+        linewidths=1.5,
+    )
     axis.set_title(title)
     axis.set_xlabel("Local east x (m)")
     axis.set_ylabel("Local north y (m)")
@@ -256,11 +264,21 @@ def main() -> int:
         )
     outdoor_mask = height_map <= 0.0
     transmitter_height = float(height_map.max()) + 5.0
+    transmitter_xy = (
+        float(paper["transmitter_xy"][0]),
+        float(paper["transmitter_xy"][1]),
+    )
+    radio_map_center_xy = tuple(
+        float(value)
+        for value in paper.get("radio_map_center_xy", paper["transmitter_xy"])
+    )
+    if len(radio_map_center_xy) != 2:
+        raise ValueError("radio_map_center_xy must contain exactly two values")
     tx = rt.Transmitter(
         name="tx",
         position=[
-            float(paper["transmitter_xy"][0]),
-            float(paper["transmitter_xy"][1]),
+            transmitter_xy[0],
+            transmitter_xy[1],
             transmitter_height,
         ],
         orientation=[0.0, 0.0, 0.0],
@@ -333,8 +351,8 @@ def main() -> int:
         radio_map = solver(
             scene=scene,
             center=[
-                float(paper["transmitter_xy"][0]),
-                float(paper["transmitter_xy"][1]),
+                radio_map_center_xy[0],
+                radio_map_center_xy[1],
                 float(paper["receiver_height_m"]),
             ],
             orientation=[0.0, 0.0, 0.0],
@@ -406,6 +424,7 @@ def main() -> int:
                     f"Sionna RT {samples:,} rays, "
                     f"depth {int(paper['max_depth'])}"
                 ),
+                transmitter_xy,
             )
         finite_values = db_label[np.isfinite(db_label)]
         variant_summary = {
